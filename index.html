@@ -4,19 +4,38 @@
 		
 		<title>molefrog</title>
 		<style type="text/css">
+			@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400|Magra:300,400,700);
 			body {
-			  font-family : 'Source Sans Pro';
-			  font-weight : 200;
-			  font-size   : 1.5em;
-			  background-image  : url(bg.png);
-			  background-color : #31333c;
-			  color       : white;
-			  padding	  : 40px;
+			  font-family 		: 'Source Sans Pro';
+
+			  font-weight 		: 200;
+			  font-size   		: 1.5em;
+			  background-image 	: url(bg.png);
+			  background-color 	: #31333c;
+			  color       		: white;
+			  padding	  		: 40px;
 			}
 
+			.highlight {
+			  	font-family : 'Magra';
+				font-size   : 1.2em;
+				font-weight : 600;
+				padding     : 2px 5px;
+			}
+
+
 			a {
+				margin: 0px 0px;
 				color : white;
 				text-decoration : none;
+				transition-timing-function: ease;
+				transition-duration: 5s;
+			}
+
+			a:hover {
+				background-color: #ff006c;
+				transition-timing-function: ease;
+				transition-duration: 0.1s;
 			}
 
 			.container {
@@ -35,28 +54,20 @@
 				background-color: #59a0db;
 			}
 
-			.highlight {
-				font-size : 1.3em;
-			}
-
 			ul {
-				list-style: none;
-				margin: 0px 0px;
-				padding: 10px 0px;
-			}
-
-	
+				list-style	: none;
+				margin		: 0px 0px;
+				padding		: 10px 0px;
+			}	
 		</style>
-	
-		<link href='http://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
-
-		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-
 	</head>
 
 	<body>
 		<span class="highlight fancy-color-1">Recent Activities</span>
 		<ul>
+			<li>
+				<a href="feasibility">Feasibility Analysis for Real-Time Scheduling</a>
+			</li>
 			<li>
 				<a href="pidnn-talk">PID Neural Network Talk</a>
 			</li>
@@ -85,10 +96,11 @@
 			<li>
 				<a href="http://vk.com/molefrog">VK</a>
 			</li>
-
 		</ul>	
-			
 
+		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+		<script>
 
+		</script>
 	</body>
 </html>
