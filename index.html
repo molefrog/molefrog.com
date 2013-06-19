@@ -13,7 +13,7 @@
 			  background-image 	: url(bg.png);
 			  background-color 	: #31333c;
 			  color       		: white;
-			  padding	  		: 40px;
+			  padding	  		: 0px 40px;
 			}
 
 			.highlight {
@@ -63,7 +63,8 @@
 	</head>
 
 	<body>
-		<span class="highlight fancy-color-1">Recent Activities</span>
+		<div id="logo" style="height:160px;"></div>
+		<span class="highlight fancy-color-1">Recent Activity</span>
 		<ul>
 			<li>
 				<a href="feasibility">Feasibility Analysis for Real-Time Scheduling</a>
@@ -94,12 +95,155 @@
 				<a href="http://codepen.io/molefrog">Codepen</a>
 			</li>
 			<li>
+				<a href="http://twitter.com/mlfrg">Twitter</a>
+			</li>
+			<li>
 				<a href="http://vk.com/molefrog">VK</a>
 			</li>
-		</ul>	
+		</ul>
 
-		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+		<script type="text/javascript" src="https:/rawgithub.com/fxb/javascript-last.fm-api/master/lastfm.api.md5.js"></script>
+		<script type="text/javascript" src="https:/rawgithub.com/fxb/javascript-last.fm-api/master/lastfm.api.js"></script>
+		<script type="text/javascript" src="https:/rawgithub.com/fxb/javascript-last.fm-api/master/lastfm.api.cache.js"></script>
+		<script type="text/javascript" src="https://rawgithub.com/timrwood/moment/2.0.0/min/moment.min.js"></script>
+	
 		<script>
+			var radius    = 100;
+			var maxRadius = 13;
+			var minRadius = 1;
+
+			var limit  = 40;
+
+			var primaryColor 	= '#35ce75';
+			var secondaryColor 	= '#48beb4'; 
+
+			var width  = 300;
+			var height = 160
+
+			var svg = d3.select("#logo").append("svg")
+			    .attr("width", width )
+			    .attr("height", height)
+			    .append("g")
+			    .attr("transform", "translate(" + width/2 + "," + height/2 + ")");
+
+			function makeMeHappy(data) {			  
+			  var scaleX = d3.scale
+			    .linear() 
+			    .range([0, 2*Math.PI])
+			    .domain([0, data.length]);
+			  
+			  var scale = d3.scale
+			    .linear() 
+			    .range([0, 2*Math.PI])
+			    .domain([0, d3.sum(data)])
+			  
+			  var scaleR = d3.scale
+			    .linear()
+			    .range([minRadius, maxRadius])
+			    .domain([0, d3.max(data)]);
+			  
+			  var scaleC = d3.scale.linear()
+			    .domain([0, d3.max(data)])
+			    .interpolate(d3.interpolateRgb)
+			    .range([secondaryColor, primaryColor]);
+			  
+			   
+			  svg.selectAll("circle")
+			      .data(data)
+			    .enter().append("circle")
+			      .attr("r", 0)
+			    .append("svg:title");
+			  
+			  
+			  svg.selectAll("circle title")
+			    .data(data)
+			    .text(function(d, i) { return i + ":00 - " + d; });
+			 
+			  svg.selectAll("circle")
+			   .transition()
+			   .ease('quad')
+			    .duration(300)
+			      .attr("cx", function(x, i) {
+			        var t = scaleX(i);
+			        return radius * Math.sqrt(2) * Math.cos(t) / (Math.pow(Math.sin(t), 2) + 1);
+			      })
+			      .attr("cy", function(x, i) { 
+			        var t = scaleX(i);
+			        return radius * Math.sqrt(2) * Math.cos(t) * Math.sin(t) / (Math.pow(Math.sin(t), 2) + 1);
+			      })
+			  .transition()
+			      .attr("r", scaleR)
+			      .attr("fill", function(d) {
+			         return scaleC(d); 
+			      });
+			}
+
+
+			// Create a cache object
+			var cache = new LastFMCache();
+
+			// Create a LastFM object
+			var lastfm = new LastFM({
+			  apiKey    : 'f21088bf9097b49ad4e7f487abab981e', 
+			  apiSecret : '7ccaec2093e33cded282ec7bc81c6fca', // You can use it, if you want
+			  cache     : cache
+			});
+
+			// As far as we have 24 hours in the day
+			var data = Array(24);
+			for(var i = 0; i < data.length; ++i) data[i] = 0;
+
+			// Honestly, I don't really like last.fm.js API, I hope I will find time
+			// to make it more human-readable
+			function needMoreFood(d) {
+				if(d === undefined) {
+					d = {
+					  recenttracks : { 
+					      track : [],
+					      '@attr' : {
+					         page : -1,
+					         totalPages : 0
+					      },
+					  }
+					} 
+				}
+			  
+				var tracks = d.recenttracks.track;
+				var attr   = d.recenttracks['@attr'];
+
+			  
+			 	for( var i = 0; i < tracks.length; ++i) {
+				    var a;
+				    if(tracks[i]['@attr'] && tracks[i]['@attr'].nowplaying) {
+				      a = moment();
+				    } else {
+				      a = moment.unix(tracks[i].date.uts)
+				    }
+				   
+				    var x = a.hour();
+				    data[x] += 1;
+			  	}
+			  
+			  	makeMeHappy(data);
+			  
+				var page  = parseInt(attr.page);
+				var total = parseInt(attr.totalPages);
+
+				if(page < total) { 
+
+				setTimeout(function() { 
+				 lastfm.user.getRecentTracks({
+				    user : 'sallybabbybeal',
+				   limit : limit,
+				    page : page+1,
+				    extended : 0
+				  }, {success: needMoreFood, error: function(code, message){}});
+				}, 0);
+				}
+			}
+
+			needMoreFood();
 
 		</script>
 	</body>
