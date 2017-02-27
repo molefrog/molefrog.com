@@ -1,0 +1,49 @@
+{
+  "name": "molefrog.com",
+  "description": "Alexey Taktarov's website",
+  "author": "Alexey Taktarov <molefrog@gmail.com>",
+  "version": "0.1.337",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/molefrog/molefrog.github.io.git"
+  },
+  "gh-pages-deploy": {
+    "staticpath": "public",
+    "cname": "molefrog.com",
+    "prep": [
+      "build"
+    ],
+    "post": [],
+    "noprompt": false
+  },
+  "scripts": {
+    "start": "brunch watch --server",
+    "build": "brunch build --production && NODE_ENV=production node compile.js",
+    "deploy": "gh-pages-deploy"
+  },
+  "devDependencies": {
+    "auto-reload-brunch": "^2.0.0",
+    "autoprefixer": "^6.5.3",
+    "babel-brunch": "^6.0.6",
+    "brunch": "^2.0.0",
+    "clean-css-brunch": "^2.0.0",
+    "css-brunch": "^2.0.0",
+    "fs-extra": "^1.0.0",
+    "gh-pages-deploy": "^0.4.2",
+    "glob": "^7.1.1",
+    "javascript-brunch": "^2.0.0",
+    "marked": "^0.3.6",
+    "mkdirp": "^0.5.1",
+    "ncp": "^2.0.0",
+    "postcss-brunch": "^2.0.5",
+    "pug": "^2.0.0-beta6",
+    "pugjs-brunch": "^2.10.0",
+    "sanitize.css": "^4.1.0",
+    "sass-brunch": "^2.7.0",
+    "uglify-js-brunch": "^2.0.0"
+  },
+  "dependencies": {
+    "raf": "^3.3.0",
+    "velocity-animate": "^1.4.0"
+  }
+}

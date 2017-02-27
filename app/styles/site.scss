@@ -1,0 +1,103 @@
+@import 'sanitize';
+
+@import './colors';
+@import './media-queries';
+
+// Add fancy text selection styles
+::selection {
+  color: white;
+  background-color: $pink;
+}
+
+body {
+  // font-family: Rubik, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.site__main-layout {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+
+  @include breakpoint(xs) {
+    display: block;
+  }
+}
+
+.site__content {
+  padding: 32px;
+  padding-left: 80px;
+  padding-right: 20px;
+
+  @include breakpoint(xs) {
+    padding: 18px 28px;
+  }
+
+  max-width: 900px;
+}
+
+.site__magic {
+  min-width: 400px;
+  flex: 1 1;
+
+  @include breakpoint(sm) {
+    display: none;
+  }
+}
+
+.about__description {
+  font-family: Lora;
+  font-size: 16px;
+  color: $gray-book;
+}
+
+
+.about__text b {
+  color: $gray-900;
+}
+
+.reference {
+  display: inline;
+  border-bottom: 1px solid red;
+}
+
+.about__column {
+  padding-right: 34px;
+}
+
+.about__text--two-columns {
+  display: flex;
+  flex-flow: row nowrap;
+
+  .about__column {
+    width: 50%;
+  }
+
+  @include breakpoint(md) {
+    display: block;
+
+    .about__column {
+      width: 100%;
+      padding-right: 0px;
+    }
+  }
+}
+
+.project__header {
+  font-family:  Playfair Display, sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  margin: 8px 0;
+}
+
+.about {
+  margin-bottom: 38px;
+}
+
+
+.about__header {
+  font-family: Playfair Display, sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  margin: 18px 0;
+}

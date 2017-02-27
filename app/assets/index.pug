@@ -1,0 +1,127 @@
+doctype html
+html(lang="ru")
+  head
+    title Алексей Тактаров — Full-Stack разработчик и дизайнер
+
+    meta(name="description" content="Алексей Тактаров — Full-Stack разработчик и дизайнер.")
+
+    link(href="https://fonts.googleapis.com/css?family=Lora:400,700|Playfair+Display:400,700,900|Rubik:400,500,700,900&amp;subset=cyrillic" rel="stylesheet")
+
+    link(rel="stylesheet" href="/app.css")
+    script(type="text/javascript" src="/app.js")
+  body.site
+    .site__main-layout
+      main.site__content
+        .contacts
+          .contacts__name Алексей Тактаров
+
+          .contacts__column
+            .contacts__line
+              a.contacts__link(href="https://resume.io") СV на английском
+
+          .contacts__column
+            .contacts__line
+              a.contacts__link(href="mailto:molefrog@gmail.com") Email
+
+            .contacts__line
+              a.contacts__link(href="https://github.com/molefrog") GitHub
+
+          .contacts__column
+            .contacts__line
+              a.contacts__link(href="http://codepen.io/molefrog/") Codepen
+
+            .contacts__line
+              a.contacts__link(href="https://speakerdeck.com/molefrog") Speaker Deck
+
+
+          .contacts__column
+            .contacts__line
+              a.contacts__link(href="https://telegram.me/molefrog") Telegram
+
+            .contacts__line
+              a.contacts__link(href="https://twitter.com/mlfrg") Twitter
+
+
+        section.about
+          h1.about__header
+            | Full-Stack разработчик и дизайнер.
+
+          .about__description
+            .about__text.about__text--two-columns
+              .about__column
+                p
+                  | Живу программированием, а удовольствие получаю от его применения на стыке областей. Построить
+                  = ' '
+                  span.reference распределенную сеть принтеров для инстаграма,
+                  | запустить игру на лаунчпаде
+                  |  или сделать интерактив для проектора — меня это завораживает!
+                  |  Принцип «сложные вещи должны быть простыми и интересными» находит отражение в моих проектах.
+
+                p
+                  | Пишу код на Руби и JavaScript, а мой ежедневный набор:
+                  |  <b>Rails, React, Redux, Redux Saga</b> и <b>D3</b>. Начинал как разработчик на Си и
+                  |  Ассемблере, получив бесценный опыт.
+
+              .about__column
+                p
+                  | Проектирую, рисую и программирую интерфейсы.
+                  |  Веду свои проекты и помогаю бизнесам запускать веб-продукты:
+                  |  от дизайна и написания текстов до управления разработкой и DevOps.
+                p
+                  | Свободно разговариваю и веду переговоры на английском. Люблю
+                  = ' '
+                  span.reference жену, кошек
+                  |  и документальные фильмы.
+        article.project
+          h2.project__header
+            | These Guys
+
+          .about__description.about__description--project
+            .about__text.about__text--two-columns
+              .about__column
+                p
+                  | Занимаюсь разработкой проектов в небольшой команде
+                  = ' '
+                  span.reference These Guys
+                  |  в паре со своим хорошим другом Тихоном.
+              .about__column
+                p Специализируемся на сложных веб-проектах или небольших MVP-решениях.
+
+
+        article.project
+          h2.project__header
+            | Сообщество Code Hipsters
+
+          .about__description.about__description--project
+            .about__text.about__text--two-columns
+              .about__column
+                p
+                  | Мы с друзьями в 2014 году основали ИТ-тусовку
+                  = ' '
+                  span.reference Code Hipsters
+                  |  чтобы
+                  |  разбавить атмосферу традиционных митапов в Ростове-на-Дону. Быстро нашли
+                  |  подходящий формат —
+                  = ' '
+                  span.reference паблик в социальных сетях
+                  |  о трендах фронтенд-разработки.
+                  |  Контент — интриги сообщества в привычном нам формате: с иронией и восхищением.
+
+                p
+                  | Провели несколько уютных мероприятий и регулярно выезжаем на конференции —
+                  |  для обмена опытом с другими сообществами.
+              .about__column
+                p
+                  | В постах мы делаем отсылки к комиксам, культовым фильмам и классическим произведениям искусства.
+                  | И не случайно: мы считаем, что сообщество должно отражать стиль и быть противопоставлено
+                  = ' '
+                  span.reference стереотипному образу
+                  |  ИТ-специалиста.
+                p
+                  | Победили в хакатоне с проектом
+                  = ' '
+                  span.reference Фикус
+                  | , в котором я занимался разработкой
+                  = ' '
+                  span.reference интерактивов
+                  |  — опросов и визуализаций в реальном времени на слайдах.
