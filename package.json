@@ -3,23 +3,15 @@
   "description": "Alexey Taktarov's website",
   "author": "Alexey Taktarov <molefrog@gmail.com>",
   "version": "0.1.337",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/molefrog/molefrog.github.io.git"
   },
-  "gh-pages-deploy": {
-    "staticpath": "public",
-    "cname": "molefrog.com",
-    "prep": [
-      "build"
-    ],
-    "post": [],
-    "noprompt": false
-  },
   "scripts": {
     "start": "brunch watch --server",
     "build": "brunch build --production",
-    "deploy": "gh-pages-deploy"
+    "deploy": "./deploy.sh"
   },
   "devDependencies": {
     "auto-reload-brunch": "^2.0.0",
@@ -29,7 +21,6 @@
     "clean-css-brunch": "^2.0.0",
     "css-brunch": "^2.0.0",
     "fs-extra": "^1.0.0",
-    "gh-pages-deploy": "^0.4.2",
     "glob": "^7.1.1",
     "javascript-brunch": "^2.0.0",
     "marked": "^0.3.6",
