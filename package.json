@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "brunch watch --server",
-    "build": "brunch build --production && NODE_ENV=production node compile.js",
+    "build": "brunch build --production",
     "deploy": "gh-pages-deploy"
   },
   "devDependencies": {
