@@ -76,6 +76,15 @@ class FloatingPreview {
 
   preloadContent () {
     const videoSource = this.$reference.attr('data-video')
+    const imageSource = this.$reference.attr('data-image')
+
+    if (imageSource) {
+      dom(this.$instance)
+        .find('.preview__card')
+        .css('background-image', `url(${imageSource})`)
+
+      return Promise.resolve()
+    }
 
     if (videoSource) {
       const $video = dom('<video>')
@@ -109,7 +118,7 @@ class FloatingPreview {
       })
     }
 
-    return Promise.resolve()
+    return Promise.reject()
   }
 
   initialize () {
