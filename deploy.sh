@@ -2,7 +2,7 @@
 
 git branch -f master
 git checkout master
-git reset --hard origin/master
+git reset --hard origin/dev
 npm run build
 cp -r public/* .
 git add -A .
