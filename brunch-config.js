@@ -7,6 +7,9 @@ module.exports = {
   },
 
   plugins: {
+    pug: {
+      pugRuntime: false
+    },
     babel: {
       presets: ['es2015']
     },

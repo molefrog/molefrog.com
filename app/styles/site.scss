@@ -10,7 +10,7 @@
 }
 
 body {
-  // font-family: Rubik, sans-serif;
+  font-family: Lora, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -28,6 +28,10 @@ body {
   padding: 32px;
   padding-left: 80px;
   padding-right: 20px;
+
+  @include breakpoint(md) {
+    padding-left: 20px;
+  }
 
   @include breakpoint(xs) {
     padding: 18px 28px;
@@ -51,14 +55,8 @@ body {
   color: $gray-book;
 }
 
-
 .about__text b {
   color: $gray-900;
-}
-
-.reference {
-  display: inline;
-  border-bottom: 1px solid red;
 }
 
 .about__column {
@@ -73,7 +71,7 @@ body {
     width: 50%;
   }
 
-  @include breakpoint(md) {
+  @include breakpoint(xs) {
     display: block;
 
     .about__column {
@@ -93,7 +91,6 @@ body {
 .about {
   margin-bottom: 38px;
 }
-
 
 .about__header {
   font-family: Playfair Display, sans-serif;

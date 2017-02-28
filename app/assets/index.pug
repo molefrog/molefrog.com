@@ -11,7 +11,11 @@ html(lang="ru")
 
     link(rel="stylesheet" href="/app.css")
     script(type="text/javascript" src="/app.js")
+    script.
+      require('initialize.js')
   body.site
+    .preview
+
     .site__main-layout
       main.site__content
         .contacts
@@ -52,11 +56,7 @@ html(lang="ru")
             .about__text.about__text--two-columns
               .about__column
                 p
-                  | Живу программированием, а удовольствие получаю от его применения на стыке областей. Построить
-                  = ' '
-                  span.reference распределенную сеть принтеров для инстаграма,
-                  | запустить игру на лаунчпаде
-                  |  или сделать интерактив для проектора — меня это завораживает!
+                  | Живу программированием, а удовольствие получаю от его применения на стыке областей.
                   |  Принцип «сложные вещи должны быть простыми и интересными» находит отражение в моих проектах.
 
                 p
@@ -84,7 +84,7 @@ html(lang="ru")
                 p
                   | Занимаюсь разработкой проектов в небольшой команде
                   = ' '
-                  span.reference These Guys
+                  a.reference(data-video="/showcase/these-guys.mp4" href="http://theseguys.io") These Guys
                   |  в паре со своим хорошим другом Тихоном.
               .about__column
                 p Специализируемся на сложных веб-проектах или небольших MVP-решениях.
