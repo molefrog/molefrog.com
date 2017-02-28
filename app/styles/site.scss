@@ -10,7 +10,7 @@
 }
 
 body {
-  font-family: Lora, sans-serif;
+  font-family: Rubik, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -50,13 +50,13 @@ body {
 }
 
 .about__description {
-  font-family: Lora;
   font-size: 16px;
   color: $gray-book;
 }
 
 .about__text b {
   color: $gray-900;
+  font-weight: 500;
 }
 
 .about__column {
@@ -82,7 +82,7 @@ body {
 }
 
 .project__header {
-  font-family:  Playfair Display, sans-serif;
+  font-family: Playfair Display, sans-serif;
   font-weight: 500;
   font-size: 24px;
   margin: 8px 0;
