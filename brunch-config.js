@@ -8,7 +8,10 @@ module.exports = {
 
   plugins: {
     pug: {
-      pugRuntime: false
+      pugRuntime: false,
+      locals: {
+        isProduction: process.env.NODE_ENV === 'production'
+      }
     },
     babel: {
       presets: ['es2015']

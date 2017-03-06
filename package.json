@@ -17,7 +17,7 @@
     "auto-reload-brunch": "^2.0.0",
     "autoprefixer": "^6.5.3",
     "babel-brunch": "^6.0.6",
-    "brunch": "^2.0.0",
+    "brunch": "^2.10.8",
     "clean-css-brunch": "^2.0.0",
     "css-brunch": "^2.0.0",
     "fs-extra": "^1.0.0",
