@@ -4,6 +4,7 @@ html(lang="ru")
     title Лёша Тактаров — разработчик и дизайнер
 
     meta(name="description" content="Код-хистер. Проектирую, рисую и программирую интерфейсы. Веду свои проекты и помогаю бизнесам запускать веб-продукты.")
+    meta(name="viewport" content="width=device-width, initial-scale=1" )
 
     link(rel="icon" type="image/png" href="/favicon-48.png" sizes="48x48")
     link(rel="icon" type="image/png" href="/favicon-48.png" sizes="48x48")
@@ -79,15 +80,15 @@ html(lang="ru")
                   span.reference.reference--inline(data-image="/showcase/talking.gif") Свободно разговариваю
                   |  и веду переговоры на английском. Люблю
                   = ' '
-                  | жену, кошек
+                  span.reference.reference--inline(data-image="/showcase/wife-and-cats.jpg" data-preview-mode="cats") жену, кошек
                   |  и документальные фильмы.
 
           section.mini-map__section
-            .mini-map__header Последние проекты
+            .mini-map__header Последние активности
             .mini-map
               a.mini-map__item.reference(
                 data-video="/showcase/resume-io-sections.mp4"
-                style="background-image: url('/images/resume-thumb.png')"
+                style="background-image: url('/images/resume-thumb.gif')"
                 href="https://resume.io")
 
               .mini-map__item.reference(data-video="/showcase/dirty-animations.mp4"
@@ -103,6 +104,16 @@ html(lang="ru")
                 style="background-image: url('/images/laxlabs-thumb.jpg')")
 
               a.mini-map__item.reference(
+                data-image="/showcase/rails-webpack.jpg"
+                style="background-image: url('/images/rails-webpack-thumb.jpg')"
+                href="https://speakerdeck.com/molefrog/give-a-second-change-to-rails-frontend")
+
+              a.mini-map__item.reference(
+                data-image="/showcase/date-parse.jpg"
+                style="background-image: url('/images/date-parse-thumb.jpg')"
+                href="https://medium.com/@mlfrg/rules-of-parsing-dates-with-date-parse-c5a73525a72e")
+
+              a.mini-map__item.reference(
                 data-video="/showcase/smartomato.mp4"
                 style="background-image: url('/images/smartomato-thumb.jpg')"
                 href="http://smartomato.ru")
@@ -116,6 +127,11 @@ html(lang="ru")
                 data-video="/showcase/graphemescope.mp4"
                 style="background-image: url('/images/scope-thumb.gif')"
                 href="http://codepen.io/molefrog/pen/juBad")
+
+              a.mini-map__item.reference(
+                data-video="/showcase/rye.mp4"
+                style="background-image: url('/images/rye-thumb.gif')"
+                href="http://molefrog.com/rye")
 
 
         article.project
@@ -144,7 +160,7 @@ html(lang="ru")
                 p
                   | Мы с друзьями в 2014 году основали ИТ-тусовку
                   = ' '
-                  span.reference.reference--inline(data-video="/showcase/ch-website.mp4" href="http://codehipsters.com") Code Hipsters
+                  a.reference.reference--inline(data-video="/showcase/ch-website.mp4" href="http://codehipsters.com") Code Hipsters
                   |  чтобы
                   |  разбавить атмосферу традиционных митапов в Ростове-на-Дону. Быстро нашли
                   |  подходящий формат —

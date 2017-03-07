@@ -124,6 +124,7 @@ class FloatingPreview {
   initialize () {
     this.$instance = dom('<div>')
       .addClass('preview__floating')
+      .addClass(`preview__floating--${this.$reference.attr('data-preview-mode')}`)
       .html('<div class="preview__card"></div>')
 
     Velocity(this.$instance.get(0),
