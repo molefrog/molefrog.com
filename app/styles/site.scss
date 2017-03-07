@@ -26,11 +26,12 @@ body {
 
 .site__content {
   padding: 32px;
+  padding-top: 18px;
   padding-left: 80px;
   padding-right: 20px;
 
   @include breakpoint(md) {
-    padding-left: 20px;
+    padding-left: 26px;
   }
 
   @include breakpoint(xs) {
@@ -49,50 +50,8 @@ body {
   }
 }
 
-.about__description {
-  font-size: 16px;
-  color: $gray-book;
-}
-
-.about__text b {
-  color: $gray-900;
-  font-weight: 500;
-}
-
-.about__column {
-  padding-right: 34px;
-}
-
-.about__text--two-columns {
-  display: flex;
-  flex-flow: row nowrap;
-
-  .about__column {
-    width: 50%;
-  }
-
-  @include breakpoint(xs) {
-    display: block;
-
-    .about__column {
-      width: 100%;
-      padding-right: 0px;
-    }
-  }
-}
-
 .project__header {
   font-weight: 500;
   font-size: 24px;
   margin: 8px 0;
-}
-
-.about {
-  margin-bottom: 38px;
-}
-
-.about__header {
-  font-weight: 700;
-  font-size: 32px;
-  margin: 18px 0;
 }

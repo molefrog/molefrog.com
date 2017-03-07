@@ -3,20 +3,38 @@
 
 .contacts {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
+
+  padding-bottom: 12px;
+  margin-bottom: 40px;
+
+  border-bottom: 1px solid $gray-100;
 }
 
-.contacts__name {
-  margin-right: 120px;
-  flex: 1 1;
-  font-size: 20px;
-  align-self: flex-end;
+.contacts__logo {
+  width: 48px;
+  height: 48px;
+  background-color: black;
+  margin-right: 32px;
 
-  color: $gray-800;
+  border-radius: 30px;
+  background-image: url(/images/patterns/stripes.jpg);
+  background-size: cover;
+
+  border: 3px solid black;
+
+  @include breakpoint(xs) {
+    display: none;
+  }
 }
 
 .contacts__column {
-  margin-right: 38px;
+  margin-right: 64px;
+
+  @include breakpoint(xs) {
+    width: 50%;
+    margin-right: 0;
+  }
 }
 
 .contacts__line {
