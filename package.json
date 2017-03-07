@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "brunch watch --server",
-    "build": "brunch build --production",
+    "build": "NODE_ENV=production brunch build --production",
     "deploy": "./deploy.sh"
   },
   "devDependencies": {
