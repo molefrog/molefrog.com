@@ -1,3 +1,5 @@
+
+require('./styles/index.scss')
 require('babel-polyfill')
 const { Promise } = window
 

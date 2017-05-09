@@ -12,10 +12,12 @@ html(lang="ru")
     link(href="https://fonts.googleapis.com/css?family=Rubik:400,500,700&amp;subset=cyrillic"
       rel="stylesheet")
 
-    link(rel="stylesheet" href="/app.css")
-    script(type="text/javascript" src="/app.js")
-    script.
-      require('initialize.js')
+    if isProduction
+      each assetPath in assets.css
+        link(rel="stylesheet" href=assetPath)
+
+      each assetPath in assets.js
+        script(type="text/javascript" src=assetPath)
   body.site
     .preview
 

@@ -1,12 +1,21 @@
-@import 'sanitize';
+@import '~sanitize.css';
 
 @import './colors';
 @import './media-queries';
+
+@import './about.scss';
+@import './contacts.scss';
+@import './mini-map.scss';
+@import './preview.scss';
 
 // Add fancy text selection styles
 ::selection {
   color: white;
   background-color: $pink;
+}
+
+html {
+  line-height: 1.5;
 }
 
 body {
