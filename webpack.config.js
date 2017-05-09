@@ -47,5 +47,20 @@ module.exports = {
   },
   plugins: [
     extractStyles
-  ]
+  ],
+  devServer: {
+    contentBase: path.resolve(__dirname, 'app', 'assets'),
+    overlay: true,
+    setup: (app) => {
+      const pug = require('pug')
+      app.get('/', (req, res) => {
+        res.send(pug.renderFile(
+          path.join(__dirname, 'app', 'index.pug'),
+          {
+            isProduction: false
+          })
+        )
+      })
+    }
+  }
 }
