@@ -9,7 +9,7 @@
     "url": "https://github.com/molefrog/molefrog.github.io.git"
   },
   "scripts": {
-    "dev": "",
+    "dev": "node dev.js",
     "build": "NODE_ENV=production node compile.js",
     "deploy": "./deploy.sh"
   },
@@ -20,13 +20,16 @@
     "babel-preset-react": "^6.24.1",
     "color-it": "^1.2.9",
     "css-loader": "^0.28.1",
+    "express": "^4.15.2",
     "extract-text-webpack-plugin": "^2.1.0",
     "node-sass": "^4.5.2",
     "pug": "^2.0.0-rc.1",
     "sass-loader": "^6.0.3",
+    "serve-static": "^1.12.2",
     "shelljs": "^0.7.7",
     "style-loader": "^0.17.0",
-    "webpack": "^2.5.1"
+    "webpack": "^2.5.1",
+    "webpack-dev-middleware": "^1.10.2"
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",

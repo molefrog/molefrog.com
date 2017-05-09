@@ -18,6 +18,9 @@ html(lang="ru")
 
       each assetPath in assets.js
         script(type="text/javascript" src=assetPath)
+    else
+      script(type="text/javascript" src="/main.js")
+
   body.site
     .preview
 
