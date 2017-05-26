@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const isProduction = process.env.NODE_ENV === 'production'
@@ -46,7 +47,8 @@ module.exports = {
     ]
   },
   plugins: [
-    extractStyles
+    extractStyles,
+    new webpack.DefinePlugin({ PRERENDER_MODE: false })
   ],
   devServer: {
     contentBase: path.resolve(__dirname, 'app', 'assets'),
