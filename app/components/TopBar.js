@@ -14,7 +14,7 @@ const TopBar = () =>
 
       <div className="contacts__line">
         <a className="contacts__link"
-          href="https://telegram.me/molefrog">
+          href="https://t.me/molefrog">
           Telegram
         </a>
       </div>
