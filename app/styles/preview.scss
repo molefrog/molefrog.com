@@ -1,5 +1,5 @@
-@import './colors';
-@import './media-queries';
+@import "./colors";
+@import "./media-queries";
 
 .reference--inline {
   display: inline;
@@ -11,28 +11,30 @@
   text-decoration: none;
   z-index: 2;
 
-  &, &:active, &:focus {
+  &,
+  &:active,
+  &:focus {
     color: inherit;
   }
 
   &:before {
     display: inline-block;
-    content: '';
-    height: 2px;
-    background-color: $pink;
+    content: "";
+    height: 1.5px;
+    background-color: $accent-color;
 
     position: absolute;
-    bottom: 0px;
+    top: 1em;
     right: 0px;
     left: 0px;
 
-    transition: height 0.15s ease;
+    transition: height 0.1s ease;
 
     z-index: 1;
   }
 
   &:hover:before {
-    height: 3px;
+    height: 4px;
   }
 }
 
@@ -71,8 +73,8 @@
   overflow: hidden;
   border-radius: 8px;
 
-  box-shadow: 0px 2px 30px rgba(0,0,0,0.1);
-  background-image: url('/showcase/preview-placeholder.gif');
+  box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.1);
+  background-image: url("/showcase/preview-placeholder.gif");
 
   background-size: cover;
   background-position: center;

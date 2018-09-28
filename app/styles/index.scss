@@ -1,17 +1,17 @@
-@import '~sanitize.css';
+@import "~sanitize.css";
 
-@import './colors';
-@import './media-queries';
+@import "./colors";
+@import "./media-queries";
 
-@import './about.scss';
-@import './contacts.scss';
-@import './mini-map.scss';
-@import './preview.scss';
+@import "./about.scss";
+@import "./contacts.scss";
+@import "./mini-map.scss";
+@import "./preview.scss";
 
 // Add fancy text selection styles
 ::selection {
   color: white;
-  background-color: $pink;
+  background-color: $accent-color;
 }
 
 html {
@@ -19,7 +19,8 @@ html {
 }
 
 body {
-  font-family: Rubik, sans-serif;
+  font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans,
+    Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 

@@ -1,5 +1,5 @@
-@import './colors';
-@import './media-queries';
+@import "./colors";
+@import "./media-queries";
 
 .about {
   margin-bottom: 44px;
@@ -11,7 +11,7 @@
   color: $gray-800;
 
   display: inline-block;
-  background: linear-gradient(45deg, #ff77d3 0%, #869bff 100%);
+  background: $accent-color;
   color: white;
   cursor: pointer;
 

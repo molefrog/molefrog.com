@@ -1,5 +1,5 @@
-@import './colors';
-@import './media-queries';
+@import "./colors";
+@import "./media-queries";
 
 .mini-map__section {
   margin-top: 12px;
@@ -29,9 +29,9 @@
   cursor: pointer;
 
   transition: border 0.2s ease;
-  border: 2px solid rgba($pink, 0.2);
+  border: 2px solid rgba($accent-color, 0.2);
 
   &:hover {
-    border-color: $pink;
+    border-color: $accent-color;
   }
 }
