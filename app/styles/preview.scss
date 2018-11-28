@@ -20,11 +20,11 @@
   &:before {
     display: inline-block;
     content: "";
-    height: 1.5px;
+    height: 3px;
     background-color: $accent-color;
 
     position: absolute;
-    top: 1em;
+    top: 1.1em;
     right: 0px;
     left: 0px;
 
@@ -34,7 +34,7 @@
   }
 
   &:hover:before {
-    height: 4px;
+    height: 5px;
   }
 }
 

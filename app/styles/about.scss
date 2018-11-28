@@ -5,20 +5,6 @@
   margin-bottom: 44px;
 }
 
-.about__name {
-  font-size: 18px;
-  font-weight: 500;
-  color: $gray-800;
-
-  display: inline-block;
-  background: $accent-color;
-  color: white;
-  cursor: pointer;
-
-  padding: 2px 10px;
-  border-radius: 3px;
-}
-
 .about__header {
   font-weight: 700;
   font-size: 32px;
@@ -31,37 +17,12 @@
 }
 
 .about__description {
-  font-size: 16px;
+  font-size: 22px;
   color: $gray-book;
 
   @include breakpoint(xs) {
-    font-size: 15px;
+    font-size: 18px;
   }
 }
 
-.about__text b {
-  color: $gray-900;
-  font-weight: 500;
-}
 
-.about__column {
-  padding-right: 34px;
-}
-
-.about__text--two-columns {
-  display: flex;
-  flex-flow: row nowrap;
-
-  .about__column {
-    width: 50%;
-  }
-
-  @include breakpoint(xs) {
-    display: block;
-
-    .about__column {
-      width: 100%;
-      padding-right: 0px;
-    }
-  }
-}

@@ -1,0 +1,46 @@
+@import "./colors";
+@import "./media-queries";
+
+.footer {
+  padding: 32px 0;
+  padding-bottom: 64px;
+  border-top: 1px solid $gray-100;
+}
+
+.footer__links {
+  column-count: 2;
+  column-width: 200px;
+  margin-bottom: 10px;
+}
+
+.footer__note {
+  font-size: 15px;
+  color: $gray-500;
+
+  a {
+    color: $accent-color;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.footer__line {
+  margin-bottom: 10px;
+}
+
+.footer__link {
+  color: $gray-book;
+  font-size: 17px;
+  text-decoration: none;
+
+  &:hover {
+    color: $accent-color;
+  }
+
+  &:active {
+    color: $accent-dark-color;
+  }
+}

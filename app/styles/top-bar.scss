@@ -1,0 +1,27 @@
+@import "./colors";
+@import "./media-queries";
+
+.top-bar {
+  padding: 24px 0;
+  margin-bottom: 40px;
+
+  border-bottom: 1px solid $gray-100;
+}
+
+.top-bar__link {
+  color: $gray-600;
+  text-decoration: none;
+  font-size: 16px;
+
+  &:hover {
+    color: $accent-color;
+  }
+
+  &:active {
+    color: $accent-dark-color;
+  }
+}
+
+.top-bar__link-separator {
+  margin: 0 14px;
+}

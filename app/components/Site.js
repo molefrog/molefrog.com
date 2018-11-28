@@ -1,108 +1,74 @@
 import React, { Component } from "react";
 
 import TopBar from "components/TopBar";
+import Footer from "components/Footer";
+
+const MagicLink = props => {
+  const { children } = props;
+  const linkProps = { href: props.href, target: props.target, rel: props.rel };
+
+  return (
+    <a
+      className="reference reference--inline"
+      data-video={props.video}
+      {...linkProps}
+    >
+      {children}
+    </a>
+  );
+};
 
 const Content = () => (
   <div>
     <section className="about">
-      <div className="about__name">Лёша Тактаров</div>
-
-      <h1 className="about__header">Разработчик и дизайнер.</h1>
+      <h1 className="about__header">Hello.</h1>
 
       <div className="about__description">
-        <div className="about__text about__text--two-columns">
-          <div className="about__column">
-            <p>
-              Я занимаюсь веб-продуктами: рисую и программирую интерфейсы,
-              разрабатываю бекенд и управляю разработкой.
-            </p>
+        <div className="about__text">
+          <p>
+            I'm <MagicLink>Alexey Taktarov</MagicLink> — a startup maker and a
+            consultant with software engineering background: I design, develop
+            and launch web products from scratch.
+          </p>
 
-            <p>
-              Я помогаю бизнесам быстро стартануть, протестировать идею и
-              масштабироваться, а также веду свои проекты: работаю над сервисом{" "}
-              <a
-                className="reference reference--inline"
-                data-video="/showcase/resume-io-sections.mp4"
-                href="https://resume.io"
-              >
-                resume.io
-              </a>{" "}
-              в качестве CTO и кофаундера.
-            </p>
-
-            <p>
-              Начинал как системный разработчик на Си и Ассемблер, поэтому
-              неплохо разбираюсь в построении эффективных сетевых приложений.
-              Сейчас мой ежедневный набор — это <b>Ruby</b> и <b>JavaScript</b>{" "}
-              (Rails/React/Redux и другие проверенные инструменты).
-            </p>
-            <p>
-              Кроме этого, я обожаю придумывать и делать{" "}
-              <span
-                className="reference reference--inline"
-                data-video="/showcase/ficus-stars.mp4"
-              >
-                интерактивы
-              </span>{" "}
-              и{" "}
-              <span
-                className="reference reference--inline"
-                data-video="/showcase/these-guys.mp4"
-                href="http://theseguys.io"
-              >
-                визуализации
-              </span>{" "}
-              ✨ для митапов и конференций (взгляните на наш сайд-проект{" "}
-              <a
-                className="reference reference--inline"
-                data-image="/showcase/ficus-site.jpg"
-                href="http://ficus.io"
-              >
-                Фикус
-              </a>, если вам стало интересно).
-            </p>
-          </div>
-
-          <div className="about__column">
-            <p>
-              Основал ИТ-сообщество&thinsp;
-              <a
-                className="reference reference--inline"
-                data-video="/showcase/ch-website.mp4"
-                href="http://codehipsters.com"
-              >
-                Code Hipsters
-              </a>. Мы с иронией&thinsp;
-              <a
-                className="reference reference--inline"
-                data-image="/showcase/ch-vk.jpg"
-                href="https://vk.com/codehipsters"
-              >
-                рассказываем
-              </a>
-              &thinsp;об интригах мира современного фронтенда и проводим уютные
-              мероприятия.
-            </p>
-
-            <p>
-              <b>Чем я могу быть полезен?</b>
-              <br />
-              Если у вас есть идея для стартапа, но вы не уверены, какой выбрать
-              стек или как начать с минимальными техническими вложениями —{" "}
-              <a
-                className="reference reference--inline"
-                href="https://t.me/molefrog"
-              >
-                напишите мне
-              </a>{" "}
-              или позовите прогуляться. Я открыт к сотрудничеству.
-            </p>
-          </div>
+          <p>
+            I occasionally{" "}
+            <MagicLink
+              href="http://molefrog.com/stateful-animations/"
+              video="/showcase/dirty-animations.mp4"
+            >
+              speak
+            </MagicLink>{" "}
+            at tech and startup conferences and write some{" "}
+            <MagicLink href="https://github.com/molefrog">
+              open-source code
+            </MagicLink>. The stack of the tools I use on an everyday basis
+            includes React/Redux, Node.js, Ruby on Rails and Sketch.
+          </p>
+          <p>
+            I've co-launched{" "}
+            <MagicLink
+              video="/showcase/resume-io-sections.mp4"
+              href="https://resume.io"
+            >
+              resume.io
+            </MagicLink>{" "}
+            — a simple online tool for job seekers, which is now the most
+            upvoted resume builder on{" "}
+            <MagicLink href="https://www.producthunt.com/posts/resume-io">
+              Product Hunt
+            </MagicLink>{" "}
+            with more than 2 million resumes created. Before joining resume.io
+            as a full-time tech lead, I worked as a frontend engineer and
+            designer at{" "}
+            <MagicLink href="https://getshogun.com">Shogun</MagicLink>
+            (YC'18 applicant).
+          </p>
         </div>
       </div>
 
       <section className="mini-map__section">
-        <div className="mini-map__header">Последние активности</div>
+        <div className="mini-map__header">Recent projects & activities</div>
         <div className="mini-map">
           <a
             className="mini-map__item reference"
@@ -186,6 +152,7 @@ const Site = () => (
       <main className="site__content">
         <TopBar />
         <Content />
+        <Footer />
       </main>
     </div>
   </div>

@@ -1,69 +1,36 @@
 @import "~sanitize.css";
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,600&subset=latin-ext");
 
 @import "./colors";
 @import "./media-queries";
 
 @import "./about.scss";
-@import "./contacts.scss";
+@import "./top-bar.scss";
+@import "./footer.scss";
 @import "./mini-map.scss";
 @import "./preview.scss";
 
-// Add fancy text selection styles
-::selection {
-  color: white;
-  background-color: $accent-color;
-}
-
-html {
-  line-height: 1.5;
-}
-
 body {
-  font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans,
-    Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: IBM Plex Mono, apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
-}
 
-.site__main-layout {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
+  line-height: 1.5;
+  font-size: 15px;
 
-  @include breakpoint(xs) {
-    display: block;
+  // Add fancy text selection styles
+  ::selection {
+    color: white;
+    background-color: $accent-color;
   }
 }
 
 .site__content {
-  padding: 32px;
-
-  padding-top: 18px;
-  padding-left: 80px;
-  padding-right: 20px;
-  padding-bottom: 64px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 32px;
 
   @include breakpoint(md) {
-    padding-left: 26px;
+    padding: 0 16px;
   }
-
-  @include breakpoint(xs) {
-    padding: 18px 28px;
-  }
-
-  max-width: 900px;
-}
-
-.site__magic {
-  min-width: 400px;
-  flex: 1 1;
-
-  @include breakpoint(sm) {
-    display: none;
-  }
-}
-
-.project__header {
-  font-weight: 500;
-  font-size: 24px;
-  margin: 8px 0;
 }
