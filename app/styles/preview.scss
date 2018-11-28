@@ -1,43 +1,6 @@
 @import "./colors";
 @import "./media-queries";
 
-.reference--inline {
-  display: inline;
-  cursor: pointer;
-
-  position: relative;
-  white-space: nowrap;
-
-  text-decoration: none;
-  z-index: 2;
-
-  &,
-  &:active,
-  &:focus {
-    color: inherit;
-  }
-
-  &:before {
-    display: inline-block;
-    content: "";
-    height: 3px;
-    background-color: $accent-color;
-
-    position: absolute;
-    top: 1.1em;
-    right: 0px;
-    left: 0px;
-
-    transition: height 0.1s ease;
-
-    z-index: 1;
-  }
-
-  &:hover:before {
-    height: 5px;
-  }
-}
-
 .preview {
   position: fixed;
   pointer-events: none;

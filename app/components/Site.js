@@ -9,7 +9,7 @@ const MagicLink = props => {
 
   return (
     <a
-      className="reference reference--inline"
+      className="about__link reference reference--inline"
       data-video={props.video}
       {...linkProps}
     >
@@ -43,10 +43,10 @@ const Content = () => (
             <MagicLink href="https://github.com/molefrog">
               open-source code
             </MagicLink>. The stack of the tools I use on an everyday basis
-            includes React/Redux, Node.js, Ruby on Rails and Sketch.
+            includes React, Ruby on Rails, Node.js and Sketch.
           </p>
           <p>
-            I've co-launched{" "}
+            I've co-founded{" "}
             <MagicLink
               video="/showcase/resume-io-sections.mp4"
               href="https://resume.io"
@@ -60,8 +60,8 @@ const Content = () => (
             </MagicLink>{" "}
             with more than 2 million resumes created. Before joining resume.io
             full-time, I worked as a frontend engineer and designer at{" "}
-            <MagicLink href="https://getshogun.com">Shogun</MagicLink>
-            (YC'18 applicant).
+            <MagicLink href="https://getshogun.com">Shogun</MagicLink> — a web
+            page builder for e-commerce sites, YC'18 applicant.
           </p>
         </div>
       </div>

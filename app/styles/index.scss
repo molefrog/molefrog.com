@@ -1,5 +1,5 @@
 @import "~sanitize.css";
-@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,600&subset=latin-ext");
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700&subset=latin-ext");
 
 @import "./colors";
 @import "./media-queries";
@@ -16,7 +16,7 @@ body {
   -webkit-font-smoothing: antialiased;
 
   line-height: 1.5;
-  font-size: 15px;
+  font-size: 16px;
 
   // Add fancy text selection styles
   ::selection {
