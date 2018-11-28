@@ -12,7 +12,7 @@
     "dev": "next -p 1337",
     "build": "next build && next export",
     "now-build": "npm run build",
-    "deploy": "npm run build && now && now alias"
+    "deploy": "npm run build && now"
   },
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
