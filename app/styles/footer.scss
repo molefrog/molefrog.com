@@ -13,9 +13,18 @@
   margin-bottom: 10px;
 }
 
+.footer__copyright {
+  font-size: 13px;
+  &,
+  a {
+    color: $gray-400;
+  }
+}
+
 .footer__note {
   font-size: 15px;
   color: $gray-500;
+  margin-bottom: 32px;
 
   a {
     color: $accent-color;

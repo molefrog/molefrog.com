@@ -61,6 +61,14 @@ const Footer = () => (
       </a>{" "}
       if you're into movies.
     </div>
+
+    <div className="footer__copyright">
+      ...<br />
+      <br />
+      2018. This site was build with React. Too much for a static website? I
+      don't care.<br />
+      <a href="https://github.com/molefrog/molefrog.github.io">Source code</a>.
+    </div>
   </div>
 );
 

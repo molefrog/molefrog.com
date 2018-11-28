@@ -53,14 +53,13 @@ const Content = () => (
             >
               resume.io
             </MagicLink>{" "}
-            — a simple online tool for job seekers, which is now the most
-            upvoted resume builder on{" "}
+            — an online tool for job seekers, which is now the most upvoted
+            resume builder on{" "}
             <MagicLink href="https://www.producthunt.com/posts/resume-io">
               Product Hunt
             </MagicLink>{" "}
             with more than 2 million resumes created. Before joining resume.io
-            as a full-time tech lead, I worked as a frontend engineer and
-            designer at{" "}
+            full-time, I worked as a frontend engineer and designer at{" "}
             <MagicLink href="https://getshogun.com">Shogun</MagicLink>
             (YC'18 applicant).
           </p>

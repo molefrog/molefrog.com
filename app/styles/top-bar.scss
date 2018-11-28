@@ -4,8 +4,29 @@
 .top-bar {
   padding: 24px 0;
   margin-bottom: 40px;
-
   border-bottom: 1px solid $gray-100;
+
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.top-bar__links {
+  flex: 1 0;
+}
+
+.top-bar__cta {
+  color: $accent-color;
+  font-weight: bold;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 2px solid $accent-color;
+  text-decoration: none;
+
+  &:hover {
+    background: $accent-color;
+    color: white;
+  }
 }
 
 .top-bar__link {
