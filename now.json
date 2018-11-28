@@ -1,0 +1,54 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "out/**",
+      "use": "@now/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/stateful-animations/(.*)",
+      "dest": "https://molefrog.github.io/stateful-animations/$1"
+    },
+    {
+      "src": "/stateful-animations/",
+      "dest": "https://molefrog.github.io/stateful-animations/index.html"
+    },
+    {
+      "src": "/stateful-animations",
+      "status": 301,
+      "headers": { "Location": "https://molefrog.com/stateful-animations/" }
+    },
+    {
+      "src": "/rye/(.*)",
+      "dest": "https://molefrog.github.io/rye/$1"
+    },
+    {
+      "src": "/rye/",
+      "dest": "https://molefrog.github.io/rye/index.html"
+    },
+    {
+      "src": "/rye",
+      "status": 301,
+      "headers": { "Location": "https://molefrog.com/rye/" }
+    },
+    {
+      "src": "/piddn-talk/(.*)",
+      "dest": "https://molefrog.github.io/$1"
+    },
+    {
+      "src": "/piddn-talk/",
+      "dest": "https://molefrog.github.io/index.html"
+    },
+    {
+      "src": "/piddn-talk",
+      "status": 301,
+      "headers": { "Location": "https://molefrog.com/piddn-talk/" }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/out/$1"
+    }
+  ]
+}

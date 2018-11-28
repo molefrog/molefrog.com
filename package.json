@@ -10,8 +10,9 @@
   },
   "scripts": {
     "dev": "next -p 1337",
-    "build": "NODE_ENV=production node compile.js",
-    "deploy": "./deploy.sh"
+    "build": "next build && next export",
+    "now-build": "npm run build",
+    "deploy": "npm run build && now && now alias"
   },
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
