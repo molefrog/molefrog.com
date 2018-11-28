@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "alias": ["molefrog.com", "www.molefrog.com"],
   "builds": [
     {
       "src": "out/**",
@@ -8,43 +9,25 @@
   ],
   "routes": [
     {
-      "src": "/stateful-animations/(.*)",
-      "dest": "https://molefrog.github.io/stateful-animations/$1"
+      "src": "/stateful-animations(.*)",
+      "status": 302,
+      "headers": {
+        "Location": "https://molefrog.github.io/stateful-animations/"
+      }
     },
     {
-      "src": "/stateful-animations/",
-      "dest": "https://molefrog.github.io/stateful-animations/index.html"
+      "src": "/pidnn-talk(.*)",
+      "status": 302,
+      "headers": {
+        "Location": "https://molefrog.github.io/pidnn-talk/"
+      }
     },
     {
-      "src": "/stateful-animations",
-      "status": 301,
-      "headers": { "Location": "https://molefrog.com/stateful-animations/" }
-    },
-    {
-      "src": "/rye/(.*)",
-      "dest": "https://molefrog.github.io/rye/$1"
-    },
-    {
-      "src": "/rye/",
-      "dest": "https://molefrog.github.io/rye/index.html"
-    },
-    {
-      "src": "/rye",
-      "status": 301,
-      "headers": { "Location": "https://molefrog.com/rye/" }
-    },
-    {
-      "src": "/piddn-talk/(.*)",
-      "dest": "https://molefrog.github.io/$1"
-    },
-    {
-      "src": "/piddn-talk/",
-      "dest": "https://molefrog.github.io/index.html"
-    },
-    {
-      "src": "/piddn-talk",
-      "status": 301,
-      "headers": { "Location": "https://molefrog.com/piddn-talk/" }
+      "src": "/rye(.*)",
+      "status": 302,
+      "headers": {
+        "Location": "https://molefrog.github.io/rye/"
+      }
     },
     {
       "src": "/(.*)",
