@@ -5,7 +5,7 @@ const LinkSeparator = () => <span className="top-bar__link-separator">/</span>;
 const TopBar = () => (
   <div className="top-bar">
     <div className="top-bar__links">
-      <a className="top-bar__link" href="/CV Alexey Taktarov.pdf">
+      <a className="top-bar__link" href="/static/CV Alexey Taktarov.pdf">
         CV
       </a>
       <LinkSeparator />

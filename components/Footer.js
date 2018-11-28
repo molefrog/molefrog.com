@@ -7,7 +7,7 @@ const Footer = () => (
     </div>
     <div className="footer__links">
       <div className="footer__line">
-        <a className="footer__link" href="/CV Alexey Taktarov.pdf">
+        <a className="footer__link" href="/static/CV Alexey Taktarov.pdf">
           CV in English
         </a>
       </div>
