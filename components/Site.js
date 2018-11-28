@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import TopBar from "components/TopBar";
-import Footer from "components/Footer";
+import TopBar from "./TopBar";
+import Footer from "./Footer";
 
 const MagicLink = props => {
   const { children } = props;
@@ -35,7 +35,7 @@ const Content = () => (
             I occasionally{" "}
             <MagicLink
               href="http://molefrog.com/stateful-animations/"
-              video="/showcase/dirty-animations.mp4"
+              video="/static/showcase/dirty-animations.mp4"
             >
               speak
             </MagicLink>{" "}
@@ -48,7 +48,7 @@ const Content = () => (
           <p>
             I've co-founded{" "}
             <MagicLink
-              video="/showcase/resume-io-sections.mp4"
+              video="/static/showcase/resume-io-sections.mp4"
               href="https://resume.io"
             >
               resume.io
@@ -71,71 +71,83 @@ const Content = () => (
         <div className="mini-map">
           <a
             className="mini-map__item reference"
-            data-video="/showcase/resume-io-sections.mp4"
-            style={{ backgroundImage: "url('/images/resume-thumb.gif')" }}
+            data-video="/static/showcase/resume-io-sections.mp4"
+            style={{
+              backgroundImage: "url('/static/images/resume-thumb.gif')"
+            }}
             href="https://resume.io"
           />
 
           <div
             className="mini-map__item reference"
-            data-video="/showcase/dirty-animations.mp4"
-            style={{ backgroundImage: "url('/images/dirty-anim-thumb.gif')" }}
+            data-video="/static/showcase/dirty-animations.mp4"
+            style={{
+              backgroundImage: "url('/static/images/dirty-anim-thumb.gif')"
+            }}
           />
 
           <a
             className="mini-map__item reference"
-            data-video="/showcase/redux-actuator.mp4"
-            style={{ backgroundImage: "url('/images/actuator-thumb.gif')" }}
+            data-video="/static/showcase/redux-actuator.mp4"
+            style={{
+              backgroundImage: "url('/static/images/actuator-thumb.gif')"
+            }}
             href="https://github.com/molefrog/redux-actuator"
           />
 
           <div
             className="mini-map__item reference"
-            data-video="/showcase/laxlabs.mp4"
-            style={{ backgroundImage: "url('/images/laxlabs-thumb.jpg')" }}
+            data-video="/static/showcase/laxlabs.mp4"
+            style={{
+              backgroundImage: "url('/static/images/laxlabs-thumb.jpg')"
+            }}
           />
 
           <a
             className="mini-map__item reference"
-            data-image="/showcase/rails-webpack.jpg"
+            data-image="/static/showcase/rails-webpack.jpg"
             style={{
-              backgroundImage: "url('/images/rails-webpack-thumb.jpg')"
+              backgroundImage: "url('/static/images/rails-webpack-thumb.jpg')"
             }}
             href="https://speakerdeck.com/molefrog/give-a-second-change-to-rails-frontend"
           />
 
           <a
             className="mini-map__item reference"
-            data-image="/showcase/date-parse.jpg"
-            style={{ backgroundImage: "url('/images/date-parse-thumb.jpg')" }}
+            data-image="/static/showcase/date-parse.jpg"
+            style={{
+              backgroundImage: "url('/static/images/date-parse-thumb.jpg')"
+            }}
             href="https://medium.com/@mlfrg/rules-of-parsing-dates-with-date-parse-c5a73525a72e"
           />
 
           <a
             className="mini-map__item reference"
-            data-video="/showcase/smartomato.mp4"
-            style={{ backgroundImage: "url('/images/smartomato-thumb.jpg')" }}
+            data-video="/static/showcase/smartomato.mp4"
+            style={{
+              backgroundImage: "url('/static/images/smartomato-thumb.jpg')"
+            }}
             href="http://smartomato.ru"
           />
 
           <a
             className="mini-map__item reference"
-            data-video="/showcase/pidnn-talk.mp4"
-            style={{ backgroundImage: "url('/images/pidnn-thumb.jpg')" }}
+            data-video="/static/showcase/pidnn-talk.mp4"
+            style={{ backgroundImage: "url('/static/images/pidnn-thumb.jpg')" }}
             href="http://molefrog.com/piddn-talk"
           />
 
           <a
             className="mini-map__item reference"
-            data-video="/showcase/graphemescope.mp4"
-            style={{ backgroundImage: "url('/images/scope-thumb.gif')" }}
+            data-video="/static/showcase/graphemescope.mp4"
+            style={{ backgroundImage: "url('/static/images/scope-thumb.gif')" }}
             href="http://codepen.io/molefrog/pen/juBad"
           />
 
           <a
             className="mini-map__item reference"
-            data-video="/showcase/rye.mp4"
-            style={{ backgroundImage: "url('/images/rye-thumb.gif')" }}
+            data-video="/static/showcase/rye.mp4"
+            style={{ backgroundImage: "url('/static/images/rye-thumb.gif')" }}
             href="http://molefrog.com/rye"
           />
         </div>

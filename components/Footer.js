@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => (
   <div className="footer">
     <div className="footer__link-below">
-      ↘ You can react out to me online via one of the links below.
+      ↘ You can reach out to me online via one of the links below.
     </div>
     <div className="footer__links">
       <div className="footer__line">
@@ -61,7 +61,7 @@ const Footer = () => (
       </div>
 
       <div className="footer__line">
-        <a className="footer__link" href="instagram.com/molefrog/">
+        <a className="footer__link" href="https://instagram.com/molefrog/">
           Instagram
         </a>
       </div>
