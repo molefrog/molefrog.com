@@ -1,5 +1,7 @@
 {
   "version": 2,
+  "name": "molefrog.com",
+  "scope": "molefrog@gmail.com",
   "alias": ["molefrog.com", "www.molefrog.com"],
   "builds": [
     {
