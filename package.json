@@ -17,7 +17,7 @@
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
     "domtastic": "^0.12.3",
-    "jquery": "^3.1.1",
+    "jquery": "^3.4.0",
     "micro-events": "^1.0.0",
     "most": "^1.2.2",
     "next": "^7.0.2",
