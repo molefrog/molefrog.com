@@ -17,44 +17,37 @@ const MagicLink = (props) => {
 const Content = () => (
   <div>
     <section className="about">
-      <h1 className="about__header">Hello.</h1>
+      <h1 className="about__header">Hi, it's Alexey.</h1>
 
       <div className="about__description">
         <div className="about__text">
+          <p>I build some web things, primarily in JS, Node, and Ruby.</p>
           <p>
-            I'm <MagicLink>Alexey Taktarov</MagicLink> — a startup maker and a consultant with
-            software engineering background: I design, develop and launch web products from scratch.
-          </p>
-
-          <p>
-            I occasionally{" "}
+            Occasionally, I{" "}
             <MagicLink
               href="http://molefrog.com/stateful-animations/"
               video="/showcase/dirty-animations.mp4"
             >
               speak
             </MagicLink>{" "}
-            at tech and startup conferences and write some{" "}
-            <MagicLink href="https://github.com/molefrog">open-source code</MagicLink>. The stack of
-            the tools I use on an everyday basis includes React, Ruby on Rails, Node.js and Sketch.
+            at tech conferences, write some{" "}
+            <MagicLink href="https://github.com/molefrog">open-source code</MagicLink> and teach
+            other people how to code. I love designing UIs, playing around with animations, and
+            writing performant web apps & backends.
           </p>
           <p>
-            I've co-founded{" "}
+            I've recently finished my work at{" "}
             <MagicLink video="/showcase/resume-io-sections.mp4" href="https://resume.io">
               resume.io
             </MagicLink>{" "}
-            — an online tool for job seekers, which is now the most upvoted resume builder on{" "}
-            <MagicLink href="https://www.producthunt.com/posts/resume-io">Product Hunt</MagicLink>{" "}
-            with more than 2 million resumes created. Before joining resume.io full-time, I worked
-            as a frontend engineer and designer at{" "}
-            <MagicLink href="https://getshogun.com">Shogun</MagicLink> — a web page builder for
-            e-commerce sites, YC'18 applicant.
+            — the company that I've co-founded, and helped to build. If you have some interesting
+            project or a startup idea, drop me a line, I'm always happy to talk!
           </p>
         </div>
       </div>
 
       <section className="mini-map__section">
-        <div className="mini-map__header">Recent projects & activities</div>
+        <div className="mini-map__header">→ some recent work & experiments</div>
         <div className="mini-map">
           <a
             className="mini-map__item reference"

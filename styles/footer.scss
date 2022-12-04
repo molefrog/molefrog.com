@@ -1,15 +1,11 @@
-@import "./colors";
-@import "./media-queries";
-
 .footer {
   padding: 32px 0;
   padding-bottom: 64px;
-  border-top: 2px solid $gray-200;
-  color: $gray-500;
+  border-top: 2px solid var(--color-gray-300);
 }
 
 .footer__links {
-  font-size: var(--fs-regular);
+  font: var(--type-text-regular);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
@@ -17,14 +13,14 @@
 }
 
 .footer__reach-out {
-  font-size: var(--fs-regular);
-  line-height: 1.7;
+  color: var(--color-gray-600);
+  font: var(--type-text-regular);
   margin-bottom: 24px;
 }
 
 .footer__side-note {
-  font-size: var(--fs-small);
-  line-height: 1.7;
+  color: var(--color-gray-600);
+  font: var(--type-text-small);
   margin-bottom: 32px;
 }
 
@@ -38,14 +34,10 @@
 }
 
 .footer__link {
-  color: $gray-book;
+  color: var(--color-gray-800);
   text-decoration: none;
 }
 
 .footer__link:hover {
-  color: $accent-color;
-}
-
-.footer__link:active {
-  color: $accent-dark-color;
+  color: var(--color-accent);
 }

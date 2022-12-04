@@ -1,10 +1,6 @@
-@import "./colors";
-@import "./media-queries";
-
 .top-bar {
-  padding: 24px 0;
-  margin-bottom: 40px;
-  border-bottom: 1px solid $gray-100;
+  padding: 32px 0;
+  margin-bottom: 32px;
 
   display: flex;
   flex-flow: row wrap;
@@ -15,34 +11,18 @@
   flex: 1 0;
 }
 
-.top-bar__cta {
-  color: $accent-color;
-  font-weight: bold;
-  padding: 8px 12px;
-  font-size: 16px;
-  border: 2px solid $accent-color;
+.top-bar__link {
+  color: var(--color-gray-700);
+  font: var(--type-text-regular);
   text-decoration: none;
-
-  &:hover {
-    background: $accent-color;
-    color: white;
-  }
+  font-size: 16px;
 }
 
-.top-bar__link {
-  color: $gray-600;
-  text-decoration: none;
-  font-size: 16px;
-
-  &:hover {
-    color: $accent-color;
-  }
-
-  &:active {
-    color: $accent-dark-color;
-  }
+.top-bar__link:hover {
+  color: var(--color-accent);
 }
 
 .top-bar__link-separator {
   margin: 0 14px;
+  color: var(--color-gray-500);
 }

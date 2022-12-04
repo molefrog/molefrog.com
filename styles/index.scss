@@ -1,21 +1,14 @@
 @import "~sanitize.css";
 
-@import "./colors";
-@import "./media-queries";
-
 @import "./about.scss";
 @import "./top-bar.scss";
 @import "./footer.scss";
 @import "./mini-map.scss";
 @import "./preview.scss";
 
-body {
-  font-family: Inter, system-ui;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+:root {
+  --font-sans: Inter, system-ui;
+  --font-serif: sans-serif;
 
   --fs-small: 14px;
   --fs-regular: 16px;
@@ -23,14 +16,38 @@ body {
   --fs-large: 24px;
   --fs-xlarge: 36px;
 
+  --type-text-small: 14px / 26px var(--font-sans);
+  --type-text-regular: 16px / 28px var(--font-sans);
+  --type-text-medium: 500 18px / 32px var(--font-sans);
+  --type-header-large: 700 24px / 28px var(--font-sans);
+
+  --color-gray-100: #fcfcfc;
+  --color-gray-200: #f6f7fa;
+  --color-gray-300: #e6eaf4;
+  --color-gray-400: #c4c9d9;
+  --color-gray-500: #afb4c4;
+  --color-gray-600: #777b87;
+  --color-gray-700: #51555d;
+  --color-gray-800: #171717;
+
   --color-accent: #2c57fb;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 
   font-size: var(--fs-regular);
+  color: var(--color-gray-800);
   line-height: 1.7;
 }
 
-body::selection {
-  color: white;
+::selection {
+  color: var(--color-gray-200);
   background-color: var(--color-accent);
 }
 
@@ -38,8 +55,4 @@ body::selection {
   max-width: 768px;
   margin: 0 auto;
   padding: 0 32px;
-
-  @include breakpoint(md) {
-    padding: 0 16px;
-  }
 }
