@@ -1,10 +1,10 @@
 @import "~sanitize.css";
 
-@import "./about.scss";
-@import "./top-bar.scss";
-@import "./footer.scss";
-@import "./mini-map.scss";
-@import "./preview.scss";
+@import "./about.css";
+@import "./top-bar.css";
+@import "./footer.css";
+@import "./mini-map.css";
+@import "./preview.css";
 
 :root {
   --font-sans: Inter, system-ui;
