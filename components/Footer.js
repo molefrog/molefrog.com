@@ -7,7 +7,7 @@ const Footer = () => (
     </div>
     <div className="footer__links">
       <div className="footer__line">
-        <a className="footer__link" href="/static/cv-alexey-taktarov.pdf">
+        <a className="footer__link" href="/cv-alexey-taktarov.pdf">
           CV in English
         </a>
       </div>
@@ -68,20 +68,11 @@ const Footer = () => (
     </div>
 
     <div className="footer__note">
-      <br /> Bonus: I write down every single movie I watched since 2010, so
-      feel free to follow my{" "}
+      <br /> Bonus: I write down every single movie I watched since 2010, so feel free to follow my{" "}
       <a href="https://letterboxd.com/molefrog/" target="_blank" rel="noopener">
         Letterboxd page
       </a>{" "}
       if you're into movies.
-    </div>
-
-    <div className="footer__copyright">
-      ...<br />
-      <br />
-      2018. This site was build with React. Too much for a static website? I
-      don't care.<br />
-      <a href="https://github.com/molefrog/molefrog.github.io">Source code</a>.
     </div>
   </div>
 );

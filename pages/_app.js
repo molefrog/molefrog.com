@@ -1,44 +1,39 @@
-import React from "react";
-import App, { Container } from "next/app";
+import React, { useEffect } from "react";
 import Head from "next/head";
-
-const isServer = typeof window === "undefined";
 
 import "../styles/index.scss";
 
-export default class MyApp extends App {
-  static async getInitialProps({ Component, router, ctx }) {
-    let pageProps = {};
-
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
-
-    return { pageProps };
-  }
-
-  componentDidMount() {
-    if (!isServer) {
-      const legacyPreview = require("../components/legacy-preview").default;
+export default function Layout({ Component, pageProps }) {
+  useEffect(() => {
+    import("../components/legacy-preview").then(({ default: legacyPreview }) => {
       legacyPreview(document.body);
-    }
-  }
+    });
+  }, []);
 
-  render() {
-    const { Component, pageProps } = this.props;
+  return (
+    <>
+      <Head>
+        <title>Overcoming overcomplication → Alexey Taktarov</title>
 
-    return (
-      <Container>
-        <Head>
-          <title>Alex Taktarov — maker and full-stack engineer</title>
-          <meta
-            name="description"
-            key="meta-description"
-            content="Alexey Taktarov — a startup maker and full-stack engineer. Helps startups to launch products. Loves experimenting with UIs and design."
-          />
-        </Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="/favicon-48.png" sizes="48x48" />
+
+        <meta
+          name="description"
+          key="meta-description"
+          content={
+            "Alexey Taktarov (@mlfrg), web engineering consultant. " +
+            "Former resume.io founding engineer. " +
+            "I build things in JS, React, Node.js, Ruby on Rails."
+          }
+        />
+      </Head>
+
+      <main>
         <Component {...pageProps} />
-      </Container>
-    );
-  }
+      </main>
+    </>
+  );
 }

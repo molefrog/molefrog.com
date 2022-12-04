@@ -4,28 +4,28 @@
   "author": "Alexey Taktarov <molefrog@gmail.com>",
   "version": "0.1.337",
   "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/molefrog/molefrog.github.io.git"
   },
-  "scripts": {
-    "dev": "next -p 1337",
-    "build": "next build && next export",
-    "now-build": "npm run build",
-    "deploy": "npm run build && now --prod"
-  },
   "dependencies": {
-    "@zeit/next-sass": "^1.0.1",
     "domtastic": "^0.12.3",
-    "jquery": "^3.5.0",
     "micro-events": "^1.0.0",
     "most": "^1.2.2",
-    "next": "^7.0.2",
-    "node-sass": "^4.13.1",
+    "next": "^13.0.6",
     "raf": "^3.3.0",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "sanitize.css": "^5.0.0",
-    "velocity-animate": "^1.4.0"
+    "velocity-animate": "^1.5.2"
+  },
+  "devDependencies": {
+    "sass": "^1.56.1"
   }
 }

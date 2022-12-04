@@ -7,7 +7,6 @@ import Velocity from "velocity-animate";
 import dom from "domtastic";
 import raf from "raf";
 
-const { Promise } = window;
 import * as most from "most";
 
 import fromGlobalEvent from "./fromGlobalEvent";
@@ -40,7 +39,7 @@ class FloatingPreview {
         complete: () => {
           this.$instance.remove();
           this.isDestroyed = true;
-        }
+        },
       }
     );
   }
@@ -49,11 +48,7 @@ class FloatingPreview {
     const el = this.$instance.get(0);
     if (this.isDestroyed) return;
 
-    Velocity(
-      el,
-      { opacity: 1.0, translateY: 0 },
-      { duration: 900, easing: [600, 25] }
-    );
+    Velocity(el, { opacity: 1.0, translateY: 0 }, { duration: 900, easing: [600, 25] });
 
     this.animateShake();
   }
@@ -88,21 +83,15 @@ class FloatingPreview {
     const imageSource = this.$reference.attr("data-image");
 
     if (imageSource) {
-      dom(this.$instance)
-        .find(".preview__card")
-        .css("background-image", `url(${imageSource})`);
+      dom(this.$instance).find(".preview__card").css("background-image", `url(${imageSource})`);
 
       return Promise.resolve();
     }
 
     if (videoSource) {
-      const $video = dom("<video>")
-        .attr("loop", true)
-        .attr("src", videoSource);
+      const $video = dom("<video>").attr("loop", true).attr("src", videoSource);
 
-      dom(this.$instance)
-        .find(".preview__card")
-        .append($video);
+      dom(this.$instance).find(".preview__card").append($video);
 
       const video = $video.get(0);
       video.load();
@@ -111,17 +100,11 @@ class FloatingPreview {
 
       return new Promise((resolve, reject) => {
         video.addEventListener("canplaythrough", () => {
-          const [w, h] = scaleWithAspect(
-            video.videoWidth,
-            video.videoHeight,
-            500
-          );
+          const [w, h] = scaleWithAspect(video.videoWidth, video.videoHeight, 500);
 
           $video.attr("width", w).attr("height", h);
 
-          this.$instance
-            .find(".preview__card")
-            .css({ width: `${w}px`, height: `${h}px` });
+          this.$instance.find(".preview__card").css({ width: `${w}px`, height: `${h}px` });
 
           setTimeout(() => video.play(), 400);
           resolve();
@@ -140,11 +123,7 @@ class FloatingPreview {
       .addClass(`preview__floating--${previewMode}`)
       .html('<div class="preview__card"></div>');
 
-    Velocity(
-      this.$instance.get(0),
-      { opacity: 0, translateY: "200px" },
-      { duration: 0 }
-    );
+    Velocity(this.$instance.get(0), { opacity: 0, translateY: "200px" }, { duration: 0 });
 
     const $parent = dom(".preview");
     $parent.append(this.$instance);
@@ -157,7 +136,7 @@ class FloatingPreview {
 
 let $lastPreview = null;
 
-const onPreviewTrigger = reference => {
+const onPreviewTrigger = (reference) => {
   if ($lastPreview) {
     $lastPreview.destroy();
     $lastPreview = null;
@@ -172,12 +151,12 @@ const onPreviewTrigger = reference => {
 
 export default function legacyPreviewFeature(root) {
   const $hovered = most.merge(
-    fromGlobalEvent("mouseover", ".reference").map(x => x.target),
+    fromGlobalEvent("mouseover", ".reference").map((x) => x.target),
 
     fromGlobalEvent("mouseout", ".reference").constant(null)
   );
 
   const $debounced = $hovered.debounce(250);
 
-  $debounced.forEach(x => onPreviewTrigger(x));
+  $debounced.forEach((x) => onPreviewTrigger(x));
 }
