@@ -12,8 +12,8 @@
 
   --type-text-small: 14px / 26px var(--font-sans);
   --type-text-regular: 16px / 28px var(--font-sans);
-  --type-text-medium: 500 18px / 32px var(--font-sans);
-  --type-header-large: 700 24px / 28px var(--font-sans);
+  --type-text-medium: 400 19px / 34px var(--font-sans);
+  --type-header-large: 700 28px / 32px var(--font-sans);
 
   --color-gray-100: #fcfcfc;
   --color-gray-200: #f6f7fa;
@@ -31,7 +31,7 @@
   :root {
     --type-text-small: 14px / 26px var(--font-sans);
     --type-text-regular: 15px / 26px var(--font-sans);
-    --type-text-medium: 500 17px / 30px var(--font-sans);
+    --type-text-medium: 17px / 30px var(--font-sans);
     --type-header-large: 700 22px / 26px var(--font-sans);
   }
 }
