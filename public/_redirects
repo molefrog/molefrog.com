@@ -1,3 +1,3 @@
-/stateful-animations/* https://molefrog.github.io/stateful-animations/:splat 302
-/pidnn-talk/* https://molefrog.github.io/pidnn-talk/:splat 302
-/rye/* https://molefrog.github.io/rye/:splat 302
+/stateful-animations* https://molefrog.github.io/stateful-animations:splat 302
+/pidnn-talk* https://molefrog.github.io/pidnn-talk:splat 302
+/rye* https://molefrog.github.io/rye:splat 302
