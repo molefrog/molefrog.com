@@ -1,5 +1,4 @@
 @import "~sanitize.css";
-@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700&subset=latin-ext");
 
 @import "./colors";
 @import "./media-queries";
@@ -11,22 +10,32 @@
 @import "./preview.scss";
 
 body {
-  font-family: IBM Plex Mono, apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: Inter, system-ui;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 
-  line-height: 1.5;
-  font-size: 16px;
+  --fs-small: 14px;
+  --fs-regular: 16px;
+  --fs-medium: 18px;
+  --fs-large: 24px;
+  --fs-xlarge: 36px;
 
-  // Add fancy text selection styles
-  ::selection {
-    color: white;
-    background-color: $accent-color;
-  }
+  --color-accent: #2c57fb;
+
+  font-size: var(--fs-regular);
+  line-height: 1.7;
+}
+
+body::selection {
+  color: white;
+  background-color: var(--color-accent);
 }
 
 .site__content {
-  max-width: 800px;
+  max-width: 768px;
   margin: 0 auto;
   padding: 0 32px;
 
