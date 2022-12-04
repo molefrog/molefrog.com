@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import Head from "next/head";
 
+import { Inter } from "@next/font/google";
 import "../styles/index.scss";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Layout({ Component, pageProps }) {
   useEffect(() => {
