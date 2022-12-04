@@ -15,7 +15,6 @@
   color: var(--color-gray-700);
   font: var(--type-text-regular);
   text-decoration: none;
-  font-size: 16px;
 }
 
 .top-bar__link:hover {

@@ -10,12 +10,6 @@
   --font-sans: Inter, system-ui;
   --font-serif: sans-serif;
 
-  --fs-small: 14px;
-  --fs-regular: 16px;
-  --fs-medium: 18px;
-  --fs-large: 24px;
-  --fs-xlarge: 36px;
-
   --type-text-small: 14px / 26px var(--font-sans);
   --type-text-regular: 16px / 28px var(--font-sans);
   --type-text-medium: 500 18px / 32px var(--font-sans);
@@ -33,6 +27,15 @@
   --color-accent: #2c57fb;
 }
 
+@media (max-width: 768px) {
+  :root {
+    --type-text-small: 14px / 26px var(--font-sans);
+    --type-text-regular: 15px / 26px var(--font-sans);
+    --type-text-medium: 500 17px / 30px var(--font-sans);
+    --type-header-large: 700 22px / 26px var(--font-sans);
+  }
+}
+
 body {
   font-family: var(--font-sans);
   font-synthesis: none;
@@ -41,7 +44,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  font-size: var(--fs-regular);
+  font: var(--type-text-regular);
   color: var(--color-gray-800);
   line-height: 1.7;
 }
@@ -55,4 +58,12 @@ body {
   max-width: 768px;
   margin: 0 auto;
   padding: 0 32px;
+}
+
+@media (max-width: 768px) {
+  .site__content {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
 }
