@@ -1,7 +1,4 @@
-import React, { Component } from "react";
-
-import TopBar from "./TopBar";
-import Footer from "./Footer";
+import React from "react";
 
 const MagicLink = (props) => {
   const { children } = props;
@@ -134,17 +131,4 @@ const Content = () => (
   </div>
 );
 
-const Site = () => (
-  <div className="site__container">
-    <div className="preview" />
-    <div className="site__main-layout">
-      <main className="site__content">
-        <TopBar />
-        <Content />
-        <Footer />
-      </main>
-    </div>
-  </div>
-);
-
-export default Site;
+export default Content;

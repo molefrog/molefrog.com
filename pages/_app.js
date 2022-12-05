@@ -3,6 +3,9 @@ import Head from "next/head";
 
 import { Inter } from "@next/font/google";
 
+import TopBar from "../components/TopBar";
+import Footer from "../components/Footer";
+
 import "../styles/index.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -35,9 +38,16 @@ export default function Layout({ Component, pageProps }) {
         />
       </Head>
 
-      <main>
-        <Component {...pageProps} />
-      </main>
+      <div className="site__container">
+        <div className="preview" />
+        <div className="site__main-layout">
+          <main className="site__content">
+            <TopBar />
+            <Component {...pageProps} />
+            <Footer />
+          </main>
+        </div>
+      </div>
     </>
   );
 }
