@@ -1,10 +1,16 @@
 .top-bar {
-  padding: 32px 0;
-  margin-bottom: 32px;
+  padding-top: 32px;
+  margin-bottom: 64px;
 
   display: flex;
   flex-flow: row wrap;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .top-bar {
+    margin-bottom: 48px;
+  }
 }
 
 .top-bar__links {
@@ -23,5 +29,5 @@
 
 .top-bar__link-separator {
   margin: 0 16px;
-  color: var(--color-gray-500);
+  color: var(--color-gray-300);
 }

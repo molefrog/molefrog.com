@@ -13,13 +13,13 @@
 }
 
 .footer__reach-out {
-  color: var(--color-gray-600);
+  color: var(--color-gray-500);
   font: var(--type-text-regular);
   margin-bottom: 24px;
 }
 
 .footer__side-note {
-  color: var(--color-gray-600);
+  color: var(--color-gray-500);
   font: var(--type-text-small);
   margin-bottom: 32px;
 }

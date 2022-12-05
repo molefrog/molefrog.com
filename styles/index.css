@@ -10,19 +10,22 @@
   --font-sans: Inter, system-ui;
   --font-serif: sans-serif;
 
-  --type-text-small: 14px / 26px var(--font-sans);
-  --type-text-regular: 16px / 28px var(--font-sans);
-  --type-text-medium: 400 19px / 34px var(--font-sans);
-  --type-header-large: 700 28px / 32px var(--font-sans);
+  --type-text-small: 14px / 24px var(--font-sans);
+  --type-text-regular: 16px / 26px var(--font-sans);
+  --type-text-medium: 500 19px / 32px var(--font-sans);
 
-  --color-gray-100: #fcfcfc;
-  --color-gray-200: #f6f7fa;
-  --color-gray-300: #e6eaf4;
-  --color-gray-400: #c4c9d9;
-  --color-gray-500: #afb4c4;
-  --color-gray-600: #777b87;
-  --color-gray-700: #51555d;
-  --color-gray-800: #171717;
+  --type-header-large: 700 32px / 38px var(--font-sans);
+
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f4f4f5;
+  --color-gray-200: #e4e4e7;
+  --color-gray-300: #d4d4d8;
+  --color-gray-400: #a1a1aa;
+  --color-gray-500: #71717a;
+  --color-gray-600: #52525b;
+  --color-gray-700: #3f3f46;
+  --color-gray-800: #27272a;
+  --color-gray-900: #18181b;
 
   --color-accent: #2c57fb;
 }
@@ -31,8 +34,8 @@
   :root {
     --type-text-small: 14px / 26px var(--font-sans);
     --type-text-regular: 15px / 26px var(--font-sans);
-    --type-text-medium: 17px / 30px var(--font-sans);
-    --type-header-large: 700 22px / 26px var(--font-sans);
+    --type-text-medium: 400 18px / 28px var(--font-sans);
+    --type-header-large: 700 24px / 28px var(--font-sans);
   }
 }
 
@@ -46,11 +49,10 @@ body {
 
   font: var(--type-text-regular);
   color: var(--color-gray-800);
-  line-height: 1.7;
 }
 
 ::selection {
-  color: var(--color-gray-200);
+  color: var(--color-gray-100);
   background-color: var(--color-accent);
 }
 

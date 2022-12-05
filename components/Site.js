@@ -17,11 +17,10 @@ const MagicLink = (props) => {
 const Content = () => (
   <div>
     <section className="about">
-      <h1 className="about__header">Hi, it's Alexey.</h1>
-
+      <h1 className="about__header">Hi, it's Alexey. I build some web things.</h1>
       <div className="about__description">
         <div className="about__text">
-          <p>I build some web things, primarily in JS, Node, and Ruby.</p>
+          <p></p>
           <p>
             Occasionally, I{" "}
             <MagicLink
@@ -32,8 +31,8 @@ const Content = () => (
             </MagicLink>{" "}
             at tech conferences, write some{" "}
             <MagicLink href="https://github.com/molefrog">open-source code</MagicLink> and teach
-            other people how to code. I love designing UIs, playing around with animations, and
-            writing performant web apps & backends.
+            other people to code. I love designing UIs, playing around with animations, and writing
+            performant web apps & backends. I primarily use JS, Node, and Ruby.
           </p>
           <p>
             I've recently finished my work at{" "}
@@ -45,7 +44,6 @@ const Content = () => (
           </p>
         </div>
       </div>
-
       <section className="mini-map__section">
         <div className="mini-map__header">→ some recent work & experiments</div>
         <div className="mini-map">
