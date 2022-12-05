@@ -29,6 +29,7 @@
   --color-gray-900: #18181b;
 
   --color-accent: #2c57fb;
+  --color-accent-rgb: 44, 87, 251;
 }
 
 @media (max-width: 768px) {

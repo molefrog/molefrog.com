@@ -57,7 +57,6 @@
 
 .footer-cv__banner {
   background: white;
-  border: 1px solid var(--color-gray-200);
   border-radius: 6px;
   height: 62px;
   padding: 0 80px 0 18px;
@@ -71,6 +70,14 @@
 
   color: inherit;
   text-decoration: inherit;
+
+  border: 3px solid var(--color-gray-50);
+  box-shadow: 0px 0px 0px 1px var(--color-gray-200);
+}
+
+.footer-cv__banner:hover {
+  box-shadow: 0px 0px 0px 2px var(--color-accent);
+  border-color: rgba(var(--color-accent-rgb), 0.07);
 }
 
 @media (max-width: 640px) {
@@ -105,10 +112,6 @@
   transition: 0.2s transform ease;
   will-change: transform;
   pointer-events: none;
-}
-
-.footer-cv__banner:hover {
-  box-shadow: 0px 0px 0px 2px var(--color-accent);
 }
 
 .footer-cv__banner:hover .footer-cv__label {
