@@ -30,6 +30,8 @@
 
   --color-accent: #2c57fb;
   --color-accent-rgb: 44, 87, 251;
+
+  --main-container-width: 768px;
 }
 
 @media (max-width: 768px) {
@@ -58,16 +60,14 @@ body {
   background-color: var(--color-accent);
 }
 
-.site__content {
-  max-width: 768px;
+.layout__container {
+  max-width: var(--main-container-width);
   margin: 0 auto;
   padding: 0 32px;
 }
 
 @media (max-width: 768px) {
-  .site__content {
-    max-width: 768px;
-    margin: 0 auto;
+  .layout__container {
     padding: 0 20px;
   }
 }

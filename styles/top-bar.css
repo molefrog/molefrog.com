@@ -1,10 +1,6 @@
 .top-bar {
   padding-top: 32px;
   margin-bottom: 64px;
-
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
 }
 
 @media (max-width: 768px) {

@@ -38,16 +38,14 @@ export default function Layout({ Component, pageProps }) {
         />
       </Head>
 
-      <div className="site__container">
-        <div className="preview" />
-        <div className="site__main-layout">
-          <main className="site__content">
-            <TopBar />
-            <Component {...pageProps} />
-            <Footer />
-          </main>
-        </div>
-      </div>
+      <TopBar />
+
+      <Component {...pageProps} />
+
+      <Footer />
+
+      {/* Floating preview */}
+      <div className="preview" />
     </>
   );
 }
