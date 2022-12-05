@@ -10,6 +10,7 @@
   --font-sans: Inter, system-ui;
   --font-serif: sans-serif;
 
+  --type-text-x-small: 12px / 20px var(--font-sans);
   --type-text-small: 14px / 24px var(--font-sans);
   --type-text-regular: 16px / 26px var(--font-sans);
   --type-text-medium: 500 19px / 32px var(--font-sans);
