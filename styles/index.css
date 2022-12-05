@@ -33,9 +33,9 @@
 
 @media (max-width: 768px) {
   :root {
-    --type-text-small: 14px / 26px var(--font-sans);
+    --type-text-small: 14px / 23px var(--font-sans);
     --type-text-regular: 15px / 26px var(--font-sans);
-    --type-text-medium: 400 18px / 28px var(--font-sans);
+    --type-text-medium: 400 18px / 29px var(--font-sans);
     --type-header-large: 700 24px / 28px var(--font-sans);
   }
 }
@@ -67,6 +67,6 @@ body {
   .site__content {
     max-width: 768px;
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 0 20px;
   }
 }
