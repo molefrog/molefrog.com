@@ -1,0 +1,50 @@
+.references {
+  --marker-offset: 12px;
+  padding: 0;
+}
+
+.references a {
+  color: inherit;
+  text-decoration-color: var(--color-gray-300);
+}
+
+.references a:hover,
+.references a:active {
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 3px;
+}
+
+li.references__item {
+  padding-left: var(--marker-offset);
+  margin-left: calc(-1 * var(--marker-offset));
+}
+
+li.references__item + li.references__item {
+  margin-top: 28px;
+}
+
+li.references__item::marker {
+  font: var(--type-text-small);
+  color: var(--color-gray-400);
+  font-size: 12px;
+  margin-right: 8px;
+}
+
+.references__link {
+  color: var(--color-gray-800);
+  font-style: italic;
+  display: block;
+}
+
+.references__link:before {
+  content: "«";
+}
+
+.references__link:after {
+  content: "»";
+}
+
+.references__details {
+  margin-top: 6px;
+  font: var(--type-text-small);
+}
