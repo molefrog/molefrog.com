@@ -13,7 +13,6 @@
   font: var(--type-text-regular);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 1fr;
   gap: 12px 64px;
   margin-bottom: 40px;
 }
@@ -48,88 +47,15 @@
   color: var(--color-accent);
 }
 
-.footer-cv {
+.footer__cv {
   grid-area: 1 / 1 / span 2 / span 1;
   place-self: flex-start flex-start;
   width: 100%;
 }
 
 @media (max-width: 640px) {
-  .footer-cv {
+  .footer__cv {
     grid-column-end: span 2;
+    padding-bottom: 6px;
   }
-}
-
-.footer-cv__banner {
-  background: white;
-  border-radius: 6px;
-  height: 62px;
-  padding: 0 18px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  user-select: none;
-  max-width: 420px;
-
-  color: inherit;
-  text-decoration: inherit;
-
-  border: 3px solid var(--color-gray-50);
-  box-shadow: 0px 0px 0px 1px var(--color-gray-200);
-}
-
-.footer-cv__banner:hover {
-  box-shadow: 0px 0px 0px 2px var(--color-accent);
-  border-color: rgba(var(--color-accent-rgb), 0.07);
-}
-
-@media (max-width: 640px) {
-  .footer-cv__banner {
-    margin-bottom: 16px;
-    max-width: 304px;
-  }
-}
-
-.footer-cv__label {
-  font: var(--type-text-small);
-  color: var(--color-gray-700);
-  font-weight: 500;
-  margin-right: 96px;
-  margin-bottom: 2px;
-}
-
-.footer-cv__sub-label {
-  font: var(--type-text-x-small);
-  color: var(--color-gray-400);
-  line-height: 1;
-  margin-bottom: 6px;
-}
-
-.footer-cv__page {
-  width: 116px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  box-shadow: 1px 1px 16px 0 var(--color-gray-300), 0px 0px 0px 0.5px var(--color-gray-100);
-  transform: translateY(6px) rotate(3deg) scale(1.1, 1.1);
-  transition: 0.2s transform ease;
-  will-change: transform;
-  pointer-events: none;
-}
-
-.footer-cv__banner:hover .footer-cv__label {
-  color: var(--color-accent);
-  font-weight: 700;
-}
-
-.footer-cv__banner:hover .footer-cv__page {
-  color: var(--color-accent);
-  transform: translateY(11px);
-  box-shadow: 1px 1px 8px 0 var(--color-gray-200), 0px 0px 0px 0.5px var(--color-gray-200);
-}
-
-.footer-cv__banner:active .footer-cv__page {
-  transform: translateY(5px);
 }

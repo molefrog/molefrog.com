@@ -1,0 +1,70 @@
+.banner-cv__button {
+  background: white;
+  border-radius: 6px;
+  height: 62px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  max-width: 420px;
+
+  color: inherit;
+  text-decoration: inherit;
+  box-shadow: 0px 0px 0px 2px var(--color-gray-200);
+}
+
+.banner-cv__button:hover {
+  box-shadow: 0px 0px 0px 2px var(--color-accent);
+}
+
+@media (max-width: 640px) {
+  .banner-cv__button {
+    max-width: none;
+    height: 72px;
+  }
+}
+
+.banner-cv__label {
+  font: var(--type-text-small);
+  color: var(--color-gray-700);
+  font-weight: 500;
+  margin-right: 96px;
+  margin-bottom: 2px;
+}
+
+.banner-cv__sub-label {
+  font: var(--type-text-x-small);
+  color: var(--color-gray-400);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.banner-cv__page {
+  width: 116px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-shadow: 1px 1px 16px 0 var(--color-gray-300), 0px 0px 0px 0.5px var(--color-gray-100);
+  transform: translateY(6px) rotate(3deg) scale(1.1, 1.1);
+  transition: 0.2s transform ease;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.banner-cv__button:hover .banner-cv__label {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.banner-cv__button:hover .banner-cv__page {
+  color: var(--color-accent);
+  transform: translateY(11px);
+  box-shadow: 1px 1px 8px 0 var(--color-gray-200), 0px 0px 0px 0.5px var(--color-gray-200);
+}
+
+.banner-cv__button:active .banner-cv__page {
+  transform: translateY(5px);
+}

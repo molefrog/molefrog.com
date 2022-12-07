@@ -6,6 +6,7 @@
 @import "./mini-map.css";
 @import "./preview.css";
 @import "./references.css";
+@import "./banner-cv.css";
 
 :root {
   --font-sans: Inter, system-ui;
