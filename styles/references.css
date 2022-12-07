@@ -38,10 +38,12 @@ li.references__item::marker {
 
 .references__link:before {
   content: "«";
+  text-decoration-color: var(--color-gray-300);
 }
 
 .references__link:after {
   content: "»";
+  text-decoration-color: var(--color-gray-300);
 }
 
 .references__details {
