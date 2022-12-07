@@ -13,7 +13,11 @@ export const BannerCV = ({ resumeSSID }) => {
         <div className="banner-cv__sub-label">hosted on resume.io</div>
       </div>
 
-      <img className="banner-cv__page" src={imageSrc} alt="Alexey Taktarov, CV" />
+      <div
+        className="banner-cv__page"
+        style={{ backgroundImage: `url("${imageSrc}")` }}
+        alt="Alexey Taktarov, CV"
+      />
     </a>
   );
 };

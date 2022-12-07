@@ -44,6 +44,7 @@
 
 .banner-cv__page {
   width: 116px;
+  height: 163px;
   position: absolute;
   top: 0;
   right: 0;
@@ -52,6 +53,8 @@
   transition: 0.2s transform ease;
   will-change: transform;
   pointer-events: none;
+  background-size: cover;
+  background-position: center top;
 }
 
 .banner-cv__button:hover .banner-cv__label {
