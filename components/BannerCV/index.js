@@ -1,7 +1,7 @@
 export const BannerCV = ({ resumeSSID }) => {
   const cache = new Date().getMonth(); // update the preview once in a month
 
-  const imageSrc = `https://ssr.resume.tools/to-image/ssid-${resumeSSID}-1.webp?size=320&cache=${cache}`;
+  const imageSrc = `https://ssr.resume.tools/to-image/ssid-${resumeSSID}-1.webp?size=460&cache=${cache}`;
   const url = `https://resume.io/r/${resumeSSID}`;
 
   return (

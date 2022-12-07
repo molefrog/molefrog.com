@@ -20,13 +20,6 @@
   box-shadow: 0px 0px 0px 2px var(--color-accent);
 }
 
-@media (max-width: 640px) {
-  .banner-cv__button {
-    max-width: none;
-    height: 72px;
-  }
-}
-
 .banner-cv__label {
   font: var(--type-text-small);
   color: var(--color-gray-700);
@@ -70,4 +63,16 @@
 
 .banner-cv__button:active .banner-cv__page {
   transform: translateY(5px);
+}
+
+@media (max-width: 640px) {
+  .banner-cv__button {
+    max-width: none;
+    height: 72px;
+  }
+
+  .banner-cv__page {
+    width: 162px;
+    height: 190px;
+  }
 }
