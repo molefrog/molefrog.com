@@ -12,11 +12,10 @@
   --font-sans: Inter, system-ui;
   --font-serif: sans-serif;
 
-  --type-text-x-small: 12px / 20px var(--font-sans);
-  --type-text-small: 14px / 24px var(--font-sans);
-  --type-text-regular: 16px / 26px var(--font-sans);
+  --type-text-x-small: 500 12px / 20px var(--font-sans);
+  --type-text-small: 500 14px / 24px var(--font-sans);
+  --type-text-regular: 500 16px / 26px var(--font-sans);
   --type-text-medium: 500 19px / 32px var(--font-sans);
-
   --type-header-large: 700 32px / 38px var(--font-sans);
 
   --color-gray-50: #fafafa;
@@ -38,9 +37,9 @@
 
 @media (max-width: 768px) {
   :root {
-    --type-text-small: 14px / 23px var(--font-sans);
-    --type-text-regular: 15px / 26px var(--font-sans);
-    --type-text-medium: 400 18px / 29px var(--font-sans);
+    --type-text-small: 500 14px / 23px var(--font-sans);
+    --type-text-regular: 500 15px / 26px var(--font-sans);
+    --type-text-medium: 500 18px / 29px var(--font-sans);
     --type-header-large: 700 24px / 28px var(--font-sans);
   }
 }

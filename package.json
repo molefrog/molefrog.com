@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@next/font": "^13.0.6",
+    "clsx": "^1.2.1",
     "domtastic": "^0.12.3",
     "micro-events": "^1.0.0",
     "most": "^1.2.2",

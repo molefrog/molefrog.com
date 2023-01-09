@@ -6,7 +6,7 @@ const Footer = () => (
   <footer className="footer">
     <div className="layout__container">
       <div className="footer__reach-out">
-        ↘ You can reach out to me online via one of the links below
+        You can reach out to me online via one of the links below
       </div>
 
       <div className="footer__links">
