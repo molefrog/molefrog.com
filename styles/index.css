@@ -35,10 +35,12 @@
 
 @media (max-width: 768px) {
   :root {
+    --type-text-x-small: 500 12px / 20px var(--font-sans);
     --type-text-small: 500 14px / 23px var(--font-sans);
     --type-text-regular: 500 15px / 26px var(--font-sans);
     --type-text-medium: 500 18px / 29px var(--font-sans);
-    --type-header-large: 700 24px / 28px var(--font-sans);
+
+    --type-header-large: 500 italic 24px / 28px var(--font-serif);
   }
 }
 
