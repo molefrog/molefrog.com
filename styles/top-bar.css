@@ -15,7 +15,7 @@
   display: inline-flex;
   height: 36px;
   padding: 0 12px;
-  border-radius: 6px;
+  border-radius: 3px;
   align-items: center;
   color: var(--color-gray-800);
   font: var(--type-text-regular);
@@ -50,7 +50,7 @@
 }
 
 .top-bar__layout {
-  --logo-size: 48px;
+  --logo-size: 54px;
   --logo-margin: 40px;
 
   display: flex;
@@ -63,7 +63,7 @@
 }
 
 .top-bar__logo {
-  --color: var(--color-gray-400);
+  --color: var(--color-gray-300);
   border-radius: 3px;
   width: var(--logo-size);
   height: var(--logo-size);
@@ -83,14 +83,10 @@
   --color: var(--color-accent);
 }
 
-.top-bar__logo.top-bar__logo--active {
-  --color: var(--color-gray-700);
-}
-
 @media (max-width: 768px) {
   .top-bar__layout {
     flex-wrap: wrap;
-    --logo-size: 48px;
+    --logo-size: 32px;
     --logo-margin: 22px;
     margin-left: 0;
   }

@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
 import Head from "next/head";
-
-import { Inter } from "@next/font/google";
 import localFont from "@next/font/local";
 
 import TopBar from "../components/TopBar";
