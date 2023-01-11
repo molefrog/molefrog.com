@@ -17,7 +17,8 @@ const Redaction35 = localFont({
     { path: "../styles/fonts/Redaction/Redaction_35-Italic.woff2", weight: "500", style: "italic" },
     { path: "../styles/fonts/Redaction/Redaction_35-Bold.woff2", weight: "700", style: "normal" },
   ],
-  fallback: "serif",
+  fallback: ["serif"],
+  display: "swap",
 });
 
 export default function Layout({ Component, pageProps }) {
