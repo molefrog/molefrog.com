@@ -9,14 +9,12 @@
 @import "./banner-cv.css";
 
 :root {
-  --font-sans: Inter, system-ui;
-  --font-serif: sans-serif;
-
   --type-text-x-small: 500 12px / 20px var(--font-sans);
   --type-text-small: 500 14px / 24px var(--font-sans);
   --type-text-regular: 500 16px / 26px var(--font-sans);
   --type-text-medium: 500 19px / 32px var(--font-sans);
-  --type-header-large: 700 32px / 38px var(--font-sans);
+
+  --type-header-large: 500 italic 32px / 38px var(--font-serif);
 
   --color-gray-50: #fafafa;
   --color-gray-100: #f4f4f5;
