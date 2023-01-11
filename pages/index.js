@@ -14,7 +14,7 @@ const MagicLink = (props) => {
 const Index = () => (
   <div className="layout__container">
     <section className="about">
-      <h1 className="about__header">Hi, it's Alexey. I build some web things.</h1>
+      <h1 className="about__header">Hi, it&apos;s Alexey. I build some web things.</h1>
       <div className="about__description">
         <div className="about__text">
           <p></p>
@@ -32,12 +32,12 @@ const Index = () => (
             performant web apps & backends. I primarily use JS, Node, and Ruby.
           </p>
           <p>
-            I've recently finished my work at{" "}
+            I&apos;ve recently finished my work at{" "}
             <MagicLink video="/showcase/resume-io-sections.mp4" href="https://resume.io">
               resume.io
             </MagicLink>{" "}
-            — the company that I've co-founded, and helped to build. If you have some interesting
-            project or a startup idea, drop me a line, I'm always happy to talk!
+            — the company that I&apos;ve co-founded, and helped to build. If you have some
+            interesting project or a startup idea, drop me a line, I&apos;m always happy to talk!
           </p>
         </div>
       </div>

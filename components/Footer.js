@@ -82,11 +82,12 @@ const Footer = () => (
       </div>
 
       <div className="footer__side-note">
-        Bonus: I write down every single movie I've watched since 2010, so feel free to follow my{" "}
+        Bonus: I write down every single movie I&apos;ve watched since 2010, so feel free to follow
+        my{" "}
         <a href="https://letterboxd.com/molefrog/" target="_blank" rel="noopener noreferrer">
           Letterboxd account
         </a>{" "}
-        if you're into movies
+        if you&apos;re into movies
       </div>
     </div>
   </footer>

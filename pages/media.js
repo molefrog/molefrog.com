@@ -3,8 +3,9 @@ const Media = () => {
     <main className="layout__container">
       <h1>Media Mentions and Publications</h1>
       <p>
-        Here is a <i>"humble"</i> list of the articles me or my projects have been mentioned in, the
-        podcasts I've joined as a guest, or some articles I've written over the years.
+        Here is a <i>&quot;humble&quot;</i> list of the articles me or my projects have been
+        mentioned in, the podcasts I&apos;ve joined as a guest, or some articles I&apos;ve written
+        over the years.
       </p>
       <br />
 
