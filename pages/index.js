@@ -53,7 +53,7 @@ const Index = () => (
             style={{
               backgroundImage: "url('/images/resume-thumb.gif')",
             }}
-            href="https://resume.io"
+            href="https://resume.io/?ref=mlfrg"
           />
 
           <div
@@ -62,6 +62,7 @@ const Index = () => (
             style={{
               backgroundImage: "url('/images/dirty-anim-thumb.gif')",
             }}
+            href="http://molefrog.com/stateful-animations"
           />
 
           <a
@@ -112,7 +113,7 @@ const Index = () => (
             className="mini-map__item reference"
             data-video="/showcase/pidnn-talk.mp4"
             style={{ backgroundImage: "url('/images/pidnn-thumb.jpg')" }}
-            href="http://molefrog.com/piddn-talk"
+            href="http://molefrog.com/pidnn-talk"
           />
 
           <a
