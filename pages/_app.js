@@ -6,6 +6,7 @@ import TopBar from "../components/TopBar";
 import Footer from "../components/Footer";
 
 import "../styles/index.css";
+import favicon from "../public/favicon.svg";
 
 const Redaction35 = localFont({
   src: [
@@ -42,8 +43,7 @@ export default function Layout({ Component, pageProps }) {
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
-        <link rel="icon" type="image/png" href="/favicon-48.png" sizes="48x48" />
+        <link rel="icon" type="image/svg+xml" href={favicon.src} />
 
         <meta
           name="description"
