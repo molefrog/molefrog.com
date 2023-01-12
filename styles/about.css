@@ -4,6 +4,7 @@
 
 .about__header {
   font: var(--type-header-large);
+  -webkit-font-smoothing: none;
   letter-spacing: -0.03em;
   margin-bottom: 24px;
 }
@@ -23,6 +24,7 @@
 
 .about__description i {
   font-family: var(--font-serif);
+  -webkit-font-smoothing: none;
 }
 
 .about__link {
