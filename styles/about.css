@@ -5,7 +5,13 @@
 .about__header {
   font: var(--type-header-large);
   letter-spacing: -0.03em;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  .about__header {
+    margin-bottom: 16px;
+  }
 }
 
 .about__description {
@@ -13,6 +19,10 @@
   letter-spacing: -0.005em;
   color: var(--color-gray-800);
   margin-bottom: 48px;
+}
+
+.about__description i {
+  font-family: var(--font-serif);
 }
 
 .about__link {

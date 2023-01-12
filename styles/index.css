@@ -14,7 +14,7 @@
   --type-text-regular: 500 16px / 26px var(--font-sans);
   --type-text-medium: 500 19px / 32px var(--font-sans);
 
-  --type-header-large: 500 italic 32px / 38px var(--font-serif);
+  --type-header-large: 500 italic 48px / 52px var(--font-serif);
 
   --color-gray-50: #fafafa;
   --color-gray-100: #f4f4f5;
@@ -40,7 +40,7 @@
     --type-text-regular: 500 15px / 26px var(--font-sans);
     --type-text-medium: 500 18px / 29px var(--font-sans);
 
-    --type-header-large: 500 italic 24px / 28px var(--font-serif);
+    --type-header-large: 500 italic 32px / 36px var(--font-serif);
   }
 }
 
