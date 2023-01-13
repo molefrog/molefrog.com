@@ -28,10 +28,10 @@ const placementColumnCSS = {
   wide: "start / end",
 } as const;
 
-export const Container = ({ placement, ...props }: ContainerProps) => {
+export const Container = ({ placement, children, ...props }: ContainerProps) => {
   return (
-    <Grid>
-      <Grid.Block style={{ gridColumn: placementColumnCSS[placement] }} {...props} />
+    <Grid {...props}>
+      <Grid.Block style={{ gridColumn: placementColumnCSS[placement] }}>{children}</Grid.Block>
     </Grid>
   );
 };

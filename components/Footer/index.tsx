@@ -1,10 +1,15 @@
 import React from "react";
+import WrapBalancer from "react-wrap-balancer";
 
-import { BannerCV } from "./BannerCV";
+import { BannerCV } from "../BannerCV";
+import { Container } from "../Grid";
+
+import Image from "next/image";
+import logo from "./logo.svg";
 
 const Footer = () => (
   <footer className="footer">
-    <div className="layout__container">
+    <Container placement="inner" className="footer__main">
       <div className="footer__reach-out">
         You can reach out to me online via one of the links below
       </div>
@@ -80,16 +85,49 @@ const Footer = () => (
           </a>
         </div>
       </div>
+    </Container>
 
+    <Container placement="inner" className="footer__additional">
       <div className="footer__side-note">
-        Bonus: I write down every single movie I&apos;ve watched since 2010, so feel free to follow
-        my{" "}
-        <a href="https://letterboxd.com/molefrog/" target="_blank" rel="noopener noreferrer">
-          Letterboxd account
-        </a>{" "}
-        if you&apos;re into movies
+        <Image width={32} className="footer__logo" src={logo} alt="molefrog.com" />
+
+        <WrapBalancer>
+          The source code of this website can be found on{" "}
+          <a
+            href="https://github.com/molefrog/molefrog.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+          . The website uses{" "}
+          <a
+            className="redaction"
+            href="https://redaction.us"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Redaction
+          </a>{" "}
+          typeface, which is distributed under the Open Font License. Hosted on{" "}
+          <a href="https://pages.cloudflare.com/" target="_blank" rel="noopener noreferrer">
+            Cloudflare Pages
+          </a>
+          .
+        </WrapBalancer>
+
+        <WrapBalancer>
+          <p>
+            Bonus: I have been logging every single movie I have watched since 2010, feel free to
+            follow my{" "}
+            <a href="https://letterboxd.com/molefrog/" target="_blank" rel="noopener noreferrer">
+              Letterboxd account
+            </a>{" "}
+            if you&apos;re into movies.
+          </p>
+        </WrapBalancer>
       </div>
-    </div>
+    </Container>
   </footer>
 );
 
