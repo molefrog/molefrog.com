@@ -7,6 +7,7 @@
 @import "./preview.css";
 @import "./references.css";
 @import "./banner-cv.css";
+@import "./layout.css";
 
 :root {
   --type-text-x-small: 500 12px / 20px var(--font-sans);
@@ -26,6 +27,13 @@
   --color-gray-700: #3f3f46;
   --color-gray-800: #27272a;
   --color-gray-900: #18181b;
+
+  --color-accent-200: #738efc;
+  --color-accent-300: #5f7efc;
+  --color-accent-400: #4b6efb;
+  --color-accent-500: #2c57fb;
+  --color-accent-600: #234efb;
+  --color-accent-700: #0f3efa;
 
   --color-accent: #2c57fb;
   --color-accent-rgb: 44, 87, 251;
@@ -59,16 +67,4 @@ body {
 ::selection {
   color: var(--color-gray-100);
   background-color: var(--color-accent);
-}
-
-.layout__container {
-  max-width: var(--main-container-width);
-  margin: 0 auto;
-  padding: 0 32px;
-}
-
-@media (max-width: 768px) {
-  .layout__container {
-    padding: 0 20px;
-  }
 }
