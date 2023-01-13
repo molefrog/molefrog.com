@@ -14,9 +14,11 @@ export const Grid = ({ padding = true, className, ...props }: GridProps) => {
   );
 };
 
-Grid.Block = (props: ComponentProps<"div">) => {
+export const Block = (props: ComponentProps<"div">) => {
   return <div className="grid-layout__block" {...props} />;
 };
+
+Grid.Block = Block;
 
 export interface ContainerProps extends ComponentProps<"div"> {
   placement: "inner" | "outer" | "wide";
