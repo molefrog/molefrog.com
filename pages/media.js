@@ -1,26 +1,35 @@
+import { Container } from "../components/Grid";
+
 const Media = () => {
   return (
-    <main className="layout__container">
-      <h1>Media Mentions and Publications</h1>
-      <p>
-        Here is a <i>&quot;humble&quot;</i> list of the articles me or my projects have been
-        mentioned in, the podcasts I&apos;ve joined as a guest, or some articles I&apos;ve written
-        over the years.
-      </p>
-      <br />
+    <main>
+      <Container placement="inner">
+        <h1>Media Mentions and Publications</h1>
+        <p>
+          Here is a <i>&quot;humble&quot;</i> list of the articles me or my projects have been
+          mentioned in, the podcasts I&apos;ve joined as a guest, or some articles I&apos;ve written
+          over the years.
+        </p>
+        <br />
 
-      <ol className="references">
-        {REFERENCES.map(({ title, url, details }, idx_) => {
-          return (
-            <li key={idx_} className="references__item">
-              <a href={url} target="_blank" rel="noopener noreferrer" className="references__link">
-                {title}
-              </a>
-              <div className="references__details">{details}</div>
-            </li>
-          );
-        })}
-      </ol>
+        <ol className="references">
+          {REFERENCES.map(({ title, url, details }, idx_) => {
+            return (
+              <li key={idx_} className="references__item">
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="references__link"
+                >
+                  {title}
+                </a>
+                <div className="references__details">{details}</div>
+              </li>
+            );
+          })}
+        </ol>
+      </Container>
     </main>
   );
 };
