@@ -3,13 +3,15 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { clsx } from "clsx";
 
+import { Container } from "../Grid";
+
 const TopBar = () => {
   const router = useRouter();
   const pathname = new URL(router.asPath, "https://none.bar").pathname;
 
   return (
     <header className="top-bar">
-      <div className="layout__container">
+      <Container placement="inner">
         <div className="top-bar__layout">
           <div className="top-bar__logo-wrapper">
             <Link
@@ -47,7 +49,7 @@ const TopBar = () => {
             </Link>
           </div>
         </div>
-      </div>
+      </Container>
     </header>
   );
 };

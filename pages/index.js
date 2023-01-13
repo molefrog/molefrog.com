@@ -1,5 +1,6 @@
 import React from "react";
 import WrapBalancer from "react-wrap-balancer";
+import { Container } from "../components/Grid";
 
 const MagicLink = (props) => {
   const { children } = props;
@@ -13,7 +14,7 @@ const MagicLink = (props) => {
 };
 
 const Index = () => (
-  <div className="layout__container">
+  <Container placement="inner">
     <section className="about">
       <h1 className="about__header">
         Hi, it&apos;s Alexey. <WrapBalancer>I build some web things.</WrapBalancer>
@@ -44,7 +45,7 @@ const Index = () => (
           </p>
         </div>
       </div>
-      <section className="mini-map__section">
+      <div className="mini-map__section">
         <div className="mini-map__header">recent work & some experiments</div>
         <div className="mini-map">
           <a
@@ -130,9 +131,9 @@ const Index = () => (
             href="http://molefrog.com/rye"
           />
         </div>
-      </section>
+      </div>
     </section>
-  </div>
+  </Container>
 );
 
 export default Index;
