@@ -9,80 +9,82 @@ import logo from "./logo.svg";
 
 const Footer = () => (
   <footer className="footer">
-    <Container placement="inner" className="footer__main">
-      <div className="footer__reach-out">
-        You can reach out to me online via one of the links below
-      </div>
-
-      <div className="footer__links">
-        <div className="footer__cv">
-          <BannerCV resumeSSID="vGP2z" />
+    <Container placement="inner">
+      <div className="footer__main">
+        <div className="footer__reach-out">
+          You can reach out to me online via one of the links below
         </div>
 
-        <div className="footer__line">
-          <a
-            className="footer__link"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://github.com/molefrog"
-          >
-            GitHub
-          </a>
-        </div>
+        <div className="footer__links">
+          <div className="footer__cv">
+            <BannerCV resumeSSID="vGP2z" />
+          </div>
 
-        <div className="footer__line">
-          <a
-            className="footer__link"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://t.me/molefrog"
-          >
-            Telegram
-          </a>
-        </div>
+          <div className="footer__line">
+            <a
+              className="footer__link"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/molefrog"
+            >
+              GitHub
+            </a>
+          </div>
 
-        <div className="footer__line">
-          <a
-            className="footer__link"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://twitter.com/mlfrg"
-          >
-            Twitter
-          </a>
-        </div>
+          <div className="footer__line">
+            <a
+              className="footer__link"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://t.me/molefrog"
+            >
+              Telegram
+            </a>
+          </div>
 
-        <div className="footer__line">
-          <a
-            className="footer__link"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="http://codepen.io/molefrog/"
-          >
-            Codepen
-          </a>
-        </div>
+          <div className="footer__line">
+            <a
+              className="footer__link"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://twitter.com/mlfrg"
+            >
+              Twitter
+            </a>
+          </div>
 
-        <div className="footer__line">
-          <a
-            className="footer__link"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://speakerdeck.com/molefrog"
-          >
-            Speaker Deck
-          </a>
-        </div>
+          <div className="footer__line">
+            <a
+              className="footer__link"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="http://codepen.io/molefrog/"
+            >
+              Codepen
+            </a>
+          </div>
 
-        <div className="footer__line">
-          <a
-            className="footer__link"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://unsplash.com/@molefrog"
-          >
-            Unsplash
-          </a>
+          <div className="footer__line">
+            <a
+              className="footer__link"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://speakerdeck.com/molefrog"
+            >
+              Speaker Deck
+            </a>
+          </div>
+
+          <div className="footer__line">
+            <a
+              className="footer__link"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://unsplash.com/@molefrog"
+            >
+              Unsplash
+            </a>
+          </div>
         </div>
       </div>
     </Container>

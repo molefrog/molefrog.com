@@ -5,10 +5,14 @@
 
 .footer__main {
   border-top: 2px solid var(--color-gray-100);
+  margin: 0 auto;
+  margin-bottom: 80px;
 }
 
-.footer__additional {
-  border-top: 2px solid var(--color-gray-100);
+@media (max-width: 768px) {
+  .footer__main {
+    margin-bottom: 64px;
+  }
 }
 
 .footer__links {
@@ -16,7 +20,6 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px 64px;
-  margin-bottom: 72px;
 }
 
 .footer__reach-out {
@@ -59,7 +62,6 @@
   font: var(--type-text-small);
   margin: 0 auto 0 auto;
   text-align: center;
-  padding-top: 56px;
 }
 
 .footer__side-note a {
