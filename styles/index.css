@@ -8,6 +8,7 @@
 @import "./references.css";
 @import "./banner-cv.css";
 @import "./layout.css";
+@import "./solid-link.css";
 
 :root {
   --type-text-x-small: 500 12px / 20px var(--font-sans);
@@ -16,6 +17,8 @@
   --type-text-medium: 500 19px / 32px var(--font-sans);
 
   --type-header-large: 500 italic 48px / 52px var(--font-serif);
+  --type-header-medium: 500 italic 39.06px / 38px var(--font-serif);
+  --type-header-regular: 500 italic 31.25px / 38px var(--font-serif);
 
   --color-gray-50: #fafafa;
   --color-gray-100: #f4f4f5;

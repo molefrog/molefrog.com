@@ -1,17 +1,11 @@
 import React from "react";
 import WrapBalancer from "react-wrap-balancer";
 import { Container } from "../components/Grid";
+import { SolidLink } from "../components/SolidLink";
 
-const MagicLink = (props) => {
-  const { children } = props;
-  const linkProps = { href: props.href, target: props.target, rel: props.rel };
-
-  return (
-    <a className="about__link reference reference--inline" data-video={props.video} {...linkProps}>
-      {children}
-    </a>
-  );
-};
+const LinkWithPreview = ({ video, ...props }) => (
+  <SolidLink className="reference reference--inline" data-video={video} {...props} />
+);
 
 const Index = () => (
   <Container placement="inner">
@@ -24,29 +18,35 @@ const Index = () => (
           <p></p>
           <p>
             Occasionally, I{" "}
-            <MagicLink
+            <LinkWithPreview
               href="http://molefrog.com/stateful-animations/"
               video="/showcase/dirty-animations.mp4"
+              external
             >
               speak
-            </MagicLink>{" "}
+            </LinkWithPreview>{" "}
             at tech conferences, write some{" "}
-            <MagicLink href="https://github.com/molefrog">open-source code</MagicLink> and teach
-            other people to code. I love designing UIs, playing around with animations, and writing
-            performant web apps & backends. I primarily use JS, Node, and Ruby.
+            <LinkWithPreview href="https://github.com/molefrog" external>
+              open-source code
+            </LinkWithPreview>{" "}
+            and teach other people to code. I love designing UIs, playing around with animations,
+            and writing performant web apps & backends. I primarily use JS, Node, and Ruby.
           </p>
           <p>
             I&apos;ve recently finished my work at{" "}
-            <MagicLink video="/showcase/resume-io-sections.mp4" href="https://resume.io">
+            <LinkWithPreview
+              video="/showcase/resume-io-sections.mp4"
+              href="https://resume.io"
+              external
+            >
               resume.io
-            </MagicLink>{" "}
+            </LinkWithPreview>{" "}
             — the company that I&apos;ve co-founded, and helped to build. If you have some
             interesting project or a startup idea, drop me a line, I&apos;m always happy to talk!
           </p>
         </div>
       </div>
       <div className="mini-map__section">
-        <div className="mini-map__header">recent work & some experiments</div>
         <div className="mini-map">
           <a
             className="mini-map__item reference"
