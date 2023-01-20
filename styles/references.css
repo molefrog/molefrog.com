@@ -50,3 +50,9 @@ li.references__item::marker {
   margin-top: 6px;
   font: var(--type-text-small);
 }
+
+.page-header__header {
+  font: var(--type-header-medium);
+  letter-spacing: var(--type-ls-header);
+  -webkit-font-smoothing: none;
+}

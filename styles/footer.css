@@ -24,7 +24,7 @@
 
 .footer__reach-out {
   color: var(--color-gray-600);
-  font: var(--type-text-regular);
+  font: var(--type-text-small);
   margin-bottom: 32px;
   padding-top: 48px;
 }

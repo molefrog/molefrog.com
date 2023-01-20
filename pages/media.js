@@ -4,8 +4,8 @@ const Media = () => {
   return (
     <main>
       <Container placement="inner">
-        <h1>Media Mentions and Publications</h1>
-        <p>
+        <h2 className="page-header__header">Media Mentions and Publications</h2>
+        <p className="page-header__text">
           Here is a <i>&quot;humble&quot;</i> list of the articles me or my projects have been
           mentioned in, the podcasts I&apos;ve joined as a guest, or some articles I&apos;ve written
           over the years.

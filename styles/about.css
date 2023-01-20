@@ -4,8 +4,8 @@
 
 .about__header {
   font: var(--type-header-large);
+  letter-spacing: var(--type-ls-header);
   -webkit-font-smoothing: none;
-  letter-spacing: -0.03em;
   margin-bottom: 24px;
 }
 

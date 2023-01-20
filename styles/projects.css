@@ -1,0 +1,32 @@
+.project__name {
+  font: var(--type-header-medium);
+  -webkit-font-smoothing: none;
+  margin-bottom: 8px;
+}
+
+.project {
+  margin-bottom: 80px;
+}
+
+.project__title {
+  font: var(--type-text-regular);
+  color: var(--color-gray-500);
+  margin-bottom: 48px;
+}
+
+.project__description {
+  font: var(--type-text-regular);
+  /* columns: 2; */
+  /* column-gap: 72px; */
+}
+
+.project__description i {
+  font-family: var(--font-serif);
+  -webkit-font-smoothing: none;
+
+  color: var(--color-gray-600);
+}
+
+.project__description p {
+  margin: 0 0 28px 0;
+}
