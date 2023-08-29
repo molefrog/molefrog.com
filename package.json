@@ -32,8 +32,10 @@
     "velocity-animate": "^1.5.2"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20230821.0",
+    "@tsconfig/next": "^2.0.0",
     "@types/node": "18.11.15",
     "@types/react": "18.0.26",
-    "typescript": "4.9.4"
+    "typescript": "^5.2.2"
   }
 }
