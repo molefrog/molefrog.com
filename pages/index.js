@@ -58,13 +58,13 @@ export default function Index() {
               href="https://resume.io/?ref=mlfrg"
             />
 
-            <div
+            <a
               className="mini-map__item reference"
               data-video="/showcase/dirty-animations.mp4"
               style={{
                 backgroundImage: "url('/images/dirty-anim-thumb.gif')",
               }}
-              href="http://molefrog.com/stateful-animations"
+              href="https://molefrog.com/etc/stateful-animations/"
             />
 
             <a
@@ -76,12 +76,13 @@ export default function Index() {
               href="https://github.com/molefrog/redux-actuator"
             />
 
-            <div
+            <a
               className="mini-map__item reference"
               data-video="/showcase/laxlabs.mp4"
               style={{
                 backgroundImage: "url('/images/laxlabs-thumb.jpg')",
               }}
+              href="https://www.lacrosselabs.io/"
             />
 
             <a
@@ -108,28 +109,28 @@ export default function Index() {
               style={{
                 backgroundImage: "url('/images/smartomato-thumb.jpg')",
               }}
-              href="http://smartomato.ru"
+              href="https://smartomato.ru"
             />
 
             <a
               className="mini-map__item reference"
               data-video="/showcase/pidnn-talk.mp4"
               style={{ backgroundImage: "url('/images/pidnn-thumb.jpg')" }}
-              href="http://molefrog.com/pidnn-talk"
+              href="https://molefrog.com/etc/pid-neural-network/"
             />
 
             <a
               className="mini-map__item reference"
               data-video="/showcase/graphemescope.mp4"
               style={{ backgroundImage: "url('/images/scope-thumb.gif')" }}
-              href="http://codepen.io/molefrog/pen/juBad"
+              href="https://codepen.io/molefrog/pen/juBad"
             />
 
             <a
               className="mini-map__item reference"
               data-video="/showcase/rye.mp4"
               style={{ backgroundImage: "url('/images/rye-thumb.gif')" }}
-              href="http://molefrog.com/rye"
+              href="https://molefrog.com/etc/rye-js/"
             />
           </div>
         </div>
