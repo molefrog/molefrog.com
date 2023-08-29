@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Script from "next/script";
 import { Provider as WrapBalancerProvider } from "react-wrap-balancer";
 import Head from "next/head";
 import localFont from "@next/font/local";
@@ -56,6 +57,8 @@ export default function Layout({ Component, pageProps }) {
           }
         />
       </Head>
+
+      <Script data-domain="molefrog.com" src="https://plausible.io/js/script.js"></Script>
 
       <WrapBalancerProvider>
         <TopBar />
