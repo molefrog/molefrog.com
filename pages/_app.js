@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Provider as WrapBalancerProvider } from "react-wrap-balancer";
 import Head from "next/head";
 import localFont from "@next/font/local";
 
@@ -56,14 +57,16 @@ export default function Layout({ Component, pageProps }) {
         />
       </Head>
 
-      <TopBar />
+      <WrapBalancerProvider>
+        <TopBar />
 
-      <Component {...pageProps} />
+        <Component {...pageProps} />
 
-      <Footer />
+        <Footer />
 
-      {/* Floating preview */}
-      <div className="preview" />
+        {/* Floating preview */}
+        <div className="preview" />
+      </WrapBalancerProvider>
     </>
   );
 }

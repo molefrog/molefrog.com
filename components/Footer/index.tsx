@@ -118,16 +118,16 @@ const Footer = () => (
           .
         </WrapBalancer>
 
-        <WrapBalancer>
-          <p>
+        <p>
+          <WrapBalancer>
             Bonus: I have been logging every single movie I have watched since 2010, feel free to
             follow my{" "}
             <a href="https://letterboxd.com/molefrog/" target="_blank" rel="noopener noreferrer">
               Letterboxd account
             </a>{" "}
             if you&apos;re into movies.
-          </p>
-        </WrapBalancer>
+          </WrapBalancer>
+        </p>
       </div>
     </Container>
   </footer>

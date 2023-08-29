@@ -17,8 +17,8 @@
   "dependencies": {
     "@next/font": "13.1.1",
     "@types/react-dom": "18.0.9",
-    "clsx": "^1.2.1",
-    "domtastic": "^0.12.3",
+    "clsx": "^2.0.0",
+    "domtastic": "^0.15.12",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.1",
     "micro-events": "^1.0.0",
@@ -27,8 +27,8 @@
     "raf": "^3.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-wrap-balancer": "^0.3.0",
-    "sanitize.css": "^5.0.0",
+    "react-wrap-balancer": "^1.1.0",
+    "sanitize.css": "^13.0.0",
     "velocity-animate": "^1.5.2"
   },
   "devDependencies": {
