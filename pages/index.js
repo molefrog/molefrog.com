@@ -105,6 +105,14 @@ export default function Index() {
 
             <a
               className="mini-map__item reference"
+              style={{
+                backgroundImage: "url('/images/ficus-thumb.jpg')",
+              }}
+              href="https://ficus.io"
+            />
+
+            <a
+              className="mini-map__item reference"
               data-video="/showcase/smartomato.mp4"
               style={{
                 backgroundImage: "url('/images/smartomato-thumb.jpg')",
