@@ -1,6 +1,6 @@
 import { Container } from "../components/Grid";
 
-const Media = () => {
+export default function Media() {
   return (
     <main>
       <Container placement="inner">
@@ -32,9 +32,7 @@ const Media = () => {
       </Container>
     </main>
   );
-};
-
-export default Media;
+}
 
 /**
  * The list of publications, articles, podcasts
