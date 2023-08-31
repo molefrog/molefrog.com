@@ -69,8 +69,19 @@ export default function Index() {
             </a>
 
             <div className="selected-projects__title">
-              As a side-project, I&apos;ve written, designed and programmed an illustrated web-based
-              book with puzzles, animations and mini-games.
+              As a side-project, I&apos;ve written, designed and programmed an illustrated web-story
+              with puzzles, animations and mini-games.
+            </div>
+
+            <div className="selected-projects__links">
+              <a href="https://domik.ltd" className="project-link project-link--primary">
+                Read
+              </a>
+
+              <a href="https://youtu.be/rA4dgn4rt5E?si=1Gv_nncJrY6zcU9B" className="project-link">
+                <PlayIcon />
+                Behing the scenes
+              </a>
             </div>
           </div>
           <div className="selected-projects__item">
@@ -85,8 +96,14 @@ export default function Index() {
             </a>
 
             <div className="selected-projects__title">
-              Extra tiny React and Preact router library with 5k+&nbsp;GitHub stars and an API
-              similar to react-router.
+              Minimalistic React and Preact router library with 5k+&nbsp;stars on GitHub and an API
+              similar to classic react-router.
+            </div>
+
+            <div className="selected-projects__links">
+              <a href="https://github.com/molefrog/wouter" className="project-link">
+                GitHub
+              </a>
             </div>
           </div>
         </div>
@@ -189,3 +206,12 @@ export default function Index() {
     </Container>
   );
 }
+
+const PlayIcon = () => (
+  <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M7.32995 3.61615C8.0396 3.99172 8.0396 5.00828 7.32995 5.38385L1.46777 8.48634C0.801771 8.83881 -4.08964e-07 8.356 -3.76027e-07 7.60249L-1.04798e-07 1.39751C-7.18613e-08 0.643995 0.801772 0.161188 1.46777 0.513658L7.32995 3.61615Z"
+      fill="currentColor"
+    />
+  </svg>
+);
