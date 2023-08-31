@@ -1,7 +1,11 @@
 import React from "react";
+import Image from "next/image";
 import WrapBalancer from "react-wrap-balancer";
 import { Container } from "../components/Grid";
 import { SolidLink } from "../components/SolidLink";
+
+import domikImg from "../public/images/domik-highlight.webp";
+import wouterImg from "../public/images/wouter-highlight.webp";
 
 const LinkWithPreview = ({ video, ...props }) => (
   <SolidLink className="reference reference--inline" data-video={video} {...props} />
@@ -45,6 +49,39 @@ export default function Index() {
               — the company that I&apos;ve co-founded, and helped to build. If you have some
               interesting project or a startup idea, drop me a line, I&apos;m always happy to talk!
             </p>
+          </div>
+        </div>
+
+        <div className="selected-projects__grid">
+          <div className="selected-projects__item">
+            <a href="https://domik.ltd" className="selected-projects__pic">
+              <Image
+                src={domikImg}
+                fill
+                className="selected-projects__img"
+                alt="Domik Limited. Interactive story."
+              />
+            </a>
+
+            <div className="selected-projects__title">
+              As a side-project, I&apos;ve written, designed and programmed an illustrated web-based
+              book with puzzles, animations and mini-games.
+            </div>
+          </div>
+          <div className="selected-projects__item">
+            <a href="https://github.com/molefrog/wouter" className="selected-projects__pic">
+              <Image
+                src={wouterImg}
+                fill
+                className="selected-projects__img"
+                alt="wouter, open-source React.js router"
+              />
+            </a>
+
+            <div className="selected-projects__title">
+              Extra tiny React and Preact router library with 5k+&nbsp;GitHub stars and an API
+              similar to react-router.
+            </div>
           </div>
         </div>
         <div className="mini-map__section">

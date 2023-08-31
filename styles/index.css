@@ -20,6 +20,8 @@
   --type-header-large: 500 italic 48px / 52px var(--font-serif);
   --type-header-medium: 500 italic 39px / 38px var(--font-serif);
 
+  --type-text-caption: 500 17px / 27px var(--font-sans);
+
   /* letter spacing */
   --type-ls-header: -0.03em;
 
@@ -52,10 +54,12 @@
     --type-text-x-small: 500 12px / 20px var(--font-sans);
     --type-text-small: 500 15px / 24px var(--font-sans);
     --type-text-regular: 500 16px / 27px var(--font-sans);
-    --type-text-medium: 500 18px / 29px var(--font-sans);
+    --type-text-medium: 500 18px / 30px var(--font-sans);
 
     --type-header-large: 500 italic 32px / 36px var(--font-serif);
     --type-header-medium: 500 italic 25px / 38px var(--font-serif);
+
+    --type-text-caption: 500 16px / 26px var(--font-sans);
   }
 }
 
