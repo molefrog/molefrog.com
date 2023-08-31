@@ -62,6 +62,7 @@ export default function Index() {
               <Image
                 src={domikImg}
                 fill
+                placeholder="blur"
                 className="selected-projects__img"
                 alt="Domik Limited. Interactive story."
               />
@@ -77,6 +78,7 @@ export default function Index() {
               <Image
                 src={wouterImg}
                 fill
+                placeholder="blur"
                 className="selected-projects__img"
                 alt="wouter, open-source React.js router"
               />
