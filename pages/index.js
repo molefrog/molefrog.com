@@ -16,7 +16,11 @@ export default function Index() {
     <Container placement="inner">
       <section className="about">
         <h1 className="about__header">
-          Hi, it&apos;s Alexey. <WrapBalancer>I build some web things.</WrapBalancer>
+          <WrapBalancer>
+            Hi, it&apos;s Alexey.
+            <br />
+            I&nbsp;design and code web things.
+          </WrapBalancer>
         </h1>
         <div className="about__description">
           <div className="about__text">
@@ -30,12 +34,12 @@ export default function Index() {
               >
                 speak
               </LinkWithPreview>{" "}
-              at tech conferences, write some{" "}
+              at tech conferences, contribute to{" "}
               <LinkWithPreview href="https://github.com/molefrog" external>
-                open-source code
+                open-source
               </LinkWithPreview>{" "}
-              and teach other people to code. I love designing UIs, playing around with animations,
-              and writing performant web apps & backends. I primarily use JS, Node, and Ruby.
+              and teach others to code. I love designing UIs, playing around with animations, and
+              writing performant web apps & backends. I primarily use JS, Node/Deno, and Ruby.
             </p>
             <p>
               I&apos;ve recently finished my work at{" "}
