@@ -80,7 +80,7 @@ export default function Index() {
 
               <a href="https://youtu.be/rA4dgn4rt5E?si=1Gv_nncJrY6zcU9B" className="project-link">
                 <PlayIcon />
-                Behing the scenes
+                Behind the scenes
               </a>
             </div>
           </div>
