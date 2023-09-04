@@ -1,0 +1,28 @@
+/* 
+ * Eye icon and animations
+ */
+@keyframes spriteAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+.wonderingEyes {
+  --total-frames: 4;
+  background-image: url(./wondering-eyes.png);
+  background-size: auto 100%;
+  aspect-ratio: 1 / 1;
+
+  animation: 1s normal infinite spriteAnimation;
+  animation-timing-function: steps(var(--total-frames), jump-none);
+
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  box-sizing: border-box;
+
+  background-position: 100% 0%;
+}

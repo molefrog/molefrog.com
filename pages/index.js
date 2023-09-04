@@ -7,6 +7,8 @@ import { SolidLink } from "../components/SolidLink";
 import domikImg from "../public/images/domik-highlight.webp";
 import wouterImg from "../public/images/wouter-highlight.webp";
 
+import Showcase from "../components/Showcase";
+
 const LinkWithPreview = ({ video, ...props }) => (
   <SolidLink className="reference reference--inline" data-video={video} {...props} />
 );
@@ -109,14 +111,15 @@ export default function Index() {
         </div>
         <div className="mini-map__section">
           <div className="mini-map">
-            <a
-              className="mini-map__item reference"
-              data-video="/showcase/resume-io-sections.mp4"
-              style={{
-                backgroundImage: "url('/images/resume-thumb.gif')",
-              }}
-              href="https://resume.io/?ref=mlfrg"
-            />
+            <Showcase media={{ video: "/showcase/resume-io-sections.mp4" }}>
+              <a
+                className="mini-map__item reference"
+                style={{
+                  backgroundImage: "url('/images/resume-thumb.gif')",
+                }}
+                href="https://resume.io/?ref=mlfrg"
+              />
+            </Showcase>
 
             <a
               className="mini-map__item reference"
