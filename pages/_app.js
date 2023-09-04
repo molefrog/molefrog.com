@@ -25,12 +25,6 @@ const Redaction35 = localFont({
 });
 
 export default function Layout({ Component, pageProps }) {
-  useEffect(() => {
-    import("../components/legacy-preview").then(({ default: legacyPreview }) => {
-      legacyPreview(document.body);
-    });
-  }, []);
-
   return (
     <>
       <style jsx global>{`
