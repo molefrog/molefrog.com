@@ -11,6 +11,7 @@ import wouterImg from "../public/images/wouter-highlight.webp";
 
 import useLeaderThumbImg from "../public/showcase/use-leader-thumb.webp";
 import useLeaderImg from "../public/showcase/use-leader.webp";
+import theseGuysThumbImg from "../public/showcase/these-guys-thumb.webp";
 
 const LinkWithPreview = ({ video, ...props }) => (
   <SolidLink className="reference reference--inline" data-video={video} {...props} />
@@ -178,6 +179,23 @@ export default function Index() {
               }}
               href="https://www.lacrosselabs.io/"
             />
+
+            <Showcase
+              media={{
+                video: "/showcase/these-guys.mp4",
+                description:
+                  "I created an Easter egg demo where you could interact with flying particles. To animate these particles, I experimented with the bird flocking algorithm.",
+                tags: ["2017"],
+              }}
+            >
+              <a
+                className="mini-map__item"
+                style={{
+                  backgroundImage: `url(${theseGuysThumbImg.src})`,
+                }}
+                href="https://molefrog.com/etc/stateful-animations/#11"
+              />
+            </Showcase>
 
             <a
               className="mini-map__item reference"
