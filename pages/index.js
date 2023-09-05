@@ -9,6 +9,9 @@ import Showcase from "../components/Showcase";
 import domikImg from "../public/images/domik-highlight.webp";
 import wouterImg from "../public/images/wouter-highlight.webp";
 
+import useLeaderThumbImg from "../public/showcase/use-leader-thumb.webp";
+import useLeaderImg from "../public/showcase/use-leader.webp";
+
 const LinkWithPreview = ({ video, ...props }) => (
   <SolidLink className="reference reference--inline" data-video={video} {...props} />
 );
@@ -111,6 +114,23 @@ export default function Index() {
         </div>
         <div className="mini-map__section">
           <div className="mini-map">
+            <Showcase
+              media={{
+                image: useLeaderImg,
+                description:
+                  "Experimental library for primary tab detection that uses `BroadcastChannel` and distributed leader election. Not to be used in production!",
+                tags: ["2023", "React"],
+              }}
+            >
+              <a
+                className="mini-map__item reference"
+                style={{
+                  backgroundImage: `url(${useLeaderThumbImg.src})`,
+                }}
+                href="https://use-leader.surge.sh"
+              />
+            </Showcase>
+
             <Showcase
               media={{
                 video: "/showcase/resume-io-sections.mp4",

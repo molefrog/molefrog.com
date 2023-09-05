@@ -52,6 +52,8 @@ const Popover = ({ mousePosition, anchorElement, media, modal = false }) => {
     ? {} // static dialog
     : calculatePopoverPosition(anchorElement, mousePosition, PREVIEW_W, PREVIEW_H, MARGIN);
 
+  const tags = [media.tags ?? []].flat(); // ["a", "b"] or "b"
+
   return (
     <div
       className={clsx("showcase__popover", {
@@ -61,7 +63,7 @@ const Popover = ({ mousePosition, anchorElement, media, modal = false }) => {
       style={position}
     >
       <div className="showcase__media">
-        {media?.image && (
+        {media.image && (
           <Image
             src={media.image}
             alt={media.description}
@@ -71,7 +73,7 @@ const Popover = ({ mousePosition, anchorElement, media, modal = false }) => {
           />
         )}
 
-        {media?.video && (
+        {media.video && (
           <video
             className="showcase__video"
             onCanPlayThrough={handleResourceLoaded}
@@ -80,7 +82,7 @@ const Popover = ({ mousePosition, anchorElement, media, modal = false }) => {
             muted
             playsInline
           >
-            <source src={media.video} type={media?.format ?? "video/mp4"} />
+            <source src={media.video} type={media.format ?? "video/mp4"} />
           </video>
         )}
       </div>
@@ -94,7 +96,14 @@ const Popover = ({ mousePosition, anchorElement, media, modal = false }) => {
       {media?.description && (
         <div className="showcase__description">
           <Marquee speed={40} gradient gradientWidth={24} gradientColor={[14, 62, 250]}>
-            <span className="showcase__marquee">{media.description}</span>
+            <div className="showcase__marquee">
+              {tags.map((tag) => (
+                <span key={tag} className="showcase__tag">
+                  {tag}
+                </span>
+              ))}
+              {media.description}
+            </div>
           </Marquee>
         </div>
       )}
