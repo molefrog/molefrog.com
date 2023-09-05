@@ -111,7 +111,11 @@ export default function Index() {
         </div>
         <div className="mini-map__section">
           <div className="mini-map">
-            <Showcase media={{ video: "/showcase/resume-io-sections.mp4" }}>
+            <Showcase
+              media={{
+                video: "/showcase/resume-io-sections.mp4",
+              }}
+            >
               <a
                 className="mini-map__item reference"
                 style={{
@@ -121,14 +125,21 @@ export default function Index() {
               />
             </Showcase>
 
-            <a
-              className="mini-map__item reference"
-              data-video="/showcase/dirty-animations.mp4"
-              style={{
-                backgroundImage: "url('/images/dirty-anim-thumb.gif')",
+            <Showcase
+              media={{
+                video: "/showcase/dirty-animations.mp4",
+                description:
+                  "'Animations in a Stateful World' is an interactive presentation I made for my HolyJS'2018 talk. It highlights principles of making fluid and stateful animations in React.",
               }}
-              href="https://molefrog.com/etc/stateful-animations/"
-            />
+            >
+              <a
+                className="mini-map__item reference"
+                style={{
+                  backgroundImage: "url('/images/dirty-anim-thumb.gif')",
+                }}
+                href="https://molefrog.com/etc/stateful-animations/"
+              />
+            </Showcase>
 
             <a
               className="mini-map__item reference"

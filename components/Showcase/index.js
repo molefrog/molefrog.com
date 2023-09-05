@@ -1,16 +1,10 @@
-import {
-  isValidElement,
-  cloneElement,
-  useRef,
-  useEffect,
-  useState,
-  memo,
-  useCallback,
-} from "react";
+import { isValidElement, cloneElement, useRef, useEffect, useState, memo } from "react";
 import clsx from "clsx";
 import Image from "next/image";
 import useMouse from "@react-hook/mouse-position";
 import { useLockBodyScroll } from "react-use";
+import Marquee from "react-fast-marquee";
+
 import WonderingEyes from "../WonderingEyes";
 
 const PREVIEW_W = 480;
@@ -61,7 +55,7 @@ const Popover = ({ mousePosition, anchorElement, media, modal = false }) => {
         {media?.image && (
           <Image
             src={media.image}
-            alt={desc}
+            alt={media.description}
             fill
             className="showcase__img"
             onLoadingComplete={handleResourceLoaded}
@@ -85,6 +79,14 @@ const Popover = ({ mousePosition, anchorElement, media, modal = false }) => {
       {loadingState === "placeholder" && (
         <div className="showcase__placeholder">
           <WonderingEyes />
+        </div>
+      )}
+
+      {media?.description && (
+        <div className="showcase__description">
+          <Marquee speed={40} gradient gradientWidth={24} gradientColor={[14, 62, 250]}>
+            <span className="showcase__marquee">{media.description}</span>
+          </Marquee>
         </div>
       )}
     </div>

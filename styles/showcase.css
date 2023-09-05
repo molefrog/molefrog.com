@@ -108,3 +108,30 @@
 .showcase__modal-button:active {
   color: var(--color-accent);
 }
+
+.showcase__description {
+  position: absolute;
+  bottom: 22px;
+  left: 0px;
+  height: 32px;
+  background: var(--color-accent-700);
+  color: white;
+  font: var(--type-text-medium);
+  transform: rotate(-0.5deg);
+
+  display: flex;
+  align-items: center;
+
+  box-shadow: 0px 1px 6px -1px rgba(0, 0, 0, 0.15);
+  font-family: var(--font-serif);
+}
+
+@media (max-width: 640px) {
+  .showcase__description {
+    bottom: 12px;
+  }
+}
+
+.showcase__marquee {
+  padding: 0px 32px;
+}
