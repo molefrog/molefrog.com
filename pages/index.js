@@ -4,10 +4,10 @@ import WrapBalancer from "react-wrap-balancer";
 import { Container } from "../components/Grid";
 import { SolidLink } from "../components/SolidLink";
 
+import Showcase from "../components/Showcase";
+
 import domikImg from "../public/images/domik-highlight.webp";
 import wouterImg from "../public/images/wouter-highlight.webp";
-
-import Showcase from "../components/Showcase";
 
 const LinkWithPreview = ({ video, ...props }) => (
   <SolidLink className="reference reference--inline" data-video={video} {...props} />

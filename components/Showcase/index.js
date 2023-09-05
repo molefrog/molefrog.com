@@ -1,14 +1,31 @@
-import { isValidElement, cloneElement, useRef, useEffect, useState, memo } from "react";
+import {
+  isValidElement,
+  cloneElement,
+  useRef,
+  useEffect,
+  useState,
+  memo,
+  useCallback,
+} from "react";
 import clsx from "clsx";
 import Image from "next/image";
 import useMouse from "@react-hook/mouse-position";
+import { useLockBodyScroll } from "react-use";
 import WonderingEyes from "../WonderingEyes";
 
 const PREVIEW_W = 480;
 const PREVIEW_H = 320;
 const MARGIN = 12;
 
-const Popover = ({ mousePosition, anchorElement, media }) => {
+const shouldUseModalDialog = () => {
+  if (typeof window === "undefined") return false;
+
+  const isMobile = window.matchMedia("(max-width: 640px)").matches;
+  const isTouch = window.matchMedia("(pointer: coarse)").matches;
+  return isMobile || isTouch;
+};
+
+const Popover = ({ mousePosition, anchorElement, media, modal = false }) => {
   // "init" | "placeholder" | "loaded"
   const [loadingState, setLoadingState] = useState("init");
 
@@ -28,18 +45,15 @@ const Popover = ({ mousePosition, anchorElement, media }) => {
     setLoadingState("loaded");
   };
 
-  const position = calculatePopoverPosition(
-    anchorElement,
-    mousePosition,
-    PREVIEW_W,
-    PREVIEW_H,
-    MARGIN
-  );
+  const position = modal
+    ? {} // static dialog
+    : calculatePopoverPosition(anchorElement, mousePosition, PREVIEW_W, PREVIEW_H, MARGIN);
 
   return (
     <div
       className={clsx("showcase__popover", {
         "showcase__popover--hidden": loadingState === "init",
+        "showcase__popover--modal": modal,
       })}
       style={position}
     >
@@ -93,12 +107,46 @@ const Showcase = ({ children, media }) => {
     setIsHydrated(true);
   }, []);
 
+  /* Static modal dialog, on mobiles and small screens */
+  const isStatic = shouldUseModalDialog();
+  const [staticDialogOpen, setStaticDialogOpen] = useState(false);
+  const backdropRef = useRef(null);
+
+  const handleBackdropClick = (event) => {
+    if (event.target === backdropRef.current) {
+      setStaticDialogOpen(false);
+    }
+  };
+  useLockBodyScroll(isHydrated && isStatic && staticDialogOpen);
+
+  // when in static mode, open the dialog on click
+  useEffect(() => {
+    if (isStatic && ref.current) {
+      const handleAnchorClick = (event) => {
+        event.preventDefault();
+        setStaticDialogOpen(true);
+      };
+
+      const el = ref.current;
+
+      el.addEventListener("click", handleAnchorClick);
+      return () => el.removeEventListener("click", handleAnchorClick);
+    }
+  }, [isStatic]);
+
   if (!isValidElement) return "Children must be a single element";
 
   return (
     <>
-      {isHydrated && pos.isOver && (
+      {!isStatic && isHydrated && pos.isOver && (
         <Popover mousePosition={pos} anchorElement={ref.current} media={media} />
+      )}
+      {isStatic && isHydrated && staticDialogOpen && (
+        <div className="showcase__static-backdrop" ref={backdropRef} onClick={handleBackdropClick}>
+          <Popover modal media={media} />
+
+          <a className="showcase__modal-button">codepen.io ↗</a>
+        </div>
       )}
       <Wrap />
     </>
