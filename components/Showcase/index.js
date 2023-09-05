@@ -134,6 +134,8 @@ const Showcase = ({ children, media }) => {
     }
   }, [isStatic]);
 
+  const url = children.props.href || media?.link;
+
   if (!isValidElement) return "Children must be a single element";
 
   return (
@@ -145,7 +147,11 @@ const Showcase = ({ children, media }) => {
         <div className="showcase__static-backdrop" ref={backdropRef} onClick={handleBackdropClick}>
           <Popover modal media={media} />
 
-          <a className="showcase__modal-button">codepen.io ↗</a>
+          {url && (
+            <a href={url} className="showcase__modal-button">
+              {new URL(url).host} ↗
+            </a>
+          )}
         </div>
       )}
       <Wrap />
