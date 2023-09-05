@@ -29,9 +29,18 @@ const Popover = ({ mousePosition, anchorElement, media, modal = false }) => {
   useEffect(() => {
     if (placeholderTimer.current !== null) return;
 
-    placeholderTimer.current = setTimeout(() => setLoadingState("placeholder"), 350);
+    if (modal) {
+      setLoadingState("placeholder");
+    } else {
+      placeholderTimer.current = setTimeout(() => setLoadingState("placeholder"), 350);
+    }
     loadedTimer.current = setTimeout(() => setLoadingState("loaded"), 2000);
-  }, []);
+
+    return () => {
+      clearTimeout(placeholderTimer.current);
+      clearTimeout(loadedTimer.current);
+    };
+  }, [modal]);
 
   const handleResourceLoaded = () => {
     clearTimeout(placeholderTimer.current);

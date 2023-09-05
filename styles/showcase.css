@@ -13,8 +13,9 @@
 
 .showcase__popover--modal {
   width: 100%;
-  height: calc(430px / 1.5);
+  height: calc(440px / 1.5);
   position: relative;
+  border-radius: 0px;
 }
 
 .showcase__popover--hidden {
@@ -27,19 +28,19 @@
   inset: 0 0 0 0;
   z-index: 998;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 32px 12px;
+  backdrop-filter: blur(1px);
+  padding: 32px 0px;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
-  gap: 64px;
+  gap: 40px;
 }
 
 .showcase__placeholder {
   position: absolute;
   inset: 0 0 0 0;
   overflow: hidden;
-  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,7 +55,6 @@
   position: absolute;
   inset: 0 0 0 0;
   overflow: hidden;
-  border-radius: 8px;
   font-size: 20px;
 }
 
@@ -88,7 +88,7 @@
 
 .showcase__modal-button {
   background-color: var(--color-gray-50);
-  border-radius: 12px;
+  border-radius: 32px;
   max-width: 230px;
   height: 64px;
   border: none;
