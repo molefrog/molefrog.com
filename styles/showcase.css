@@ -15,6 +15,7 @@
 
 .showcase__popover--modal {
   width: 100%;
+  max-width: 480px;
   height: calc(440px / var(--aspect-ratio));
   position: relative;
   border-radius: 0px;
