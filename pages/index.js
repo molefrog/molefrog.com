@@ -21,6 +21,11 @@ import ryeThumbImg from "../public/showcase/rye-thumb.gif";
 import pidnnThumbImg from "../public/showcase/pidnn-thumb.jpg";
 import pplaworkThumbImg from "../public/showcase/pplawork-thumb.webp";
 import pplaworkImg from "../public/showcase/pplawork.webp";
+import wultraThumbImg from "../public/showcase/wultra-thumb.webp";
+import wultraImg from "../public/showcase/wultra.webp";
+import dateParseThumbImg from "../public/showcase/date-parse-thumb.webp";
+import dateParseImg from "../public/showcase/date-parse.webp";
+import railsFrontendImg from "../public/showcase/rails-frontend.webp";
 
 const LinkWithPreview = ({ video, ...props }) => <SolidLink data-video={video} {...props} />;
 
@@ -135,6 +140,23 @@ export default function Index() {
                   backgroundImage: `url(${useLeaderThumbImg.src})`,
                 }}
                 href="https://use-leader.surge.sh"
+              />
+            </Showcase>
+
+            <Showcase
+              media={{
+                image: wultraImg,
+                description:
+                  "Demo app that shows how wouter can be used with Ultra.js, a Deno framework.",
+                tags: ["2023", "Deno", "React"],
+              }}
+            >
+              <a
+                className="mini-map__item"
+                style={{
+                  backgroundImage: `url(${wultraThumbImg.src})`,
+                }}
+                href="https://wultra.deno.dev/"
               />
             </Showcase>
 
@@ -259,23 +281,38 @@ export default function Index() {
               />
             </Showcase>
 
-            <a
-              className="mini-map__item"
-              data-image="/showcase/rails-webpack.jpg"
-              style={{
-                backgroundImage: "url('/images/rails-webpack-thumb.jpg')",
+            <Showcase
+              media={{
+                image: railsFrontendImg,
+                description:
+                  'My talk "Give a Second Chance to Rails Frontend" presented at Rails Club 2016, was dedicated to using modern bundlers, particularly Webpack, with Ruby on Rails 4.2',
+                aspectRatio: 16 / 9,
+                tags: ["2016", "Ruby on Rails", "Speaking"],
               }}
-              href="https://speakerdeck.com/molefrog/give-a-second-change-to-rails-frontend"
-            />
+            >
+              <a
+                className="mini-map__item"
+                style={{
+                  backgroundImage: "url('/images/rails-webpack-thumb.jpg')",
+                }}
+                href="https://speakerdeck.com/molefrog/give-a-second-change-to-rails-frontend"
+              />
+            </Showcase>
 
-            <a
-              className="mini-map__item"
-              data-image="/showcase/date-parse.jpg"
-              style={{
-                backgroundImage: "url('/images/date-parse-thumb.jpg')",
+            <Showcase
+              media={{
+                image: dateParseImg,
               }}
-              href="https://medium.com/@mlfrg/rules-of-parsing-dates-with-date-parse-c5a73525a72e"
-            />
+            >
+              <a
+                className="mini-map__item"
+                data-image="/showcase/date-parse.jpg"
+                style={{
+                  backgroundImage: `url(${dateParseThumbImg.src})`,
+                }}
+                href="https://medium.com/@mlfrg/rules-of-parsing-dates-with-date-parse-c5a73525a72e"
+              />
+            </Showcase>
 
             <a
               className="mini-map__item"
