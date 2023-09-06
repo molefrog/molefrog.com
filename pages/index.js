@@ -164,7 +164,7 @@ export default function Index() {
               <a
                 className="mini-map__item"
                 style={{
-                  backgroundImage: "url('/images/actuator-thumb.gif')",
+                  backgroundImage: `url(${reduxActuatorThumbImg.src})`,
                 }}
                 href="https://github.com/molefrog/redux-actuator"
               />

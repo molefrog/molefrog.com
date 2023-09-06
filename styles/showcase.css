@@ -47,7 +47,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-gray-200);
+  background-color: var(--color-gray-100);
 }
 
 .showcase__placeholder > span {
@@ -117,6 +117,7 @@
   bottom: 22px;
   left: 0px;
   height: 32px;
+  width: 100%;
   background: var(--color-accent-700);
   color: white;
   font: var(--type-text-medium);
@@ -139,12 +140,13 @@
   padding: 0px 32px;
   display: flex;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .showcase__tag {
   border-radius: 32px;
   border: 1px solid white;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   font-family: var(--font-sans);
   font-weight: 600;

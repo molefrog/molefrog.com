@@ -26,8 +26,6 @@ const Popover = ({ mousePosition, anchorElement, media, modal = false }) => {
   const loadedTimer = useRef(null);
 
   useEffect(() => {
-    if (placeholderTimer.current !== null) return;
-
     if (modal) {
       setLoadingState("placeholder");
     } else {
@@ -102,7 +100,12 @@ const Popover = ({ mousePosition, anchorElement, media, modal = false }) => {
 
       {media?.description && (
         <div className="showcase__description">
-          <Marquee speed={40} gradient gradientWidth={24} gradientColor={[14, 62, 250]}>
+          <Marquee
+            speed={loadingState === "loaded" ? 40 : 0}
+            gradient
+            gradientWidth={24}
+            gradientColor={[14, 62, 250]}
+          >
             <div className="showcase__marquee">
               {tags.map((tag) => (
                 <span key={tag} className="showcase__tag">
