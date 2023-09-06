@@ -26,6 +26,7 @@ import wultraImg from "../public/showcase/wultra.webp";
 import dateParseThumbImg from "../public/showcase/date-parse-thumb.webp";
 import dateParseImg from "../public/showcase/date-parse.webp";
 import railsFrontendImg from "../public/showcase/rails-frontend.webp";
+import smartomatoThumbImg from "../public/showcase/smartomato-thumb.webp";
 
 const LinkWithPreview = ({ video, ...props }) => <SolidLink data-video={video} {...props} />;
 
@@ -287,7 +288,7 @@ export default function Index() {
                 description:
                   'My talk "Give a Second Chance to Rails Frontend" presented at Rails Club 2016, was dedicated to using modern bundlers, particularly Webpack, with Ruby on Rails 4.2',
                 aspectRatio: 16 / 9,
-                tags: ["2016", "Ruby on Rails", "Speaking"],
+                tags: ["2016", "Rails", "Speaking"],
               }}
             >
               <a
@@ -314,14 +315,22 @@ export default function Index() {
               />
             </Showcase>
 
-            <a
-              className="mini-map__item"
-              data-video="/showcase/smartomato.mp4"
-              style={{
-                backgroundImage: "url('/images/smartomato-thumb.jpg')",
+            <Showcase
+              media={{
+                video: "/showcase/smartomato.mp4",
+                tags: ["2014–2016"],
+                description:
+                  "I worked as a lead full-stack developer for Smartomato, a food delivery startup, where I maintained the Ember.js SPA and the Rails backend.",
               }}
-              href="https://smartomato.ru"
-            />
+            >
+              <a
+                className="mini-map__item"
+                style={{
+                  backgroundImage: `url(${smartomatoThumbImg.src})`,
+                }}
+                href="https://smartomato.ru"
+              />
+            </Showcase>
 
             <a
               className="mini-map__item"
