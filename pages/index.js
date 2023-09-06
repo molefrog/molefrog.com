@@ -15,6 +15,8 @@ import theseGuysThumbImg from "../public/showcase/these-guys-thumb.webp";
 import laxlabsThumbImg from "../public/showcase/laxlabs-thumb.webp";
 import ficusThumbImg from "../public/showcase/ficus-thumb.webp";
 import dirtyAnimationsThumbImg from "../public/showcase/dirty-animations-thumb.gif";
+import reduxActuatorImg from "../public/showcase/redux-actuator.gif";
+import reduxActuatorThumbImg from "../public/showcase/redux-actuator-thumb.gif";
 
 const LinkWithPreview = ({ video, ...props }) => <SolidLink data-video={video} {...props} />;
 
@@ -150,14 +152,23 @@ export default function Index() {
               />
             </Showcase>
 
-            <a
-              className="mini-map__item"
-              data-video="/showcase/redux-actuator.mp4"
-              style={{
-                backgroundImage: "url('/images/actuator-thumb.gif')",
+            <Showcase
+              media={{
+                image: reduxActuatorImg,
+                aspectRatio: 16 / 9,
+                description:
+                  "Redux middleware to trigger imperative effects using pure state updates. No longer maintained.",
+                tags: ["2017", "OSS", "React"],
               }}
-              href="https://github.com/molefrog/redux-actuator"
-            />
+            >
+              <a
+                className="mini-map__item"
+                style={{
+                  backgroundImage: "url('/images/actuator-thumb.gif')",
+                }}
+                href="https://github.com/molefrog/redux-actuator"
+              />
+            </Showcase>
 
             <Showcase
               media={{
