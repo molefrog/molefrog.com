@@ -18,7 +18,7 @@ const shouldUseModalDialog = () => {
   return isMobile || isTouch;
 };
 
-const Popover = ({ mousePosition, anchorElement, media, modal = false, aspectRatio = 1.5 }) => {
+const Popover = ({ mousePosition, anchorElement, media, modal = false }) => {
   // "init" | "placeholder" | "loaded"
   const [loadingState, setLoadingState] = useState("init");
 
@@ -46,6 +46,8 @@ const Popover = ({ mousePosition, anchorElement, media, modal = false, aspectRat
     clearTimeout(loadedTimer.current);
     setLoadingState("loaded");
   };
+
+  const { aspectRatio = 1.5 } = media;
 
   const position = modal
     ? {} // static dialog
@@ -166,16 +168,11 @@ const Showcase = ({ children, media, aspectRatio }) => {
   return (
     <>
       {!isStatic && isHydrated && pos.isOver && (
-        <Popover
-          aspectRatio={aspectRatio}
-          mousePosition={pos}
-          anchorElement={ref.current}
-          media={media}
-        />
+        <Popover mousePosition={pos} anchorElement={ref.current} media={media} />
       )}
       {isStatic && isHydrated && staticDialogOpen && (
         <div className="showcase__static-backdrop" ref={backdropRef} onClick={handleBackdropClick}>
-          <Popover aspectRatio={aspectRatio} modal media={media} />
+          <Popover modal media={media} />
 
           {url && (
             <a href={url} className="showcase__modal-button">

@@ -12,10 +12,11 @@ import wouterImg from "../public/images/wouter-highlight.webp";
 import useLeaderThumbImg from "../public/showcase/use-leader-thumb.webp";
 import useLeaderImg from "../public/showcase/use-leader.webp";
 import theseGuysThumbImg from "../public/showcase/these-guys-thumb.webp";
+import laxlabsThumbImg from "../public/showcase/laxlabs-thumb.webp";
+import ficusThumbImg from "../public/showcase/ficus-thumb.webp";
+import dirtyAnimationsThumbImg from "../public/showcase/dirty-animations-thumb.gif";
 
-const LinkWithPreview = ({ video, ...props }) => (
-  <SolidLink className="reference reference--inline" data-video={video} {...props} />
-);
+const LinkWithPreview = ({ video, ...props }) => <SolidLink data-video={video} {...props} />;
 
 export default function Index() {
   return (
@@ -124,7 +125,7 @@ export default function Index() {
               }}
             >
               <a
-                className="mini-map__item reference"
+                className="mini-map__item"
                 style={{
                   backgroundImage: `url(${useLeaderThumbImg.src})`,
                 }}
@@ -134,11 +135,38 @@ export default function Index() {
 
             <Showcase
               media={{
+                video: "/showcase/dirty-animations.mp4",
+                tags: "2018",
+                aspectRatio: 16 / 9,
+                description:
+                  "'Animations in a Stateful World' is an interactive presentation I made for my HolyJS'2018 talk. It highlights principles of making fluid and stateful animations in React.",
+              }}
+            >
+              <a
+                className="mini-map__item"
+                style={{
+                  backgroundImage: `url(${dirtyAnimationsThumbImg.src})`,
+                }}
+                href="https://molefrog.com/etc/stateful-animations/"
+              />
+            </Showcase>
+
+            <a
+              className="mini-map__item"
+              data-video="/showcase/redux-actuator.mp4"
+              style={{
+                backgroundImage: "url('/images/actuator-thumb.gif')",
+              }}
+              href="https://github.com/molefrog/redux-actuator"
+            />
+
+            <Showcase
+              media={{
                 video: "/showcase/resume-io-sections.mp4",
               }}
             >
               <a
-                className="mini-map__item reference"
+                className="mini-map__item"
                 style={{
                   backgroundImage: "url('/images/resume-thumb.gif')",
                 }}
@@ -148,37 +176,20 @@ export default function Index() {
 
             <Showcase
               media={{
-                video: "/showcase/dirty-animations.mp4",
+                video: "/showcase/laxlabs.mp4",
+                tags: ["2017"],
                 description:
-                  "'Animations in a Stateful World' is an interactive presentation I made for my HolyJS'2018 talk. It highlights principles of making fluid and stateful animations in React.",
+                  "Client work. I designed and coded the prototype of a Lacrosse drill diagram editor using Rails, React.js, react-motion and SVG.",
               }}
             >
               <a
-                className="mini-map__item reference"
+                className="mini-map__item"
                 style={{
-                  backgroundImage: "url('/images/dirty-anim-thumb.gif')",
+                  backgroundImage: `url(${laxlabsThumbImg.src})`,
                 }}
-                href="https://molefrog.com/etc/stateful-animations/"
+                href="https://www.lacrosselabs.io/"
               />
             </Showcase>
-
-            <a
-              className="mini-map__item reference"
-              data-video="/showcase/redux-actuator.mp4"
-              style={{
-                backgroundImage: "url('/images/actuator-thumb.gif')",
-              }}
-              href="https://github.com/molefrog/redux-actuator"
-            />
-
-            <a
-              className="mini-map__item reference"
-              data-video="/showcase/laxlabs.mp4"
-              style={{
-                backgroundImage: "url('/images/laxlabs-thumb.jpg')",
-              }}
-              href="https://www.lacrosselabs.io/"
-            />
 
             <Showcase
               media={{
@@ -198,7 +209,7 @@ export default function Index() {
             </Showcase>
 
             <a
-              className="mini-map__item reference"
+              className="mini-map__item"
               data-image="/showcase/rails-webpack.jpg"
               style={{
                 backgroundImage: "url('/images/rails-webpack-thumb.jpg')",
@@ -207,7 +218,7 @@ export default function Index() {
             />
 
             <a
-              className="mini-map__item reference"
+              className="mini-map__item"
               data-image="/showcase/date-parse.jpg"
               style={{
                 backgroundImage: "url('/images/date-parse-thumb.jpg')",
@@ -216,15 +227,15 @@ export default function Index() {
             />
 
             <a
-              className="mini-map__item reference"
+              className="mini-map__item"
               style={{
-                backgroundImage: "url('/images/ficus-thumb.jpg')",
+                backgroundImage: `url(${ficusThumbImg.src})`,
               }}
               href="https://ficus.io"
             />
 
             <a
-              className="mini-map__item reference"
+              className="mini-map__item"
               data-video="/showcase/smartomato.mp4"
               style={{
                 backgroundImage: "url('/images/smartomato-thumb.jpg')",
@@ -233,21 +244,21 @@ export default function Index() {
             />
 
             <a
-              className="mini-map__item reference"
+              className="mini-map__item"
               data-video="/showcase/pidnn-talk.mp4"
               style={{ backgroundImage: "url('/images/pidnn-thumb.jpg')" }}
               href="https://molefrog.com/etc/pid-neural-network/"
             />
 
             <a
-              className="mini-map__item reference"
+              className="mini-map__item"
               data-video="/showcase/graphemescope.mp4"
               style={{ backgroundImage: "url('/images/scope-thumb.gif')" }}
               href="https://codepen.io/molefrog/pen/juBad"
             />
 
             <a
-              className="mini-map__item reference"
+              className="mini-map__item"
               data-video="/showcase/rye.mp4"
               style={{ backgroundImage: "url('/images/rye-thumb.gif')" }}
               href="https://molefrog.com/etc/rye-js/"
