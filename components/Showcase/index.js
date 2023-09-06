@@ -31,7 +31,7 @@ const Popover = ({ mousePosition, anchorElement, media, modal = false }) => {
     if (modal) {
       setLoadingState("placeholder");
     } else {
-      placeholderTimer.current = setTimeout(() => setLoadingState("placeholder"), 350);
+      placeholderTimer.current = setTimeout(() => setLoadingState("placeholder"), 150);
     }
     loadedTimer.current = setTimeout(() => setLoadingState("loaded"), 2000);
 
