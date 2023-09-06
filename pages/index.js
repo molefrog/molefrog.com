@@ -35,8 +35,7 @@ export default function Index() {
             <p>
               Occasionally, I{" "}
               <LinkWithPreview
-                href="http://molefrog.com/stateful-animations/"
-                video="/showcase/dirty-animations.mp4"
+                href="https://youtube.com/playlist?list=PLU9XtFnZ-v2bp1l0a2QMdHScWYKc_scWk&si=RPuK8YmdApuYj39V"
                 external
               >
                 speak
