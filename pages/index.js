@@ -19,6 +19,8 @@ import reduxActuatorImg from "../public/showcase/redux-actuator.gif";
 import reduxActuatorThumbImg from "../public/showcase/redux-actuator-thumb.gif";
 import ryeThumbImg from "../public/showcase/rye-thumb.gif";
 import pidnnThumbImg from "../public/showcase/pidnn-thumb.jpg";
+import pplaworkThumbImg from "../public/showcase/pplawork-thumb.webp";
+import pplaworkImg from "../public/showcase/pplawork.webp";
 
 const LinkWithPreview = ({ video, ...props }) => <SolidLink data-video={video} {...props} />;
 
@@ -138,6 +140,23 @@ export default function Index() {
 
             <Showcase
               media={{
+                image: pplaworkImg,
+                description:
+                  "$PPLAWORK – an NFT photo series that documents the lives of people at work. Featuring the film photos I captured during my travels.",
+                tags: ["2023", "NFT"],
+              }}
+            >
+              <a
+                className="mini-map__item"
+                style={{
+                  backgroundImage: `url(${pplaworkThumbImg.src})`,
+                }}
+                href="https://sloika.xyz/mlfrg.eth/people-at-work"
+              />
+            </Showcase>
+
+            <Showcase
+              media={{
                 video: "/showcase/dirty-animations.mp4",
                 tags: "2018",
                 aspectRatio: 16 / 9,
@@ -227,7 +246,7 @@ export default function Index() {
               media={{
                 video: "/showcase/ficus-stars.mp4",
                 description:
-                  "I designed and developed most real-time polls for ficus.io, an online presentation app that my friends and I built during a hackathon. These polls were built with React, D3, and React and Canvas API. The app won several awards and received funding from a local accelerator and Microsoft.",
+                  "I designed and developed these real-time polls for ficus.io, an online presentation app that my friends and I built during a hackathon. The polls were built with React, D3, and React and Canvas API. The app won several awards and received funding from a local accelerator and Microsoft.",
                 tags: ["startup", "2014–2018"],
               }}
             >
@@ -293,7 +312,7 @@ export default function Index() {
               media={{
                 video: "/showcase/rye.mp4",
                 description:
-                  "Rye.js was my first open-source project. I wrote it in JavaScript while studying Abstract Algebra and Cryptography during my Bachelor’s. ",
+                  "Rye.js was my first open-source project. I wrote it in JavaScript while studying Abstract Algebra and Cryptography during my Bachelor's. ",
                 tags: ["2012"],
               }}
             >
