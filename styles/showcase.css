@@ -1,7 +1,9 @@
 .showcase__popover {
+  --aspect-ratio: 2; /* you have to override this in the component */
+
   position: fixed;
   width: 480px;
-  height: calc(480px / 1.5);
+  height: calc(480px / var(--aspect-ratio));
 
   overflow: hidden;
   border-radius: 8px;
@@ -13,7 +15,7 @@
 
 .showcase__popover--modal {
   width: 100%;
-  height: calc(440px / 1.5);
+  height: calc(440px / var(--aspect-ratio));
   position: relative;
   border-radius: 0px;
 }
@@ -153,5 +155,5 @@
 }
 
 .showcase__tag:last-child {
-  margin-right: 12px;
+  margin-right: 8px;
 }

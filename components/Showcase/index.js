@@ -8,7 +8,6 @@ import Marquee from "react-fast-marquee";
 import WonderingEyes from "../WonderingEyes";
 
 const PREVIEW_W = 480;
-const PREVIEW_H = 320;
 const MARGIN = 12;
 
 const shouldUseModalDialog = () => {
@@ -19,7 +18,7 @@ const shouldUseModalDialog = () => {
   return isMobile || isTouch;
 };
 
-const Popover = ({ mousePosition, anchorElement, media, modal = false }) => {
+const Popover = ({ mousePosition, anchorElement, media, modal = false, aspectRatio = 1.5 }) => {
   // "init" | "placeholder" | "loaded"
   const [loadingState, setLoadingState] = useState("init");
 
@@ -50,7 +49,13 @@ const Popover = ({ mousePosition, anchorElement, media, modal = false }) => {
 
   const position = modal
     ? {} // static dialog
-    : calculatePopoverPosition(anchorElement, mousePosition, PREVIEW_W, PREVIEW_H, MARGIN);
+    : calculatePopoverPosition(
+        anchorElement,
+        mousePosition,
+        PREVIEW_W,
+        PREVIEW_W / aspectRatio,
+        MARGIN
+      );
 
   const tags = [media.tags ?? []].flat(); // ["a", "b"] or "b"
 
@@ -60,7 +65,7 @@ const Popover = ({ mousePosition, anchorElement, media, modal = false }) => {
         "showcase__popover--hidden": loadingState === "init",
         "showcase__popover--modal": modal,
       })}
-      style={position}
+      style={{ ...position, "--aspect-ratio": aspectRatio }}
     >
       <div className="showcase__media">
         {media.image && (
@@ -111,7 +116,7 @@ const Popover = ({ mousePosition, anchorElement, media, modal = false }) => {
   );
 };
 
-const Showcase = ({ children, media }) => {
+const Showcase = ({ children, media, aspectRatio }) => {
   const ref = useRef(null);
 
   const [Wrap] = useState(() =>
@@ -161,11 +166,16 @@ const Showcase = ({ children, media }) => {
   return (
     <>
       {!isStatic && isHydrated && pos.isOver && (
-        <Popover mousePosition={pos} anchorElement={ref.current} media={media} />
+        <Popover
+          aspectRatio={aspectRatio}
+          mousePosition={pos}
+          anchorElement={ref.current}
+          media={media}
+        />
       )}
       {isStatic && isHydrated && staticDialogOpen && (
         <div className="showcase__static-backdrop" ref={backdropRef} onClick={handleBackdropClick}>
-          <Popover modal media={media} />
+          <Popover aspectRatio={aspectRatio} modal media={media} />
 
           {url && (
             <a href={url} className="showcase__modal-button">
