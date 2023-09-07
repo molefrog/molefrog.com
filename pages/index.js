@@ -28,6 +28,7 @@ import dateParseImg from "../public/showcase/date-parse.webp";
 import railsFrontendImg from "../public/showcase/rails-frontend.webp";
 import smartomatoThumbImg from "../public/showcase/smartomato-thumb.webp";
 import kaleidoscopeThumbImg from "../public/showcase/kaleidoscope-thumb.gif";
+import unhashThumbImg from "../public/showcase/unhash-thumb.webp";
 
 const LinkWithPreview = ({ video, ...props }) => <SolidLink data-video={video} {...props} />;
 
@@ -147,6 +148,23 @@ export default function Index() {
 
             <Showcase
               media={{
+                video: "showcase/unhash.mp4",
+                description:
+                  "Unhash is a Web3 app that allows you to buy and manage ENS names. I launched this app with a partner and worked on the branding, UI design, and front-end development.",
+                tags: ["2023", "Web3", "UI"],
+              }}
+            >
+              <a
+                className="mini-map__item"
+                style={{
+                  backgroundImage: `url(${unhashThumbImg.src})`,
+                }}
+                href="https://unhash.com"
+              />
+            </Showcase>
+
+            <Showcase
+              media={{
                 image: wultraImg,
                 description:
                   "Demo app that shows how wouter can be used with Ultra.js, a Deno framework.",
@@ -199,6 +217,40 @@ export default function Index() {
 
             <Showcase
               media={{
+                description:
+                  "The first version of resume.io was launched in 2016 as a simple MVP built with Rails. By 2018, I had been working on it full-time, handling both backend and frontend work. I was personally responsible for rolling out the next version of the editor.",
+                tags: ["2018"],
+                video: "/showcase/resume-io-sections.mp4",
+              }}
+            >
+              <a
+                className="mini-map__item"
+                style={{
+                  backgroundImage: "url('/images/resume-thumb.gif')",
+                }}
+                href="https://resume.io/?ref=mlfrg"
+              />
+            </Showcase>
+
+            <Showcase
+              media={{
+                video: "/showcase/ficus-stars.mp4",
+                description:
+                  "I designed and developed real-time polls for ficus.io, an online presentation app that my friends and I built during a hackathon. The polls were built with React, D3, and React and Canvas API. The app won several awards and received funding from a local accelerator and Microsoft.",
+                tags: ["startup", "2014–2018"],
+              }}
+            >
+              <a
+                className="mini-map__item"
+                style={{
+                  backgroundImage: `url(${ficusThumbImg.src})`,
+                }}
+                href="https://ficus.io"
+              />
+            </Showcase>
+
+            <Showcase
+              media={{
                 image: reduxActuatorImg,
                 aspectRatio: 16 / 9,
                 description:
@@ -212,23 +264,6 @@ export default function Index() {
                   backgroundImage: `url(${reduxActuatorThumbImg.src})`,
                 }}
                 href="https://github.com/molefrog/redux-actuator"
-              />
-            </Showcase>
-
-            <Showcase
-              media={{
-                description:
-                  "The first version of resume.io was launched in 2016 as a simple MVP built with Rails. By 2018, I had been working on it full-time, handling both backend and frontend work. I was personally responsible for rolling out the next version of the editor.",
-                tags: ["2018"],
-                video: "/showcase/resume-io-sections.mp4",
-              }}
-            >
-              <a
-                className="mini-map__item"
-                style={{
-                  backgroundImage: "url('/images/resume-thumb.gif')",
-                }}
-                href="https://resume.io/?ref=mlfrg"
               />
             </Showcase>
 
@@ -263,23 +298,6 @@ export default function Index() {
                   backgroundImage: `url(${theseGuysThumbImg.src})`,
                 }}
                 href="https://molefrog.com/etc/stateful-animations/#11"
-              />
-            </Showcase>
-
-            <Showcase
-              media={{
-                video: "/showcase/ficus-stars.mp4",
-                description:
-                  "I designed and developed real-time polls for ficus.io, an online presentation app that my friends and I built during a hackathon. The polls were built with React, D3, and React and Canvas API. The app won several awards and received funding from a local accelerator and Microsoft.",
-                tags: ["startup", "2014–2018"],
-              }}
-            >
-              <a
-                className="mini-map__item"
-                style={{
-                  backgroundImage: `url(${ficusThumbImg.src})`,
-                }}
-                href="https://ficus.io"
               />
             </Showcase>
 
