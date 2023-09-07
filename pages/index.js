@@ -27,6 +27,7 @@ import dateParseThumbImg from "../public/showcase/date-parse-thumb.webp";
 import dateParseImg from "../public/showcase/date-parse.webp";
 import railsFrontendImg from "../public/showcase/rails-frontend.webp";
 import smartomatoThumbImg from "../public/showcase/smartomato-thumb.webp";
+import kaleidoscopeThumbImg from "../public/showcase/kaleidoscope-thumb.gif";
 
 const LinkWithPreview = ({ video, ...props }) => <SolidLink data-video={video} {...props} />;
 
@@ -269,7 +270,7 @@ export default function Index() {
               media={{
                 video: "/showcase/ficus-stars.mp4",
                 description:
-                  "I designed and developed these real-time polls for ficus.io, an online presentation app that my friends and I built during a hackathon. The polls were built with React, D3, and React and Canvas API. The app won several awards and received funding from a local accelerator and Microsoft.",
+                  "I designed and developed real-time polls for ficus.io, an online presentation app that my friends and I built during a hackathon. The polls were built with React, D3, and React and Canvas API. The app won several awards and received funding from a local accelerator and Microsoft.",
                 tags: ["startup", "2014–2018"],
               }}
             >
@@ -286,7 +287,7 @@ export default function Index() {
               media={{
                 image: railsFrontendImg,
                 description:
-                  'My talk "Give a Second Chance to Rails Frontend" presented at Rails Club 2016, was dedicated to using modern bundlers, particularly Webpack, with Ruby on Rails 4.2',
+                  'My talk "Give a Second Chance to Rails Frontend" presented at the Rails Club 2016 conf, was dedicated to using modern bundlers, particularly Webpack, with Ruby on Rails 4.2',
                 aspectRatio: 16 / 9,
                 tags: ["2016", "Rails", "Speaking"],
               }}
@@ -332,12 +333,19 @@ export default function Index() {
               />
             </Showcase>
 
-            <a
-              className="mini-map__item"
-              data-video="/showcase/graphemescope.mp4"
-              style={{ backgroundImage: "url('/images/scope-thumb.gif')" }}
-              href="https://codepen.io/molefrog/pen/juBad"
-            />
+            <Showcase
+              media={{
+                video: "/showcase/kaleidoscope.mp4",
+                description: "Moving kaleidoscope effect rendered on HTML Canvas.",
+                tags: ["2013"],
+              }}
+            >
+              <a
+                className="mini-map__item"
+                style={{ backgroundImage: `url(${kaleidoscopeThumbImg.src})` }}
+                href="https://codepen.io/molefrog/pen/juBad"
+              />
+            </Showcase>
 
             <Showcase
               media={{
