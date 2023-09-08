@@ -29,6 +29,7 @@ import railsFrontendImg from "../public/showcase/rails-frontend.webp";
 import smartomatoThumbImg from "../public/showcase/smartomato-thumb.webp";
 import kaleidoscopeThumbImg from "../public/showcase/kaleidoscope-thumb.gif";
 import unhashThumbImg from "../public/showcase/unhash-thumb.webp";
+import fttThumbImg from "../public/showcase/ftt-thumb.webp";
 
 const LinkWithPreview = ({ video, ...props }) => <SolidLink data-video={video} {...props} />;
 
@@ -281,6 +282,23 @@ export default function Index() {
                   backgroundImage: `url(${laxlabsThumbImg.src})`,
                 }}
                 href="https://www.lacrosselabs.io/"
+              />
+            </Showcase>
+
+            <Showcase
+              media={{
+                video: "/showcase/ftt.mp4",
+                tags: ["2017", "Hackathon"],
+                description:
+                  "A budgeting app concept, developed during a hackathon. It was acclaimed by the jury and was named the best app prototype for personal financing.",
+              }}
+            >
+              <a
+                className="mini-map__item"
+                style={{
+                  backgroundImage: `url(${fttThumbImg.src})`,
+                }}
+                href="https://github.com/molefrog/ftt"
               />
             </Showcase>
 
