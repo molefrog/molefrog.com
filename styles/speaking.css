@@ -81,9 +81,9 @@
 
 .speaking__conf {
   font: var(--type-text-small);
-  border: 2px solid var(--color-gray-600);
-  height: 36px;
-  border-radius: 6px;
+  border: 1px solid var(--color-gray-300);
+  height: 34px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   padding-left: 12px;
@@ -101,7 +101,7 @@
   color: var(--color-gray-500);
   padding: 0 12px;
   font: var(--type-text-x-small);
-  border-left: 1px solid var(--color-gray-500);
+  border-left: 1px solid var(--color-gray-300);
   letter-spacing: 0px;
 }
 
