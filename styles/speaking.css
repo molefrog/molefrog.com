@@ -28,7 +28,7 @@
 .projector {
   border-radius: 12px;
   width: 380px;
-  height: 285px;
+  min-height: 260px;
   aspect-ratio: 4 / 3;
   background-color: var(--color-gray-50);
   padding: 32px;
@@ -46,6 +46,16 @@
 
   background-image: url("/speaking/hooks-2.jpg");
   background-size: cover;
+}
+
+@supports not (aspect-ratio: 4 / 3) {
+  .projector {
+    min-height: 280px;
+  }
+
+  .projector__slide {
+    min-height: 144px;
+  }
 }
 
 .projector__slide--anim {
@@ -81,7 +91,7 @@
   padding: 0 12px;
   font: var(--type-text-x-small);
   border-left: 1px solid var(--color-gray-500);
-  letter-spacing: 1px;
+  letter-spacing: 0px;
 }
 
 .speaking__conf:hover {
@@ -95,7 +105,12 @@
 
 @media (max-width: 1024px) {
   .speaking {
+    padding-top: 0;
     padding-right: 0;
+  }
+
+  .projector {
+    width: 320px;
   }
 }
 

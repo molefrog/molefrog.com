@@ -218,3 +218,15 @@ const calculatePopoverPosition = (element, pos, popoverWidth, popoverHeight, mar
 };
 
 export default Showcase;
+
+export const ShowcaseLink = ({ children, href, media = {}, ...props }) => {
+  const link = media.link || href;
+
+  return (
+    <Showcase media={media}>
+      <a {...props} className={clsx("solid-link", props.className)} href={link}>
+        {children}
+      </a>
+    </Showcase>
+  );
+};
