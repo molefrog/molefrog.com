@@ -29,7 +29,6 @@
 
 .speaking__head {
   font: var(--type-header-regular);
-  max-width: 400px;
   -webkit-font-smoothing: none;
 }
 
@@ -115,6 +114,16 @@
   border-color: var(--color-accent-700);
 }
 
+.speaking__rest {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0px 80px;
+}
+
+.speaking__rest > .speaking__talk {
+  margin-bottom: 72px;
+}
+
 @media (max-width: 1024px) {
   .speaking {
     padding-top: 0;
@@ -130,5 +139,10 @@
   .speaking__talk {
     flex-wrap: wrap;
     margin-bottom: 80px;
+  }
+
+  .speaking__rest {
+    grid-template-columns: 1fr;
+    gap: 0px 72px;
   }
 }

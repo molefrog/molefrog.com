@@ -29,7 +29,9 @@ export default function Speaking() {
             </div>
 
             <div className="speaking__info">
-              <h3 className="speaking__head">Practical Serverless and Edge Computing</h3>
+              <h3 className="speaking__head">
+                <WrapBalancer>Practical Serverless and Edge Computing</WrapBalancer>
+              </h3>
 
               <div className="speaking__desc">
                 <p>
@@ -51,7 +53,7 @@ export default function Speaking() {
 
               <div className="speaking__confs">
                 <Conference year="2021">HolyJS</Conference>
-                <Conference year="2021">TverIO Perf Meetup</Conference>
+                <Conference year="2020">TverIO Perf Meetup</Conference>
               </div>
             </div>
           </div>
@@ -160,6 +162,110 @@ export default function Speaking() {
               </div>
             </div>
           </div>
+
+          {/* other conferences */}
+
+          <section className="speaking__rest">
+            <div className="speaking__talk">
+              <div className="speaking__info">
+                <h3 className="speaking__head">
+                  <WrapBalancer>React Hooks: Iteractivity in Functional Components</WrapBalancer>
+                </h3>
+
+                <div className="speaking__desc">
+                  <p>
+                    Guest lecture for the Web Development class at the SFU university with live
+                    coding demos. React Hooks overview: from <code>useState</code> to{" "}
+                    <code>useImperativeHandle</code>. How rendering in React works under the hood.
+                  </p>
+
+                  <p>
+                    The final demo of this lecture was a simplified Instagram stories look-alike
+                    app.
+                  </p>
+                </div>
+
+                <div className="speaking__confs">
+                  <Conference year="2021">SFU</Conference>
+                </div>
+              </div>
+            </div>
+
+            <div className="speaking__talk">
+              <div className="speaking__info">
+                <h3 className="speaking__head">
+                  <WrapBalancer>
+                    Can Design Principles Help me Become a Better Software Engineer?
+                  </WrapBalancer>
+                </h3>
+
+                <div className="speaking__desc">
+                  <p>
+                    How is Panasonic tape recorder related to the APIs we write and deploy? And do
+                    programmers need to be concerned of how their code will be used by others?
+                  </p>
+
+                  <p>
+                    Inspired by the history of design and Bauhas, I&apos;ve tried to draw a parallel
+                    between the design principles and coding best practices.
+                  </p>
+                </div>
+
+                <div className="speaking__confs">
+                  <Conference year="2019">TverIO Design</Conference>
+                  <Conference year="2019">SouthConf</Conference>
+                  <Conference year="2018">SPB Frontend</Conference>
+                </div>
+              </div>
+            </div>
+
+            <div className="speaking__talk">
+              <div className="speaking__info">
+                <h3 className="speaking__head">
+                  <WrapBalancer>Give a Second Chance to Rails Frontend!</WrapBalancer>
+                </h3>
+
+                <div className="speaking__desc">
+                  <p>
+                    How to bundle frontend with Webpack in Rails 4 projects. Brief overview of
+                    Webpack features: HMR, code splitting, <code>manifest.json</code> generation.
+                  </p>
+                </div>
+
+                <div className="speaking__confs">
+                  <Conference year="2016">Rails Club</Conference>
+                  <Conference year="2017">Rails Meetup RND</Conference>
+                </div>
+              </div>
+            </div>
+
+            <div className="speaking__talk">
+              <div className="speaking__info">
+                <h3 className="speaking__head">
+                  <WrapBalancer>
+                    Got Milk? A Short Introduction to Node.js and Event-Driven Programming
+                  </WrapBalancer>
+                </h3>
+
+                <div className="speaking__desc">
+                  <p>
+                    When I was first introduced to Node.js, it blew my mind. I was fascinated with
+                    its simplicity and a hacker spirit of the growing Node community.
+                  </p>
+
+                  <p>
+                    In this short presentation that I made for a Web Dev club at my university, I
+                    explained how the JS event loop works using an analogy of buying milk at the
+                    supermarket.
+                  </p>
+                </div>
+
+                <div className="speaking__confs">
+                  <Conference year="2012">WebDevClub, MMCS</Conference>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </Container>
     </main>
