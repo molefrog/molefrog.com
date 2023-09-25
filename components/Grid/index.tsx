@@ -1,4 +1,4 @@
-import { ComponentProps } from "react";
+import React, { ComponentProps } from "react";
 import clsx from "clsx";
 
 export interface GridProps extends ComponentProps<"div"> {
@@ -21,13 +21,15 @@ export const Block = (props: ComponentProps<"div">) => {
 Grid.Block = Block;
 
 export interface ContainerProps extends ComponentProps<"div"> {
-  placement: "inner" | "outer" | "wide";
+  placement: "inner" | "outer" | "wide" | "left-shift" | "right-shift";
 }
 
 const placementColumnCSS = {
   inner: "inner-grid 1 / inner-grid 5",
   outer: "outer-grid 1 / outer-grid 2",
   wide: "start / end",
+  "left-shift": "outer-grid 1 / inner-grid 5",
+  "right-shift": "inner-grid 1 / outer-grid 2",
 } as const;
 
 export const Container = ({ placement, children, ...props }: ContainerProps) => {
