@@ -6,6 +6,8 @@ import viipuriLibraryImg from "../public/speaking/viipuri-library.webp";
 import hooksCharactersImg from "../public/speaking/hooks-characters.webp";
 import renderingImg from "../public/speaking/rendering.webp";
 import presaImg from "../public/speaking/presa.webp";
+import instaStoriesVideo from "../public/speaking/insta-stories-demo.mp4";
+import gotMilkImg from "../public/speaking/got-milk.webp";
 
 const Conference = ({ year, children }) => {
   return (
@@ -180,8 +182,14 @@ export default function Speaking() {
                   </p>
 
                   <p>
-                    The final demo of this lecture was a simplified Instagram stories look-alike
-                    app.
+                    The final demo of this lecture was a simplified{" "}
+                    <ShowcaseLink
+                      href="https://codesandbox.io/s/react-hooks-playground-kdpxx"
+                      media={{ video: instaStoriesVideo, aspectRatio: 16 / 9 }}
+                    >
+                      Instagram stories
+                    </ShowcaseLink>{" "}
+                    look-alike app.
                   </p>
                 </div>
 
@@ -255,8 +263,14 @@ export default function Speaking() {
 
                   <p>
                     In this short presentation that I made for a Web Dev club at my university, I
-                    explained how the JS event loop works using an analogy of buying milk at the
-                    supermarket.
+                    explained how the JS event loop works using an analogy of{" "}
+                    <ShowcaseLink
+                      href="https://speakerdeck.com/molefrog/got-milk-a-short-introduction-to-nodejs-and-event-driven-programming"
+                      media={{ image: gotMilkImg, aspectRatio: "auto" }}
+                    >
+                      buying milk
+                    </ShowcaseLink>{" "}
+                    at the supermarket.
                   </p>
                 </div>
 
