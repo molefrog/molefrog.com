@@ -1,0 +1,105 @@
+.speaking {
+  padding-top: 48px;
+  padding-right: 64px;
+}
+
+.speaking__talk {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  gap: 32px 54px;
+  margin-bottom: 128px;
+}
+
+.speaking__slides {
+  flex-shrink: 0;
+}
+
+.speaking__desc {
+  margin-bottom: 32px;
+}
+
+.speaking__head {
+  font: var(--type-header-regular);
+  max-width: 400px;
+  -webkit-font-smoothing: none;
+}
+
+.projector {
+  border-radius: 12px;
+  width: 380px;
+  height: 285px;
+  aspect-ratio: 4 / 3;
+  background-color: var(--color-gray-50);
+  padding: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.projector__slide {
+  aspect-ratio: 16 / 9;
+  flex: 1 1;
+
+  border: 3px solid #ffffff;
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+
+  background-image: url("/speaking/hooks-2.jpg");
+  background-size: cover;
+}
+
+.projector__slide--anim {
+  background-image: url("/speaking/animations-1.png");
+}
+
+.speaking__confs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.speaking__conf {
+  font: var(--type-text-small);
+  border: 2px solid var(--color-gray-600);
+  height: 36px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  white-space: nowrap;
+  gap: 16px;
+  overflow: hidden;
+  box-shadow: 0px 1px 0px 1px var(--color-gray-100);
+  cursor: pointer;
+}
+
+.speaking__conf-year {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  color: var(--color-gray-500);
+  padding: 0 12px;
+  font: var(--type-text-x-small);
+  border-left: 1px solid var(--color-gray-500);
+  letter-spacing: 1px;
+}
+
+.speaking__conf:hover {
+  color: var(--color-accent-700);
+  border-color: var(--color-accent-700);
+}
+
+.speaking__conf:hover .speaking__conf-year {
+  border-color: var(--color-accent-700);
+}
+
+@media (max-width: 768px) {
+  .speaking {
+    padding: 0;
+  }
+
+  .speaking__talk {
+    flex-wrap: wrap;
+    margin-bottom: 80px;
+  }
+}
