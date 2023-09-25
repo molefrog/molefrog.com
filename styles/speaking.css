@@ -93,11 +93,13 @@
   border-color: var(--color-accent-700);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .speaking {
-    padding: 0;
+    padding-right: 0;
   }
+}
 
+@media (max-width: 768px) {
   .speaking__talk {
     flex-wrap: wrap;
     margin-bottom: 80px;
