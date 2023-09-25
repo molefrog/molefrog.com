@@ -3,12 +3,19 @@ import Script from "next/script";
 import { Provider as WrapBalancerProvider } from "react-wrap-balancer";
 import Head from "next/head";
 import localFont from "@next/font/local";
+import { JetBrains_Mono } from "@next/font/google";
 
 import TopBar from "../components/TopBar";
 import Footer from "../components/Footer";
 
 import "../styles/index.css";
 import favicon from "../public/favicon.svg";
+
+// If loading a variable font, you don't need to specify the font weight
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 const Redaction35 = localFont({
   src: [
@@ -31,6 +38,7 @@ export default function Layout({ Component, pageProps }) {
         :root {
           --font-sans: system-ui, sans-serif;
           --font-serif: ${Redaction35.style.fontFamily};
+          --font-mono: ${jetBrainsMono.style.fontFamily};
         }
       `}</style>
 

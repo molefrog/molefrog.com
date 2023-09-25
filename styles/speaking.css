@@ -19,6 +19,14 @@
   margin-bottom: 32px;
 }
 
+.speaking__desc code {
+  font-family: var(--font-mono);
+  background-color: var(--color-gray-100);
+  letter-spacing: -0.01em;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
 .speaking__head {
   font: var(--type-header-regular);
   max-width: 400px;
@@ -59,7 +67,11 @@
 }
 
 .projector__slide--anim {
-  background-image: url("/speaking/animations-1.png");
+  background-image: url("/speaking/animations-4.png");
+}
+
+.projector__slide--serverless {
+  background-image: url("/speaking/serverless-2.jpg");
 }
 
 .speaking__confs {

@@ -4,6 +4,8 @@ import Showcase, { ShowcaseLink } from "../components/Showcase";
 
 import viipuriLibraryImg from "../public/speaking/viipuri-library.webp";
 import hooksCharactersImg from "../public/speaking/hooks-characters.webp";
+import renderingImg from "../public/speaking/rendering.webp";
+import presaImg from "../public/speaking/presa.webp";
 
 const Conference = ({ year, children }) => {
   return (
@@ -22,7 +24,42 @@ export default function Speaking() {
           <div className="speaking__talk">
             <div className="speaking__slides">
               <div className="projector">
-                <div className="projector__slide" />
+                <div className="projector__slide projector__slide--serverless" />
+              </div>
+            </div>
+
+            <div className="speaking__info">
+              <h3 className="speaking__head">Practical Serverless and Edge Computing</h3>
+
+              <div className="speaking__desc">
+                <p>
+                  In this talk, I provided an overview of serverless functions in Vercel and
+                  Cloudflare Workers. I covered frontend microservices, JWT authorization, dynamic
+                  CDNs, caching, <code>stale-while-revalidate</code>, and more.
+                </p>
+
+                <p>
+                  Most of the examples featured in this presentation are based on the real
+                  challenges that my team at resume.io had to solve, including increasing TTFB,
+                  building scalable{" "}
+                  <ShowcaseLink media={{ image: renderingImg, aspectRatio: "auto" }}>
+                    PDF/DOCX rendering
+                  </ShowcaseLink>
+                  , serving OG previews, and automatically injecting Critical CSS at the edge.
+                </p>
+              </div>
+
+              <div className="speaking__confs">
+                <Conference year="2021">HolyJS</Conference>
+                <Conference year="2021">TverIO Perf Meetup</Conference>
+              </div>
+            </div>
+          </div>
+
+          <div className="speaking__talk">
+            <div className="speaking__slides">
+              <div className="projector">
+                <div className="projector__slide projector__slide" />
               </div>
             </div>
 
@@ -87,17 +124,20 @@ export default function Speaking() {
                 <p>
                   A highly interactive presentation that explores the principles of creating fluid
                   and stateful animations in React. In this talk, I cover CSS transitions,
-                  spring-based animations with react-spring, Canvas animations, and exit
-                  transitions.
+                  spring-based animations with <code>react-spring</code>, Canvas animations, and
+                  exit transitions.
                 </p>
 
                 <p>
                   I&apos;ve spent an incredible amount of time polishing the slides and coding the
                   demos that you can interact with. These demos are running on my own React
                   presentation engine —{" "}
-                  <a className="solid-link" href="https://github.com/molefrog/presa">
+                  <ShowcaseLink
+                    href="https://github.com/molefrog/presa"
+                    media={{ image: presaImg, aspectRatio: "auto" }}
+                  >
                     Presa
-                  </a>
+                  </ShowcaseLink>
                   , that I had fun hacking while procrastinating on the slides.
                 </p>
 
@@ -107,7 +147,7 @@ export default function Speaking() {
                     className="solid-link"
                     href="https://habr.com/ru/companies/jugru/articles/350164/#:~:text=%D0%90%D0%BD%D0%B8%D0%BC%D0%B0%D1%86%D0%B8%D0%B8%20%D0%B2%20%D0%BC%D0%B8%D1%80%D0%B5%20%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D0%B9"
                   >
-                    top-10 HolyJS
+                    Top-10 HolyJS
                   </a>{" "}
                   talks.
                 </p>

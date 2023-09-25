@@ -45,7 +45,10 @@ const Popover = ({ mousePosition, anchorElement, media, modal = false }) => {
     setLoadingState("loaded");
   };
 
-  const { aspectRatio = 1.5 } = media;
+  let { aspectRatio = 1.5 } = media;
+  if (media.aspectRatio === "auto" && typeof media.image === "object") {
+    aspectRatio = media.image.width / media.image.height;
+  }
 
   const position = modal
     ? {} // static dialog
@@ -71,7 +74,7 @@ const Popover = ({ mousePosition, anchorElement, media, modal = false }) => {
         {media.image && (
           <Image
             src={media.image}
-            alt={media.description}
+            alt={media.description || "Project preview"}
             fill
             className="showcase__img"
             onLoadingComplete={handleResourceLoaded}
