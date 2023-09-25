@@ -22,6 +22,24 @@ const TopBar = () => {
 
           <div className="top-bar__links">
             <Link
+              className={clsx("top-bar__link top-bar__link--mobile-only", {
+                ["top-bar__link--active"]: pathname === "/",
+              })}
+              href="/"
+            >
+              About
+            </Link>
+
+            <Link
+              className={clsx("top-bar__link", {
+                ["top-bar__link--active"]: pathname === "/speaking",
+              })}
+              href="/speaking"
+            >
+              Speaking
+            </Link>
+
+            <Link
               className={clsx("top-bar__link", {
                 ["top-bar__link--active"]: pathname === "/media",
               })}

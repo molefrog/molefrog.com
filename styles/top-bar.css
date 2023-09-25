@@ -5,7 +5,7 @@
 
 .top-bar__links {
   flex: 1 0;
-  gap: 12px;
+  gap: 8px 12px;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -83,12 +83,29 @@
   --color: var(--color-accent);
 }
 
+@media (min-width: 768px) {
+  .top-bar__link--mobile-only {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .top-bar__layout {
     flex-wrap: wrap;
     --logo-size: 32px;
     --logo-margin: 22px;
     margin-left: 0;
+  }
+
+  .top-bar__links {
+    order: 1;
+  }
+
+  .top-bar__logo-wrapper {
+    margin-right: 0;
+    margin-left: 12px;
+    order: 2;
+    align-self: flex-start;
   }
 
   .top-bar {
