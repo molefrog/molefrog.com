@@ -3,6 +3,7 @@ import Image from "next/image";
 import WrapBalancer from "react-wrap-balancer";
 import { Container } from "../components/Grid";
 import { SolidLink } from "../components/SolidLink";
+import Link from "next/link";
 
 import Showcase from "../components/Showcase";
 
@@ -29,28 +30,21 @@ export default function Index() {
             <p></p>
             <p>
               Occasionally, I{" "}
-              <LinkWithPreview
-                href="https://youtube.com/playlist?list=PLU9XtFnZ-v2bp1l0a2QMdHScWYKc_scWk&si=RPuK8YmdApuYj39V"
-                external
-              >
-                speak
-              </LinkWithPreview>{" "}
+              <Link legacyBehavior passHref href="/speaking">
+                <SolidLink>speak</SolidLink>
+              </Link>{" "}
               at tech conferences, contribute to{" "}
-              <LinkWithPreview href="https://github.com/molefrog" external>
+              <SolidLink href="https://github.com/molefrog" external>
                 open-source
-              </LinkWithPreview>{" "}
+              </SolidLink>{" "}
               and teach others to code. I love designing UIs, playing around with animations, and
               writing performant web apps & backends. I primarily use JS, Node/Deno, and Ruby.
             </p>
             <p>
               I&apos;ve recently finished my work at{" "}
-              <LinkWithPreview
-                video="/showcase/resume-io-sections.mp4"
-                href="https://resume.io"
-                external
-              >
+              <SolidLink video="/showcase/resume-io-sections.mp4" href="https://resume.io" external>
                 resume.io
-              </LinkWithPreview>{" "}
+              </SolidLink>{" "}
               — the company that I&apos;ve co-founded, and helped to build. If you have some
               interesting project or a startup idea, drop me a line, I&apos;m always happy to talk!
             </p>
