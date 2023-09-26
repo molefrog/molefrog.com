@@ -74,8 +74,14 @@
   text-decoration: underline;
 }
 
-.footer__side-note .redaction {
+.footer__font--redaction {
   font-family: var(--font-serif);
   -webkit-font-smoothing: none;
+  font-weight: bold;
+}
+
+.footer__font--dseg7 {
+  font-family: var(--font-segm);
+  font-size: 0.8em;
   font-weight: bold;
 }

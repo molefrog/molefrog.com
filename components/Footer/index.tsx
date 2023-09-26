@@ -104,14 +104,23 @@ const Footer = () => (
           </a>
           . The website uses{" "}
           <a
-            className="redaction"
+            className="footer__font footer__font--redaction"
             href="https://redaction.us"
             target="_blank"
             rel="noopener noreferrer"
           >
             Redaction
           </a>{" "}
-          typeface, which is distributed under the Open Font License. Hosted on{" "}
+          and{" "}
+          <a
+            className="footer__font footer__font--dseg7"
+            href="https://www.keshikan.net/fonts-e.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            DSEG7
+          </a>{" "}
+          typefaces, which are distributed under the Open Font License. Hosted on{" "}
           <a href="https://pages.cloudflare.com/" target="_blank" rel="noopener noreferrer">
             Cloudflare Pages
           </a>
