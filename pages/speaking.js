@@ -8,12 +8,17 @@ import renderingImg from "../public/speaking/rendering.webp";
 import presaImg from "../public/speaking/presa.webp";
 import instaStoriesVideo from "../public/speaking/insta-stories-demo.mp4";
 import gotMilkImg from "../public/speaking/got-milk.webp";
+import simachevaImg from "../public/speaking/simacheva.webp";
+
+import { Segmented } from "../components/Segmented";
 
 const Conference = ({ year, children, ...props }) => {
   return (
     <a className="speaking__conf" {...props}>
       {children}
-      <span className="speaking__conf-year">{year}</span>
+      <span className="speaking__conf-year">
+        <Segmented>{year}</Segmented>
+      </span>
     </a>
   );
 };
@@ -106,9 +111,12 @@ export default function Speaking() {
                     illustrated icons
                   </ShowcaseLink>{" "}
                   for each hook mentioned in the talk, together with my friend and illustrator,{" "}
-                  <a className="solid-link" href="https://www.instagram.com/simacheva.katya/">
+                  <ShowcaseLink
+                    media={{ image: simachevaImg, aspectRatio: "auto" }}
+                    href="https://www.instagram.com/simacheva.katya/"
+                  >
                     Katya Simacheva
-                  </a>
+                  </ShowcaseLink>
                   .
                 </p>
               </div>
