@@ -100,11 +100,13 @@
   display: flex;
   height: 100%;
   align-items: center;
-  color: var(--color-gray-500);
   padding: 0 12px;
   font: var(--type-text-x-small);
   border-left: 1px solid var(--color-gray-300);
   letter-spacing: 0px;
+  font-style: italic;
+  font-weight: bold;
+  letter-spacing: -0.05em;
 }
 
 .speaking__conf[href]:hover {

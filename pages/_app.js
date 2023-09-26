@@ -17,6 +17,33 @@ const jetBrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const DSEG7Classic = localFont({
+  src: [
+    {
+      path: "../styles/fonts/DSEG7Classic/DSEG7Classic-Regular.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../styles/fonts/DSEG7Classic/DSEG7Classic-Italic.woff2",
+      weight: "500",
+      style: "italic",
+    },
+    {
+      path: "../styles/fonts/DSEG7Classic/DSEG7Classic-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../styles/fonts/DSEG7Classic/DSEG7Classic-BoldItalic.woff2",
+      weight: "700",
+      style: "italic",
+    },
+  ],
+  fallback: ["monospace"],
+  display: "swap",
+});
+
 const Redaction35 = localFont({
   src: [
     {
@@ -39,6 +66,7 @@ export default function Layout({ Component, pageProps }) {
           --font-sans: system-ui, sans-serif;
           --font-serif: ${Redaction35.style.fontFamily};
           --font-mono: ${jetBrainsMono.style.fontFamily};
+          --font-segm: ${DSEG7Classic.style.fontFamily};
         }
       `}</style>
 

@@ -1,0 +1,17 @@
+.segmented__text {
+  font-family: var(--font-segm);
+  position: relative;
+  color: inherit;
+}
+
+.segmented__text:before {
+  z-index: -1;
+  position: absolute;
+  inset: 0 0 0 0;
+  content: attr(data-cells);
+  color: var(--cell-color);
+}
+
+.segmented__text:after {
+  content: attr(data-text);
+}

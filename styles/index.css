@@ -11,6 +11,7 @@
 @import "./solid-link.css";
 @import "./projects.css";
 @import "./speaking.css";
+@import "./segmented.css";
 
 :root {
   --type-text-x-small: 500 12px / 20px var(--font-sans);
