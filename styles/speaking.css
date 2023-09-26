@@ -91,7 +91,9 @@
   gap: 16px;
   overflow: hidden;
   box-shadow: 0px 1px 0px 1px var(--color-gray-100);
-  cursor: pointer;
+
+  text-decoration: none;
+  color: inherit;
 }
 
 .speaking__conf-year {
@@ -105,12 +107,12 @@
   letter-spacing: 0px;
 }
 
-.speaking__conf:hover {
+.speaking__conf[href]:hover {
   color: var(--color-accent-700);
   border-color: var(--color-accent-700);
 }
 
-.speaking__conf:hover .speaking__conf-year {
+.speaking__conf[href]:hover .speaking__conf-year {
   border-color: var(--color-accent-700);
 }
 

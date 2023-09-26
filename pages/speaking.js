@@ -9,12 +9,12 @@ import presaImg from "../public/speaking/presa.webp";
 import instaStoriesVideo from "../public/speaking/insta-stories-demo.mp4";
 import gotMilkImg from "../public/speaking/got-milk.webp";
 
-const Conference = ({ year, children }) => {
+const Conference = ({ year, children, ...props }) => {
   return (
-    <div className="speaking__conf">
+    <a className="speaking__conf" {...props}>
       {children}
       <span className="speaking__conf-year">{year}</span>
-    </div>
+    </a>
   );
 };
 
@@ -54,8 +54,16 @@ export default function Speaking() {
               </div>
 
               <div className="speaking__confs">
-                <Conference year="2021">HolyJS</Conference>
-                <Conference year="2020">TverIO Perf Meetup</Conference>
+                <Conference year="2021" format="recording" href="https://youtu.be/HSmdcVhvjIA">
+                  HolyJS
+                </Conference>
+                <Conference
+                  year="2020"
+                  format="recording"
+                  href="https://www.youtube.com/live/X1fzml5OEAQ?t=4088"
+                >
+                  TverIO Perf Meetup
+                </Conference>
               </div>
             </div>
           </div>
@@ -106,8 +114,12 @@ export default function Speaking() {
               </div>
 
               <div className="speaking__confs">
-                <Conference year="2019">React Amsterdam</Conference>
-                <Conference year="2019">React Russia </Conference>
+                <Conference year="2019" format="recording" href="https://youtu.be/bFYxkONAmn8">
+                  React Amsterdam
+                </Conference>
+                <Conference year="2019" format="recording" href="https://youtu.be/3LnMGyJ0M40">
+                  React Russia
+                </Conference>
               </div>
             </div>
           </div>
@@ -158,8 +170,12 @@ export default function Speaking() {
               </div>
 
               <div className="speaking__confs">
-                <Conference year="2018">React Kyiv</Conference>
-                <Conference year="2017">HolyJS</Conference>
+                <Conference year="2018" format="recording" href="https://youtu.be/bn3je3u-UIo">
+                  React Kyiv
+                </Conference>
+                <Conference year="2017" format="recording" href="https://youtu.be/Ug_dwJa07Os">
+                  HolyJS
+                </Conference>
                 <Conference year="2017">Krasnodar Dev Days</Conference>
               </div>
             </div>
@@ -194,7 +210,9 @@ export default function Speaking() {
                 </div>
 
                 <div className="speaking__confs">
-                  <Conference year="2021">SFU</Conference>
+                  <Conference year="2021" format="slides">
+                    SFU
+                  </Conference>
                 </div>
               </div>
             </div>
@@ -220,7 +238,9 @@ export default function Speaking() {
                 </div>
 
                 <div className="speaking__confs">
-                  <Conference year="2019">TverIO Design</Conference>
+                  <Conference year="2019" format="recording" href="https://youtu.be/08I6pIpXsgU">
+                    TverIO Design
+                  </Conference>
                   <Conference year="2019">SouthConf</Conference>
                   <Conference year="2018">SPB Frontend</Conference>
                 </div>
@@ -241,7 +261,13 @@ export default function Speaking() {
                 </div>
 
                 <div className="speaking__confs">
-                  <Conference year="2016">Rails Club</Conference>
+                  <Conference
+                    year="2016"
+                    format="slides"
+                    href="https://speakerdeck.com/molefrog/give-a-second-change-to-rails-frontend"
+                  >
+                    Rails Club
+                  </Conference>
                   <Conference year="2017">Rails Meetup RND</Conference>
                 </div>
               </div>
@@ -275,7 +301,13 @@ export default function Speaking() {
                 </div>
 
                 <div className="speaking__confs">
-                  <Conference year="2012">WebDevClub, MMCS</Conference>
+                  <Conference
+                    year="2012"
+                    format="slides"
+                    href="https://speakerdeck.com/molefrog/give-a-second-change-to-rails-frontend"
+                  >
+                    WebDevClub, MMCS
+                  </Conference>
                 </div>
               </div>
             </div>
