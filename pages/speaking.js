@@ -210,7 +210,11 @@ export default function Speaking() {
                 </div>
 
                 <div className="speaking__confs">
-                  <Conference year="2021" format="slides">
+                  <Conference
+                    year="2021"
+                    format="slides"
+                    href="https://speakerdeck.com/molefrog/react-hooks-iteractivity-in-functional-components"
+                  >
                     SFU
                   </Conference>
                 </div>
