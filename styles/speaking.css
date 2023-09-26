@@ -148,3 +148,14 @@
     gap: 0px 72px;
   }
 }
+
+@media (max-width: 640px) {
+  .speaking__slides {
+    flex-grow: 1;
+  }
+
+  .projector {
+    width: 100%;
+    min-height: auto;
+  }
+}
