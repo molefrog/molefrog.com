@@ -1,6 +1,8 @@
 import { join } from "path";
 import React, { useEffect } from "react";
 
+const ALPHA = "!*~abcdefghijklmnopqrstuvwxyz0123456789".split("");
+
 export const Segmented = ({
   children,
   cellColor = "var(--color-gray-200)",
@@ -24,16 +26,19 @@ export const Segmented = ({
     prevRef.current = text; // update ref
 
     let timers: ReturnType<typeof setTimeout>[] = [];
-    const alphabet = "!abcdefghijklmnopqrstuvwxyz0123456789".split("");
 
     text.split("").forEach((ch, i) => {
+      const prCh = prev[i];
+
       // shifts the character
       const upd = (char: string) => {
         prev[i] = char;
         setSeg(prev.join(""));
       };
 
-      let s = alphabet.indexOf(prev[i]);
+      // characters are not present in the alphabet, just add them
+      const alphabet = [...ALPHA, ch, prCh].filter((v, i, a) => a.indexOf(v) === i);
+      let s = alphabet.indexOf(prCh);
 
       const anim = () => {
         if (prev[i] === ch) return; // reached the target character

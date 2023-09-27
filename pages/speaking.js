@@ -20,11 +20,11 @@ const Conference = ({ year, children, format, ...props }) => {
   const pos = useMouse(ref, { fps: 24 });
 
   const formats = {
-    recording: "VIDEO",
-    slides: "SLIDE",
+    recording: "~REC",
+    slides: "DECK",
   };
 
-  const label = pos.isOver ? formats[format] || "hello" : "!" + year;
+  const label = pos.isOver ? formats[format] || "none" : year;
 
   return (
     <a className="speaking__conf" {...props} ref={ref}>
