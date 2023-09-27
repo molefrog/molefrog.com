@@ -1,5 +1,8 @@
-import { Container } from "../components/Grid";
+import { useState, useEffect, useRef } from "react";
 import WrapBalancer from "react-wrap-balancer";
+import useMouse from "@react-hook/mouse-position";
+
+import { Container } from "../components/Grid";
 import Showcase, { ShowcaseLink } from "../components/Showcase";
 
 import viipuriLibraryImg from "../public/speaking/viipuri-library.webp";
@@ -12,12 +15,22 @@ import simachevaImg from "../public/speaking/simacheva.webp";
 
 import { Segmented } from "../components/Segmented";
 
-const Conference = ({ year, children, ...props }) => {
+const Conference = ({ year, children, format, ...props }) => {
+  const ref = useRef(null);
+  const pos = useMouse(ref, { fps: 24 });
+
+  const formats = {
+    recording: "VIDEO",
+    slides: "SLIDE",
+  };
+
+  const label = pos.isOver ? formats[format] || "hello" : "!" + year;
+
   return (
-    <a className="speaking__conf" {...props}>
+    <a className="speaking__conf" {...props} ref={ref}>
       {children}
       <span className="speaking__conf-year">
-        <Segmented>{year}</Segmented>
+        <Segmented animated>{label}</Segmented>
       </span>
     </a>
   );
