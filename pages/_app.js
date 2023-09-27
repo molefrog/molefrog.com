@@ -44,6 +44,33 @@ const DSEG7Classic = localFont({
   display: "swap",
 });
 
+const DSEG14Classic = localFont({
+  src: [
+    {
+      path: "../styles/fonts/DSEG14Classic/DSEG14Classic-Regular.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../styles/fonts/DSEG14Classic/DSEG14Classic-Italic.woff2",
+      weight: "500",
+      style: "italic",
+    },
+    {
+      path: "../styles/fonts/DSEG14Classic/DSEG14Classic-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../styles/fonts/DSEG14Classic/DSEG14Classic-BoldItalic.woff2",
+      weight: "700",
+      style: "italic",
+    },
+  ],
+  fallback: ["monospace"],
+  display: "swap",
+});
+
 const Redaction35 = localFont({
   src: [
     {
@@ -66,7 +93,8 @@ export default function Layout({ Component, pageProps }) {
           --font-sans: system-ui, sans-serif;
           --font-serif: ${Redaction35.style.fontFamily};
           --font-mono: ${jetBrainsMono.style.fontFamily};
-          --font-segm: ${DSEG7Classic.style.fontFamily};
+          --font-segm7: ${DSEG7Classic.style.fontFamily};
+          --font-segm14: ${DSEG14Classic.style.fontFamily};
         }
       `}</style>
 
