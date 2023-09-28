@@ -118,7 +118,7 @@ const Footer = () => (
             target="_blank"
             rel="noopener noreferrer"
           >
-            DSEG7
+            DSEG
           </a>{" "}
           typefaces, which are distributed under the Open Font License. Hosted on{" "}
           <a href="https://pages.cloudflare.com/" target="_blank" rel="noopener noreferrer">

@@ -81,7 +81,13 @@
 }
 
 .footer__font--dseg7 {
-  font-family: var(--font-segm);
+  font-family: var(--font-segm7);
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.footer__font--dseg14 {
+  font-family: var(--font-segm14);
   font-size: 0.8em;
   font-weight: bold;
 }
