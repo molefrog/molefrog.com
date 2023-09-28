@@ -32,6 +32,8 @@ import pidnnThumbImg from "../public/showcase/pidnn-thumb.jpg";
 import piddnVideo from "../public/showcase/pidnn-talk.mp4";
 import ryeThumbImg from "../public/showcase/rye-thumb.gif";
 import ryeVideo from "../public/showcase/rye.mp4";
+import jsthingsThumbImg from "../public/showcase/js-things-thumb.gif";
+import jsthingsVideo from "../public/showcase/js-things.mp4";
 
 import { ComponentProps } from "react";
 import Image from "next/image";
@@ -172,6 +174,16 @@ const projects: Project[] = [
     description:
       "I worked as a lead full-stack developer for Smartomato, a food delivery startup, where I maintained the Ember.js SPA and the Rails backend.",
     url: "https://smartomato.ru",
+  },
+
+  {
+    thumb: jsthingsThumbImg,
+    video: jsthingsVideo,
+    aspectRatio: 1,
+    tags: ["2014", "node.js"],
+    description:
+      "I built an experimental network of printers for printing Instagram photos in real-time, using C++, Node.js and Raspberry Pi. You could see your photo being printed through a webcam connected to the Pi.",
+    url: "https://github.com/molefrog/steviewhale",
   },
 
   {
