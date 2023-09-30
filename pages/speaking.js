@@ -16,18 +16,20 @@ import instaStoriesVideo from "../public/speaking/insta-stories-demo.mp4";
 import gotMilkImg from "../public/speaking/got-milk.webp";
 import simachevaImg from "../public/speaking/simacheva.webp";
 
-import servSlide_1 from "../public/speaking/serverless-1.jpg";
-import servSlide_2 from "../public/speaking/serverless-2.jpg";
+import servSlide_1 from "../public/speaking/serverless-1.webp";
+import servSlide_2 from "../public/speaking/serverless-2.webp";
+import servSlide_3 from "../public/speaking/serverless-3.webp";
+import servSlide_4 from "../public/speaking/serverless-4.webp";
 
-import hooksSlide_1 from "../public/speaking/hooks-1.jpg";
-import hooksSlide_2 from "../public/speaking/hooks-2.jpg";
-import hooksSlide_3 from "../public/speaking/hooks-3.jpg";
-import hooksSlide_4 from "../public/speaking/hooks-4.jpg";
+import hooksSlide_1 from "../public/speaking/hooks-1.webp";
+import hooksSlide_2 from "../public/speaking/hooks-2.webp";
+import hooksSlide_3 from "../public/speaking/hooks-3.webp";
+import hooksSlide_4 from "../public/speaking/hooks-4.webp";
 
-import animSlide_1 from "../public/speaking/animations-1.png";
-import animSlide_2 from "../public/speaking/animations-2.png";
-import animSlide_3 from "../public/speaking/animations-3.png";
-import animSlide_4 from "../public/speaking/animations-4.png";
+import animSlide_1 from "../public/speaking/animations-1.webp";
+import animSlide_2 from "../public/speaking/animations-2.webp";
+import animSlide_3 from "../public/speaking/animations-3.webp";
+import animSlide_4 from "../public/speaking/animations-4.webp";
 
 const Conference = ({ year, children, format, ...props }) => {
   const ref = useRef(null);
@@ -59,7 +61,7 @@ export default function Speaking() {
             <div className="speaking__slides">
               <Projector
                 title="Practical Serverless and Edge Computing"
-                slides={[servSlide_1, servSlide_2]}
+                slides={[servSlide_1, servSlide_2, servSlide_3, servSlide_4]}
               />
             </div>
 
