@@ -33,14 +33,25 @@
 }
 
 .projector {
+  --slides-n: 2;
+
   border-radius: 12px;
   width: 380px;
   min-height: 260px;
   aspect-ratio: 4 / 3;
   background-color: var(--color-gray-50);
-  padding: 32px;
+  padding: 32px 0;
+  overflow: scroll;
+}
+
+.projector__slides {
+  --gap: 32px;
   display: flex;
-  align-items: center;
+  flex-flow: row nowrap;
+
+  gap: var(--gap);
+  padding: 0 calc(var(--gap) / 2);
+  width: calc(100% * var(--slides-n));
 }
 
 .projector__slide {
@@ -50,9 +61,13 @@
   border: 3px solid #ffffff;
   box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
+  position: relative;
+}
 
-  background-image: url("/speaking/hooks-2.jpg");
-  background-size: cover;
+.projector__slide-img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
 @supports not (aspect-ratio: 4 / 3) {
@@ -63,14 +78,6 @@
   .projector__slide {
     min-height: 144px;
   }
-}
-
-.projector__slide--anim {
-  background-image: url("/speaking/animations-4.png");
-}
-
-.projector__slide--serverless {
-  background-image: url("/speaking/serverless-2.jpg");
 }
 
 .speaking__confs {

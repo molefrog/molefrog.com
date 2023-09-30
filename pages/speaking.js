@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import WrapBalancer from "react-wrap-balancer";
+import Image from "next/image";
 import useMouse from "@react-hook/mouse-position";
 
 import { Container } from "../components/Grid";
@@ -14,6 +15,39 @@ import gotMilkImg from "../public/speaking/got-milk.webp";
 import simachevaImg from "../public/speaking/simacheva.webp";
 
 import { Segmented } from "../components/Segmented";
+
+import servSlide_1 from "../public/speaking/serverless-1.jpg";
+import servSlide_2 from "../public/speaking/serverless-2.jpg";
+
+import hooksSlide_1 from "../public/speaking/hooks-1.jpg";
+import hooksSlide_2 from "../public/speaking/hooks-2.jpg";
+import hooksSlide_3 from "../public/speaking/hooks-3.jpg";
+import hooksSlide_4 from "../public/speaking/hooks-4.jpg";
+
+import animSlide_1 from "../public/speaking/animations-1.png";
+import animSlide_2 from "../public/speaking/animations-2.png";
+import animSlide_3 from "../public/speaking/animations-3.png";
+import animSlide_4 from "../public/speaking/animations-4.png";
+
+const Projector = ({ slides, title }) => {
+  return (
+    <div className="projector" style={{ "--slides-n": slides.length }}>
+      <div className="projector__slides">
+        {slides.slice().map((slide, i) => (
+          <div className="projector__slide" key={slide.src + String(i)}>
+            <Image
+              className="projector__slide-img"
+              placeholder="blur"
+              alt={`${title} Slide #${i + 1}`}
+              fill
+              src={slide}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const Conference = ({ year, children, format, ...props }) => {
   const ref = useRef(null);
@@ -43,9 +77,10 @@ export default function Speaking() {
         <div className="speaking">
           <div className="speaking__talk">
             <div className="speaking__slides">
-              <div className="projector">
-                <div className="projector__slide projector__slide--serverless" />
-              </div>
+              <Projector
+                title="Practical Serverless and Edge Computing"
+                slides={[servSlide_1, servSlide_2]}
+              />
             </div>
 
             <div className="speaking__info">
@@ -88,9 +123,10 @@ export default function Speaking() {
 
           <div className="speaking__talk">
             <div className="speaking__slides">
-              <div className="projector">
-                <div className="projector__slide projector__slide" />
-              </div>
+              <Projector
+                title="React Hooks in action"
+                slides={[hooksSlide_1, hooksSlide_2, hooksSlide_3, hooksSlide_4]}
+              />
             </div>
 
             <div className="speaking__info">
@@ -147,9 +183,10 @@ export default function Speaking() {
 
           <div className="speaking__talk">
             <div className="speaking__slides">
-              <div className="projector">
-                <div className="projector__slide projector__slide--anim" />
-              </div>
+              <Projector
+                title="React Animations talk"
+                slides={[animSlide_1, animSlide_2, animSlide_3, animSlide_4]}
+              />
             </div>
 
             <div className="speaking__info">
