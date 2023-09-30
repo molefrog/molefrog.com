@@ -8,7 +8,7 @@ interface ProjectorProps {
 }
 
 export const Projector: React.FC<ProjectorProps> = ({ slides, title }) => {
-  const [currentSlide, setCurrentSlide] = useState(1);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const slidesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export const Projector: React.FC<ProjectorProps> = ({ slides, title }) => {
       if (slidesRef.current) {
         const slideWidth = slidesRef.current.clientWidth;
         const scrollLeft = slidesRef.current.scrollLeft;
-        const newSlide = Math.ceil(scrollLeft / slideWidth) + 1;
+        const newSlide = Math.ceil(scrollLeft / slideWidth);
         setCurrentSlide(newSlide);
       }
     };
@@ -49,16 +49,14 @@ export const Projector: React.FC<ProjectorProps> = ({ slides, title }) => {
         ))}
       </div>
 
-      <div className="projector__progress">
-        {slides.map((_, i) => (
-          <div
-            key={String(i)}
-            className={clsx(
-              "projector__progress-step",
-              currentSlide >= i + 1 ? "projector__progress-step--active" : ""
-            )}
-          />
+      <div
+        className="projector__progress"
+        style={{ "--total": slides.length, "--current": currentSlide } as React.CSSProperties}
+      >
+        {Array.from({ length: slides.length - 1 }).map((_, i) => (
+          <div className="projector__progress-mark" key={i} style={{ left: `${(i + 1) * 10}px` }} />
         ))}
+        <div className={clsx("projector__progress-step")} />
       </div>
     </div>
   );

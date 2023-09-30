@@ -50,7 +50,7 @@
 }
 
 .projector__progress {
-  height: 10px;
+  height: 11px;
 
   background: white;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05), inset 0px 2px 0px rgba(0, 0, 0, 0.07);
@@ -58,24 +58,29 @@
   display: flex;
   gap: 1px;
   padding: 0px 1px;
+
+  width: calc(var(--total) * 10px);
+  position: relative;
+}
+
+.projector__progress-mark {
+  width: 1px;
+  height: 4px;
+  position: absolute;
+  background: var(--color-gray-100);
+  top: 4px;
 }
 
 .projector__progress-step {
   height: 10px;
   width: 10px;
+  margin-top: 1px;
   border-radius: 10px;
-  background-color: var(--color-accent-300);
-  box-shadow: inset 0px 2px 2px var(--color-accent-200);
-  transform: translateX(-100%);
-  transition: transform 0.2s ease, opacity 0.1s linear 0.1s;
-  flex: 0 0 10px;
-  opacity: 0;
-}
+  background-color: var(--color-accent-400);
+  box-shadow: inset 0px 1px 2px rgba(255, 255, 255, 0.4), 0px 0px 0px 0.5px var(--color-accent-300);
 
-.projector__progress-step--active {
-  opacity: 1;
-  transform: none;
-  transition: transform 0.2s ease;
+  transition: transform 0.1s ease;
+  transform: translateX(calc(100% * var(--current)));
 }
 
 @supports not (aspect-ratio: 4 / 3) {
