@@ -34,14 +34,16 @@ const Projector = ({ slides, title }) => {
     <div className="projector" style={{ "--slides-n": slides.length }}>
       <div className="projector__slides">
         {slides.slice().map((slide, i) => (
-          <div className="projector__slide" key={slide.src + String(i)}>
-            <Image
-              className="projector__slide-img"
-              placeholder="blur"
-              alt={`${title} Slide #${i + 1}`}
-              fill
-              src={slide}
-            />
+          <div className="projector__slide-step" key={slide.src + String(i)}>
+            <div className="projector__slide">
+              <Image
+                className="projector__slide-img"
+                placeholder="blur"
+                alt={`${title} Slide #${i + 1}`}
+                fill
+                src={slide}
+              />
+            </div>
           </div>
         ))}
       </div>
