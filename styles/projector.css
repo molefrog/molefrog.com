@@ -1,0 +1,102 @@
+.projector {
+  --slides-n: 2;
+
+  border-radius: 12px;
+  width: 380px;
+  min-height: 260px;
+  aspect-ratio: 4 / 3;
+  background-color: var(--color-gray-50);
+
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.projector__slides {
+  display: flex;
+  width: 100%;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+  scroll-snap-stop: always;
+  padding: 32px 0 28px 0;
+}
+
+.projector__slides::-webkit-scrollbar {
+  display: none;
+}
+
+.projector__slide-step {
+  flex: 1 0 100%;
+  scroll-snap-align: start;
+  padding: 0 24px;
+}
+
+.projector__slide {
+  aspect-ratio: 16 / 9;
+
+  border: 3px solid #ffffff;
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  position: relative;
+}
+
+.projector__slide-img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.projector__progress {
+  height: 10px;
+
+  background: white;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05), inset 0px 2px 0px rgba(0, 0, 0, 0.07);
+  border-radius: 6px;
+  display: flex;
+  gap: 1px;
+  padding: 0px 1px;
+}
+
+.projector__progress-step {
+  height: 10px;
+  width: 10px;
+  border-radius: 10px;
+  background-color: var(--color-accent-300);
+  box-shadow: inset 0px 2px 2px var(--color-accent-200);
+  transform: translateX(-100%);
+  transition: transform 0.2s ease, opacity 0.1s linear 0.1s;
+  flex: 0 0 10px;
+  opacity: 0;
+}
+
+.projector__progress-step--active {
+  opacity: 1;
+  transform: none;
+  transition: transform 0.2s ease;
+}
+
+@supports not (aspect-ratio: 4 / 3) {
+  .projector {
+    min-height: 280px;
+  }
+
+  .projector__slide {
+    min-height: 144px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .projector {
+    width: 320px;
+  }
+}
+
+@media (max-width: 640px) {
+  .projector {
+    width: 100%;
+    min-height: auto;
+  }
+}
