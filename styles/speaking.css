@@ -54,6 +54,10 @@
   scroll-snap-stop: always;
 }
 
+.projector__slides::-webkit-scrollbar {
+  display: none;
+}
+
 .projector__slide-step {
   flex: 1 0 100%;
   scroll-snap-align: start;

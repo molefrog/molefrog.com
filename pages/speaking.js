@@ -1,10 +1,12 @@
-import { useState, useEffect, useRef } from "react";
+import { useRef } from "react";
 import WrapBalancer from "react-wrap-balancer";
-import Image from "next/image";
 import useMouse from "@react-hook/mouse-position";
 
+import { Segmented } from "../components/Segmented";
+import { Projector } from "../components/Projector";
+
 import { Container } from "../components/Grid";
-import Showcase, { ShowcaseLink } from "../components/Showcase";
+import { ShowcaseLink } from "../components/Showcase";
 
 import viipuriLibraryImg from "../public/speaking/viipuri-library.webp";
 import hooksCharactersImg from "../public/speaking/hooks-characters.webp";
@@ -13,8 +15,6 @@ import presaImg from "../public/speaking/presa.webp";
 import instaStoriesVideo from "../public/speaking/insta-stories-demo.mp4";
 import gotMilkImg from "../public/speaking/got-milk.webp";
 import simachevaImg from "../public/speaking/simacheva.webp";
-
-import { Segmented } from "../components/Segmented";
 
 import servSlide_1 from "../public/speaking/serverless-1.jpg";
 import servSlide_2 from "../public/speaking/serverless-2.jpg";
@@ -28,28 +28,6 @@ import animSlide_1 from "../public/speaking/animations-1.png";
 import animSlide_2 from "../public/speaking/animations-2.png";
 import animSlide_3 from "../public/speaking/animations-3.png";
 import animSlide_4 from "../public/speaking/animations-4.png";
-
-const Projector = ({ slides, title }) => {
-  return (
-    <div className="projector" style={{ "--slides-n": slides.length }}>
-      <div className="projector__slides">
-        {slides.slice().map((slide, i) => (
-          <div className="projector__slide-step" key={slide.src + String(i)}>
-            <div className="projector__slide">
-              <Image
-                className="projector__slide-img"
-                placeholder="blur"
-                alt={`${title} Slide #${i + 1}`}
-                fill
-                src={slide}
-              />
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
 
 const Conference = ({ year, children, format, ...props }) => {
   const ref = useRef(null);
