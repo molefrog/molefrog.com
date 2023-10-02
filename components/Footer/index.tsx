@@ -58,9 +58,9 @@ const Footer = () => (
               className="footer__link"
               target="_blank"
               rel="noopener noreferrer"
-              href="http://codepen.io/molefrog/"
+              href="https://www.are.na/mole-frog"
             >
-              Codepen
+              Are.na
             </a>
           </div>
 
@@ -69,9 +69,9 @@ const Footer = () => (
               className="footer__link"
               target="_blank"
               rel="noopener noreferrer"
-              href="https://speakerdeck.com/molefrog"
+              href="https://instagram.com/molefrog"
             >
-              Speaker Deck
+              Instagram
             </a>
           </div>
 
