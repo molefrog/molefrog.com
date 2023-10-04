@@ -28,6 +28,7 @@
 }
 
 .speaking__head {
+  flex: 1 1 auto;
   font: var(--type-header-regular);
   -webkit-font-smoothing: none;
 }
@@ -80,11 +81,48 @@
 .speaking__rest {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0px 80px;
+  gap: 96px 80px;
+
+  margin-bottom: 80px;
 }
 
 .speaking__rest > .speaking__talk {
-  margin-bottom: 72px;
+  margin-bottom: 0px;
+}
+
+.speaking__title-with-icon {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 28px;
+}
+
+@media (max-width: 768px) {
+  .speaking__title-with-icon {
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 24px;
+  }
+}
+
+.sp-icon {
+  height: 50px;
+  width: 50px;
+  flex: 0 0 auto;
+  position: relative;
+
+  display: none; /* remove to turn on the icons */
+}
+
+.sp-icon__img {
+  position: absolute;
+  top: -5px;
+  left: 0px;
+}
+
+.sp-icon > svg {
+  width: 100%;
+  transform: rotate(-3deg);
+  color: var(--color-gray-100);
 }
 
 @media (max-width: 1024px) {
@@ -106,7 +144,7 @@
 
   .speaking__rest {
     grid-template-columns: 1fr;
-    gap: 0px 72px;
+    gap: 72px;
   }
 }
 

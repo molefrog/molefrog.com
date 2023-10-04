@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import Image from "next/image";
 import WrapBalancer from "react-wrap-balancer";
 import useMouse from "@react-hook/mouse-position";
 
@@ -30,6 +31,8 @@ import animSlide_1 from "../public/speaking/animations-1.webp";
 import animSlide_2 from "../public/speaking/animations-2.webp";
 import animSlide_3 from "../public/speaking/animations-3.webp";
 import animSlide_4 from "../public/speaking/animations-4.webp";
+
+import milkIcon from "../public/speaking/anicon-milk.png";
 
 const Conference = ({ year, children, format, ...props }) => {
   const ref = useRef(null);
@@ -226,9 +229,13 @@ export default function Speaking() {
           <section className="speaking__rest">
             <div className="speaking__talk">
               <div className="speaking__info">
-                <h3 className="speaking__head">
-                  <WrapBalancer>React Hooks: Iteractivity in Functional Components</WrapBalancer>
-                </h3>
+                <div className="speaking__title-with-icon">
+                  <AnimatedIcon />
+
+                  <h3 className="speaking__head">
+                    <WrapBalancer>React Hooks: Iteractivity in Functional Components</WrapBalancer>
+                  </h3>
+                </div>
 
                 <div className="speaking__desc">
                   <p>
@@ -263,11 +270,15 @@ export default function Speaking() {
 
             <div className="speaking__talk">
               <div className="speaking__info">
-                <h3 className="speaking__head">
-                  <WrapBalancer>
-                    Can Design Principles Help me Become a Better Software Engineer?
-                  </WrapBalancer>
-                </h3>
+                <div className="speaking__title-with-icon">
+                  <AnimatedIcon />
+
+                  <h3 className="speaking__head">
+                    <WrapBalancer>
+                      Can Design Principles Help me Become a Better Software Engineer?
+                    </WrapBalancer>
+                  </h3>
+                </div>
 
                 <div className="speaking__desc">
                   <p>
@@ -293,9 +304,13 @@ export default function Speaking() {
 
             <div className="speaking__talk">
               <div className="speaking__info">
-                <h3 className="speaking__head">
-                  <WrapBalancer>Give a Second Chance to Rails Frontend!</WrapBalancer>
-                </h3>
+                <div className="speaking__title-with-icon">
+                  <AnimatedIcon />
+
+                  <h3 className="speaking__head">
+                    <WrapBalancer>Give a Second Chance to Rails Frontend!</WrapBalancer>
+                  </h3>
+                </div>
 
                 <div className="speaking__desc">
                   <p>
@@ -319,11 +334,15 @@ export default function Speaking() {
 
             <div className="speaking__talk">
               <div className="speaking__info">
-                <h3 className="speaking__head">
-                  <WrapBalancer>
-                    Got Milk? A Short Introduction to Node.js and Event-Driven Programming
-                  </WrapBalancer>
-                </h3>
+                <div className="speaking__title-with-icon">
+                  <AnimatedIcon />
+
+                  <h3 className="speaking__head">
+                    <WrapBalancer>
+                      Got Milk? A Short Introduction to Node.js and Event-Driven Programming
+                    </WrapBalancer>
+                  </h3>
+                </div>
 
                 <div className="speaking__desc">
                   <p>
@@ -361,3 +380,19 @@ export default function Speaking() {
     </main>
   );
 }
+
+const AnimatedIcon = () => {
+  return (
+    <div className="sp-icon">
+      {/** Squircle background */}
+      <svg width="48" viewBox="0 0 49 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M0.187012 24C0.187012 12.6863 0.187012 7.02944 3.70173 3.51472C7.21645 0 12.8733 0 24.187 0C35.5007 0 41.1576 0 44.6723 3.51472C48.187 7.02944 48.187 12.6863 48.187 24C48.187 35.3137 48.187 40.9706 44.6723 44.4853C41.1576 48 35.5007 48 24.187 48C12.8733 48 7.21645 48 3.70173 44.4853C0.187012 40.9706 0.187012 35.3137 0.187012 24Z"
+          fill="currentColor"
+        />
+      </svg>
+
+      <Image src={milkIcon} width="54" height="54" className="sp-icon__img" alt="" aria-hidden />
+    </div>
+  );
+};
