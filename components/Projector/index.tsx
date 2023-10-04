@@ -10,18 +10,23 @@ interface ProjectorProps {
 export const Projector: React.FC<ProjectorProps> = ({ slides, title }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slidesRef = useRef<HTMLDivElement>(null);
+  const posRef = useRef<number>(0);
 
   useEffect(() => {
     const el = slidesRef.current;
     if (!el) return;
 
     const handleScroll = () => {
-      if (slidesRef.current) {
-        const slideWidth = slidesRef.current.clientWidth;
-        const scrollLeft = slidesRef.current.scrollLeft;
-        const newSlide = Math.ceil(scrollLeft / slideWidth);
-        setCurrentSlide(newSlide);
-      }
+      const slideWidth = el.clientWidth;
+      const scrollLeft = el.scrollLeft;
+
+      const dir = el.scrollLeft - posRef.current > 0 ? "right" : "left";
+
+      const newSlide =
+        dir === "right" ? Math.ceil(scrollLeft / slideWidth) : Math.floor(scrollLeft / slideWidth);
+
+      setCurrentSlide(newSlide);
+      posRef.current = el.scrollLeft;
     };
 
     el.addEventListener("scroll", handleScroll);
