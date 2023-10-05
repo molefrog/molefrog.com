@@ -15,7 +15,6 @@
     "url": "https://github.com/molefrog/molefrog.github.io.git"
   },
   "dependencies": {
-    "@next/font": "13.1.1",
     "@react-hook/mouse-position": "^4.1.3",
     "@types/react-dom": "18.0.9",
     "clsx": "^2.0.0",

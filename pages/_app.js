@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import Script from "next/script";
 import { Provider as WrapBalancerProvider } from "react-wrap-balancer";
 import Head from "next/head";
-import localFont from "@next/font/local";
-import { JetBrains_Mono } from "@next/font/google";
+import localFont from "next/font/local";
+import { JetBrains_Mono } from "next/font/google";
 
 import TopBar from "../components/TopBar";
 import Footer from "../components/Footer";
