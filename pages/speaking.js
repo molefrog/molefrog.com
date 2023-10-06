@@ -33,6 +33,9 @@ import animSlide_3 from "../public/speaking/animations-3.webp";
 import animSlide_4 from "../public/speaking/animations-4.webp";
 
 import milkIcon from "../public/speaking/anicon-milk.png";
+import socketIcon from "../public/speaking/anicon-socket.png";
+import radioIcon from "../public/speaking/anicon-radio.png";
+import phoneIcon from "../public/speaking/anicon-phone.png";
 
 const Conference = ({ year, children, format, ...props }) => {
   const ref = useRef(null);
@@ -230,7 +233,7 @@ export default function Speaking() {
             <div className="speaking__talk">
               <div className="speaking__info">
                 <div className="speaking__title-with-icon">
-                  <AnimatedIcon />
+                  <AnimatedIcon icon={phoneIcon} />
 
                   <h3 className="speaking__head">
                     <WrapBalancer>React Hooks: Iteractivity in Functional Components</WrapBalancer>
@@ -271,7 +274,7 @@ export default function Speaking() {
             <div className="speaking__talk">
               <div className="speaking__info">
                 <div className="speaking__title-with-icon">
-                  <AnimatedIcon />
+                  <AnimatedIcon icon={radioIcon} />
 
                   <h3 className="speaking__head">
                     <WrapBalancer>
@@ -305,7 +308,7 @@ export default function Speaking() {
             <div className="speaking__talk">
               <div className="speaking__info">
                 <div className="speaking__title-with-icon">
-                  <AnimatedIcon />
+                  <AnimatedIcon icon={socketIcon} />
 
                   <h3 className="speaking__head">
                     <WrapBalancer>Give a Second Chance to Rails Frontend!</WrapBalancer>
@@ -335,7 +338,7 @@ export default function Speaking() {
             <div className="speaking__talk">
               <div className="speaking__info">
                 <div className="speaking__title-with-icon">
-                  <AnimatedIcon />
+                  <AnimatedIcon icon={milkIcon} />
 
                   <h3 className="speaking__head">
                     <WrapBalancer>
@@ -381,7 +384,7 @@ export default function Speaking() {
   );
 }
 
-const AnimatedIcon = () => {
+const AnimatedIcon = ({ icon }) => {
   return (
     <div className="sp-icon">
       {/** Squircle background */}
@@ -392,7 +395,7 @@ const AnimatedIcon = () => {
         />
       </svg>
 
-      <Image src={milkIcon} width="54" height="54" className="sp-icon__img" alt="" aria-hidden />
+      <Image src={icon} width="54" height="54" className="sp-icon__img" alt="" aria-hidden />
     </div>
   );
 };

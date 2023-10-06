@@ -109,20 +109,18 @@
   width: 50px;
   flex: 0 0 auto;
   position: relative;
-
-  display: none; /* remove to turn on the icons */
 }
 
 .sp-icon__img {
   position: absolute;
-  top: -5px;
+  top: -2px;
   left: 0px;
 }
 
 .sp-icon > svg {
   width: 100%;
   transform: rotate(-3deg);
-  color: var(--color-gray-100);
+  color: var(--color-gray-50);
 }
 
 @media (max-width: 1024px) {
