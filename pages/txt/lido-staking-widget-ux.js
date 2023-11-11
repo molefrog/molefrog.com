@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import WrapBalancer from "react-wrap-balancer";
 import { Container } from "../../components/Grid";
 import { ShowcaseLink } from "../../components/Showcase";
@@ -24,33 +25,52 @@ export const getStaticProps = async () => {
 
 export default function Index(props) {
   return (
-    <article className="article">
-      <Container className="article__header" placement="inner">
-        <div className="article__category">research</div>
-        <h1 className="article__h1">
-          <WrapBalancer>User-Centered Liquid Staking</WrapBalancer>
-        </h1>
+    <>
+      <Head>
+        <title>Lido.fi UX: User-Centered Audit of the Staking Widge</title>
 
-        <WrapBalancer>
-          An incomplete UX Audit of{" "}
-          <ShowcaseLink
-            href="https://stake.lido.fi"
-            media={{ image: lidoImg, aspectRatio: "auto" }}
-          >
-            Lido.fi
-          </ShowcaseLink>
-          , the leading decentralised protocol for Ethereum liquid staking.
-        </WrapBalancer>
-      </Container>
-
-      <Container placement="inner">
-        <NotionRenderer
-          recordMap={props.recordMap}
-          components={{ Equation }}
-          className="article__notion"
-          fullPage={false}
+        <meta
+          name="description"
+          key="meta-description"
+          content={
+            "How user experience of Ethereum staking on Lido.fi can be improved: research, customer journey maps, draft ideas, futher steps."
+          }
         />
-      </Container>
-    </article>
+
+        <meta
+          name="keywords"
+          key="meta-keywords"
+          content={["Web3 UX Patterns", "UX Audit", "Etherium", "Crypto"].join(", ")}
+        />
+      </Head>
+      <article className="article">
+        <Container className="article__header" placement="inner">
+          <div className="article__category">research</div>
+          <h1 className="article__h1">
+            <WrapBalancer>User-Centered Liquid Staking</WrapBalancer>
+          </h1>
+
+          <WrapBalancer>
+            An incomplete UX Audit of{" "}
+            <ShowcaseLink
+              href="https://stake.lido.fi"
+              media={{ image: lidoImg, aspectRatio: "auto" }}
+            >
+              Lido.fi
+            </ShowcaseLink>
+            , the leading decentralised protocol for Ethereum liquid staking.
+          </WrapBalancer>
+        </Container>
+
+        <Container placement="inner">
+          <NotionRenderer
+            recordMap={props.recordMap}
+            components={{ Equation }}
+            className="article__notion"
+            fullPage={false}
+          />
+        </Container>
+      </article>
+    </>
   );
 }
