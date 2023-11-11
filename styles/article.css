@@ -2,17 +2,34 @@
 @import "katex/dist/katex.min.css";
 
 .article {
-  --type-text-content: 400 18px / 31px var(--font-sans);
+  --type-text-content: 400 18px / 30px var(--font-sans);
+  --type-article-header: 400 64px / 60px "Redaction 10";
 }
 
 .article__header {
   text-align: center;
-  font: var(--type-text-medium);
+  font-size: 24px;
+  font-weight: normal;
+  margin-bottom: 96px;
+  line-height: 32px;
 }
 
 .article__h1 {
-  font: var(--type-header-large);
-  margin-bottom: 48px;
+  font: var(--type-article-header);
+  letter-spacing: var(--type-ls-header);
+  max-width: 480px;
+  margin: 0 auto 32px auto;
+}
+
+.article__category {
+  font: var(--type-text-small);
+  color: var(--color-accent-200);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: 6px;
 }
 
 .article__notion.notion {

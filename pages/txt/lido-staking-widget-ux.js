@@ -27,15 +27,15 @@ export const getStaticProps = async () => {
 export default function Index(props) {
   return (
     <article className="article">
-      <Container className="article__header" placement="outer">
+      <Container className="article__header" placement="inner">
+        <div className="article__category">research</div>
         <h1 className="article__h1">
-          <WrapBalancer>UX Audit of Lido.fi Staking Widget Frontend Application</WrapBalancer>
+          <WrapBalancer>User-Centered Liquid Staking</WrapBalancer>
         </h1>
 
         <WrapBalancer>
-          This article presents a comprehensive UX audit of the lido.fi staking widget frontend
-          application. It delves into the user interface, interaction design, and overall user
-          experience, providing insights and recommendations for improvement.
+          An incomplete UX Audit of Lido.fi, the leading decentralised protocol for Ethereum liquid
+          staking.
         </WrapBalancer>
       </Container>
       <Container placement="inner">
