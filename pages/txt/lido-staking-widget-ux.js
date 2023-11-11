@@ -10,6 +10,9 @@ import { Equation } from "react-notion-x/build/third-party/equation";
 
 import lidoImg from "../../public/txt/lido-ui.webp";
 
+import "react-notion-x/src/styles.css";
+import "katex/dist/katex.min.css";
+
 export const getStaticProps = async () => {
   const PAGE_ID = "196e6fc3715b4d9a95e2d46549df07eb";
 
