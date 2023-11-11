@@ -4,14 +4,21 @@
 .article {
   --type-text-content: 400 18px / 30px var(--font-sans);
   --type-article-header: 400 64px / 60px "Redaction 10";
+  --type-article-title: 400 24px/ 34px var(--font-sans);
+}
+
+@media (max-width: 768px) {
+  .article {
+    --type-text-content: 400 17px / 29px var(--font-sans);
+    --type-article-title: 400 22px/ 31px var(--font-sans);
+    --type-article-header: 400 52px / 52px "Redaction 10";
+  }
 }
 
 .article__header {
   text-align: center;
-  font-size: 24px;
-  font-weight: normal;
   margin-bottom: 96px;
-  line-height: 32px;
+  font: var(--type-article-title);
 }
 
 .article__h1 {
@@ -38,6 +45,7 @@
     --notion-font: var(--font-sans);
     padding: 0;
     font: var(--type-text-content);
+    color: var(--color-gray-900);
   }
 
   & .notion-h {
