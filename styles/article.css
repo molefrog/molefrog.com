@@ -1,0 +1,73 @@
+@import "react-notion-x/src/styles.css";
+@import "katex/dist/katex.min.css";
+
+.article {
+  --type-text-content: 400 18px / 31px var(--font-sans);
+}
+
+.article__header {
+  text-align: center;
+  font: var(--type-text-medium);
+}
+
+.article__h1 {
+  font: var(--type-header-large);
+  margin-bottom: 48px;
+}
+
+.article__notion.notion {
+  & {
+    --notion-max-width: var(--inner-grid-width);
+    --notion-font: var(--font-sans);
+    padding: 0;
+    font: var(--type-text-content);
+  }
+
+  & .notion-h {
+    letter-spacing: var(--type-ls-header);
+    -webkit-font-smoothing: none;
+    margin-bottom: 8px;
+  }
+
+  & .notion-h1 {
+    font: var(--type-header-large);
+  }
+
+  & .notion-h2 {
+    font: var(--type-header-medium);
+  }
+
+  & .notion-h3 {
+    font: var(--type-header-regular);
+  }
+
+  & .notion-h1 + .notion-h2 {
+    margin-top: 0.8em;
+  }
+
+  & .notion-inline-code {
+    font-family: var(--font-mono);
+    background-color: var(--color-gray-100);
+    letter-spacing: -0.01em;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-weight: 700;
+    color: hsl(346 76% 59% / 1);
+
+    & b {
+      font-weight: 800;
+    }
+  }
+
+  & .notion-text {
+    padding: 8px 2px;
+  }
+
+  & .notion-text + .notion-text {
+    padding-top: 12px;
+  }
+
+  & .notion-list-numbered > li::marker {
+    font: var(--type-text-small);
+  }
+}

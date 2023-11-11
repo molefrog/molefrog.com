@@ -13,6 +13,7 @@
 @import "./speaking.css";
 @import "./segmented.css";
 @import "./projector.css";
+@import "./article.css";
 
 :root {
   --type-text-x-small: 500 12px / 20px var(--font-sans);
