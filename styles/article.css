@@ -3,7 +3,7 @@
 
 .article {
   --type-text-content: 400 18px / 30px var(--font-sans);
-  --type-article-header: 400 64px / 60px "Redaction 10";
+  --type-article-header: 400 64px / 60px var(--font-serif-fine);
   --type-article-title: 400 24px/ 34px var(--font-sans);
 }
 
@@ -11,13 +11,14 @@
   .article {
     --type-text-content: 400 17px / 29px var(--font-sans);
     --type-article-title: 400 22px/ 31px var(--font-sans);
-    --type-article-header: 400 52px / 52px "Redaction 10";
+    --type-article-header: 400 52px / 52px var(--font-serif-fine);
   }
 }
 
 .article__header {
   text-align: center;
   margin-bottom: 96px;
+  padding-top: 40px;
   font: var(--type-article-title);
 }
 
@@ -30,7 +31,7 @@
 
 .article__category {
   font: var(--type-text-small);
-  color: var(--color-accent-200);
+  color: var(--color-accent);
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 24px;
@@ -94,5 +95,10 @@
 
   & .notion-list-numbered > li::marker {
     font: var(--type-text-small);
+  }
+
+  & .notion-asset-wrapper-full:has(iframe) {
+    border-top: 1px solid var(--color-gray-200);
+    border-bottom: 1px solid var(--color-gray-200);
   }
 }

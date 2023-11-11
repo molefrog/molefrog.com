@@ -85,6 +85,20 @@ const Redaction35 = localFont({
   display: "swap",
 });
 
+const Redaction10 = localFont({
+  src: [
+    {
+      path: "../styles/fonts/Redaction/Redaction_10-Regular.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    { path: "../styles/fonts/Redaction/Redaction_10-Italic.woff2", weight: "500", style: "italic" },
+    { path: "../styles/fonts/Redaction/Redaction_10-Bold.woff2", weight: "700", style: "normal" },
+  ],
+  fallback: ["serif"],
+  display: "swap",
+});
+
 export default function Layout({ Component, pageProps }) {
   return (
     <>
@@ -92,6 +106,7 @@ export default function Layout({ Component, pageProps }) {
         :root {
           --font-sans: system-ui, sans-serif;
           --font-serif: ${Redaction35.style.fontFamily};
+          --font-serif-fine: ${Redaction10.style.fontFamily};
           --font-mono: ${jetBrainsMono.style.fontFamily};
           --font-segm7: ${DSEG7Classic.style.fontFamily};
           --font-segm14: ${DSEG14Classic.style.fontFamily};

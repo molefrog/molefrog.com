@@ -1,15 +1,13 @@
 import React from "react";
-import Image from "next/image";
 import WrapBalancer from "react-wrap-balancer";
 import { Container } from "../../components/Grid";
-import { SolidLink } from "../../components/SolidLink";
-import Link from "next/link";
-
-import Showcase from "../../components/Showcase";
+import { ShowcaseLink } from "../../components/Showcase";
 
 import { NotionAPI } from "notion-client";
 import { NotionRenderer } from "react-notion-x";
 import { Equation } from "react-notion-x/build/third-party/equation";
+
+import lidoImg from "../../public/txt/lido-ui.webp";
 
 export const getStaticProps = async () => {
   const PAGE_ID = "196e6fc3715b4d9a95e2d46549df07eb";
@@ -34,10 +32,17 @@ export default function Index(props) {
         </h1>
 
         <WrapBalancer>
-          An incomplete UX Audit of Lido.fi, the leading decentralised protocol for Ethereum liquid
-          staking.
+          An incomplete UX Audit of{" "}
+          <ShowcaseLink
+            href="https://stake.lido.fi"
+            media={{ image: lidoImg, aspectRatio: "auto" }}
+          >
+            Lido.fi
+          </ShowcaseLink>
+          , the leading decentralised protocol for Ethereum liquid staking.
         </WrapBalancer>
       </Container>
+
       <Container placement="inner">
         <NotionRenderer
           recordMap={props.recordMap}
