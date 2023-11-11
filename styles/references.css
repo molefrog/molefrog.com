@@ -20,7 +20,7 @@ li.references__item {
 }
 
 li.references__item + li.references__item {
-  margin-top: 28px;
+  margin-top: 30px;
 }
 
 li.references__item::marker {
@@ -48,11 +48,25 @@ li.references__item::marker {
 
 .references__details {
   margin-top: 6px;
-  font: var(--type-text-small);
+  color: var(--color-gray-700);
+  font-weight: normal;
 }
 
 .page-header__header {
   font: var(--type-header-medium);
   letter-spacing: var(--type-ls-header);
   -webkit-font-smoothing: none;
+  margin-bottom: 16px;
+}
+
+.page-header__text {
+  font: var(--type-text-medium);
+  margin-bottom: 70px;
+  color: var(--color-gray-800);
+}
+
+@media (max-width: 768px) {
+  .references {
+    --marker-offset: 4px;
+  }
 }

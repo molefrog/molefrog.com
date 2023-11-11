@@ -5,12 +5,11 @@ export default function Media() {
     <main>
       <Container placement="inner">
         <h2 className="page-header__header">Media Mentions and Publications</h2>
-        <p className="page-header__text">
+        <div className="page-header__text">
           Here is a <i>&quot;humble&quot;</i> list of the articles me or my projects have been
           mentioned in, the podcasts I&apos;ve joined as a guest, or some articles I&apos;ve written
           over the years.
-        </p>
-        <br />
+        </div>
 
         <ol className="references">
           {REFERENCES.map(({ title, url, details }, idx_) => {

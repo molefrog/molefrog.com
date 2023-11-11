@@ -16,7 +16,7 @@
 }
 
 .speaking__desc {
-  margin-bottom: 22px;
+  margin-bottom: 26px;
 }
 
 .speaking__desc code {
@@ -143,6 +143,10 @@
   .speaking__rest {
     grid-template-columns: 1fr;
     gap: 72px;
+  }
+
+  .speaking__desc {
+    margin-bottom: 20px;
   }
 }
 
