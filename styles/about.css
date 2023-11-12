@@ -27,4 +27,8 @@
   .about__description {
     margin-bottom: 54px;
   }
+
+  .about__header {
+    font: var(--type-header-medium);
+  }
 }

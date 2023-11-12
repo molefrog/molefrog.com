@@ -29,7 +29,7 @@ export default function Index() {
             <p></p>
             <p>
               Occasionally, I{" "}
-              <Showcase media={{ video: speakingVideo, aspectRatio: 2.2 }}>
+              <Showcase media={{ video: speakingVideo, aspectRatio: 2.2 }} prefer="below">
                 <Link className="solid-link" href="/speaking">
                   speak
                 </Link>

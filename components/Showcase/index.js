@@ -1,4 +1,5 @@
 import { isValidElement, cloneElement, useRef, useEffect, useState, memo } from "react";
+import { createPortal } from "react-dom";
 import clsx from "clsx";
 import Image from "next/image";
 import useMouse from "@react-hook/mouse-position";
@@ -18,7 +19,7 @@ const shouldUseModalDialog = () => {
   return isMobile || isTouch;
 };
 
-const Popover = ({ mousePosition, anchorElement, media, modal = false }) => {
+const Popover = ({ mousePosition, anchorElement, media, prefer, modal = false }) => {
   // "init" | "placeholder" | "loaded"
   const [loadingState, setLoadingState] = useState("init");
 
@@ -55,6 +56,7 @@ const Popover = ({ mousePosition, anchorElement, media, modal = false }) => {
     : calculatePopoverPosition(
         anchorElement,
         mousePosition,
+        prefer,
         PREVIEW_W,
         PREVIEW_W / aspectRatio,
         MARGIN
@@ -124,7 +126,15 @@ const Popover = ({ mousePosition, anchorElement, media, modal = false }) => {
   );
 };
 
-const Showcase = ({ children, media }) => {
+const getURLHost = (url) => {
+  try {
+    return new URL(url).host;
+  } catch (e) {
+    return url;
+  }
+};
+
+const Showcase = ({ children, media, prefer = "above" }) => {
   const ref = useRef(null);
 
   const [Wrap] = useState(() =>
@@ -173,26 +183,48 @@ const Showcase = ({ children, media }) => {
 
   return (
     <>
-      {!isStatic && isHydrated && pos.isOver && (
-        <Popover mousePosition={pos} anchorElement={ref.current} media={media} />
-      )}
-      {isStatic && isHydrated && staticDialogOpen && (
-        <div className="showcase__static-backdrop" ref={backdropRef} onClick={handleBackdropClick}>
-          <Popover modal media={media} />
+      {isHydrated &&
+        createPortal(
+          <>
+            {!isStatic && pos.isOver && (
+              <Popover
+                mousePosition={pos}
+                anchorElement={ref.current}
+                prefer={prefer}
+                media={media}
+              />
+            )}
+            {isStatic && staticDialogOpen && (
+              <div
+                className="showcase__static-backdrop"
+                ref={backdropRef}
+                onClick={handleBackdropClick}
+              >
+                <Popover modal media={media} />
 
-          {url && (
-            <a href={url} className="showcase__modal-button">
-              {new URL(url).host} ↗
-            </a>
-          )}
-        </div>
-      )}
+                {url && (
+                  <a href={url} className="showcase__modal-button">
+                    {getURLHost(url)} ↗
+                  </a>
+                )}
+              </div>
+            )}
+          </>,
+          document.body
+        )}
       <Wrap />
     </>
   );
 };
 
-const calculatePopoverPosition = (element, pos, popoverWidth, popoverHeight, margin) => {
+const calculatePopoverPosition = (
+  element,
+  pos,
+  preferredPosition,
+  popoverWidth,
+  popoverHeight,
+  margin
+) => {
   const { clientX, clientY, x, y } = pos;
 
   const elementWidth = element.offsetWidth;
@@ -204,20 +236,36 @@ const calculatePopoverPosition = (element, pos, popoverWidth, popoverHeight, mar
   const popoverLeft = clientX + elementWidth / 2 - popoverWidth / 2;
   const popoverTop = clientY - popoverHeight / 2;
 
-  const popoverFitsAbove = clientY - popoverHeight - y - margin >= 0;
-  const popoverFitsRight = clientX + (elementWidth - x) + margin + popoverWidth <= viewportWidth;
-  const popoverFitsBelow = clientY + (elementHeight - y) + margin + popoverHeight <= viewportHeight;
-  const popoverFitsLeft = clientX - popoverWidth - x - margin >= 0;
+  const positions = {
+    above: {
+      fits: clientY - popoverHeight - y - margin >= 0,
+      coords: { top: clientY - popoverHeight - y - margin, left: popoverLeft },
+    },
 
-  if (popoverFitsRight) {
-    return { top: popoverTop, left: clientX + (elementWidth - x) + margin };
-  } else if (popoverFitsBelow) {
-    return { top: clientY + (elementHeight - y) + margin, left: popoverLeft };
-  } else if (popoverFitsLeft) {
-    return { top: popoverTop, left: clientX - popoverWidth - x - margin };
-  } else {
-    return { top: clientY - popoverHeight - y - margin, left: popoverLeft };
-  }
+    right: {
+      fits: clientX + (elementWidth - x) + margin + popoverWidth <= viewportWidth,
+      coords: { top: popoverTop, left: clientX + (elementWidth - x) + margin },
+    },
+
+    below: {
+      fits: clientY + (elementHeight - y) + margin + popoverHeight <= viewportHeight,
+      coords: { top: clientY + (elementHeight - y) + margin, left: popoverLeft },
+    },
+
+    left: {
+      fits: clientX - popoverWidth - x - margin >= 0,
+      coords: { top: popoverTop, left: clientX - popoverWidth - x - margin },
+    },
+  };
+
+  const keys = Object.keys(positions);
+  let i = keys.indexOf(preferredPosition);
+  if (i === -1) i = 0;
+
+  const key =
+    [...keys.slice(i), ...keys.slice(0, i)].filter((key) => positions[key].fits)[0] || keys[0];
+
+  return positions[key].coords;
 };
 
 export default Showcase;
