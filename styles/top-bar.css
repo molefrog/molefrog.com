@@ -19,6 +19,7 @@
   align-items: center;
   color: var(--color-gray-800);
   font: var(--type-text-regular);
+  font-weight: 500;
   text-decoration: none;
 }
 

@@ -7,6 +7,7 @@
   z-index: 2;
   text-shadow: 1px 1px 0 white, -1px 1px 0 white, 0px 1px 0 white;
   color: inherit;
+  font-weight: 500;
 }
 
 .solid-link:before {

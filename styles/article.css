@@ -13,21 +13,12 @@
   padding-bottom: 128px;
   margin-bottom: 64px;
   font: var(--type-article-title);
-  line-height: 1.5;
 }
 
 @media (max-width: 768px) {
   .article {
     --type-text-content: 400 17px / 29px var(--font-sans);
     --type-article-header: 400 52px / 52px var(--font-serif-fine);
-  }
-
-  .article__header {
-    text-align: center;
-    border-bottom: 2px solid var(--color-gray-100);
-    padding-top: 16px;
-    padding-bottom: 80px;
-    margin-bottom: 64px;
   }
 }
 

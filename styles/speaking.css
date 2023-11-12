@@ -41,6 +41,7 @@
 
 .speaking__conf {
   font: var(--type-text-small);
+  font-weight: 500;
   border: 1px solid var(--color-gray-300);
   height: 34px;
   border-radius: 8px;

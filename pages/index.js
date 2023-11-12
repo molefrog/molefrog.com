@@ -45,8 +45,8 @@ export default function Index() {
               <SolidLink video="/showcase/resume-io-sections.mp4" href="https://resume.io" external>
                 resume.io
               </SolidLink>{" "}
-              — the company that I&apos;ve co-founded, and helped to build. If you have some
-              interesting project or a startup idea, drop me a line, I&apos;m always happy to talk!
+              — the company I co-founded, and helped to build. If you have some interesting project
+              or a startup idea, drop me a line, I&apos;m always happy to talk!
             </p>
           </div>
         </div>

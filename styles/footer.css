@@ -17,6 +17,7 @@
 
 .footer__links {
   font: var(--type-text-regular);
+  font-weight: 500;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px 64px;

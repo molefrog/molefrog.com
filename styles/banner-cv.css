@@ -56,7 +56,6 @@
 
 .banner-cv__button:hover .banner-cv__label {
   color: var(--color-accent);
-  font-weight: 700;
 }
 
 .banner-cv__button:hover .banner-cv__page {
