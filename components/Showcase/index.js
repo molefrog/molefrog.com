@@ -124,7 +124,7 @@ const Popover = ({ mousePosition, anchorElement, media, modal = false }) => {
   );
 };
 
-const Showcase = ({ children, media, aspectRatio }) => {
+const Showcase = ({ children, media }) => {
   const ref = useRef(null);
 
   const [Wrap] = useState(() =>

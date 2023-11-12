@@ -9,10 +9,9 @@ import Showcase from "../components/Showcase";
 
 import domikImg from "../public/images/domik-highlight.webp";
 import wouterImg from "../public/images/wouter-highlight.webp";
+import speakingVideo from "../public/showcase/speaking-use-state.mp4";
 
 import MINI_MAP_ITEMS from "../content/mini-map.tsx";
-
-const LinkWithPreview = ({ video, ...props }) => <SolidLink data-video={video} {...props} />;
 
 export default function Index() {
   return (
@@ -30,9 +29,11 @@ export default function Index() {
             <p></p>
             <p>
               Occasionally, I{" "}
-              <Link legacyBehavior passHref href="/speaking">
-                <SolidLink>speak</SolidLink>
-              </Link>{" "}
+              <Showcase media={{ video: speakingVideo, aspectRatio: 2.2 }}>
+                <Link className="solid-link" href="/speaking">
+                  speak
+                </Link>
+              </Showcase>{" "}
               at tech conferences, contribute to{" "}
               <SolidLink href="https://github.com/molefrog" external>
                 open-source
@@ -41,12 +42,9 @@ export default function Index() {
               writing performant web apps & backends. I primarily use JS, Node/Deno, and Ruby.
             </p>
             <p>
-              I&apos;ve recently finished my work at{" "}
-              <SolidLink video="/showcase/resume-io-sections.mp4" href="https://resume.io" external>
-                resume.io
-              </SolidLink>{" "}
-              — the company I co-founded, and helped to build. If you have some interesting project
-              or a startup idea, drop me a line, I&apos;m always happy to talk!
+              I&apos;ve recently finished my work at <SolidLink>resume.io</SolidLink> — the company
+              I co-founded, and helped to build. If you have some interesting project or a startup
+              idea, drop me a line, I&apos;m always happy to talk!
             </p>
           </div>
         </div>
