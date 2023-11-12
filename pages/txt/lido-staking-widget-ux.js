@@ -61,7 +61,7 @@ export default function Index(props) {
             >
               Lido.fi
             </ShowcaseLink>
-            , the leading decentralised protocol for Ethereum liquid staking.
+            , the leading decentralised protocol for Ethereum liquid staking
           </WrapBalancer>
         </Container>
 

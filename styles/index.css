@@ -59,8 +59,8 @@
     --type-text-regular: 500 16px / 26px var(--font-sans);
     --type-text-medium: 500 18px / 30px var(--font-sans);
 
-    --type-header-large: 500 italic 32px / 36px var(--font-serif);
-    --type-header-medium: 500 italic 29px / 38px var(--font-serif);
+    --type-header-large: 500 italic 36px / 39px var(--font-serif);
+    --type-header-medium: 500 italic 32px / 39px var(--font-serif);
     --type-header-regular: 400 italic 26px / 32px var(--font-serif);
   }
 }

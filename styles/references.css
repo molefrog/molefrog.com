@@ -66,7 +66,7 @@ li.references__item::marker {
 }
 
 @media (max-width: 768px) {
-  .references {
-    --marker-offset: 4px;
+  li.references__item::marker {
+    color: transparent;
   }
 }
