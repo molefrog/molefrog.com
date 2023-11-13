@@ -25,7 +25,7 @@
   color: var(--color-accent-400);
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
   display: inline-block;
   border-radius: 6px;
 }
@@ -45,8 +45,8 @@
 
 @media (max-width: 768px) {
   .article {
-    --type-article-header: 600 52px / 52px var(--font-serif-fine);
-    --type-text-content: 400 17px / 29px var(--font-sans);
+    --type-article-header: 600 38px / 44px var(--font-serif-fine);
+    --type-text-content: 400 17px / 28px var(--font-sans);
   }
 
   .article__header {
