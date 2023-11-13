@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import Image from "next/image";
 import WrapBalancer from "react-wrap-balancer";
 import { Container } from "../../components/Grid";
 import { ShowcaseLink } from "../../components/Showcase";
@@ -30,7 +31,7 @@ export default function Index(props) {
   return (
     <>
       <Head>
-        <title>Lido.fi UX: User-Centered Audit of the Staking Widge</title>
+        <title>Lido.fi UX: User-Centered Audit of the Staking Widget</title>
 
         <meta
           name="description"
@@ -63,6 +64,12 @@ export default function Index(props) {
             </ShowcaseLink>
             , the leading decentralised protocol for Ethereum liquid staking
           </WrapBalancer>
+        </Container>
+
+        <Container placement="outer">
+          <div className="article__cover">
+            <Image src="/images/lido-article-cover.webp" alt="Lido.fi staking widget UX" fill />
+          </div>
         </Container>
 
         <Container placement="inner">

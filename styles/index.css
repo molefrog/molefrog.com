@@ -17,9 +17,10 @@
 
 :root {
   --type-text-x-small: 500 12px / 20px var(--font-sans);
-  --type-text-small: 400 16px / 26px var(--font-sans);
+  --type-text-small: 500 16px / 26px var(--font-sans);
   --type-text-regular: 400 17px / 30px var(--font-sans);
   --type-text-medium: 400 19px / 32px var(--font-sans);
+  --type-text-large: 500 24px / 36px var(--font-sans);
 
   --type-header-large: 500 italic 48px / 52px var(--font-serif);
   --type-header-medium: 500 italic 39px / 38px var(--font-serif);
@@ -58,6 +59,7 @@
     --type-text-small: 400 15px / 24px var(--font-sans);
     --type-text-regular: 400 16px / 26px var(--font-sans);
     --type-text-medium: 400 18px / 30px var(--font-sans);
+    --type-text-large: 500 22px / 33px var(--font-sans);
 
     --type-header-large: 500 italic 36px / 39px var(--font-serif);
     --type-header-medium: 500 italic 32px / 39px var(--font-serif);
