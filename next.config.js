@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export",
   images: {
     // disable Next Image Optimization API for remote images
     unoptimized: true,
