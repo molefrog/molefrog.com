@@ -79,7 +79,7 @@ const Popover = ({ mousePosition, anchorElement, media, prefer, modal = false })
             alt={media.description || "Project preview"}
             fill
             className="showcase__img"
-            onLoadingComplete={handleResourceLoaded}
+            onLoad={handleResourceLoaded}
           />
         )}
 
