@@ -1,8 +1,8 @@
 .selected-projects__grid {
   display: flex;
   flex-flow: row nowrap;
-  gap: 0px 16px;
-  margin-bottom: 16px;
+  gap: 40px 16px;
+  margin-bottom: 64px;
 }
 
 .selected-projects__pic {
@@ -30,12 +30,12 @@
 
 .selected-projects__title {
   font: var(--type-text-regular);
+  line-height: 1.65;
 }
 
 .selected-projects__item {
   flex: 1 1 50%;
   max-width: 100%;
-  margin-bottom: 44px;
 }
 
 @media (max-width: 768px) {
@@ -67,7 +67,7 @@
 }
 
 .selected-projects__links {
-  margin-top: 14px;
+  margin-top: 16px;
 }
 
 .project-link {
