@@ -57,6 +57,7 @@ export default function Page() {
                 src={domikImg}
                 fill
                 placeholder="blur"
+                priority
                 className="selected-projects__img"
                 alt="Domik Limited. Interactive story."
               />
@@ -84,6 +85,7 @@ export default function Page() {
                 src={wouterImg}
                 fill
                 placeholder="blur"
+                priority
                 className="selected-projects__img"
                 alt="wouter, open-source React.js router"
               />
