@@ -42,9 +42,10 @@ export default function Page() {
               writing performant web apps & backends. I primarily use JS, Node/Deno, and Ruby.
             </p>
             <p>
-              I&apos;ve recently finished my work at <SolidLink>resume.io</SolidLink> — the company
-              I co-founded, and helped to build. If you have some interesting project or a startup
-              idea, drop me a line, I&apos;m always happy to talk!
+              I&apos;ve recently finished my work at{" "}
+              <SolidLink href="https://resume.io">resume.io</SolidLink> — the company I co-founded,
+              and helped to build. If you have some interesting project or a startup idea, drop me a
+              line, I&apos;m always happy to talk!
             </p>
           </div>
         </div>
@@ -107,6 +108,7 @@ export default function Page() {
                 <Showcase key={String(idx) + item.url} media={item}>
                   <a
                     className="mini-map__item"
+                    aria-label={`Read more on ${item.url}`}
                     style={{
                       backgroundImage: `url(${item.thumb?.src})`,
                     }}

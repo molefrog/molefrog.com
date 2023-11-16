@@ -16,6 +16,7 @@ const TopBar = () => {
           <div className="top-bar__logo-wrapper">
             <Link
               className={clsx("top-bar__logo", { ["top-bar__logo--active"]: pathname === "/" })}
+              aria-label="Home"
               href="/"
             />
           </div>

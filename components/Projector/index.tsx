@@ -31,7 +31,7 @@ export const Projector: React.FC<ProjectorProps> = ({ slides, title }) => {
       posRef.current = el.scrollLeft;
     };
 
-    el.addEventListener("scroll", handleScroll);
+    el.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
       el.removeEventListener("scroll", handleScroll);
