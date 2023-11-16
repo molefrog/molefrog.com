@@ -43,7 +43,12 @@ export default async function Index(props) {
 
       <Container placement="outer">
         <div className="article__cover">
-          <Image src="/images/lido-article-cover.webp" alt="Lido.fi staking widget UX" fill />
+          <Image
+            src="/images/lido-article-cover.webp"
+            alt="Lido.fi staking widget UX"
+            fill
+            placeholder="blur"
+          />
         </div>
       </Container>
 
