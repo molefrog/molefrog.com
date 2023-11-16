@@ -7,6 +7,7 @@ import { NotionPage } from "./NotionPage";
 import { NotionAPI } from "notion-client";
 
 import lidoImg from "@/public/txt/lido-ui.webp";
+import coverImg from "@/public/images/lido-article-cover.webp";
 
 export const metadata = {
   title: "Lido.fi UX: User-Centered Audit of the Staking Widget",
@@ -43,12 +44,7 @@ export default async function Index(props) {
 
       <Container placement="outer">
         <div className="article__cover">
-          <Image
-            src="/images/lido-article-cover.webp"
-            alt="Lido.fi staking widget UX"
-            fill
-            placeholder="blur"
-          />
+          <Image src={coverImg} alt="Lido.fi staking widget UX" fill placeholder="blur" />
         </div>
       </Container>
 
