@@ -1,3 +1,5 @@
+"use client";
+
 import { isValidElement, cloneElement, useRef, useEffect, useState, memo } from "react";
 import { createPortal } from "react-dom";
 import clsx from "clsx";

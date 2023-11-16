@@ -1,62 +1,38 @@
-import { useRef } from "react";
 import Image from "next/image";
 import WrapBalancer from "react-wrap-balancer";
-import useMouse from "@react-hook/mouse-position";
 
-import { Segmented } from "../components/Segmented";
-import { Projector } from "../components/Projector";
+import { Projector } from "@/components/Projector";
+import { Container } from "@/components/Grid";
+import { ShowcaseLink } from "@/components/Showcase";
+import { SpeakingConference } from "@/components/SpeakingConference";
 
-import { Container } from "../components/Grid";
-import { ShowcaseLink } from "../components/Showcase";
+import viipuriLibraryImg from "@/public/speaking/viipuri-library.webp";
+import hooksCharactersImg from "@/public/speaking/hooks-characters.webp";
+import renderingImg from "@/public/speaking/rendering.webp";
+import presaImg from "@/public/speaking/presa.webp";
+import instaStoriesVideo from "@/public/speaking/insta-stories-demo.mp4";
+import gotMilkImg from "@/public/speaking/got-milk.webp";
+import simachevaImg from "@/public/speaking/simacheva.webp";
 
-import viipuriLibraryImg from "../public/speaking/viipuri-library.webp";
-import hooksCharactersImg from "../public/speaking/hooks-characters.webp";
-import renderingImg from "../public/speaking/rendering.webp";
-import presaImg from "../public/speaking/presa.webp";
-import instaStoriesVideo from "../public/speaking/insta-stories-demo.mp4";
-import gotMilkImg from "../public/speaking/got-milk.webp";
-import simachevaImg from "../public/speaking/simacheva.webp";
+import servSlide_1 from "@/public/speaking/serverless-1.webp";
+import servSlide_2 from "@/public/speaking/serverless-2.webp";
+import servSlide_3 from "@/public/speaking/serverless-3.webp";
+import servSlide_4 from "@/public/speaking/serverless-4.webp";
 
-import servSlide_1 from "../public/speaking/serverless-1.webp";
-import servSlide_2 from "../public/speaking/serverless-2.webp";
-import servSlide_3 from "../public/speaking/serverless-3.webp";
-import servSlide_4 from "../public/speaking/serverless-4.webp";
+import hooksSlide_1 from "@/public/speaking/hooks-1.webp";
+import hooksSlide_2 from "@/public/speaking/hooks-2.webp";
+import hooksSlide_3 from "@/public/speaking/hooks-3.webp";
+import hooksSlide_4 from "@/public/speaking/hooks-4.webp";
 
-import hooksSlide_1 from "../public/speaking/hooks-1.webp";
-import hooksSlide_2 from "../public/speaking/hooks-2.webp";
-import hooksSlide_3 from "../public/speaking/hooks-3.webp";
-import hooksSlide_4 from "../public/speaking/hooks-4.webp";
+import animSlide_1 from "@/public/speaking/animations-1.webp";
+import animSlide_2 from "@/public/speaking/animations-2.webp";
+import animSlide_3 from "@/public/speaking/animations-3.webp";
+import animSlide_4 from "@/public/speaking/animations-4.webp";
 
-import animSlide_1 from "../public/speaking/animations-1.webp";
-import animSlide_2 from "../public/speaking/animations-2.webp";
-import animSlide_3 from "../public/speaking/animations-3.webp";
-import animSlide_4 from "../public/speaking/animations-4.webp";
-
-import milkIcon from "../public/speaking/anicon-milk.png";
-import socketIcon from "../public/speaking/anicon-socket.png";
-import radioIcon from "../public/speaking/anicon-radio.png";
-import phoneIcon from "../public/speaking/anicon-phone.png";
-
-const Conference = ({ year, children, format, ...props }) => {
-  const ref = useRef(null);
-  const pos = useMouse(ref, { fps: 24 });
-
-  const formats = {
-    recording: "~REC",
-    slides: "DECK",
-  };
-
-  const label = pos.isOver ? formats[format] || "none" : year;
-
-  return (
-    <a className="speaking__conf" {...props} ref={ref}>
-      {children}
-      <span className="speaking__conf-year">
-        <Segmented animated>{label}</Segmented>
-      </span>
-    </a>
-  );
-};
+import milkIcon from "@/public/speaking/anicon-milk.png";
+import socketIcon from "@/public/speaking/anicon-socket.png";
+import radioIcon from "@/public/speaking/anicon-radio.png";
+import phoneIcon from "@/public/speaking/anicon-phone.png";
 
 export default function Speaking() {
   return (
@@ -95,16 +71,20 @@ export default function Speaking() {
               </div>
 
               <div className="speaking__confs">
-                <Conference year="2021" format="recording" href="https://youtu.be/HSmdcVhvjIA">
+                <SpeakingConference
+                  year="2021"
+                  format="recording"
+                  href="https://youtu.be/HSmdcVhvjIA"
+                >
                   HolyJS
-                </Conference>
-                <Conference
+                </SpeakingConference>
+                <SpeakingConference
                   year="2020"
                   format="recording"
                   href="https://www.youtube.com/live/X1fzml5OEAQ?t=4088"
                 >
                   TverIO Perf Meetup
-                </Conference>
+                </SpeakingConference>
               </div>
             </div>
           </div>
@@ -159,12 +139,20 @@ export default function Speaking() {
               </div>
 
               <div className="speaking__confs">
-                <Conference year="2019" format="recording" href="https://youtu.be/bFYxkONAmn8">
+                <SpeakingConference
+                  year="2019"
+                  format="recording"
+                  href="https://youtu.be/bFYxkONAmn8"
+                >
                   React Amsterdam
-                </Conference>
-                <Conference year="2019" format="recording" href="https://youtu.be/3LnMGyJ0M40">
+                </SpeakingConference>
+                <SpeakingConference
+                  year="2019"
+                  format="recording"
+                  href="https://youtu.be/3LnMGyJ0M40"
+                >
                   React Russia
-                </Conference>
+                </SpeakingConference>
               </div>
             </div>
           </div>
@@ -216,13 +204,21 @@ export default function Speaking() {
               </div>
 
               <div className="speaking__confs">
-                <Conference year="2018" format="recording" href="https://youtu.be/bn3je3u-UIo">
+                <SpeakingConference
+                  year="2018"
+                  format="recording"
+                  href="https://youtu.be/bn3je3u-UIo"
+                >
                   React Kyiv
-                </Conference>
-                <Conference year="2017" format="recording" href="https://youtu.be/Ug_dwJa07Os">
+                </SpeakingConference>
+                <SpeakingConference
+                  year="2017"
+                  format="recording"
+                  href="https://youtu.be/Ug_dwJa07Os"
+                >
                   HolyJS
-                </Conference>
-                <Conference year="2017">Krasnodar Dev Days</Conference>
+                </SpeakingConference>
+                <SpeakingConference year="2017">Krasnodar Dev Days</SpeakingConference>
               </div>
             </div>
           </div>
@@ -260,13 +256,13 @@ export default function Speaking() {
                 </div>
 
                 <div className="speaking__confs">
-                  <Conference
+                  <SpeakingConference
                     year="2021"
                     format="slides"
                     href="https://speakerdeck.com/molefrog/react-hooks-iteractivity-in-functional-components"
                   >
                     SFU
-                  </Conference>
+                  </SpeakingConference>
                 </div>
               </div>
             </div>
@@ -296,11 +292,15 @@ export default function Speaking() {
                 </div>
 
                 <div className="speaking__confs">
-                  <Conference year="2019" format="recording" href="https://youtu.be/08I6pIpXsgU">
+                  <SpeakingConference
+                    year="2019"
+                    format="recording"
+                    href="https://youtu.be/08I6pIpXsgU"
+                  >
                     TverIO Design
-                  </Conference>
-                  <Conference year="2019">SouthConf</Conference>
-                  <Conference year="2018">SPB Frontend</Conference>
+                  </SpeakingConference>
+                  <SpeakingConference year="2019">SouthConf</SpeakingConference>
+                  <SpeakingConference year="2018">SPB Frontend</SpeakingConference>
                 </div>
               </div>
             </div>
@@ -323,14 +323,14 @@ export default function Speaking() {
                 </div>
 
                 <div className="speaking__confs">
-                  <Conference
+                  <SpeakingConference
                     year="2016"
                     format="slides"
                     href="https://speakerdeck.com/molefrog/give-a-second-change-to-rails-frontend"
                   >
                     Rails Club
-                  </Conference>
-                  <Conference year="2017">Rails Meetup RND</Conference>
+                  </SpeakingConference>
+                  <SpeakingConference year="2017">Rails Meetup RND</SpeakingConference>
                 </div>
               </div>
             </div>
@@ -367,13 +367,13 @@ export default function Speaking() {
                 </div>
 
                 <div className="speaking__confs">
-                  <Conference
+                  <SpeakingConference
                     year="2012"
                     format="slides"
                     href="https://speakerdeck.com/molefrog/give-a-second-change-to-rails-frontend"
                   >
                     WebDevClub, MMCS
-                  </Conference>
+                  </SpeakingConference>
                 </div>
               </div>
             </div>

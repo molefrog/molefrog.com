@@ -1,4 +1,4 @@
-import { Container } from "../components/Grid";
+import { Container } from "@/components/Grid";
 
 export default function Media() {
   return (

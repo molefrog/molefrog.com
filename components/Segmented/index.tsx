@@ -1,4 +1,5 @@
-import { join } from "path";
+"use client";
+
 import React, { useEffect } from "react";
 
 const ALPHA = "!*~abcdefghijklmnopqrstuvwxyz0123456789".split("");

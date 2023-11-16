@@ -1,19 +1,19 @@
 import React from "react";
 import Image from "next/image";
 import WrapBalancer from "react-wrap-balancer";
-import { Container } from "../components/Grid";
-import { SolidLink } from "../components/SolidLink";
+import { Container } from "@/components/Grid";
+import { SolidLink } from "@/components/SolidLink";
 import Link from "next/link";
 
-import Showcase from "../components/Showcase";
+import Showcase from "@/components/Showcase";
 
-import domikImg from "../public/images/domik-highlight.webp";
-import wouterImg from "../public/images/wouter-highlight.webp";
-import speakingVideo from "../public/showcase/speaking-use-state.mp4";
+import domikImg from "@/public/images/domik-highlight.webp";
+import wouterImg from "@/public/images/wouter-highlight.webp";
+import speakingVideo from "@/public/showcase/speaking-use-state.mp4";
 
-import MINI_MAP_ITEMS from "../content/mini-map.tsx";
+import MINI_MAP_ITEMS from "@/content/mini-map.tsx";
 
-export default function Index() {
+export default function Page() {
   return (
     <Container placement="inner">
       <section className="about">

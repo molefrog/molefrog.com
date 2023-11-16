@@ -1,13 +1,13 @@
-import React from "react";
-import { useRouter } from "next/router";
+"use client";
+
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { clsx } from "clsx";
 
 import { Container } from "../Grid";
 
 const TopBar = () => {
-  const router = useRouter();
-  const pathname = new URL(router.asPath, "https://none.bar").pathname;
+  const pathname = usePathname();
 
   return (
     <header className="top-bar">
