@@ -1,6 +1,6 @@
 .article {
-  --type-article-header: 600 58px / 60px var(--font-serif-fine);
-  --type-text-content: 400 18px / 30px var(--font-sans);
+  --type-article-header: 600 normal 58px / 60px var(--font-serif-fine);
+  --type-text-content: 400 19px / 30px var(--font-sans);
   --type-article-title: var(--type-text-large);
 
   padding-bottom: 96px;
@@ -11,13 +11,14 @@
   padding-bottom: 72px;
 
   font: var(--type-article-title);
+  font-weight: normal;
 }
 
 .article__h1 {
   font: var(--type-article-header);
   color: var(--color-gray-800);
-  -webkit-font-smoothing: none;
   margin: 0 0 24px 0;
+  max-width: 400px;
 }
 
 .article__category {
