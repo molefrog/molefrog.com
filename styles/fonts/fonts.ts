@@ -46,11 +46,13 @@ const DSEG14Classic = localFont({
 
 const Redaction35 = localFont({
   src: [
+    /* not being used at the moment
     {
       path: "./Redaction/Redaction_35-Regular.woff2",
       weight: "500",
       style: "normal",
     },
+    */
     { path: "./Redaction/Redaction_35-Italic.woff2", weight: "500", style: "italic" },
   ],
   fallback: ["serif"],
@@ -58,22 +60,8 @@ const Redaction35 = localFont({
   display: "swap",
 });
 
-const Redaction10 = localFont({
-  src: [
-    {
-      path: "./Redaction/Redaction_10-Regular.woff2",
-      weight: "500",
-      style: "normal",
-    },
-    { path: "./Redaction/Redaction_10-Italic.woff2", weight: "500", style: "italic" },
-  ],
-  fallback: ["serif"],
-  variable: "--font-serif-fine",
-  display: "swap",
-});
-
-export const fontsCSSVars = [JetBrainsMono, DSEG7Classic, DSEG14Classic, Redaction35, Redaction10]
+export const fontsCSSVars = [JetBrainsMono, DSEG7Classic, DSEG14Classic, Redaction35]
   .map((f) => f.variable)
   .join(" ");
 
-export { JetBrainsMono, DSEG7Classic, DSEG14Classic, Redaction35, Redaction10 };
+export { JetBrainsMono, DSEG7Classic, DSEG14Classic, Redaction35 };

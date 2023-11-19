@@ -1,5 +1,5 @@
 .article {
-  --type-article-header: 600 normal 58px / 60px var(--font-serif-fine);
+  --type-article-header: 600 normal 58px / 60px var(--font-serif);
   --type-text-content: 400 19px / 30px var(--font-sans);
   --type-article-title: var(--type-text-large);
 
@@ -46,7 +46,7 @@
 
 @media (max-width: 768px) {
   .article {
-    --type-article-header: 600 38px / 44px var(--font-serif-fine);
+    --type-article-header: 600 38px / 44px var(--font-serif);
     --type-text-content: 400 17px / 28px var(--font-sans);
   }
 
@@ -78,20 +78,24 @@
 
   & .notion-h {
     letter-spacing: var(--type-ls-header);
-    -webkit-font-smoothing: none;
     margin-bottom: 8px;
   }
 
   & .notion-h1 {
     font: var(--type-header-large);
+    -webkit-font-smoothing: none;
   }
 
   & .notion-h2 {
     font: var(--type-header-medium);
+    font-family: var(--font-sans);
+    font-style: normal;
   }
 
   & .notion-h3 {
     font: var(--type-header-regular);
+    font-family: var(--font-sans);
+    font-style: normal;
   }
 
   & .notion-h1 + .notion-h2 {
