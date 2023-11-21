@@ -12,6 +12,7 @@ import { fontsCSSVars } from "@/styles/fonts/fonts";
 import VideoAssets from "@/content/videos";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://molefrog.com"),
   title: "Overcoming overcomplication → Alexey Taktarov",
   description:
     "Alexey Taktarov (@mlfrg), web engineering consultant. " +

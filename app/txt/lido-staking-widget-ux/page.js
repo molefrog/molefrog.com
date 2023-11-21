@@ -31,7 +31,7 @@ export default async function Index(props) {
         </h1>
 
         <WrapBalancer>
-          An incomplete UX Audit of{" "}
+          Initial UX evaluation of{" "}
           <ShowcaseLink
             href="https://stake.lido.fi"
             media={{ image: lidoImg, aspectRatio: "auto" }}
