@@ -29,6 +29,7 @@
     "react-wrap-balancer": "^1.1.0",
     "sanitize.css": "^13.0.0",
     "sharp": "^0.32.6",
+    "sugar-high": "^0.5.5",
     "velocity-animate": "^1.5.2"
   },
   "overrides": {

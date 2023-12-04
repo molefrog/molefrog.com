@@ -25,7 +25,7 @@
   --type-text-large: 500 24px / 36px var(--font-sans);
 
   --type-header-large: 500 italic 48px / 52px var(--font-serif);
-  --type-header-medium: 500 italic 39px / 38px var(--font-serif);
+  --type-header-medium: 500 italic 39px / 48px var(--font-serif);
   --type-header-regular: 500 italic 28px / 34px var(--font-serif);
 
   /* letter spacing */

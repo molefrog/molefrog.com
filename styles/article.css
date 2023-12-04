@@ -1,6 +1,6 @@
 .article {
   --type-article-header: 600 normal 58px / 60px var(--font-serif);
-  --type-text-content: 400 19px / 30px var(--font-sans);
+  --type-text-content: 400 19px / 1.66 var(--font-sans);
   --type-article-title: var(--type-text-large);
 
   padding-bottom: 96px;
@@ -18,7 +18,6 @@
   font: var(--type-article-header);
   color: var(--color-gray-800);
   margin: 0 0 24px 0;
-  max-width: 400px;
 }
 
 .article__category {
@@ -78,7 +77,8 @@
 
   & .notion-h {
     letter-spacing: var(--type-ls-header);
-    margin-bottom: 8px;
+    margin-bottom: 16px;
+    padding: 0;
   }
 
   & .notion-h1 {
@@ -90,6 +90,7 @@
     font: var(--type-header-medium);
     font-family: var(--font-sans);
     font-style: normal;
+    margin-top: 72px;
   }
 
   & .notion-h3 {
@@ -117,15 +118,22 @@
   }
 
   & .notion-text {
-    padding: 8px 2px;
-  }
-
-  & .notion-text + .notion-text {
-    padding-top: 12px;
+    margin: 16px 0;
+    padding: 0;
   }
 
   & .notion-list-numbered > li::marker {
     font: var(--type-text-small);
+  }
+
+  & .notion-asset-wrapper {
+    margin: 16px 0;
+    padding: 0;
+  }
+
+  & .notion-asset-wrapper-image {
+    border-radius: 3px;
+    overflow: hidden;
   }
 
   & .notion-asset-wrapper-full:has(iframe) {
@@ -136,5 +144,20 @@
   & .notion-asset-wrapper:not(.notion-asset-wrapper-full):has(iframe) {
     border: 1px solid var(--color-gray-200);
     border-radius: 4px;
+  }
+
+  & .notion-code {
+    --sh-class: #f8f8f2; /* Dracula Foreground */
+    --sh-identifier: #50fa7b; /* Dracula Green */
+    --sh-sign: #ff79c6; /* Dracula Pink */
+    --sh-string: #f1fa8c; /* Dracula Yellow */
+    --sh-keyword: #8be9fd; /* Dracula Cyan */
+    --sh-comment: #6272a4; /* Dracula Comment */
+    --sh-jsxliterals: #bd93f9; /* Dracula Purple */
+
+    background: rgba(33, 31, 32, 1);
+    padding: 40px 32px;
+    font-family: var(--font-mono);
+    margin: 8px 0;
   }
 }
