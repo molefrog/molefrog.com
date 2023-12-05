@@ -75,6 +75,10 @@
     background-color: var(--color-accent);
   }
 
+  & code {
+    font-family: var(--font-mono);
+  }
+
   & .notion-h {
     letter-spacing: var(--type-ls-header);
     margin-bottom: 16px;
@@ -104,7 +108,6 @@
   }
 
   & .notion-inline-code {
-    font-family: var(--font-mono);
     background-color: var(--color-gray-100);
     letter-spacing: -0.01em;
     padding: 2px 4px;
@@ -115,6 +118,25 @@
     & b {
       font-weight: 800;
     }
+  }
+
+  /**
+  * Style inline code wrapped in a link
+  * Use normal opacity and add an underline
+  */
+
+  & .notion-link:has(.notion-inline-code) {
+    text-decoration: none;
+    border-bottom: none;
+    opacity: 1;
+  }
+
+  & .notion-link > .notion-inline-code {
+    text-decoration: underline;
+  }
+
+  & .notion-link > .notion-inline-code:hover {
+    background: var(--color-gray-200);
   }
 
   & .notion-text {

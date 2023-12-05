@@ -30,9 +30,9 @@ export const NotionCode: React.FC<{
 
   return (
     <>
-      <pre className={clsx("notion-code", className)}>
+      <pre className={clsx("notion-code notion-article-code__code", className)}>
         <code
-          className={`language-${language}`}
+          className={`notion-article-code--language-${language}`}
           dangerouslySetInnerHTML={{ __html: highlightedHTML }}
         />
       </pre>
