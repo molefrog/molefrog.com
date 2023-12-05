@@ -32,12 +32,6 @@ export default async function Index(props) {
 
         <WrapBalancer>Lessons and hacks learned from maintaining a micro-library</WrapBalancer>
       </Container>
-      {/* 
-      <Container placement="outer">
-        <div className="article__cover">
-          <Image src={coverImg} alt="Lido.fi staking widget UX" fill placeholder="blur" />
-        </div>
-      </Container> */}
 
       <Container placement="inner">
         <NotionPage recordMap={recordMap} className="article__notion" fullPage={false} />

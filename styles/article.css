@@ -6,6 +6,17 @@
   padding-bottom: 96px;
 }
 
+@media (max-width: 768px) {
+  .article {
+    --type-article-header: 600 38px / 42px var(--font-serif);
+    --type-text-content: 400 17px / 28px var(--font-sans);
+  }
+
+  .article__header {
+    padding-bottom: 48px;
+  }
+}
+
 .article__header {
   padding-top: 20px;
   padding-bottom: 72px;
@@ -40,17 +51,6 @@
   & img {
     object-fit: cover;
     object-position: top center;
-  }
-}
-
-@media (max-width: 768px) {
-  .article {
-    --type-article-header: 600 38px / 44px var(--font-serif);
-    --type-text-content: 400 17px / 28px var(--font-sans);
-  }
-
-  .article__header {
-    padding-bottom: 48px;
   }
 }
 
