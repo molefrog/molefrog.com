@@ -104,6 +104,15 @@ const Footer = () => (
           </a>
           . The website uses{" "}
           <a
+            className="footer__font footer__font--hanken"
+            href="https://fonts.google.com/specimen/Hanken+Grotesk"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            HK Grotesk
+          </a>
+          {", "}
+          <a
             className="footer__font footer__font--redaction"
             href="https://redaction.us"
             target="_blank"
