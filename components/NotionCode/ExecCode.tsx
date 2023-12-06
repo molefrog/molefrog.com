@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, lazy } from "react";
+import { useEffect, useState } from "react";
 
 import * as React from "react";
 import * as JSXRuntime from "react/jsx-runtime";
@@ -31,6 +31,7 @@ export const ExecCode = ({ js }: { js: string }) => {
   const [Component, setComponent] = useState<ComponentType | null>(null);
 
   useEffect(() => {
+    console.log("hey", js);
     initReactExternals();
 
     const init = new AsyncFunction("React", js) as ModuleFn;
