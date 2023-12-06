@@ -45,15 +45,14 @@ export const ExecCode = ({ js }: { js: string }) => {
     }
   }, [JSCode]);
 
-  if (typeof Component === "function") {
-    return (
-      <figure className="exec-code exec-code--full">
-        <div className="exec-code__content">
-          <Component />
-        </div>
-      </figure>
-    );
-  }
+  const isReady = typeof Component === "function";
 
-  return <code>{js}</code>;
+  return (
+    <figure className="exec-code exec-code--full">
+      <div className="exec-code__content">
+        {isReady && <Component />}
+        {!isReady && <div className="exec-code__loading">We&apos;re getting it ready...</div>}
+      </div>
+    </figure>
+  );
 };

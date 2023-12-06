@@ -204,4 +204,12 @@
     width: 100vw;
     max-width: 100%;
   }
+
+  & .exec-code__loading {
+    min-height: 240px;
+    display: flex;
+    align-items: center;
+    font: var(--type-header-regular);
+    color: var(--color-gray-500);
+  }
 }
