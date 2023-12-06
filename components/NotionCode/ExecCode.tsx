@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useLayoutEffect } from "react";
 
 import * as React from "react";
 import * as JSXRuntime from "react/jsx-runtime";
@@ -29,17 +29,21 @@ const initReactExternals = () => {
 
 export const ExecCode = ({ js }: { js: string }) => {
   const [Component, setComponent] = useState<ComponentType | null>(null);
+  const [JSCode] = React.useState(() => js);
 
-  useEffect(() => {
-    console.log("hey", js);
+  useLayoutEffect(() => {
     initReactExternals();
 
-    const init = new AsyncFunction("React", js) as ModuleFn;
+    try {
+      const init = new AsyncFunction("React", JSCode) as ModuleFn;
 
-    init(React).then((returnedComp) => {
-      setComponent(() => returnedComp);
-    });
-  }, [js]);
+      init(React).then((returnedComp) => {
+        setComponent(() => returnedComp);
+      });
+    } catch (err) {
+      console.error("`ExecCode`: error executing external code: ", err);
+    }
+  }, [JSCode]);
 
   if (typeof Component === "function") {
     return (
@@ -51,5 +55,5 @@ export const ExecCode = ({ js }: { js: string }) => {
     );
   }
 
-  return <>Loading...</>;
+  return <code>{js}</code>;
 };

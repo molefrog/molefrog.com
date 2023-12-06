@@ -20,12 +20,11 @@ export default async function Index(props) {
   return (
     <article className="article">
       <Container className="article__header" placement="inner">
-        {/* <div className="article__category">research</div> */}
         <h1 className="article__h1">
           <WrapBalancer>React Tricks: Fast, Fit and Fun</WrapBalancer>
         </h1>
 
-        <WrapBalancer>Lessons and hacks learned from maintaining a micro-library</WrapBalancer>
+        <WrapBalancer>Lessons and hacks learned from developing a micro-library</WrapBalancer>
       </Container>
 
       <Container placement="inner">

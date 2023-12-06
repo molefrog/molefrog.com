@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import { highlight } from "sugar-high";
 import { CodeBlock } from "notion-types";
