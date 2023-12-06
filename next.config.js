@@ -6,6 +6,9 @@ const nextConfig = {
     unoptimized: true,
   },
   reactStrictMode: true,
+  experimental: {
+    urlImports: ["https://fast-fit-fun.vercel.app/"],
+  },
   webpack: (config) => {
     // load static asset urls using Asset Modules
     // https://webpack.js.org/guides/asset-modules/

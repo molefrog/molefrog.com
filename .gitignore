@@ -56,3 +56,5 @@ next-env.d.ts
 nbproject
 Thumbs.db
 
+next.lock
+

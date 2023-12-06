@@ -1,13 +1,8 @@
-import Image from "next/image";
 import WrapBalancer from "react-wrap-balancer";
 
 import { Container } from "@/components/Grid";
-import { ShowcaseLink } from "@/components/Showcase";
 import { NotionPage } from "./NotionPage";
 import { NotionAPI } from "notion-client";
-
-import lidoImg from "@/public/txt/lido-ui.webp";
-import coverImg from "@/public/images/lido-article-cover.webp";
 
 export const metadata = {
   title: "React Tricks: Fast, Fit and Fun",
