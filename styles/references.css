@@ -20,7 +20,7 @@ li.references__item {
 }
 
 li.references__item + li.references__item {
-  margin-top: 30px;
+  margin-top: 32px;
 }
 
 li.references__item::marker {
@@ -47,7 +47,7 @@ li.references__item::marker {
 }
 
 .references__details {
-  margin-top: 6px;
+  margin-top: 4px;
   color: var(--color-gray-700);
   font-weight: normal;
 }

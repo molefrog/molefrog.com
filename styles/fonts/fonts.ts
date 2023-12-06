@@ -1,5 +1,12 @@
 import localFont from "next/font/local";
-import { JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono, Hanken_Grotesk } from "next/font/google";
+
+const HankenGrotesk = Hanken_Grotesk({
+  subsets: ["latin", "cyrillic-ext"],
+  display: "swap",
+  fallback: ["system-ui", "sans-serif"],
+  variable: "--font-sans",
+});
 
 const JetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -53,6 +60,7 @@ const Redaction35 = localFont({
       style: "normal",
     },
     */
+    { path: "./Redaction/Redaction_35-Italic.woff2", weight: "500", style: "normal" },
     { path: "./Redaction/Redaction_35-Italic.woff2", weight: "500", style: "italic" },
   ],
   fallback: ["serif"],
@@ -60,8 +68,8 @@ const Redaction35 = localFont({
   display: "swap",
 });
 
-export const fontsCSSVars = [JetBrainsMono, DSEG7Classic, DSEG14Classic, Redaction35]
+export const fontsCSSVars = [JetBrainsMono, DSEG7Classic, DSEG14Classic, Redaction35, HankenGrotesk]
   .map((f) => f.variable)
   .join(" ");
 
-export { JetBrainsMono, DSEG7Classic, DSEG14Classic, Redaction35 };
+export { JetBrainsMono, DSEG7Classic, DSEG14Classic, Redaction35, HankenGrotesk };

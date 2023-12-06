@@ -168,6 +168,10 @@
     border-radius: 4px;
   }
 
+  & .notion-asset-caption {
+    font: var(--type-text-small);
+  }
+
   & .notion-code {
     --sh-class: #f8f8f2; /* Dracula Foreground */
     --sh-identifier: #50fa7b; /* Dracula Green */

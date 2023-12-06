@@ -16,12 +16,10 @@
 @import "./article.css";
 
 :root {
-  --font-sans: system-ui, sans-serif;
-
-  --type-text-x-small: 600 12px / 20px var(--font-sans);
-  --type-text-small: 500 16px / 26px var(--font-sans);
-  --type-text-regular: 400 17px / 30px var(--font-sans);
-  --type-text-medium: 400 19px / 32px var(--font-sans);
+  --type-text-x-small: 600 13px / 22px var(--font-sans);
+  --type-text-small: 500 17px / 26px var(--font-sans);
+  --type-text-regular: 400 18px / 30px var(--font-sans);
+  --type-text-medium: 400 20px / 32px var(--font-sans);
   --type-text-large: 500 24px / 36px var(--font-sans);
 
   --type-header-large: 500 italic 48px / 52px var(--font-serif);
@@ -57,9 +55,9 @@
 
 @media (max-width: 768px) {
   :root {
-    --type-text-x-small: 600 12px / 20px var(--font-sans);
-    --type-text-small: 400 15px / 24px var(--font-sans);
-    --type-text-regular: 400 16px / 26px var(--font-sans);
+    --type-text-x-small: 600 14px / 24px var(--font-sans);
+    --type-text-small: 400 16px / 26px var(--font-sans);
+    --type-text-regular: 400 17px / 28px var(--font-sans);
     --type-text-medium: 400 18px / 30px var(--font-sans);
     --type-text-large: 500 20px / 30px var(--font-sans);
 
