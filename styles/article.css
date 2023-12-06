@@ -184,11 +184,24 @@
   }
 
   & .exec-code {
-    width: 100%;
+    margin: 16px 0px;
+  }
+
+  & .exec-code__content {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     gap: 24px;
+  }
+
+  & .exec-code--full {
+    max-width: 100vw;
+    align-self: center;
+  }
+
+  & .exec-code--full .exec-code__content {
+    width: 100vw;
+    max-width: 100%;
   }
 }

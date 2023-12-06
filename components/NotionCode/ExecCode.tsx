@@ -42,9 +42,11 @@ export const ExecCode = ({ js }: { js: string }) => {
 
   if (typeof Component === "function") {
     return (
-      <div className="exec-code">
-        <Component />
-      </div>
+      <figure className="exec-code exec-code--full">
+        <div className="exec-code__content">
+          <Component />
+        </div>
+      </figure>
     );
   }
 
