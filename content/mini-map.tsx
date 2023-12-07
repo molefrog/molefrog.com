@@ -34,6 +34,8 @@ import ryeThumbImg from "@/public/showcase/rye-thumb.gif";
 import ryeVideo from "@/public/showcase/rye.mp4";
 import jsthingsThumbImg from "@/public/showcase/js-things-thumb.gif";
 import jsthingsVideo from "@/public/showcase/js-things.mp4";
+import reactTricksThumbImg from "@/public/showcase/react-tricks-thumb.webp";
+import reactTricksVideo from "@/public/speaking/multiplayer-demo.mp4";
 
 import { ComponentProps } from "react";
 import Image from "next/image";
@@ -51,6 +53,14 @@ type Project = Resource & {
 };
 
 const projects: Project[] = [
+  {
+    thumb: reactTricksThumbImg,
+    video: reactTricksVideo,
+    aspectRatio: 16 / 9,
+    description: "React Tricks: Fast, Fit and Fun!",
+    tags: ["2023", "React", "Speaking"],
+    url: "https://molefrog.com/notes/react-tricks",
+  },
   {
     thumb: useLeaderThumbImg,
     image: useLeaderImg,
