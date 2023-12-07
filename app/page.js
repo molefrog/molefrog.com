@@ -108,7 +108,7 @@ export default function Page() {
             {MINI_MAP_ITEMS.map((item, idx) => {
               return (
                 <Showcase key={String(idx) + item.url} media={item}>
-                  <a
+                  <Link
                     className="mini-map__item"
                     aria-label={`Read more on ${item.url}`}
                     style={{

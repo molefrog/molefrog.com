@@ -59,7 +59,7 @@ const projects: Project[] = [
     aspectRatio: 16 / 9,
     description: "React Tricks: Fast, Fit and Fun!",
     tags: ["2023", "React", "Speaking"],
-    url: "https://molefrog.com/notes/react-tricks",
+    url: "/notes/react-tricks",
   },
   {
     thumb: useLeaderThumbImg,
