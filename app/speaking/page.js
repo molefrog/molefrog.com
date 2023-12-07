@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import WrapBalancer from "react-wrap-balancer";
 
 import { Projector } from "@/components/Projector";
@@ -11,6 +12,7 @@ import hooksCharactersImg from "@/public/speaking/hooks-characters.webp";
 import renderingImg from "@/public/speaking/rendering.webp";
 import presaImg from "@/public/speaking/presa.webp";
 import instaStoriesVideo from "@/public/speaking/insta-stories-demo.mp4";
+import multiplayerVideo from "@/public/speaking/multiplayer-demo.mp4";
 import gotMilkImg from "@/public/speaking/got-milk.webp";
 import simachevaImg from "@/public/speaking/simacheva.webp";
 
@@ -71,7 +73,22 @@ export default function Speaking() {
                   <code>cloneElement</code> API for component composition, the{" "}
                   <code>useSyncExternalStore</code> hook introduced in React 18, and its caveats; as
                   well as lesser-known non-standard hooks such as <code>useEvent</code> and more. To
-                  demonstrate these tricks, we built a fake multiplayer client component.
+                  demonstrate these tricks, we built a{" "}
+                  <ShowcaseLink
+                    href="https://codesandbox.io/s/react-hooks-playground-kdpxx"
+                    media={{ video: multiplayerVideo, aspectRatio: 16 / 9 }}
+                  >
+                    fake multiplayer
+                  </ShowcaseLink>{" "}
+                  client component.
+                </p>
+
+                <p>
+                  You can find the{" "}
+                  <Link className="solid-link" href="/notes/react-tricks">
+                    transcript of this talk{" "}
+                  </Link>
+                  , including these demos, in my blog.
                 </p>
               </div>
 
