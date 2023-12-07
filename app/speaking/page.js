@@ -75,7 +75,7 @@ export default function Speaking() {
                   well as lesser-known non-standard hooks such as <code>useEvent</code> and more. To
                   demonstrate these tricks, we built a{" "}
                   <ShowcaseLink
-                    href="https://codesandbox.io/s/react-hooks-playground-kdpxx"
+                    href="https://molefrog.com/notes/react-tricks#fb9ff506bb224647be3a78276f229561"
                     media={{ video: multiplayerVideo, aspectRatio: 16 / 9 }}
                   >
                     fake multiplayer
