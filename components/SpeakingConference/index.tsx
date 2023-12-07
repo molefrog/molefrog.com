@@ -8,6 +8,7 @@ import { Segmented } from "@/components/Segmented";
 const formats = {
   recording: "~REC",
   slides: "DECK",
+  link: "LINK",
 } as const;
 
 export const SpeakingConference = ({

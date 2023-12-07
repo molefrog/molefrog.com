@@ -29,6 +29,12 @@ import animSlide_2 from "@/public/speaking/animations-2.webp";
 import animSlide_3 from "@/public/speaking/animations-3.webp";
 import animSlide_4 from "@/public/speaking/animations-4.webp";
 
+import tricksSlide_1 from "@/public/speaking/react-tricks-1.webp";
+import tricksSlide_2 from "@/public/speaking/react-tricks-2.webp";
+import tricksSlide_3 from "@/public/speaking/react-tricks-3.webp";
+import tricksSlide_4 from "@/public/speaking/react-tricks-4.webp";
+import tricksSlide_5 from "@/public/speaking/react-tricks-5.webp";
+
 import milkIcon from "@/public/speaking/anicon-milk.png";
 import socketIcon from "@/public/speaking/anicon-socket.png";
 import radioIcon from "@/public/speaking/anicon-radio.png";
@@ -39,6 +45,48 @@ export default function Speaking() {
     <main>
       <Container placement="outer">
         <div className="speaking">
+          <div className="speaking__talk">
+            <div className="speaking__slides">
+              <Projector
+                title="React Tricks: Fast, Fit and Fun"
+                slides={[tricksSlide_1, tricksSlide_2, tricksSlide_3, tricksSlide_4, tricksSlide_5]}
+              />
+            </div>
+
+            <div className="speaking__info">
+              <h3 className="speaking__head">
+                <WrapBalancer>React Tricks: Fast, Fit and Fun</WrapBalancer>
+              </h3>
+
+              <div className="speaking__desc">
+                <p>
+                  In this talk, I uncovered some tricks and hacks in React that I learned while
+                  maintaining a micro-library. I discussed performance and size optimizations, as
+                  well as the importance of keeping object references stable when passing them down
+                  as props to React components.
+                </p>
+
+                <p>
+                  I talked about the non-standard use of the <code>useState</code> hook,{" "}
+                  <code>cloneElement</code> API for component composition, the{" "}
+                  <code>useSyncExternalStore</code> hook introduced in React 18, and its caveats; as
+                  well as lesser-known non-standard hooks such as <code>useEvent</code> and more. To
+                  demonstrate these tricks, we built a fake multiplayer client component.
+                </p>
+              </div>
+
+              <div className="speaking__confs">
+                <SpeakingConference
+                  year="2023"
+                  format="link"
+                  href="https://www.meetup.com/copenhagen-react-meetup/events/297182537/"
+                >
+                  Copenhagen React
+                </SpeakingConference>
+              </div>
+            </div>
+          </div>
+
           <div className="speaking__talk">
             <div className="speaking__slides">
               <Projector
