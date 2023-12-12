@@ -2,6 +2,7 @@ const rewrites = {
   "pid-neural-network": "https://molefrog.github.io/pidnn-talk",
   "stateful-animations": "https://molefrog.github.io/stateful-animations",
   "rye-js": "https://molefrog.github.io/rye",
+  knife: "https://molefrog.github.io/knife",
 };
 
 export const onRequest = (context) => {
