@@ -1,6 +1,11 @@
-/stateful-animations* https://molefrog.com/etc/stateful-animations:splat 302 
-/pidnn-talk* https://molefrog.com/etc/pid-neural-network:splat 302 
-/rye* https://molefrog.com/etc/rye-js:splat 302 
+/stateful-animations* https://molefrog.com/etc/stateful-animations:splat 301 
+/pidnn-talk* https://molefrog.com/etc/pid-neural-network:splat 301 
+/rye* https://molefrog.com/etc/rye-js:splat 301 
 /pog* https://pog.molefrog.com:splat 302
-/txt/lido-staking-widget-ux /notes/lido-staking-widget-ux 302
+/txt/lido-staking-widget-ux /notes/lido-staking-widget-ux 301
 /txt/lido-staking-widget-ux/ /notes/lido-staking-widget-ux/ 301
+/static/cv-alexey-taktarov.pdf / 301
+/knife /etc/knife/ 301
+/knife/ /etc/knife/ 301
+/helga/knife /etc/knife/ 301
+/helga/knife/ /etc/knife/ 301
