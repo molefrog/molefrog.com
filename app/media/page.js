@@ -38,15 +38,6 @@ export default function Media() {
  */
 const REFERENCES = [
   {
-    title:
-      "Talent Inc. Acquires Imkey Holding B.V. to Expand Services and Deepen International Footprint",
-
-    url: "https://www.prnewswire.com/news-releases/talent-inc-acquires-imkey-holding-bv-to-expand-services-and-deepen-international-footprint-301309410.html",
-
-    details: "Resume.io acquisition announcement / PR Newsware, 2021",
-  },
-
-  {
     title: "Resume.io and Talent Inc. merge!",
 
     url: "https://updates.resume.io/resume-io-and-talent-inc-merge!-203399",
