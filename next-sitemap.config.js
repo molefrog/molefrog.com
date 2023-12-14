@@ -19,6 +19,7 @@ module.exports = {
       loc: path,
       changefreq: "monthly",
       priority: 0.6,
+      trailingSlash: true,
     }));
   },
 };
