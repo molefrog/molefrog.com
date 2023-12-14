@@ -17,7 +17,7 @@ export const onRequest = (context) => {
 
   if (rest.length === 0 && !url.pathname.endsWith("/")) {
     return new Response("Redirecting...", {
-      status: 302,
+      status: 301,
       headers: {
         Location: url.pathname + "/",
       },
