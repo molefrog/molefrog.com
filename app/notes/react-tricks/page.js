@@ -3,6 +3,9 @@ import WrapBalancer from "react-wrap-balancer";
 import { Container } from "@/components/Grid";
 import { NotionPage } from "./NotionPage";
 import { NotionAPI } from "notion-client";
+import { ShowcaseLink } from "@/components/Showcase";
+
+import wouterImg from "@/public/txt/wouter.webp";
 
 export const metadata = {
   title: "React Tricks: Fast, Fit and Fun",
@@ -24,7 +27,16 @@ export default async function Index(props) {
           <WrapBalancer>React Tricks: Fast, Fit and Fun</WrapBalancer>
         </h1>
 
-        <WrapBalancer>Lessons and hacks learned from developing a micro-library</WrapBalancer>
+        <WrapBalancer>
+          Lessons and hacks learned from developing a{" "}
+          <ShowcaseLink
+            href="https://github.com/molefrog/wouter"
+            prefer="below"
+            media={{ image: wouterImg, aspectRatio: "auto" }}
+          >
+            micro-library
+          </ShowcaseLink>
+        </WrapBalancer>
       </Container>
 
       <Container placement="inner">

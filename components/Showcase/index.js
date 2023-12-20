@@ -272,11 +272,11 @@ const calculatePopoverPosition = (
 
 export default Showcase;
 
-export const ShowcaseLink = ({ children, href, media = {}, ...props }) => {
+export const ShowcaseLink = ({ children, prefer, href, media = {}, ...props }) => {
   const link = media.link || href;
 
   return (
-    <Showcase media={media}>
+    <Showcase media={media} prefer={prefer}>
       <a {...props} className={clsx("solid-link", props.className)} href={link}>
         {children}
       </a>
