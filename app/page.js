@@ -13,6 +13,12 @@ import speakingVideo from "@/public/showcase/speaking-use-state.mp4";
 
 import MINI_MAP_ITEMS from "@/content/mini-map.tsx";
 
+export const metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
+
 export default function Page() {
   return (
     <Container placement="inner">
