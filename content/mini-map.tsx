@@ -9,7 +9,7 @@ import pplaworkThumbImg from "@/public/showcase/pplawork-thumb.webp";
 import dirtyAnimationsThumbImg from "@/public/showcase/dirty-animations-thumb.gif";
 import dirtyAnimationsVideo from "@/public/showcase/dirty-animations.mp4";
 import resumeThumbImg from "@/public/showcase/resume-thumb.gif";
-import resumeVideo from "@/public/showcase/resume-io-sections.mp4";
+import resumeVideo from "@/public/showcase/resume-io-builder-v1.mp4";
 import ficusThumbImg from "@/public/showcase/ficus-thumb.webp";
 import ficusVideo from "@/public/showcase/ficus-stars.mp4";
 import reduxActuatorThumbImg from "@/public/showcase/redux-actuator-thumb.gif";

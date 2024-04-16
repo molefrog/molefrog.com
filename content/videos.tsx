@@ -2,7 +2,8 @@
 
 import "@/public/showcase/unhash.mp4";
 import "@/public/showcase/dirty-animations.mp4";
-import "@/public/showcase/resume-io-sections.mp4";
+import "@/public/showcase/resume-io-builder-v1.mp4";
+import "@/public/showcase/resume-io-builder.mp4";
 import "@/public/showcase/ficus-stars.mp4";
 import "@/public/showcase/laxlabs.mp4";
 import "@/public/showcase/ftt.mp4";

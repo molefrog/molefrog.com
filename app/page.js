@@ -9,7 +9,9 @@ import Showcase from "@/components/Showcase";
 
 import domikImg from "@/public/images/domik-highlight.webp";
 import wouterImg from "@/public/images/wouter-highlight.webp";
+import githubImg from "@/public/showcase/github.webp";
 import speakingVideo from "@/public/showcase/speaking-use-state.mp4";
+import resumeBuilderVideo from "@/public/showcase/resume-io-builder.mp4";
 
 import MINI_MAP_ITEMS from "@/content/mini-map.tsx";
 
@@ -41,17 +43,23 @@ export default function Page() {
                 </Link>
               </Showcase>{" "}
               at tech conferences, contribute to{" "}
-              <SolidLink href="https://github.com/molefrog" external>
-                open-source
-              </SolidLink>{" "}
+              <Showcase media={{ image: githubImg, aspectRatio: "auto" }}>
+                <Link className="solid-link" href="https://github.com/molefrog">
+                  open-source
+                </Link>
+              </Showcase>{" "}
               and teach others to code. I love designing UIs, playing around with animations, and
               writing performant web apps & backends. I primarily use JS, Node/Deno, and Ruby.
             </p>
             <p>
               I&apos;ve recently finished my work at{" "}
-              <SolidLink href="https://resume.io">resume.io</SolidLink> — the company I co-founded,
-              and helped to build. If you have some interesting project or a startup idea, drop me a
-              line, I&apos;m always happy to talk!
+              <Showcase media={{ video: resumeBuilderVideo, aspectRatio: 1200 / 768 }}>
+                <Link className="solid-link" href="https://resume.io">
+                  resume.io
+                </Link>
+              </Showcase>{" "}
+              — the company I co-founded, and helped to build. If you have some interesting project
+              or a startup idea, drop me a line, I&apos;m always happy to talk!
             </p>
           </div>
         </div>
