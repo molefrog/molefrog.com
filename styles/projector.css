@@ -10,6 +10,11 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  justify-content: center;
+}
+
+.projector:has(.projector__progress) {
+  justify-content: flex-start;
 }
 
 .projector__slides {
@@ -21,7 +26,7 @@
   overflow: auto;
   scroll-snap-type: x mandatory;
   scroll-snap-stop: always;
-  padding: 32px 0 28px 0;
+  padding: 32px 0;
 }
 
 .projector__slides::-webkit-scrollbar {
@@ -61,6 +66,7 @@
 
   width: calc(var(--total) * 10px);
   position: relative;
+  margin-top: -4px;
 }
 
 .projector__progress-mark {

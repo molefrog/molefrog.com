@@ -38,6 +38,8 @@ export const Projector: React.FC<ProjectorProps> = ({ slides, title }) => {
     };
   }, [slides.length]);
 
+  const shouldDisplayProgress = slides.length > 1;
+
   return (
     <div className="projector" style={{ "--slides-n": slides.length } as React.CSSProperties}>
       <div className="projector__slides" ref={slidesRef}>
@@ -56,15 +58,21 @@ export const Projector: React.FC<ProjectorProps> = ({ slides, title }) => {
         ))}
       </div>
 
-      <div
-        className="projector__progress"
-        style={{ "--total": slides.length, "--current": currentSlide } as React.CSSProperties}
-      >
-        {Array.from({ length: slides.length - 1 }).map((_, i) => (
-          <div className="projector__progress-mark" key={i} style={{ left: `${(i + 1) * 10}px` }} />
-        ))}
-        <div className={clsx("projector__progress-step")} />
-      </div>
+      {shouldDisplayProgress && (
+        <div
+          className="projector__progress"
+          style={{ "--total": slides.length, "--current": currentSlide } as React.CSSProperties}
+        >
+          {Array.from({ length: slides.length - 1 }).map((_, i) => (
+            <div
+              className="projector__progress-mark"
+              key={i}
+              style={{ left: `${(i + 1) * 10}px` }}
+            />
+          ))}
+          <div className={clsx("projector__progress-step")} />
+        </div>
+      )}
     </div>
   );
 };
