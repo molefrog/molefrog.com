@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import WrapBalancer from "react-wrap-balancer";
+import { Spoiler } from "spoiled";
 
 import { Projector } from "@/components/Projector";
 import { Container } from "@/components/Grid";
@@ -76,7 +77,10 @@ export default function Speaking() {
                 </p>
 
                 <p>
-                  For this talk, I&apos;ve used Paint API to recreate a Telegram-inspired spoiler
+                  For this talk, I&apos;ve used Paint API to recreate a{" "}
+                  <Spoiler density={0.25} theme="light" mimicWords noiseFadeDuration={0.8}>
+                    Telegram-inspired spoiler
+                  </Spoiler>{" "}
                   animation. I&apos; dived into complexities related to the stateless nature of
                   worklets, along with performance benefits and drawbacks.
                 </p>
