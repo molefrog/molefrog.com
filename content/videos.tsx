@@ -16,6 +16,7 @@ import "@/public/showcase/js-things.mp4";
 import "@/public/speaking/insta-stories-demo.mp4";
 import "@/public/speaking/multiplayer-demo.mp4";
 import "@/public/showcase/speaking-use-state.mp4";
+import "@/public/speaking/figjam-spoiled.mp4";
 
 // use dummy client component to make Next.js include assets in the bundle
 export default function Videos() {

@@ -13,6 +13,7 @@ import renderingImg from "@/public/speaking/rendering.webp";
 import presaImg from "@/public/speaking/presa.webp";
 import instaStoriesVideo from "@/public/speaking/insta-stories-demo.mp4";
 import multiplayerVideo from "@/public/speaking/multiplayer-demo.mp4";
+import figjamSpoiledVideo from "@/public/speaking/figjam-spoiled.mp4";
 import gotMilkImg from "@/public/speaking/got-milk.webp";
 import simachevaImg from "@/public/speaking/simacheva.webp";
 
@@ -37,6 +38,8 @@ import tricksSlide_3 from "@/public/speaking/react-tricks-3.webp";
 import tricksSlide_4 from "@/public/speaking/react-tricks-4.webp";
 import tricksSlide_5 from "@/public/speaking/react-tricks-5.webp";
 
+import spoiledSlide_1 from "@/public/speaking/spoiled-1.webp";
+
 import milkIcon from "@/public/speaking/anicon-milk.png";
 import socketIcon from "@/public/speaking/anicon-socket.png";
 import radioIcon from "@/public/speaking/anicon-radio.png";
@@ -47,6 +50,63 @@ export default function Speaking() {
     <main>
       <Container placement="outer">
         <div className="speaking">
+          {/* CSS Paint API talk */}
+          <div className="speaking__talk">
+            <div className="speaking__slides">
+              <Projector
+                title="Practical Serverless and Edge Computing"
+                slides={[spoiledSlide_1]}
+              />
+            </div>
+
+            <div className="speaking__info">
+              <h3 className="speaking__head">
+                <WrapBalancer>
+                  {'"Spoiled"'}: Leveraging CSS Paint API for Realistic Particle Animation{" "}
+                </WrapBalancer>
+              </h3>
+
+              <div className="speaking__desc">
+                <p>
+                  CSS Paint API isn&apos;t new, yet it&apos;s still an experimental web API for
+                  extending browser&apos;s rendering engine. Using special worklet scripts, you can
+                  define custom CSS functions for drawing backgrounds, borders, custom gradients
+                  etc., in other words, things you would not be able to do with a regular{" "}
+                  <code>{"<canvas>"}</code>.
+                </p>
+
+                <p>
+                  For this talk, I&apos;ve used Paint API to recreate a Telegram-inspired spoiler
+                  animation. I&apos; dived into complexities related to the stateless nature of
+                  worklets, along with performance benefits and drawbacks.
+                </p>
+
+                <p>
+                  I love experimenting with new ways of presenting content, so it was also fun to
+                  use the{" "}
+                  <ShowcaseLink
+                    href="https://www.figma.com/file/eHIuHAKCgvjJEx98LGaRYG/Spoiled?type=whiteboard&node-id=208%3A216&t=5zcktjGqUdlvJzRC-1"
+                    media={{ video: figjamSpoiledVideo, aspectRatio: 1200 / 768 }}
+                  >
+                    FigJam board
+                  </ShowcaseLink>{" "}
+                  instead of regular slides for the first time.
+                </p>
+              </div>
+
+              <div className="speaking__confs">
+                <SpeakingConference
+                  year="2024"
+                  format="link"
+                  href="https://www.meetup.com/copenhagenjs/events/299917900/"
+                >
+                  CopenhagenJS
+                </SpeakingConference>
+              </div>
+            </div>
+          </div>
+
+          {/* React Tricks talk */}
           <div className="speaking__talk">
             <div className="speaking__slides">
               <Projector
