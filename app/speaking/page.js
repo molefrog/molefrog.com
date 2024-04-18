@@ -91,6 +91,8 @@ export default function Speaking() {
                   <ShowcaseLink
                     href="https://www.figma.com/file/eHIuHAKCgvjJEx98LGaRYG/Spoiled?type=whiteboard&node-id=208%3A216&t=5zcktjGqUdlvJzRC-1"
                     media={{ video: figjamSpoiledVideo, aspectRatio: 1200 / 768 }}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     FigJam board
                   </ShowcaseLink>{" "}

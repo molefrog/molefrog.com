@@ -5,7 +5,7 @@ import { Container } from "@/components/Grid";
 import { SolidLink } from "@/components/SolidLink";
 import Link from "next/link";
 
-import Showcase from "@/components/Showcase";
+import Showcase, { ShowcaseLink } from "@/components/Showcase";
 
 import domikImg from "@/public/images/domik-highlight.webp";
 import wouterImg from "@/public/images/wouter-highlight.webp";
@@ -43,11 +43,14 @@ export default function Page() {
                 </Link>
               </Showcase>{" "}
               at tech conferences, contribute to{" "}
-              <Showcase media={{ image: githubImg, aspectRatio: "auto" }}>
-                <Link className="solid-link" href="https://github.com/molefrog">
-                  open-source
-                </Link>
-              </Showcase>{" "}
+              <ShowcaseLink
+                media={{ image: githubImg, aspectRatio: "auto" }}
+                href="https://github.com/molefrog"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                open-source
+              </ShowcaseLink>{" "}
               and teach others to code. I love designing UIs, playing around with animations, and
               writing performant web apps & backends. I primarily use JS, Node/Deno, and Ruby.
             </p>
