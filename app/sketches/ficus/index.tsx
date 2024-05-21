@@ -10,6 +10,7 @@ import { createPoll } from "https://ficus.io/widget.js";
 import type { API } from "./ficus-api";
 
 import styles from "./ficus.module.css";
+import clsx from "clsx";
 
 function FicusPoll({ id }: { id: string }) {
   const elementRef = useRef<HTMLDivElement>(null);
@@ -41,10 +42,11 @@ function FicusPoll({ id }: { id: string }) {
     if (!config || !elementRef.current) return;
 
     instanceRef.current = createPoll(elementRef.current, {
-      type: "simple",
+      type: "cloud",
       config: config,
       votes: votes,
       theme: {
+        aspectRatio: "16:9",
         textColor: "#18181b",
       },
     });
@@ -99,26 +101,45 @@ function FicusPoll({ id }: { id: string }) {
       </div>
 
       <div className={styles.vote}>
-        {config?.answers.map((answer) => (
-          <button
-            key={answer.id}
-            disabled={votedFor.includes(answer.id)}
-            onClick={async () => {
-              if (!config) return;
+        {config?.answers.map((answer) => {
+          const isActiveVote = votedFor.includes(answer.id);
 
-              setVotedFor([answer.id]); // optimistic update
-              const resp = await fetch(`https://v.ficus.io/${config.name}/vote/${answer.id}`, {
-                method: "POST",
-                credentials: "include",
-              });
+          return (
+            <button
+              key={answer.id}
+              className={clsx(styles.button, {
+                [styles.button_voted]: isActiveVote,
+              })}
+              onClick={async () => {
+                if (!config || !votes) return;
 
-              const data = (await resp.json()) as API.PollState;
-              setVotes(data.votes);
-            }}
-          >
-            {answer.label}
-          </button>
-        ))}
+                const newVotes = isActiveVote
+                  ? votedFor.filter((id) => id !== answer.id)
+                  : [...votedFor, answer.id];
+
+                // removing your vote is not supported yet
+                if (newVotes.length < 1) {
+                  return;
+                }
+
+                setVotedFor(newVotes); // optimistic update
+
+                const resp = await fetch(
+                  `https://v.ficus.io/${config.name}/vote/${newVotes.join(",")}`,
+                  {
+                    method: "POST",
+                    credentials: "include",
+                  },
+                );
+
+                const data = (await resp.json()) as API.PollState;
+                setVotes(data.votes);
+              }}
+            >
+              <span>{answer.label}</span>
+            </button>
+          );
+        })}
       </div>
       <p>
         <a href="https://ficus.io">ficus.io</a> was an app for making online presentations with
