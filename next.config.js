@@ -19,6 +19,9 @@ const nextConfig = {
 
     return config;
   },
+  experimental: {
+    urlImports: ["https://ficus.io"],
+  },
 };
 
 module.exports = nextConfig;

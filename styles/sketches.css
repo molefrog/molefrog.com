@@ -1,0 +1,52 @@
+.sketches__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 16px;
+  margin-bottom: 40px;
+}
+
+.sketches__block {
+  border-radius: 4px;
+  padding: 18px;
+  background-color: var(--color-gray-100);
+  font: var(--type-text-small);
+  font-weight: 400;
+  color: var(--color-gray-600);
+  margin-bottom: 16px;
+}
+
+.sketches__block--intro {
+  color: var(--color-gray-700);
+  font-weight: 500;
+}
+
+.sketches__block a {
+  color: var(--color-accent-400);
+}
+
+.sketches__block p {
+  margin: 0;
+}
+
+.sketches__block p + p {
+  margin-top: 12px;
+}
+
+.sketches__published {
+  font: var(--type-text-x-small);
+  font-weight: 500;
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--color-gray-200);
+  color: var(--color-gray-500);
+  padding-top: 12px;
+}
+
+.sketches__published > svg {
+  width: 9px;
+  transform: rotate(45deg);
+  vertical-align: middle;
+  margin-right: 5px;
+  padding-top: 1px;
+}

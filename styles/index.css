@@ -14,6 +14,7 @@
 @import "./segmented.css";
 @import "./projector.css";
 @import "./article.css";
+@import "./sketches.css";
 
 :root {
   --type-text-x-small: 600 13px / 22px var(--font-sans);
