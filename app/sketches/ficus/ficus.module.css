@@ -6,3 +6,10 @@
     0 1px 2px -1px rgb(0 0 0 / 0.1);
   margin-bottom: 16px;
 }
+
+.vote {
+  margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}

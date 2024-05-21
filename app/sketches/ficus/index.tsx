@@ -85,32 +85,41 @@ function FicusPoll({ id }: { id: string }) {
     };
   }, [config]);
 
-  const votedFor = useMemo(() => {
-    return votes?.find((vote) => vote.id === me)?.answers ?? [];
-  }, [votes, me]);
+  const [votedFor, setVotedFor] = useState<string[]>([]);
+
+  useEffect(() => {
+    const my = votes?.find((vote) => vote.id === me)?.answers ?? [];
+    setVotedFor(my);
+  }, [me, votes]);
 
   return (
     <>
       <div className={styles.poll}>
         <div ref={elementRef}></div>
       </div>
-      {config?.answers.map((answer) => (
-        <button
-          key={answer.id}
-          disabled={votedFor.includes(answer.id)}
-          onClick={async () => {
-            const resp = await fetch(`https://v.ficus.io/${config?.name}/vote/${answer.id}`, {
-              method: "POST",
-              credentials: "include",
-            });
 
-            const data = (await resp.json()) as API.PollState;
-            setVotes(data.votes);
-          }}
-        >
-          {answer.label}
-        </button>
-      ))}
+      <div className={styles.vote}>
+        {config?.answers.map((answer) => (
+          <button
+            key={answer.id}
+            disabled={votedFor.includes(answer.id)}
+            onClick={async () => {
+              if (!config) return;
+
+              setVotedFor([answer.id]); // optimistic update
+              const resp = await fetch(`https://v.ficus.io/${config.name}/vote/${answer.id}`, {
+                method: "POST",
+                credentials: "include",
+              });
+
+              const data = (await resp.json()) as API.PollState;
+              setVotes(data.votes);
+            }}
+          >
+            {answer.label}
+          </button>
+        ))}
+      </div>
       <p>
         Ficus was an app for making online presentations with real-time polls and instant feedback
         from the audience.
