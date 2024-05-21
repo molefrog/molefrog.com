@@ -10,7 +10,7 @@ const nextConfig = {
     // load static asset urls using Asset Modules
     // https://webpack.js.org/guides/asset-modules/
     config.module.rules.unshift({
-      test: /\.(mp4|webm)$/,
+      test: /\.(mp4|webm|mp3)$/,
       type: "asset/resource",
       generator: {
         filename: "static/[hash][ext][query]",

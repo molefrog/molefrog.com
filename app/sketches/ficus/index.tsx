@@ -1,6 +1,8 @@
 "use client";
 
 import { useRef, useEffect, useState, useMemo } from "react";
+import useSound from "use-sound";
+import clsx from "clsx";
 
 // Importing the createPoll function from the provided CDN
 import "./ficus-widget.d.ts";
@@ -9,8 +11,8 @@ import { createPoll } from "https://ficus.io/widget.js";
 // API for fetching poll state on startup and real-time voting
 import type { API } from "./ficus-api";
 
+import clickFX from "./click.mp3";
 import styles from "./ficus.module.css";
-import clsx from "clsx";
 
 function FicusPoll({ id }: { id: string }) {
   const elementRef = useRef<HTMLDivElement>(null);
@@ -21,6 +23,8 @@ function FicusPoll({ id }: { id: string }) {
   const [votes, setVotes] = useState<API.PollState["votes"]>();
 
   const instanceRef = useRef<ReturnType<typeof createPoll>>();
+
+  const [playSound] = useSound(clickFX);
 
   // fetch initial state: questions, answers, and user id
   useEffect(() => {
@@ -123,6 +127,7 @@ function FicusPoll({ id }: { id: string }) {
                 }
 
                 setVotedFor(newVotes); // optimistic update
+                playSound({ playbackRate: isActiveVote ? 0.75 : 1.0 });
 
                 const resp = await fetch(
                   `https://v.ficus.io/${config.name}/vote/${newVotes.join(",")}`,
