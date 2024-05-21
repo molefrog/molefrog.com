@@ -33,7 +33,8 @@
     "sanitize.css": "^13.0.0",
     "sharp": "^0.32.6",
     "spoiled": "^0.3.2",
-    "sugar-high": "^0.5.5",
+    "sugar-high": "^0.6.1",
+    "use-sound": "^4.0.1",
     "velocity-animate": "^1.5.2"
   },
   "overrides": {
@@ -49,6 +50,6 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.0.2",
-    "typescript": "^5"
+    "typescript": "^5.4.5"
   }
 }
