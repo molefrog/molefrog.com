@@ -24,6 +24,10 @@
   color: var(--color-accent-400);
 }
 
+.sketches__block a:hover {
+  color: var(--color-accent-700);
+}
+
 .sketches__block p {
   margin: 0;
 }

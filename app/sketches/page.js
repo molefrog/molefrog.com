@@ -18,6 +18,8 @@ export default function Media() {
           <div className="sketches__left">
             <div className="sketches__block">
               <FicusSketch />
+
+              <PublicationDate>2014–2024</PublicationDate>
             </div>
           </div>
 

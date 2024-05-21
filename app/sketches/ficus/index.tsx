@@ -121,8 +121,14 @@ function FicusPoll({ id }: { id: string }) {
         ))}
       </div>
       <p>
-        Ficus was an app for making online presentations with real-time polls and instant feedback
-        from the audience.
+        <a href="https://ficus.io">ficus.io</a> was an app for making online presentations with
+        real-time polls and instant feedback from the audience. Initially, it was a hackathon
+        project that had been running until it was shut down in 2018.
+      </p>
+      <p>
+        I brought it back online as an <a href="https://github.com/molefrog/ficus.io">ESM module</a>{" "}
+        for drawing polls and a simple real-time API powered by Cloudflare Workers and Durable
+        Objects.
       </p>
     </>
   );
