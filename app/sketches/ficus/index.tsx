@@ -1,8 +1,10 @@
 "use client";
 
+import { useRef, useEffect } from "react";
+
 // Importing the createPoll function from the provided CDN
 import { createPoll } from "https://ficus.io/widget.js";
-import { useRef, useEffect } from "react";
+import "./ficus-widget.d.ts";
 
 import styles from "./ficus.module.css";
 
