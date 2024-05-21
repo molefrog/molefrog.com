@@ -7,7 +7,7 @@
 
 .sketches__block {
   border-radius: 4px;
-  padding: 18px;
+  padding: 24px 18px;
   background-color: var(--color-gray-100);
   font: var(--type-text-small);
   font-weight: 400;
@@ -16,8 +16,8 @@
 }
 
 .sketches__block--intro {
-  color: var(--color-gray-700);
-  font-weight: 500;
+  font-family: var(--font-serif);
+  color: var(--color-gray-800);
 }
 
 .sketches__block a {
@@ -35,11 +35,13 @@
 .sketches__published {
   font: var(--type-text-x-small);
   font-weight: 500;
-  margin-top: 24px;
+  margin-top: 28px;
   display: flex;
   align-items: center;
   border-top: 1px solid var(--color-gray-200);
-  color: var(--color-gray-500);
+  color: var(--color-gray-800);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   padding-top: 12px;
 }
 
