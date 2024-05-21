@@ -5,6 +5,12 @@
   margin-bottom: 40px;
 }
 
+@media (max-width: 640px) {
+  .sketches__left {
+    order: 2;
+  }
+}
+
 .sketches__block {
   border-radius: 4px;
   padding: 24px 18px;
@@ -13,6 +19,10 @@
   font-weight: 400;
   color: var(--color-gray-600);
   margin-bottom: 16px;
+}
+
+.sketches__block:last-child {
+  margin-bottom: 0;
 }
 
 .sketches__block--intro {
