@@ -1,113 +1,124 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState, useMemo } from "react";
 
 // Importing the createPoll function from the provided CDN
-import { createPoll } from "https://ficus.io/widget.js";
 import "./ficus-widget.d.ts";
+import { createPoll } from "https://ficus.io/widget.js";
+
+// API for fetching poll state on startup and real-time voting
+import type { API } from "./ficus-api";
 
 import styles from "./ficus.module.css";
 
-// const POLL_ID = /* __POLL_ID__ */ location.hash.replace("#", "");
-
-// document.addEventListener("DOMContentLoaded", async function () {
-//   if (!POLL_ID) {
-//     console.error("Please provide a poll ID in the URL's hash. Example: /#poll-1");
-//     return;
-//   }
-
-//   const rootElement = document.getElementById("poll");
-//   const response = await fetch(`/${POLL_ID}`);
-//   const { config, votes: initialVotes, me } = await response.json();
-
-//   const [update, unmount] = createPoll(rootElement, {
-//     type: "cloud",
-//     config: config,
-//     votes: initialVotes,
-//     theme: {
-//       textColor: "#18181b",
-//     },
-//   });
-
-//   const setState = (state) => {
-//     if (state.votes) update({ votes: state.votes });
-
-//     const myVotes = state.votes.find((vote) => vote.id === me.id)?.answers || [];
-
-//     document.querySelectorAll(".buttons button").forEach((button) => {
-//       button.disabled = myVotes.includes(button.id);
-//     });
-//   };
-
-//   setState({ votes: initialVotes });
-
-//   const wsOrigin = location.origin.replace(/^http/, "ws");
-//   const socket = new WebSocket(`${wsOrigin}/${POLL_ID}/sub`);
-
-//   socket.onmessage = function (event) {
-//     const state = JSON.parse(event.data);
-
-//     console.log("update via ws", state);
-//     setState(state);
-//   };
-
-//   config.answers.forEach((answer) => {
-//     document.getElementById(answer.id)?.addEventListener("click", async () => {
-//       const resp = await fetch(`/${POLL_ID}/vote/${answer.id}`, { method: "POST" });
-//       const data = await resp.json();
-
-//       setState(data);
-//     });
-//   });
-
-//   window.onunload = () => {
-//     unmount();
-//     socket.close();
-//   };
-// });
-
-export default function Sketches() {
+function FicusPoll({ id }: { id: string }) {
   const elementRef = useRef<HTMLDivElement>(null);
-  // const
 
-  //   const rootElement = document.getElementById("poll");
-  //   const response = await fetch(`/${POLL_ID}`);
-  //   const { config, votes: initialVotes, me } = await response.json();
+  // poll state
+  const [config, setConfig] = useState<API.PollState["config"]>();
+  const [me, setMe] = useState<string>();
+  const [votes, setVotes] = useState<API.PollState["votes"]>();
 
+  const instanceRef = useRef<ReturnType<typeof createPoll>>();
+
+  // fetch initial state: questions, answers, and user id
   useEffect(() => {
-    let unmount: () => void;
-
     async function init() {
       if (!elementRef.current) return;
 
-      const response = await fetch(`https://v.ficus.io/qukuta-vuvygo-qovuli`);
-      const { config, votes: initialVotes, me } = await response.json();
+      const response = await fetch(`https://v.ficus.io/${id}`, { credentials: "include" });
+      const { config, votes: initialVotes, me } = (await response.json()) as API.PollState;
 
-      const [update, unmount_] = createPoll(elementRef.current, {
-        type: "simple",
-        config: config,
-        votes: initialVotes,
-        theme: {
-          textColor: "#18181b",
-        },
-      });
-
-      unmount = unmount_;
+      setMe(me.id);
+      setConfig(config);
+      setVotes(initialVotes);
     }
 
     init();
+  }, [id]);
+
+  useEffect(() => {
+    if (!config || !elementRef.current) return;
+
+    instanceRef.current = createPoll(elementRef.current, {
+      type: "simple",
+      config: config,
+      votes: votes,
+      theme: {
+        textColor: "#18181b",
+      },
+    });
+
     return () => {
-      unmount?.();
+      // clean up
+      if (instanceRef.current) {
+        const [, unmount] = instanceRef.current;
+        unmount();
+
+        instanceRef.current = undefined;
+      }
     };
-  }, []);
+    // assume that votes are set along with the config
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [config]);
+
+  // new votes incoming
+  useEffect(() => {
+    if (instanceRef.current && votes) {
+      const [update] = instanceRef.current;
+      update({ votes: votes });
+    }
+  }, [config, votes]);
+
+  // subscribe to real-time updates
+  useEffect(() => {
+    if (!config) return;
+    const socket = new WebSocket(`https://v.ficus.io/${config.name}/sub`);
+
+    socket.onmessage = function (event) {
+      const state = JSON.parse(event.data) as API.PollState;
+      setVotes(state.votes);
+    };
+
+    return () => {
+      socket.close();
+    };
+  }, [config]);
+
+  const votedFor = useMemo(() => {
+    return votes?.find((vote) => vote.id === me)?.answers ?? [];
+  }, [votes, me]);
 
   return (
     <>
       <div className={styles.poll}>
         <div ref={elementRef}></div>
       </div>
-      Ficus was an app for making online presentations with real-time polls and instant feedback
-      from the audience.
+      {config?.answers.map((answer) => (
+        <button
+          key={answer.id}
+          disabled={votedFor.includes(answer.id)}
+          onClick={async () => {
+            const resp = await fetch(`https://v.ficus.io/${config?.name}/vote/${answer.id}`, {
+              method: "POST",
+              credentials: "include",
+            });
+
+            const data = (await resp.json()) as API.PollState;
+            setVotes(data.votes);
+          }}
+        >
+          {answer.label}
+        </button>
+      ))}
+      <p>
+        Ficus was an app for making online presentations with real-time polls and instant feedback
+        from the audience.
+      </p>
     </>
   );
+}
+
+export default function Sketch() {
+  return <FicusPoll id="qukuta-vuvygo-qovuli" />;
 }
