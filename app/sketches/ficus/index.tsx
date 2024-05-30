@@ -178,5 +178,5 @@ function FicusPoll({ id }: { id: string }) {
 }
 
 export default function Sketch() {
-  return <FicusPoll id="qukuta-vuvygo-qovuli" />;
+  return <FicusPoll id="hawire-galake-nawofo" />;
 }
