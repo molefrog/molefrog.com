@@ -136,23 +136,17 @@ function FicusPoll({ id }: { id: string }) {
                   ? votedFor.filter((id) => id !== answer.id)
                   : [...votedFor, answer.id];
 
-                // removing your vote is not supported yet
-                if (newVotes.length < 1) {
-                  return;
-                }
-
                 setVotedFor(newVotes); // optimistic update
                 playSound({ playbackRate: isActiveVote ? 0.75 : 1.0 });
 
-                const resp = await fetch(
-                  `https://v.ficus.io/${config.name}/vote/${newVotes.join(",")}`,
-                  {
-                    method: "POST",
-                    headers: {
-                      "X-Ficus": tokenRef.current || "",
-                    },
+                const votesParam = newVotes.length < 1 ? "_" : newVotes.join(",");
+
+                const resp = await fetch(`https://v.ficus.io/${config.name}/vote/${votesParam}`, {
+                  method: "POST",
+                  headers: {
+                    "X-Ficus": tokenRef.current || "",
                   },
-                );
+                });
 
                 const data = (await resp.json()) as API.PollState;
                 setVotes(data.votes);
