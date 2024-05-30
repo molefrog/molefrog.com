@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState, useMemo } from "react";
 import useSound from "use-sound";
 import clsx from "clsx";
+import { useLocalStorage } from "usehooks-ts";
 
 // Importing the createPoll function from the provided CDN
 import "./ficus-widget.d.ts";
@@ -24,6 +25,13 @@ function FicusPoll({ id }: { id: string }) {
 
   const instanceRef = useRef<ReturnType<typeof createPoll>>();
 
+  const [token, setToken] = useLocalStorage<string | null>("ficus-token", null, {
+    initializeWithValue: typeof window !== "undefined",
+  });
+
+  const tokenRef = useRef(token);
+  tokenRef.current = token;
+
   const [playSound] = useSound(clickFX);
 
   // fetch initial state: questions, answers, and user id
@@ -31,7 +39,14 @@ function FicusPoll({ id }: { id: string }) {
     async function init() {
       if (!elementRef.current) return;
 
-      const response = await fetch(`https://v.ficus.io/${id}`, { credentials: "include" });
+      const response = await fetch(`https://v.ficus.io/${id}`, {
+        headers: tokenRef.current ? { "X-Ficus": tokenRef.current } : {},
+      });
+
+      if (response.headers.has("X-Ficus")) {
+        setToken(response.headers.get("X-Ficus"));
+      }
+
       const { config, votes: initialVotes, me } = (await response.json()) as API.PollState;
 
       setMe(me.id);
@@ -40,7 +55,7 @@ function FicusPoll({ id }: { id: string }) {
     }
 
     init();
-  }, [id]);
+  }, [id, setToken]);
 
   useEffect(() => {
     if (!config || !elementRef.current) return;
@@ -133,7 +148,9 @@ function FicusPoll({ id }: { id: string }) {
                   `https://v.ficus.io/${config.name}/vote/${newVotes.join(",")}`,
                   {
                     method: "POST",
-                    credentials: "include",
+                    headers: {
+                      "X-Ficus": tokenRef.current || "",
+                    },
                   },
                 );
 
