@@ -4,3 +4,12 @@
   border-radius: 18px;
   overflow: hidden;
 }
+
+.pin {
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.pin_visible {
+  opacity: 1;
+}

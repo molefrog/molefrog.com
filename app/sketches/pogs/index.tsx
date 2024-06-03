@@ -20,7 +20,7 @@ type POGOpenEvent = {
 export default function POGDemo() {
   useMapboxStyles();
 
-  const { data } = useSWR<POGOpenEvent[]>("https://pog.molefrog.com/stat", fetcher);
+  const { data: points } = useSWR<POGOpenEvent[]>("https://pog.molefrog.com/stat", fetcher);
 
   return (
     <>
@@ -37,15 +37,15 @@ export default function POGDemo() {
         >
           <FullscreenControl position="top-right" />
 
-          {data &&
-            data.map((pog, idx) => (
+          {points &&
+            points.map((pog, idx) => (
               <Marker
                 key={`${pog.serial}-${pog.timestamp}-${idx}`}
                 longitude={pog.lon}
                 latitude={pog.lat}
                 anchor="center"
               >
-                <Pin />
+                <Pin delay={idx * 5} />
               </Marker>
             ))}
         </Map>

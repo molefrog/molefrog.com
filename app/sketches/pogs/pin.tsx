@@ -1,6 +1,28 @@
-export function Pin({ size = 20 }) {
+import { useEffect, useState } from "react";
+import clsx from "clsx";
+import styles from "./styles.module.css";
+
+export function Pin({ size = 20, delay = 0 }) {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const tm = setTimeout(() => {
+      setIsVisible(true);
+    }, delay);
+
+    return () => {
+      clearTimeout(tm);
+    };
+  }, [delay]);
+
   return (
-    <svg height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      className={clsx(styles.pin, { [styles.pin_visible]: isVisible })}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <g clipPath="url(#clip0_381_2)">
         <g filter="url(#filter0_d_381_2)">
           <circle cx="12" cy="12" r="10" fill="#DD0000" />
