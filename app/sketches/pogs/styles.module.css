@@ -1,0 +1,6 @@
+.map {
+  margin: calc(var(--sketches-block-padding) * -1);
+  height: 280px;
+  border-radius: 18px;
+  overflow: hidden;
+}

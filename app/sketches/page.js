@@ -1,14 +1,10 @@
-import { Container } from "@/components/Grid";
-
 import dynamic from "next/dynamic";
 
-const FicusSketch = dynamic(() => import("./ficus/index.tsx"), {
-  loading: () => <p>Loading...</p>,
-});
+import { Container } from "@/components/Grid";
 
-const SpoilerSketch = dynamic(() => import("./spoiler/index.tsx"), {
-  loading: () => <p>Loading...</p>,
-});
+const FicusSketch = dynamic(() => import("./ficus/index.tsx"));
+const PogSketch = dynamic(() => import("./pogs/index.tsx"));
+const SpoilerSketch = dynamic(() => import("./spoiler/index.tsx"));
 
 export default function Media() {
   return (
@@ -20,6 +16,10 @@ export default function Media() {
               <FicusSketch />
 
               <PublicationDate>2014–2024</PublicationDate>
+            </div>
+
+            <div className="sketches__block">
+              <PogSketch />
             </div>
           </div>
 

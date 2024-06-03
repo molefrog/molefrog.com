@@ -1,5 +1,6 @@
 .sketches__grid {
   --sketches-gap: 8px;
+  --sketches-block-padding: 18px;
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -15,7 +16,7 @@
 
 .sketches__block {
   border-radius: 18px;
-  padding: 18px 18px;
+  padding: var(--sketches-block-padding);
   background-color: var(--color-gray-100);
   font: var(--type-text-small);
   font-weight: 400;
