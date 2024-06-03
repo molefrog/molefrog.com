@@ -3,8 +3,10 @@
 import useSWR from "swr";
 import Map, { Marker, FullscreenControl } from "react-map-gl";
 import styles from "./styles.module.css";
+import "mapbox-gl/dist/mapbox-gl.css";
 
 import { Pin } from "./pin";
+import { useMapboxStyles } from "./useMapboxStyles";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -16,6 +18,8 @@ type POGOpenEvent = {
 };
 
 export default function POGDemo() {
+  useMapboxStyles();
+
   const { data } = useSWR<POGOpenEvent[]>("https://pog.molefrog.com/stat", fetcher);
 
   return (
@@ -46,12 +50,6 @@ export default function POGDemo() {
             ))}
         </Map>
       </div>
-
-      {/** TODO */}
-      <link
-        href="https://api.tiles.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.css"
-        rel="stylesheet"
-      />
     </>
   );
 }
