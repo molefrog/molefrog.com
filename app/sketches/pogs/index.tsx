@@ -19,7 +19,11 @@ type POGOpenEvent = {
 };
 
 function formatDate(timestamp: number) {
-  const dateFormatter = new Intl.DateTimeFormat("en-US", { day: "numeric", month: "short" });
+  const dateFormatter = new Intl.DateTimeFormat("en-US", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
 
   return dateFormatter.format(new Date(timestamp));
 }
@@ -66,6 +70,13 @@ export default function POGDemo() {
           <span className={styles.date}>/ {formatDate(latestPoint.timestamp)}</span>
         </div>
       )}
+
+      <p>
+        Whenever I meet someone, I hand them a POG. It&apos;s a small circular token with an
+        NFC-chip that, when scanned, leads to my website. It&apos;s somewhat like a business card,
+        but less formal. I can track when someone scans a tag (anonymously), and it&apos;s enjoyable
+        to see how these artifacts travel around the world.
+      </p>
     </>
   );
 }

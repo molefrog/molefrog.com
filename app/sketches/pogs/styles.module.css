@@ -36,6 +36,7 @@
   font: var(--type-text-small);
   font: var(--type-text-x-small);
   font-family: var(--font-mono);
+  margin-bottom: 18px;
 }
 
 .serial {
