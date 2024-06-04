@@ -6,15 +6,11 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: var(--sketches-gap);
   margin-bottom: 40px;
-}
-
-@media (max-width: 640px) {
-  .sketches__left {
-    order: 2;
-  }
+  justify-items: center;
 }
 
 .sketches__block {
+  max-width: 380px;
   border-radius: 18px;
   padding: var(--sketches-block-padding);
   background-color: var(--color-gray-100);
@@ -22,6 +18,22 @@
   font-weight: 400;
   color: var(--color-gray-800);
   margin-bottom: var(--sketches-gap);
+}
+
+@media (max-width: 1024px) {
+  .sketches__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sketches__left {
+    order: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .sketches__block {
+    max-width: 100%;
+  }
 }
 
 .sketches__block:last-child {

@@ -17,11 +17,9 @@ export default function Media() {
 
               <PublicationDate>2014–2024</PublicationDate>
             </div>
-
             <div className="sketches__block">
-              <PogSketch />
-
-              <PublicationDate>June, 2023</PublicationDate>
+              <SpoilerSketch />
+              <PublicationDate>April, 2024</PublicationDate>
             </div>
           </div>
 
@@ -30,10 +28,10 @@ export default function Media() {
               Here be dragons! This is the place for various sketches, experiments, and side-project
               demos.
             </div>
-
             <div className="sketches__block">
-              <SpoilerSketch />
-              <PublicationDate>April, 2024</PublicationDate>
+              <PogSketch />
+
+              <PublicationDate>June, 2023</PublicationDate>
             </div>
           </div>
         </div>
