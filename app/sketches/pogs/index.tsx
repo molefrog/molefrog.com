@@ -15,12 +15,20 @@ type POGOpenEvent = {
   lon: number;
   serial: string;
   timestamp: number;
+  location: string;
 };
+
+function formatDate(timestamp: number) {
+  const dateFormatter = new Intl.DateTimeFormat("en-US", { day: "numeric", month: "short" });
+
+  return dateFormatter.format(new Date(timestamp));
+}
 
 export default function POGDemo() {
   useMapboxStyles();
 
   const { data: points } = useSWR<POGOpenEvent[]>("https://pog.molefrog.com/stat", fetcher);
+  const latestPoint = points && points[points.length - 1];
 
   return (
     <>
@@ -50,6 +58,14 @@ export default function POGDemo() {
             ))}
         </Map>
       </div>
+
+      {latestPoint && (
+        <div className={styles.latest}>
+          <span className={styles.serial}>#{latestPoint.serial}</span>
+          {latestPoint.location}{" "}
+          <span className={styles.date}>/ {formatDate(latestPoint.timestamp)}</span>
+        </div>
+      )}
     </>
   );
 }

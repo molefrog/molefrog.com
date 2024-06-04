@@ -1,7 +1,8 @@
 .map {
   margin: calc(var(--sketches-block-padding) * -1);
+  margin-bottom: 14px;
   height: 280px;
-  border-radius: 18px;
+  border-radius: 18px 18px 0 0;
   overflow: hidden;
 }
 
@@ -29,4 +30,24 @@
 
 .pin_visible {
   opacity: 1;
+}
+
+.latest {
+  font: var(--type-text-small);
+  font: var(--type-text-x-small);
+  font-family: var(--font-mono);
+}
+
+.serial {
+  background-color: var(--color-gray-900);
+
+  font-weight: 700;
+  color: white;
+  padding: 0px 6px;
+  border-radius: 32px;
+  margin-right: 6px;
+}
+
+.date {
+  color: var(--color-gray-400);
 }
