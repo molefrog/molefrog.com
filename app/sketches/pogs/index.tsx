@@ -75,9 +75,10 @@ export default function POGDemo() {
       )}
 
       <p>
-        Whenever I meet someone, I hand them a POG. It&apos;s a small circular token with an
-        NFC-chip that, when scanned, leads to my website. It&apos;s somewhat like a business card,
-        but less formal.
+        Whenever I meet someone, I hand them a{" "}
+        <a href="https://www.instagram.com/reel/C3XXjCQsEYy">POG</a>. It&apos;s a small circular
+        token with an NFC-chip that, when scanned, leads to my website. It&apos;s somewhat like a
+        business card, but less formal.
       </p>
 
       <div className={styles.clips}>
