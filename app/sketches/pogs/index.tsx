@@ -45,7 +45,7 @@ export default function POGDemo() {
                 latitude={pog.lat}
                 anchor="center"
               >
-                <Pin delay={idx * 5} />
+                <Pin delay={idx * 5} active={idx === points.length - 1} />
               </Marker>
             ))}
         </Map>

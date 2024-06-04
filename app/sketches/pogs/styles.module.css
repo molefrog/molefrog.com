@@ -6,8 +6,25 @@
 }
 
 .pin {
-  opacity: 0;
-  transition: opacity 0.25s;
+  width: 16px;
+  height: 16px;
+  border-radius: 32px;
+  display: inline-block;
+  box-shadow: 0 0px 2px 0px rgba(0, 0, 0, 0.25);
+  will-change: transform;
+  background: #cb2b1d;
+  border: 2px solid white;
+}
+
+.pin_current {
+  background:
+    center / cover url("./pog-overlay.png"),
+    white;
+  border: 1px solid white;
+
+  box-shadow: 0 0px 2px 1px rgba(0, 0, 0, 0.6);
+  width: 32px;
+  height: 32px;
 }
 
 .pin_visible {
