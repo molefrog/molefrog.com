@@ -1,6 +1,6 @@
 .map {
   margin: calc(var(--sketches-block-padding) * -1);
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   height: 280px;
   border-radius: 18px 18px 0 0;
   overflow: hidden;
@@ -36,7 +36,7 @@
   font: var(--type-text-small);
   font: var(--type-text-x-small);
   font-family: var(--font-mono);
-  margin-bottom: 18px;
+  margin-bottom: 22px;
 }
 
 .serial {
@@ -51,4 +51,16 @@
 
 .date {
   color: var(--color-gray-400);
+}
+
+.clips {
+  display: flex;
+  align-items: flex-start;
+  margin: 18px calc(var(--sketches-block-padding) * -1) 18px
+    calc(var(--sketches-block-padding) * -1);
+}
+
+.clips video {
+  width: 100%;
+  pointer-events: none;
 }

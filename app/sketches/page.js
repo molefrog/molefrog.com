@@ -20,6 +20,8 @@ export default function Media() {
 
             <div className="sketches__block">
               <PogSketch />
+
+              <PublicationDate>June, 2023</PublicationDate>
             </div>
           </div>
 

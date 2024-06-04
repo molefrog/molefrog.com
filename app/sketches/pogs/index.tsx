@@ -8,6 +8,10 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import { Pin } from "./pin";
 import { useMapboxStyles } from "./useMapboxStyles";
 
+import clip1 from "./clip-1.mp4";
+import clip2 from "./clip-2.mp4";
+import _clip3 from "./clip-3.mp4";
+
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 type POGOpenEvent = {
@@ -62,7 +66,6 @@ export default function POGDemo() {
             ))}
         </Map>
       </div>
-
       {latestPoint && (
         <div className={styles.latest}>
           <span className={styles.serial}>#{latestPoint.serial}</span>
@@ -74,8 +77,24 @@ export default function POGDemo() {
       <p>
         Whenever I meet someone, I hand them a POG. It&apos;s a small circular token with an
         NFC-chip that, when scanned, leads to my website. It&apos;s somewhat like a business card,
-        but less formal. I can track when someone scans a tag (anonymously), and it&apos;s enjoyable
-        to see how these artifacts travel around the world.
+        but less formal.
+      </p>
+
+      <div className={styles.clips}>
+        <div>
+          <video className={styles.video} autoPlay loop muted playsInline>
+            <source src={clip1} type="video/mp4" />
+          </video>
+        </div>
+        <div>
+          <video className={styles.video} autoPlay loop muted playsInline>
+            <source src={clip2} type="video/mp4" />
+          </video>
+        </div>
+      </div>
+      <p>
+        I can track when someone scans a tag (anonymously), and it&apos;s enjoyable to see how these
+        tokens travel around the world.
       </p>
     </>
   );
