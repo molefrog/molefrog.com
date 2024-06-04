@@ -18,6 +18,7 @@ type POGOpenEvent = {
   lat: number;
   lon: number;
   serial: string;
+  country: string;
   timestamp: number;
   location: string;
 };
@@ -32,11 +33,40 @@ function formatDate(timestamp: number) {
   return dateFormatter.format(new Date(timestamp));
 }
 
+const revealInOrderOfActivation = (points: POGOpenEvent[]) => {
+  const ts = points.map((p) => p.timestamp);
+
+  const min = Math.min(...ts),
+    max = Math.max(...ts);
+
+  let latestTimestampPerCountry: Record<string, number> = {};
+
+  for (const { timestamp, country } of points) {
+    latestTimestampPerCountry[country] = Math.max(
+      latestTimestampPerCountry[country] ?? 0,
+      timestamp,
+    );
+  }
+
+  return (p: POGOpenEvent, total: number = 1000) => {
+    if (isFinite(min) && isFinite(max) && max !== min) {
+      const ts = latestTimestampPerCountry[p.country] ?? p.timestamp;
+
+      const t = (ts - min) / (max - min);
+      return t * total;
+    } else {
+      return 0;
+    }
+  };
+};
+
 export default function POGDemo() {
   useMapboxStyles();
 
   const { data: points } = useSWR<POGOpenEvent[]>("https://pog.molefrog.com/stat", fetcher);
   const latestPoint = points && points[points.length - 1];
+
+  const delay = revealInOrderOfActivation(points || []);
 
   return (
     <>
@@ -61,7 +91,7 @@ export default function POGDemo() {
                 latitude={pog.lat}
                 anchor="center"
               >
-                <Pin delay={idx * 5} active={idx === points.length - 1} />
+                <Pin delay={delay(pog)} active={idx === points.length - 1} />
               </Marker>
             ))}
         </Map>
