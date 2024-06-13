@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import WrapBalancer from "react-wrap-balancer";
 import { Container } from "@/components/Grid";
-import { SolidLink } from "@/components/SolidLink";
 import Link from "next/link";
 
 import Showcase, { ShowcaseLink } from "@/components/Showcase";
@@ -120,7 +119,7 @@ export default function Page() {
             </div>
           </div>
         </div>
-        <div className="mini-map__section">
+        <div className="about__mini-map">
           <div className="mini-map">
             {MINI_MAP_ITEMS.map((item, idx) => {
               return (
@@ -136,6 +135,26 @@ export default function Page() {
                 </Showcase>
               );
             })}
+          </div>
+        </div>
+
+        <div className="about__blog">
+          <div className="blog-posts">
+            <h2 className="blog-posts__head">Recent posts</h2>
+
+            <div className="blog-posts__list">
+              <Link href="/notes/react-tricks" className="blog-posts__post">
+                <div className="blog-posts__date">19-12-2023</div>
+                <div className="blog-posts__title">React Tricks: Fast, Fit and Fun</div>
+              </Link>
+
+              <Link href="/notes/lido-staking-widget-ux" className="blog-posts__post">
+                <div className="blog-posts__date">21-10-2023</div>
+                <div className="blog-posts__title">
+                  User-Centered Liquid Staking: UX Audit of Lido.fi
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

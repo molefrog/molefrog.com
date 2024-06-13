@@ -23,8 +23,16 @@
   margin-bottom: 64px;
 }
 
+.about__mini-map {
+  margin-bottom: 80px;
+}
+
 @media (max-width: 768px) {
   .about__description {
+    margin-bottom: 54px;
+  }
+
+  .about__mini-map {
     margin-bottom: 54px;
   }
 
