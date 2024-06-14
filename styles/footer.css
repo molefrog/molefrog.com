@@ -4,9 +4,14 @@
 }
 
 .footer__main {
-  border-top: 2px solid var(--color-gray-100);
+  /* border-top: 2px solid var(--color-gray-100); */
   margin: 0 auto;
   margin-bottom: 80px;
+}
+
+.footer__divider {
+  height: 2px;
+  background: linear-gradient(to right, transparent 5%, var(--color-gray-100), transparent 95%);
 }
 
 @media (max-width: 768px) {

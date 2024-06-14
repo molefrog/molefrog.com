@@ -1,5 +1,5 @@
 .about {
-  margin-bottom: 48px;
+  margin-bottom: 64px;
 }
 
 .about__header {
@@ -28,6 +28,10 @@
 }
 
 @media (max-width: 768px) {
+  .about {
+    margin-bottom: 48px;
+  }
+
   .about__description {
     margin-bottom: 54px;
   }

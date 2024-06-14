@@ -182,6 +182,8 @@
     --sh-keyword: #8be9fd; /* Dracula Cyan */
     --sh-comment: #6272a4; /* Dracula Comment */
     --sh-jsxliterals: #bd93f9; /* Dracula Purple */
+    --sh-property: #50fa7b; /* Dracula Green */
+    --sh-entity: #f8f8f2;
 
     background: rgba(33, 31, 32, 1);
     padding: 40px 32px;

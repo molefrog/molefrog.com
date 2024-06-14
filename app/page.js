@@ -5,6 +5,7 @@ import { Container } from "@/components/Grid";
 import Link from "next/link";
 
 import Showcase, { ShowcaseLink } from "@/components/Showcase";
+import { RecentBlogPosts } from "@/components/RecentBlogPosts";
 
 import domikImg from "@/public/images/domik-highlight.webp";
 import wouterImg from "@/public/images/wouter-highlight.webp";
@@ -139,23 +140,7 @@ export default function Page() {
         </div>
 
         <div className="about__blog">
-          <div className="blog-posts">
-            <h2 className="blog-posts__head">Recent posts</h2>
-
-            <div className="blog-posts__list">
-              <Link href="/notes/react-tricks" className="blog-posts__post">
-                <div className="blog-posts__date">19-12-2023</div>
-                <div className="blog-posts__title">React Tricks: Fast, Fit and Fun</div>
-              </Link>
-
-              <Link href="/notes/lido-staking-widget-ux" className="blog-posts__post">
-                <div className="blog-posts__date">21-10-2023</div>
-                <div className="blog-posts__title">
-                  User-Centered Liquid Staking: UX Audit of Lido.fi
-                </div>
-              </Link>
-            </div>
-          </div>
+          <RecentBlogPosts />
         </div>
       </section>
     </Container>

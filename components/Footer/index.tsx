@@ -1,4 +1,3 @@
-import React from "react";
 import WrapBalancer from "react-wrap-balancer";
 
 import { BannerCV } from "../BannerCV";
@@ -11,6 +10,7 @@ const Footer = () => (
   <footer className="footer">
     <Container placement="inner">
       <div className="footer__main">
+        <div className="footer__divider" />
         <div className="footer__reach-out">
           You can reach out to me online via one of the links below
         </div>
