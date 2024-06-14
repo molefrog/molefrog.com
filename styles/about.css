@@ -23,6 +23,10 @@
   margin-bottom: 64px;
 }
 
+.about__selected-projects {
+  margin-bottom: 64px;
+}
+
 .about__mini-map {
   margin-bottom: 80px;
 }
@@ -33,6 +37,10 @@
   }
 
   .about__description {
+    margin-bottom: 54px;
+  }
+
+  .about__selected-projects {
     margin-bottom: 54px;
   }
 

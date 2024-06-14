@@ -2,7 +2,6 @@
   display: flex;
   flex-flow: row nowrap;
   gap: 40px 16px;
-  margin-bottom: 64px;
 }
 
 .selected-projects__pic {
@@ -113,5 +112,7 @@
 
 .project-link--primary:hover {
   color: white;
-  box-shadow: inset 0px 0px 0px 2px var(--primary-color), inset 0px 0px 0px 4px white;
+  box-shadow:
+    inset 0px 0px 0px 2px var(--primary-color),
+    inset 0px 0px 0px 4px white;
 }

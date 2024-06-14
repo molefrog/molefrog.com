@@ -67,7 +67,7 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="selected-projects__grid">
+        <div className="about__selected-projects selected-projects__grid">
           <div className="selected-projects__item">
             <a href="https://domik.ltd" className="selected-projects__pic">
               <Image
