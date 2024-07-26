@@ -40,6 +40,7 @@ import tricksSlide_4 from "@/public/speaking/react-tricks-4.webp";
 import tricksSlide_5 from "@/public/speaking/react-tricks-5.webp";
 
 import spoiledSlide_1 from "@/public/speaking/spoiled-1.webp";
+import spoiledSlide_2 from "@/public/speaking/spoiled-2.webp";
 
 import milkIcon from "@/public/speaking/anicon-milk.png";
 import socketIcon from "@/public/speaking/anicon-socket.png";
@@ -55,8 +56,8 @@ export default function Speaking() {
           <div className="speaking__talk">
             <div className="speaking__slides">
               <Projector
-                title="Practical Serverless and Edge Computing"
-                slides={[spoiledSlide_1]}
+                title="Leveraging CSS Paint API for Realistic Particle Animation"
+                slides={[spoiledSlide_1, spoiledSlide_2]}
               />
             </div>
 
@@ -89,7 +90,7 @@ export default function Speaking() {
                   I love experimenting with new ways of presenting content, so it was also fun to
                   use the{" "}
                   <ShowcaseLink
-                    href="https://www.figma.com/file/eHIuHAKCgvjJEx98LGaRYG/Spoiled?type=whiteboard&node-id=208%3A216&t=5zcktjGqUdlvJzRC-1"
+                    href="https://www.figma.com/board/GcxLloYgJ5A1e3UX6B99NO/Spoiled%3A-BarcelonaJS-Talk?node-id=0-1&t=om9qWTe6M8pKGUod-1"
                     media={{ video: figjamSpoiledVideo, aspectRatio: 1200 / 768 }}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -101,6 +102,13 @@ export default function Speaking() {
               </div>
 
               <div className="speaking__confs">
+                <SpeakingConference
+                  year="2024"
+                  format="link"
+                  href="https://www.meetup.com/barcelonajs/events/302268223/"
+                >
+                  BarcelonaJS
+                </SpeakingConference>
                 <SpeakingConference
                   year="2024"
                   format="link"
