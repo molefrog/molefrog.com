@@ -16,6 +16,7 @@
 @import "./article.css";
 @import "./sketches.css";
 @import "./blog.css";
+@import "./404.css";
 
 :root {
   --type-text-x-small: 600 13px / 22px var(--font-sans);
