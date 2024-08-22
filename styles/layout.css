@@ -42,3 +42,13 @@
     --inner-grid-step: calc(100% / 4);
   }
 }
+
+.container--ignore-topbar-margin {
+  margin-top: -64px;
+}
+
+@media (max-width: 768px) {
+  .container--ignore-topbar-margin {
+    margin-top: -48px;
+  }
+}

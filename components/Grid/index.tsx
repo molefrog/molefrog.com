@@ -1,5 +1,5 @@
-import React, { ComponentProps } from "react";
 import clsx from "clsx";
+import { ComponentProps } from "react";
 
 export interface GridProps extends ComponentProps<"div"> {
   padding?: boolean;
@@ -8,7 +8,9 @@ export interface GridProps extends ComponentProps<"div"> {
 export const Grid = ({ padding = true, className, ...props }: GridProps) => {
   return (
     <div
-      className={clsx(className, "grid-layout", { "grid-layout--with-padding": padding })}
+      className={clsx(className, "grid-layout", {
+        "grid-layout--with-padding": padding,
+      })}
       {...props}
     />
   );
@@ -21,6 +23,7 @@ export const Block = (props: ComponentProps<"div">) => {
 Grid.Block = Block;
 
 export interface ContainerProps extends ComponentProps<"div"> {
+  ignoreTopbarMargin?: boolean;
   placement: "inner" | "outer" | "wide" | "left-shift" | "right-shift";
 }
 
@@ -32,9 +35,20 @@ const placementColumnCSS = {
   "right-shift": "inner-grid 1 / outer-grid 2",
 } as const;
 
-export const Container = ({ placement, children, ...props }: ContainerProps) => {
+export const Container = ({
+  ignoreTopbarMargin = false,
+  placement,
+  children,
+  className,
+  ...props
+}: ContainerProps) => {
   return (
-    <Grid {...props}>
+    <Grid
+      {...props}
+      className={clsx(className, "container", {
+        "container--ignore-topbar-margin": ignoreTopbarMargin,
+      })}
+    >
       <Grid.Block style={{ gridColumn: placementColumnCSS[placement] }}>{children}</Grid.Block>
     </Grid>
   );
