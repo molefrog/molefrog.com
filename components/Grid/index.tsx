@@ -22,7 +22,7 @@ export const Block = (props: ComponentProps<"div">) => {
 
 Grid.Block = Block;
 
-export interface ContainerProps extends ComponentProps<"div"> {
+export interface ContainerProps extends ComponentProps<"div">, GridProps {
   ignoreTopbarMargin?: boolean;
   placement: "inner" | "outer" | "wide" | "left-shift" | "right-shift";
 }

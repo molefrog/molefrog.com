@@ -4,11 +4,15 @@
 
   height: calc(100vh - 196px);
   min-height: 600px;
-  margin-top: -64px;
   margin-bottom: -32px;
 
   --canvas-width: 1600px;
   --dot-grid-step: 64px;
+}
+
+._404__page-container {
+  overflow: hidden;
+  margin-top: -112px;
 }
 
 ._404__title {
