@@ -11,8 +11,8 @@ export default function NotFound() {
         <div className="_404__message">
           <h2 className="_404__title">404</h2>
           <div className="_404__subtitle">
-            Don’t worry, you’re not lost.
-            <br /> You&apos;re just exploring uncharted territory.
+            Don&apos;t worry, you&apos;re not lost
+            <br /> You&apos;re just exploring uncharted territory
           </div>
         </div>
       </div>
