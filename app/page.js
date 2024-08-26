@@ -123,9 +123,13 @@ export default function Page() {
         <div className="about__mini-map">
           <div className="mini-map">
             {MINI_MAP_ITEMS.map((item, idx) => {
+              // all /etc/* pages are actually external apps mounted on the same domain
+              const shouldPrefetch = !/\.com\/etc\//.test(item.url);
+
               return (
                 <Showcase key={String(idx) + item.url} media={item}>
                   <Link
+                    prefetch={shouldPrefetch}
                     className="mini-map__item"
                     aria-label={`Read more on ${item.url}`}
                     style={{
