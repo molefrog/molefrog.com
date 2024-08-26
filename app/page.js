@@ -124,7 +124,7 @@ export default function Page() {
           <div className="mini-map">
             {MINI_MAP_ITEMS.map((item, idx) => {
               // all /etc/* pages are actually external apps mounted on the same domain
-              const shouldPrefetch = !/\.com\/etc\//.test(item.url);
+              const shouldPrefetch = !/molefrog\.com\/etc\//.test(item.url);
 
               return (
                 <Showcase key={String(idx) + item.url} media={item}>
