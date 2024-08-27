@@ -1,15 +1,15 @@
-import React from "react";
 import { Viewport, type Metadata } from "next";
 import Script from "next/script";
+import React from "react";
 import { Provider as WrapBalancerProvider } from "react-wrap-balancer";
 
-import TopBar from "@/components/TopBar";
 import Footer from "@/components/Footer";
+import TopBar from "@/components/TopBar";
 import favicon from "../public/favicon.svg";
 
-import "@/styles/index.css";
-import { fontsCSSVars } from "@/styles/fonts/fonts";
 import VideoAssets from "@/content/videos";
+import { fontsCSSVars } from "@/styles/fonts/fonts";
+import "@/styles/index.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://molefrog.com"),
@@ -43,6 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </WrapBalancerProvider>
 
         <Script data-domain="molefrog.com" src="https://plausible.io/js/script.js"></Script>
+        <Script src="https://cdn.seline.so/seline.js"></Script>
       </body>
     </html>
   );
