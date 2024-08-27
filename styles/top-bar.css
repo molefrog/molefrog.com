@@ -1,6 +1,8 @@
 .top-bar {
   padding-top: 32px;
   margin-bottom: 64px;
+  position: relative;
+  z-index: 100;
 }
 
 .top-bar__links {
