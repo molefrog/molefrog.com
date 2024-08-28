@@ -6,10 +6,7 @@ import styles from "./RealTimeCanvas.module.css";
 import Sticker from "./Sticker";
 
 export type Schema = {
-  stickers: {
-    x: number;
-    y: number;
-  };
+  stickers: Sticker;
 };
 
 export type DB = ReturnType<typeof init<Schema>>;
