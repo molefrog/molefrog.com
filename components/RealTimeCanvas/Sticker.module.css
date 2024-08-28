@@ -1,0 +1,21 @@
+.stickerContainer {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stickerImage {
+  width: 84px;
+  height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px; /* Adjust this to size the emoji correctly */
+}
+
+.label {
+  margin-top: 0px;
+  text-align: center;
+  font-size: 14px; /* Adjust based on your design requirements */
+}
