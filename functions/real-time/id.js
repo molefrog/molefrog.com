@@ -1,13 +1,15 @@
 import { v4 as uuidv4 } from "uuid";
 import cookie from "cookie";
 
+const COOKIE_NAME = "_rt-id";
+
 export async function onRequest({ request }) {
   // Get the client's IP address
   const clientIP = request.headers.get("CF-Connecting-IP") || "127.0.0.1";
 
   // Parse cookies using the 'cookie' package
   const cookies = cookie.parse(request.headers.get("Cookie") || "");
-  let uuid = cookies.id;
+  let uuid = cookies[COOKIE_NAME];
 
   // Generate a new UUID if none exists
   if (!uuid) {
@@ -30,7 +32,7 @@ export async function onRequest({ request }) {
   };
 
   if (!cookies.id) {
-    responseHeaders["Set-Cookie"] = cookie.serialize("_rt-id", uuid, {
+    responseHeaders["Set-Cookie"] = cookie.serialize(COOKIE_NAME, uuid, {
       path: "/",
       httpOnly: true,
       secure: true,
