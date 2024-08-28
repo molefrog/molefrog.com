@@ -1,18 +1,18 @@
+._404__page-container {
+  overflow: hidden;
+  margin-top: -112px;
+  margin-bottom: -32px;
+}
+
 ._404 {
   padding: 152px 0 320px 0;
   position: relative;
 
   height: calc(100vh - 196px);
   min-height: 600px;
-  margin-bottom: -32px;
 
   --canvas-width: 1600px;
   --dot-grid-step: 64px;
-}
-
-._404__page-container {
-  overflow: hidden;
-  margin-top: -112px;
 }
 
 ._404__title {
@@ -49,7 +49,7 @@
     0 -1px 0px white;
 }
 
-._404__canvas-abs {
+._404__canvas-flex {
   position: absolute;
   top: 0;
   left: 0;
@@ -61,15 +61,17 @@
 
 ._404__message {
   position: relative;
+  pointer-events: none;
+  user-select: none;
 }
 
-._404__canvas-grid {
-  z-index: -1;
+._404__canvas {
   background: url(../public/images/polka-dot-pattern.svg) repeat top left / var(--dot-grid-step)
     var(--dot-grid-step);
   height: 100%;
   flex-shrink: 0;
   flex-basis: var(--canvas-width);
+  position: relative;
 
   mask-image: linear-gradient(to right, black 75%, transparent 100%),
     linear-gradient(to left, black 75%, transparent 100%),
