@@ -1,92 +1,35 @@
 "use client";
 
-import { id, init, tx } from "@instantdb/react";
-import { useMouse } from "@uidotdev/usehooks";
-import { AnimatePresence } from "framer-motion";
+import { init } from "@instantdb/react";
 import { useEffect, useState } from "react";
-import { useCookie } from "react-use";
+import { RealTimeCanvas as Canvas, Schema, User } from "./RealTimeCanvas";
 
-import styles from "./RealTimeCanvas.module.css";
-import Sticker from "./Sticker";
-
-type Schema = {
-  stickers: {
-    x: number;
-    y: number;
-  };
-};
-
-const db = init<Schema>({ appId: process.env.NEXT_PUBLIC_INSTANTDB_APP_ID! });
-
-const useUserId = (): string | null => {
-  const [_id, setId] = useState<string | null>(null);
-  const [value, update] = useCookie("rt-canvas-uid");
+// shell: inits the connection
+export function RealTimeCanvas() {
+  const [user, setUser] = useState<User | null>(null);
+  const [db] = useState(() => init<Schema>({ appId: process.env.NEXT_PUBLIC_INSTANTDB_APP_ID! }));
 
   useEffect(() => {
-    if (!value) {
-      const newId = id();
-      setId(newId);
-      update(newId);
-    } else {
-      setId(value);
-    }
-  }, [value, update]);
+    const fetchUser = async () => {
+      if (user) return;
 
-  return _id;
-};
+      try {
+        const response = await fetch("/real-time/id");
 
-// Define the Sticker type
-type Sticker = {
-  x: number;
-  y: number;
-};
+        if (response.ok) {
+          const data: User = await response.json();
+          setUser(data);
+        }
+      } catch (error) {
+        console.error("Failed to fetch user:", error);
+        setUser(null);
+      }
+    };
 
-export function RealTimeCanvas() {
-  const [stickerPosition, setStickerPosition] = useState<Sticker | null>(null);
-  const [mouse, containerRef] = useMouse<HTMLDivElement>();
+    fetchUser();
+  }, [user]);
 
-  const userId = useUserId();
+  if (!user) return null;
 
-  const handleClick = () => {
-    if (!userId) return;
-
-    db.transact([
-      tx.stickers[userId].update({
-        x: mouse.elementX,
-        y: mouse.elementY,
-      }),
-    ]);
-    setStickerPosition({ x: mouse.elementX, y: mouse.elementY });
-  };
-
-  const { isLoading, data } = db.useQuery({ stickers: {} });
-
-  if (!userId || !data) return null;
-
-  return (
-    <div className={styles.container} ref={containerRef} onClick={handleClick}>
-      {/* Shadow Sticker that always follows the cursor */}
-
-      {/*<Sticker
-        position={[mouse.elementX, mouse.elementY]}
-        lightSource={[800, 300]}
-        attached={false}
-        label="Sticker Shadow"
-      />*/}
-
-      <AnimatePresence>
-        {data.stickers.map((sticker) => {
-          return (
-            <Sticker
-              position={[sticker.x, sticker.y]}
-              key={sticker.id + sticker.x + sticker.y}
-              lightSource={[800, 300]}
-              attached
-              label="attached"
-            />
-          );
-        })}
-      </AnimatePresence>
-    </div>
-  );
+  return <Canvas db={db} user={user} />;
 }

@@ -1,3 +1,4 @@
+import { memo } from "react";
 import styles from "./Sticker.module.css";
 
 import { motion } from "framer-motion";
@@ -5,11 +6,11 @@ import { motion } from "framer-motion";
 type StickerProps = {
   position: [number, number];
   lightSource: [number, number];
-  label: string;
+  label?: string;
   attached: boolean;
 };
 
-export default function Sticker({ position: [x, y], lightSource, label, attached }: StickerProps) {
+function Sticker({ position: [x, y], lightSource, label, attached }: StickerProps) {
   // Calculate shadow offset based on light source and sticker position
   const shadowX = 0.1 * (x - lightSource[0]);
   const shadowY = 0.1 * (y - lightSource[1]);
@@ -24,10 +25,17 @@ export default function Sticker({ position: [x, y], lightSource, label, attached
         filter: attached ? "none" : `drop-shadow(${shadowX}px ${shadowY}px 6px rgba(0, 0, 0, 0.3))`,
       }}
     >
-      <motion.div exit={{ opacity: 0 }} animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
+      <motion.div
+        exit={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        transition={{ duration: 0.2, type: "tween" }}
+      >
         <div className={styles.stickerImage}>🌟</div>
-        <div className={styles.label}>{label}</div>
+        {label && <div className={styles.label}>{label}</div>}
       </motion.div>
     </div>
   );
 }
+
+export default memo(Sticker);
