@@ -22,6 +22,7 @@
     "@uidotdev/usehooks": "^2.4.1",
     "caniuse-lite": "^1.0.30001653",
     "clsx": "^2.1.1",
+    "cookie": "^0.6.0",
     "eslint": "8.31.0",
     "framer-motion": "^11.3.30",
     "mapbox-gl": "^3.6.0",
@@ -43,6 +44,7 @@
     "swr": "^2.2.5",
     "use-sound": "^4.0.3",
     "usehooks-ts": "^3.1.0",
+    "uuid": "^10.0.0",
     "velocity-animate": "^1.5.2"
   },
   "overrides": {
