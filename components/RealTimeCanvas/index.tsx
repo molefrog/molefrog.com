@@ -2,12 +2,14 @@
 
 import { init } from "@instantdb/react";
 import { useEffect, useState } from "react";
-import { RealTimeCanvas as Canvas, Schema, User } from "./RealTimeCanvas";
+import { RealTimeCanvas as Canvas, RoomSchema, Schema, User } from "./RealTimeCanvas";
 
 // shell: inits the connection
 export function RealTimeCanvas() {
   const [user, setUser] = useState<User | null>(null);
-  const [db] = useState(() => init<Schema>({ appId: process.env.NEXT_PUBLIC_INSTANTDB_APP_ID! }));
+  const [db] = useState(() =>
+    init<Schema, RoomSchema>({ appId: process.env.NEXT_PUBLIC_INSTANTDB_APP_ID! }),
+  );
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -31,5 +33,5 @@ export function RealTimeCanvas() {
 
   if (!user) return null;
 
-  return <Canvas db={db} user={user} />;
+  return <Canvas db={db} user={{ ...user, color: "blue" }} />;
 }

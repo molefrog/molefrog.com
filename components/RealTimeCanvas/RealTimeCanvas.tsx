@@ -2,19 +2,28 @@ import { init, tx } from "@instantdb/react";
 import { useMouse } from "@uidotdev/usehooks";
 import { AnimatePresence } from "framer-motion";
 
+import { useEffect, useState } from "react";
+import { Cursor } from "./Cursor";
 import styles from "./RealTimeCanvas.module.css";
 import Sticker from "./Sticker";
+
+export type User = {
+  id: string;
+  name: string;
+  color: string;
+};
 
 export type Schema = {
   stickers: Sticker;
 };
 
-export type DB = ReturnType<typeof init<Schema>>;
-
-export type User = {
-  id: string;
-  name: string;
+export type RoomSchema = {
+  realTimeCanvas: {
+    presence: User & { x: number; y: number };
+  };
 };
+
+export type DB = ReturnType<typeof init<Schema, RoomSchema>>;
 
 // Define the Sticker type
 type Sticker = {
@@ -25,6 +34,29 @@ type Sticker = {
 
 export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
   const [mouse, containerRef] = useMouse<HTMLDivElement>();
+  const [room] = useState(() => db.room("realTimeCanvas", "404"));
+
+  const { user: myPresence, peers, publishPresence } = room.usePresence();
+  const [publish] = useState(() => publishPresence);
+
+  // Publish your presence to the room
+  useEffect(() => {
+    publish({
+      id: user.id,
+      name: user.name,
+      color: user.color,
+      x: 500,
+      y: 500,
+    });
+  }, [user, publish]);
+
+  // Publish your presence to the room
+  useEffect(() => {
+    publish({
+      x: mouse.elementX,
+      y: mouse.elementY,
+    });
+  }, [mouse, publish]);
 
   const { isLoading, data } = db.useQuery({ stickers: {} });
   if (isLoading || !data) return null;
@@ -45,13 +77,6 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
     <div className={styles.container} ref={containerRef} onClick={handleClick}>
       {/* Shadow Sticker that always follows the cursor */}
 
-      {/*<Sticker
-        position={[mouse.elementX, mouse.elementY]}
-        lightSource={[800, 300]}
-        attached={false}
-        label="Sticker Shadow"
-      />*/}
-
       <AnimatePresence>
         {data.stickers.map((sticker) => {
           return (
@@ -65,6 +90,21 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
           );
         })}
       </AnimatePresence>
+
+      <Cursor
+        player={{ x: mouse.elementX, y: mouse.elementY, name: user.name, color: user.color }}
+        isMe={true}
+      />
+
+      {Object.entries(peers).map(([peerId, v]) => {
+        return (
+          <Cursor
+            player={{ x: v.x, y: v.y, name: v.name, color: v.color }}
+            isMe={false}
+            key={`peer-cursor:${peerId}`}
+          />
+        );
+      })}
     </div>
   );
 }

@@ -1,19 +1,8 @@
 .container {
   position: absolute;
+  cursor: none;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-}
-
-.sticker {
-  position: absolute;
-  width: 84px;
-  height: 84px;
-}
-
-.shadow {
-  opacity: 0.5;
-  transform: scale(1.2);
-  pointer-events: none;
 }
