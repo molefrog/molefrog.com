@@ -91,11 +91,6 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
         })}
       </AnimatePresence>
 
-      <Cursor
-        player={{ x: mouse.elementX, y: mouse.elementY, name: user.name, color: user.color }}
-        isMe={true}
-      />
-
       {Object.entries(peers).map(([peerId, v]) => {
         return (
           <Cursor
@@ -105,6 +100,12 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
           />
         );
       })}
+
+      {/* My Cursor */}
+      <Cursor
+        player={{ x: mouse.elementX, y: mouse.elementY, name: user.name, color: user.color }}
+        isMe={true}
+      />
     </div>
   );
 }
