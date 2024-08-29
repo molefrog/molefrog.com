@@ -2,6 +2,12 @@ import { Squircle } from "@squircle-js/react";
 import clsx from "clsx";
 import styles from "./Cursor.module.css";
 
+import { colord, extend } from "colord";
+import a11yPlugin from "colord/plugins/a11y";
+import { useMemo } from "react";
+
+extend([a11yPlugin]);
+
 type Player = {
   x: number;
   y: number;
@@ -15,11 +21,31 @@ interface CursorProps {
 }
 
 const PlayerName = ({ color, name }: { color: string; name: string }) => {
+  const isBright = useMemo(() => colord(color).luminance() > 0.3, [color]);
+
+  const shadowColor = useMemo(() => {
+    if (isBright) return colord(color).lighten(0.1).toHex();
+
+    return "black";
+  }, [isBright, color]);
+
+  const textColor = useMemo(() => {
+    if (isBright) return colord(color).darken(0.5).toHex();
+
+    return "white";
+  }, [isBright, color]);
+
   return (
     <div className={styles.labelWrap}>
       <Squircle
-        className={styles.label}
-        style={{ backgroundColor: color }}
+        className={clsx(styles.label)}
+        style={
+          {
+            backgroundColor: color,
+            color: textColor,
+            "--shadow-color": shadowColor,
+          } as React.CSSProperties
+        }
         cornerRadius={8}
         cornerSmoothing={1}
       >

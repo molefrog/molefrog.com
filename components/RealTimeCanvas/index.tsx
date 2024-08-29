@@ -77,6 +77,12 @@ const NICE_COLORS = [
   "#572c77",
   "#61a854",
   "#23252d",
+  "#f2dbe8",
+  "#efd466",
+  "#edcebe",
+  "#e4d5c8",
+  "#e1c7fb",
+  "#ee97f4",
 ];
 
 const genUserColor = (name: string, id: string) => {
