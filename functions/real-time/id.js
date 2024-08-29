@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from "uuid";
+import { nanoid } from "nanoid";
 import cookie from "cookie";
 
 const COOKIE_NAME = "_rt-id";
@@ -9,11 +9,11 @@ export async function onRequest({ request }) {
 
   // Parse cookies using the 'cookie' package
   const cookies = cookie.parse(request.headers.get("Cookie") || "");
-  let uuid = cookies[COOKIE_NAME];
+  let id = cookies[COOKIE_NAME];
 
   // Generate a new UUID if none exists
-  if (!uuid) {
-    uuid = uuidv4();
+  if (!id) {
+    id = nanoid(16);
   }
 
   // Make a request to the IP API with the client's IP address
@@ -22,7 +22,7 @@ export async function onRequest({ request }) {
 
   // Prepare the response data
   const responseData = {
-    id: uuid,
+    id: id,
     name: data.city || "Unknown",
   };
 
@@ -32,7 +32,7 @@ export async function onRequest({ request }) {
   };
 
   if (!cookies.id) {
-    responseHeaders["Set-Cookie"] = cookie.serialize(COOKIE_NAME, uuid, {
+    responseHeaders["Set-Cookie"] = cookie.serialize(COOKIE_NAME, id, {
       path: "/",
       httpOnly: true,
       secure: true,

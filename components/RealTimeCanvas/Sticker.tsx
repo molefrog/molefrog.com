@@ -4,13 +4,14 @@ import styles from "./Sticker.module.css";
 import { motion } from "framer-motion";
 
 type StickerProps = {
-  position: [number, number];
+  x: number;
+  y: number;
   lightSource: [number, number];
   label?: string;
   attached: boolean;
 };
 
-function Sticker({ position: [x, y], lightSource, label, attached }: StickerProps) {
+function Sticker({ x, y, lightSource, label, attached }: StickerProps) {
   // Calculate shadow offset based on light source and sticker position
   const shadowX = 0.1 * (x - lightSource[0]);
   const shadowY = 0.1 * (y - lightSource[1]);
@@ -26,10 +27,10 @@ function Sticker({ position: [x, y], lightSource, label, attached }: StickerProp
       }}
     >
       <motion.div
-        exit={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        initial={{ opacity: 0 }}
-        transition={{ duration: 0.2, type: "tween" }}
+        exit={{ opacity: 0, scale: 1.2 }}
+        animate={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0, scale: 1.2 }}
+        transition={{ type: "spring" }}
       >
         <div className={styles.stickerImage}>🌟</div>
         {label && <div className={styles.label}>{label}</div>}

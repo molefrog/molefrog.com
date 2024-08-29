@@ -1,11 +1,14 @@
-import { init, tx } from "@instantdb/react";
+import { id, init, tx } from "@instantdb/react";
 import { useMouse } from "@uidotdev/usehooks";
 import { AnimatePresence } from "framer-motion";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import useSound from "use-sound";
 import { Cursor } from "./Cursor";
 import styles from "./RealTimeCanvas.module.css";
 import Sticker from "./Sticker";
+
+import stickSfx from "./stick.mp3";
 
 export type User = {
   id: string;
@@ -25,16 +28,18 @@ export type RoomSchema = {
 
 export type DB = ReturnType<typeof init<Schema, RoomSchema>>;
 
-// Define the Sticker type
+// Define the Sticker type (in the DB)
 type Sticker = {
   x: number;
   y: number;
   label: string | undefined;
+  user: string;
 };
 
 export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
   const [mouse, containerRef] = useMouse<HTMLDivElement>();
   const [room] = useState(() => db.room("realTimeCanvas", "404"));
+  const [playSound] = useSound(stickSfx, { volume: 0.75, playbackRate: 1.1 });
 
   const { user: myPresence, peers, publishPresence } = room.usePresence();
   const [publish] = useState(() => publishPresence);
@@ -58,20 +63,26 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
     });
   }, [mouse, publish]);
 
+  const light = useMemo<[number, number]>(() => [800, 300], []);
   const { isLoading, data } = db.useQuery({ stickers: {} });
-  if (isLoading || !data) return null;
 
   const handleClick = () => {
-    if (!user.id) return;
+    if (!user.id || !data?.stickers) return;
+    const stickerId = data.stickers.find((sticker) => sticker.user === user.id)?.id ?? id();
+
+    playSound();
 
     db.transact([
-      tx.stickers[user.id].update({
+      tx.stickers[stickerId].update({
         x: mouse.elementX,
         y: mouse.elementY,
         label: user.name,
+        user: user.id,
       }),
     ]);
   };
+
+  if (isLoading || !data) return null;
 
   return (
     <div className={styles.container} ref={containerRef} onClick={handleClick}>
@@ -81,9 +92,10 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
         {data.stickers.map((sticker) => {
           return (
             <Sticker
-              position={[sticker.x, sticker.y]}
+              x={sticker.x}
+              y={sticker.y}
               key={sticker.id + sticker.x + sticker.y}
-              lightSource={[800, 300]}
+              lightSource={light}
               attached
               label={sticker.label}
             />
