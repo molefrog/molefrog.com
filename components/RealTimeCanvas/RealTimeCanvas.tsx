@@ -89,6 +89,16 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
     ]);
   };
 
+  const [animateStickers, setAnimateStickers] = useState(false);
+
+  useEffect(() => {
+    if (!isLoading) {
+      setTimeout(() => {
+        setAnimateStickers(true);
+      }, 0);
+    }
+  }, [isLoading]);
+
   if (isLoading || !data) return null;
 
   return (
@@ -104,6 +114,8 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
               key={sticker.id + sticker.x + sticker.y}
               lightSource={light}
               label={sticker.label}
+              animation={animateStickers ? "stamp" : "pop"} // `initial` won't affect manual animations (via `useAnimate`)
+              animationDelay={Math.random() * 0.5}
             />
           );
         })}

@@ -1,4 +1,4 @@
-import { memo, useEffect } from "react";
+import { memo, useEffect, useRef } from "react";
 import styles from "./Sticker.module.css";
 
 import img from "./toilet-sticker.png";
@@ -17,22 +17,55 @@ type StickerProps = {
   y: number;
   lightSource: [number, number];
   label?: string;
+  animation: "none" | "pop" | "stamp";
+  animationDelay?: number;
 };
 
-function Sticker({ x, y, lightSource, label }: StickerProps) {
+function Sticker({
+  x,
+  y,
+  lightSource,
+  label,
+  animation = "none",
+  animationDelay = 0,
+}: StickerProps) {
   const elevation = useMotionValue(1);
 
   const [isPresent, safeToRemove] = usePresence();
   const [scope, animate] = useAnimate();
 
+  const animationRef = useRef(animation);
+  animationRef.current = animation;
+
   useEffect(() => {
+    if (animationRef.current === "none") {
+      elevation.set(0);
+
+      if (!isPresent) {
+        safeToRemove();
+      }
+
+      return;
+    }
+
+    if (animationRef.current === "pop") {
+      if (isPresent) {
+        elevation.set(0);
+        animate(scope.current, { opacity: [0, 1] }, { delay: animationDelay });
+      } else {
+        safeToRemove();
+      }
+
+      return;
+    }
+
     if (isPresent) {
       const enterAnimation = async () => {
         const transition = { duration: 0.3, ease: "anticipate" } as const;
 
         await Promise.all([
           animate(elevation, 0, transition),
-          animate(scope.current, { opacity: [0.5, 1] }, transition),
+          animate(scope.current, { opacity: [0.8, 1] }, transition),
           animate(
             "." + styles.shine,
             {
@@ -103,7 +136,7 @@ export function StickerSprite({
   const elevationStatic = useMotionValue(elevationProp); // used when `elevationValue` is not provided
   const elevation = elevationValue ?? elevationStatic;
 
-  const scale = useTransform(elevation, [0, 1], [1.0, 1.1]);
+  const scale = useTransform(elevation, [0, 1], [1.0, 1.15]);
 
   const filterProperty = useTransform(() => {
     // Calculate shadow offset based on light source and sticker position
