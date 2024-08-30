@@ -6,8 +6,10 @@
 }
 
 .stickerImage {
-  width: 84px;
-  height: 84px;
+  width: 90px;
+  height: 90px;
+  background-size: contain;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,30 +1,54 @@
 .cursor {
-  position: absolute;
-  pointer-events: none;
-  display: flex;
-  align-items: center;
-  top: -2px;
-  left: -3px;
-  filter: drop-shadow(0px 2px 0px white) drop-shadow(0px -2px 0px white)
+  --stroke-shadow: drop-shadow(0px 2px 0px white) drop-shadow(0px -2px 0px white)
     drop-shadow(1px 0px 0px white) drop-shadow(-1px 0px 0px white);
+  --offset-x: 0px;
+  --offset-y: 0px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-.cursorMe {
-  color: black;
+.arrow {
+  filter: var(--stroke-shadow);
 }
 
-.cursorOther {
-  color: #999;
+.cursor_arrow {
+  --offset-x: -3px;
+  --offset-y: -2px;
+
+  & .cursor_me .arrow {
+    color: black;
+  }
+
+  & .cursor_other .arrow {
+    color: #999;
+  }
+
+  & .labelWrap {
+    /* left bottom corner of the icon with slight offset */
+    top: 32px;
+    left: 16px;
+  }
+}
+
+.cursor_tool {
+  --offset-x: -50%;
+  --offset-y: -50%;
+
+  & .labelWrap {
+    /* left bottom corner of the icon with slight offset */
+    top: calc(100% + 8px);
+    left: 0;
+  }
 }
 
 .labelWrap {
   position: absolute;
-  top: 32px;
-  left: 16px;
+  filter: var(--stroke-shadow);
 }
 
 .label {
-  --shadow-color: #333;
   font-weight: 600;
   height: 32px;
   display: flex;
@@ -33,6 +57,12 @@
   font-size: 18px;
   padding: 0px 8px;
   white-space: nowrap;
-  text-shadow: 0px 1px 0px var(--shadow-color);
   border-radius: 8px;
+
+  --shadow-color: #333;
+  text-shadow: 0px 1px 0px var(--shadow-color);
+}
+
+.sticker {
+  opacity: 0.5;
 }

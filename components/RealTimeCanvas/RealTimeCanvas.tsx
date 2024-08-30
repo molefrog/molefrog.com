@@ -40,6 +40,7 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
   const [mouse, containerRef] = useMouse<HTMLDivElement>();
   const [room] = useState(() => db.room("realTimeCanvas", "404"));
   const [playSound] = useSound(stickSfx, { volume: 0.75, playbackRate: 1.1 });
+  const [isCursorVisible, setIsCursorVisible] = useState(true);
 
   const { user: myPresence, peers, publishPresence } = room.usePresence();
   const [publish] = useState(() => publishPresence);
@@ -68,6 +69,12 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
 
   const handleClick = () => {
     if (!user.id || !data?.stickers) return;
+
+    setIsCursorVisible(false);
+    setTimeout(() => {
+      setIsCursorVisible(true);
+    }, 1000);
+
     const stickerId = data.stickers.find((sticker) => sticker.user === user.id)?.id ?? id();
 
     playSound();
@@ -96,7 +103,6 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
               y={sticker.y}
               key={sticker.id + sticker.x + sticker.y}
               lightSource={light}
-              attached
               label={sticker.label}
             />
           );
@@ -107,6 +113,7 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
         return (
           <Cursor
             player={{ x: v.x, y: v.y, name: v.name, color: v.color }}
+            type="arrow"
             isMe={false}
             key={`peer-cursor:${peerId}`}
           />
@@ -115,8 +122,10 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
 
       {/* My Cursor */}
       <Cursor
+        type="sticker"
         player={{ x: mouse.elementX, y: mouse.elementY, name: user.name, color: user.color }}
         isMe={true}
+        visible={isCursorVisible}
       />
     </div>
   );
