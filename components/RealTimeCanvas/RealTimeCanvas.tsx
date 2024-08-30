@@ -95,7 +95,7 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
     <div className={styles.container} ref={containerRef} onClick={handleClick}>
       {/* Shadow Sticker that always follows the cursor */}
 
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         {data.stickers.map((sticker) => {
           return (
             <Sticker

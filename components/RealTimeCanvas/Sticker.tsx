@@ -19,13 +19,6 @@ type StickerProps = {
   label?: string;
 };
 
-// <motion.div
-//   exit={{ opacity: 0, scale: 1.2 }}
-//   animate={{ opacity: 1, scale: 1 }}
-//   initial={{ opacity: 0, scale: 1.5 }}
-//   transition={{ type: "tween", ease: "anticipate", duration: 0.6 }}
-// >
-
 function Sticker({ x, y, lightSource, label }: StickerProps) {
   const elevation = useMotionValue(1);
 
@@ -40,6 +33,19 @@ function Sticker({ x, y, lightSource, label }: StickerProps) {
         await Promise.all([
           animate(elevation, 0, transition),
           animate(scope.current, { opacity: [0.5, 1] }, transition),
+          animate(
+            "." + styles.shine,
+            {
+              background: [
+                `linear-gradient(45deg,
+                  transparent 0%, rgba(250, 250, 247, .9) 0%, transparent 0%)`,
+
+                `linear-gradient(45deg,
+                  transparent 100%, rgba(250, 250, 247, .9) 200%, transparent 300%)`,
+              ],
+            },
+            { duration: 1.6, ease: "easeOut", delay: 0.2 },
+          ),
         ]);
       };
 
@@ -124,7 +130,15 @@ export function StickerSprite({
         filter: filterProperty,
         scale,
       }}
-    ></motion.div>
+    >
+      <motion.div
+        className={styles.shine}
+        style={{
+          maskImage: `url(${img.src})`,
+          WebkitMaskImage: `url(${img.src})`,
+        }}
+      />
+    </motion.div>
   );
 }
 
