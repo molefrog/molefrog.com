@@ -57,7 +57,7 @@ function Sticker({ x, y, lightSource, label }: StickerProps) {
 
       exitAnimation();
     }
-  }, [isPresent]);
+  }, [isPresent]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div
