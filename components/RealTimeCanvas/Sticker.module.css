@@ -10,14 +10,12 @@
   height: 90px;
   background-size: contain;
   background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 64px; /* Adjust this to size the emoji correctly */
 }
 
 .label {
   margin-top: 0px;
   text-align: center;
-  font-size: 14px; /* Adjust based on your design requirements */
+  font-size: 14px;
+  color: var(--color-gray-400);
+  opacity: 0;
 }
