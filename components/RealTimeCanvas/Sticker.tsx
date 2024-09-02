@@ -70,13 +70,13 @@ function Sticker({
             "." + styles.shine,
             {
               backgroundPositionX: ["40%", "0%"],
-              opacity: [0, 0.4, 0.3],
+              opacity: [0, 0.3, 0.2],
             },
             { duration: 1.2, ease: "easeOut", delay: 0.2 },
           ).then(() => {
             return animate(
               "." + styles.shine,
-              { opacity: [0.3, 0.0] },
+              { opacity: [0.2, 0.0] },
               { duration: 1, ease: "easeOut" },
             );
           }),
