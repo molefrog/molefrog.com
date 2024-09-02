@@ -69,16 +69,17 @@ function Sticker({
           animate(
             "." + styles.shine,
             {
-              background: [
-                `linear-gradient(45deg,
-                  transparent 0%, rgba(250, 250, 247, .9) 0%, transparent 0%)`,
-
-                `linear-gradient(45deg,
-                  transparent 100%, rgba(250, 250, 247, .9) 200%, transparent 300%)`,
-              ],
+              backgroundPositionX: ["40%", "0%"],
+              opacity: [0, 0.4, 0.3],
             },
-            { duration: 1.6, ease: "easeOut", delay: 0.2 },
-          ),
+            { duration: 1.2, ease: "easeOut", delay: 0.2 },
+          ).then(() => {
+            return animate(
+              "." + styles.shine,
+              { opacity: [0.3, 0.0] },
+              { duration: 1, ease: "easeOut" },
+            );
+          }),
         ]);
       };
 

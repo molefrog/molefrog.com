@@ -26,4 +26,19 @@
   inset: 0;
   mask-size: contain;
   mask-repeat: no-repeat;
+
+  --grad-steps: 5;
+
+  background-image: repeating-linear-gradient(
+    45deg,
+    #d9d9d9,
+    #0d4ace,
+    #d639ff,
+    #05ffa2,
+    #14a9f5,
+    #d9d9d9 calc(/* sqrt(2) */ 1.41 * 100% / var(--grad-steps))
+  );
+  background-size: calc(100% * var(--grad-steps)) 100%;
+  mix-blend-mode: multiply;
+  opacity: 0;
 }
