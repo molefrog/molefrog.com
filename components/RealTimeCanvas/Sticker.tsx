@@ -1,7 +1,7 @@
 import { memo, useEffect, useRef } from "react";
 import styles from "./Sticker.module.css";
 
-import { stickers } from "./assets";
+import { stickers } from "./stickers";
 
 import {
   motion,
@@ -30,7 +30,7 @@ function Sticker({
   animation = "none",
   animationDelay = 0,
 }: StickerProps) {
-  const stickerImg = stickers.ash;
+  const stickerImg = stickers.lyoha;
   const elevation = useMotionValue(1);
 
   const [isPresent, safeToRemove] = usePresence();

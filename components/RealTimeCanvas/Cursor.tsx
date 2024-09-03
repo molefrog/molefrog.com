@@ -2,7 +2,7 @@ import { Squircle } from "@squircle-js/react";
 import clsx from "clsx";
 import styles from "./Cursor.module.css";
 import { StickerSprite } from "./Sticker";
-import { stickers } from "./assets";
+import { stickers } from "./stickers";
 
 import { colord, extend } from "colord";
 import a11yPlugin from "colord/plugins/a11y";
@@ -81,7 +81,7 @@ export const Cursor = ({ visible = true, type, player, isMe = false }: CursorPro
       {isTool ? (
         <div className={styles.sticker}>
           <StickerSprite
-            image={stickers.ash}
+            image={stickers.milk}
             x={player.x}
             y={player.y}
             lightSource={[800, 300]}
