@@ -6,9 +6,8 @@
 }
 
 .stickerImage {
-  width: 90px;
-  height: 90px;
   background-size: contain;
+  background-position: center;
   background-repeat: no-repeat;
   position: relative;
 }
@@ -25,6 +24,7 @@
   position: absolute;
   inset: 0;
   mask-size: contain;
+  mask-position: center;
   mask-repeat: no-repeat;
 
   --grad-steps: 5;

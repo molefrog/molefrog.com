@@ -1,7 +1,7 @@
 import { memo, useEffect, useRef } from "react";
 import styles from "./Sticker.module.css";
 
-import img from "./toilet-sticker.png";
+import { stickers } from "./assets";
 
 import {
   motion,
@@ -11,6 +11,7 @@ import {
   usePresence,
   useTransform,
 } from "framer-motion";
+import { StaticImageData } from "next/image";
 
 type StickerProps = {
   x: number;
@@ -29,6 +30,7 @@ function Sticker({
   animation = "none",
   animationDelay = 0,
 }: StickerProps) {
+  const stickerImg = stickers.ash;
   const elevation = useMotionValue(1);
 
   const [isPresent, safeToRemove] = usePresence();
@@ -104,13 +106,19 @@ function Sticker({
       ref={scope}
       className={styles.stickerContainer}
       style={{
-        left: -45, // Centering the sticker (84px / 2)
-        top: -45,
+        left: -stickerImg.width * 0.25, // Centering the sticker (84px / 2)
+        top: -stickerImg.height * 0.25,
         transform: `translate(${x}px, ${y}px)`,
       }}
     >
       <div>
-        <StickerSprite x={x} y={y} lightSource={lightSource} elevationValue={elevation} />
+        <StickerSprite
+          image={stickerImg}
+          x={x}
+          y={y}
+          lightSource={lightSource}
+          elevationValue={elevation}
+        />
       </div>
 
       {label && <div className={styles.label}>{label}</div>}
@@ -125,6 +133,7 @@ type StickerSpriteProps = {
 
   elevation?: number; // 0..1
   elevationValue?: MotionValue<number>;
+  image: StaticImageData;
 };
 
 export function StickerSprite({
@@ -133,6 +142,7 @@ export function StickerSprite({
   lightSource,
   elevation: elevationProp = 1,
   elevationValue,
+  image,
 }: StickerSpriteProps) {
   const elevationStatic = useMotionValue(elevationProp); // used when `elevationValue` is not provided
   const elevation = elevationValue ?? elevationStatic;
@@ -160,7 +170,9 @@ export function StickerSprite({
     <motion.div
       className={styles.stickerImage}
       style={{
-        backgroundImage: `url(${img.src})`,
+        width: Math.ceil(image.width * 0.5),
+        height: Math.ceil(image.height * 0.5),
+        backgroundImage: `url(${image.src})`,
         filter: filterProperty,
         scale,
       }}
@@ -168,8 +180,8 @@ export function StickerSprite({
       <motion.div
         className={styles.shine}
         style={{
-          maskImage: `url(${img.src})`,
-          WebkitMaskImage: `url(${img.src})`,
+          maskImage: `url(${image.src})`,
+          WebkitMaskImage: `url(${image.src})`,
         }}
       />
     </motion.div>
