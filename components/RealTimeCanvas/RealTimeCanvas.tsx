@@ -11,7 +11,7 @@ import Sticker from "./Sticker";
 import { useAtom } from "jotai";
 import { $currentTool, $stickerToolProps, Tool } from "./state";
 import stickSfx from "./stick.mp3";
-import { StickerAssetName } from "./stickers";
+import { StickerAssetName, stickers } from "./stickers";
 
 export type User = {
   id: string;
@@ -100,7 +100,13 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
       }),
     ]);
 
-    setStickerToolProps({ ...stickerToolProps, angle: Math.floor(-10 + 20 * Math.random()) });
+    const stickerNames = Object.keys(stickers) as Array<StickerAssetName>;
+
+    setStickerToolProps({
+      ...stickerToolProps,
+      asset: stickerNames[Math.floor(Math.random() * stickerNames.length)],
+      angle: Math.floor(-10 + 20 * Math.random()),
+    });
   };
 
   const [animateStickers, setAnimateStickers] = useState(false);
