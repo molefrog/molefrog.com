@@ -81,7 +81,7 @@ export const Cursor = ({ visible = true, type, player, isMe = false }: CursorPro
       {isTool ? (
         <div className={styles.sticker}>
           <StickerSprite
-            image={stickers.milk}
+            image={stickers.lyoha}
             x={player.x}
             y={player.y}
             lightSource={[800, 300]}
