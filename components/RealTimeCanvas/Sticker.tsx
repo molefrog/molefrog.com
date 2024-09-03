@@ -1,7 +1,8 @@
 import { memo, useEffect, useRef } from "react";
 import styles from "./Sticker.module.css";
 
-import { stickers } from "./stickers";
+import { $lightSourcePosition } from "./state";
+import { StickerAssetName, stickers } from "./stickers";
 
 import {
   motion,
@@ -11,12 +12,13 @@ import {
   usePresence,
   useTransform,
 } from "framer-motion";
+import { useAtomValue } from "jotai";
 import { StaticImageData } from "next/image";
 
 type StickerProps = {
   x: number;
   y: number;
-  lightSource: [number, number];
+  asset: StickerAssetName;
   angle: number;
   animation: "none" | "pop" | "stamp";
 
@@ -27,17 +29,18 @@ type StickerProps = {
 function Sticker({
   x,
   y,
-  lightSource,
+  asset,
   label,
   angle,
   animation = "none",
   animationDelay = 0,
 }: StickerProps) {
-  const stickerImg = stickers.lyoha;
+  const stickerImg = stickers[asset];
   const elevation = useMotionValue(1);
 
   const [isPresent, safeToRemove] = usePresence();
   const [scope, animate] = useAnimate();
+  const light = useAtomValue($lightSourcePosition);
 
   const animationRef = useRef(animation);
   animationRef.current = animation;
@@ -120,7 +123,7 @@ function Sticker({
           image={stickerImg}
           x={x}
           y={y}
-          lightSource={lightSource}
+          lightSource={light}
           elevationValue={elevation}
         />
       </div>

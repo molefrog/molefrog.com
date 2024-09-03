@@ -2,11 +2,13 @@ import { Squircle } from "@squircle-js/react";
 import clsx from "clsx";
 import styles from "./Cursor.module.css";
 import { StickerSprite } from "./Sticker";
-import { stickers } from "./stickers";
 
 import { colord, extend } from "colord";
 import a11yPlugin from "colord/plugins/a11y";
+import { useAtomValue } from "jotai";
 import { useMemo } from "react";
+import { $isEditing, $lightSourcePosition, $stickerToolProps } from "./state";
+import { stickers } from "./stickers";
 
 extend([a11yPlugin]);
 
@@ -20,9 +22,7 @@ type Player = {
 interface CursorProps {
   player: Player;
   isMe?: boolean;
-  type: "arrow" | "sticker";
   visible?: boolean;
-  stickerAngle?: number;
 }
 
 const PlayerName = ({ color, name }: { color: string; name: string }) => {
@@ -60,15 +60,13 @@ const PlayerName = ({ color, name }: { color: string; name: string }) => {
   );
 };
 
-export const Cursor = ({
-  visible = true,
-  type,
-  player,
-  isMe = false,
-  stickerAngle = 0,
-}: CursorProps) => {
+export const Cursor = ({ visible = true, player, isMe = false }: CursorProps) => {
   const userTypeClass = isMe ? styles.cursor_me : styles.cursor_other;
-  const isTool = type !== "arrow";
+  const isEditing = useAtomValue($isEditing);
+
+  const isTool = isMe && isEditing;
+  const light = useAtomValue($lightSourcePosition);
+  const stickerProps = useAtomValue($stickerToolProps);
 
   return (
     <div
@@ -88,11 +86,11 @@ export const Cursor = ({
       {isTool ? (
         <div className={styles.sticker}>
           <StickerSprite
-            image={stickers.lyoha}
             x={player.x}
             y={player.y}
-            angle={stickerAngle}
-            lightSource={[800, 300]}
+            angle={stickerProps.angle}
+            image={stickers[stickerProps.asset]}
+            lightSource={light}
             elevation={1}
           />
         </div>

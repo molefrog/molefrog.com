@@ -2,12 +2,14 @@ import { id, init, tx } from "@instantdb/react";
 import { useMouse } from "@uidotdev/usehooks";
 import { AnimatePresence } from "framer-motion";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import useSound from "use-sound";
 import { Cursor } from "./Cursor";
 import styles from "./RealTimeCanvas.module.css";
 import Sticker from "./Sticker";
 
+import { useAtom } from "jotai";
+import { $currentTool, $stickerToolProps, Tool } from "./state";
 import stickSfx from "./stick.mp3";
 import { StickerAssetName } from "./stickers";
 
@@ -68,23 +70,23 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
     });
   }, [mouse, publish]);
 
-  const light = useMemo<[number, number]>(() => [800, 300], []);
   const { isLoading, data } = db.useQuery({ stickers: {} });
-  const [currentAngle, setCurrentAngle] = useState(-2);
+
+  const [currentTool, setCurrentTool] = useAtom($currentTool);
+  const [stickerToolProps, setStickerToolProps] = useAtom($stickerToolProps);
 
   const handleClick = () => {
     if (!user.id || !data?.stickers) return;
+    if (currentTool === Tool.Cursor) return;
 
     setIsCursorVisible(false);
     setTimeout(() => {
       setIsCursorVisible(true);
-    }, 1000);
+    }, 2000);
 
     const stickerId = data.stickers.find((sticker) => sticker.user === user.id)?.id ?? id();
 
     playSound();
-
-    setCurrentAngle(Math.floor(-10 + 20 * Math.random()));
 
     db.transact([
       tx.stickers[stickerId].update({
@@ -92,11 +94,13 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
         y: mouse.elementY,
         label: user.name,
         user: user.id,
-        angle: currentAngle,
-        asset: "lyoha",
+        angle: stickerToolProps.angle,
+        asset: stickerToolProps.asset,
         attachedAt: new Date(),
       }),
     ]);
+
+    setStickerToolProps({ ...stickerToolProps, angle: Math.floor(-10 + 20 * Math.random()) });
   };
 
   const [animateStickers, setAnimateStickers] = useState(false);
@@ -121,9 +125,9 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
             <Sticker
               x={sticker.x}
               y={sticker.y}
+              asset={sticker.asset}
               angle={sticker.angle ?? 0}
               key={sticker.id + sticker.x + sticker.y}
-              lightSource={light}
               label={sticker.label}
               animation={animateStickers ? "stamp" : "pop"} // `initial` won't affect manual animations (via `useAnimate`)
               animationDelay={Math.random() * 0.5}
@@ -136,7 +140,6 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
         return (
           <Cursor
             player={{ x: v.x, y: v.y, name: v.name, color: v.color }}
-            type="arrow"
             isMe={false}
             key={`peer-cursor:${peerId}`}
           />
@@ -145,8 +148,6 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
 
       {/* My Cursor */}
       <Cursor
-        type="sticker"
-        stickerAngle={currentAngle}
         player={{ x: mouse.elementX, y: mouse.elementY, name: user.name, color: user.color }}
         isMe={true}
         visible={isCursorVisible}
