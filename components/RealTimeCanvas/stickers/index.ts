@@ -17,3 +17,5 @@ export const stickers = {
   tisha,
   lyoha,
 } as const;
+
+export type StickerAssetName = keyof typeof stickers;

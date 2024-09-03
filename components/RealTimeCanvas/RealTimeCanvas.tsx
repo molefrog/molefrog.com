@@ -9,6 +9,7 @@ import styles from "./RealTimeCanvas.module.css";
 import Sticker from "./Sticker";
 
 import stickSfx from "./stick.mp3";
+import { StickerAssetName } from "./stickers";
 
 export type User = {
   id: string;
@@ -34,6 +35,9 @@ type Sticker = {
   y: number;
   label: string | undefined;
   user: string;
+  asset: StickerAssetName;
+  angle: number; // in degrees
+  attachedAt: Date;
 };
 
 export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
@@ -66,6 +70,7 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
 
   const light = useMemo<[number, number]>(() => [800, 300], []);
   const { isLoading, data } = db.useQuery({ stickers: {} });
+  const [currentAngle, setCurrentAngle] = useState(-2);
 
   const handleClick = () => {
     if (!user.id || !data?.stickers) return;
@@ -79,12 +84,17 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
 
     playSound();
 
+    setCurrentAngle(Math.floor(-10 + 20 * Math.random()));
+
     db.transact([
       tx.stickers[stickerId].update({
         x: mouse.elementX,
         y: mouse.elementY,
         label: user.name,
         user: user.id,
+        angle: currentAngle,
+        asset: "lyoha",
+        attachedAt: new Date(),
       }),
     ]);
   };
@@ -111,6 +121,7 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
             <Sticker
               x={sticker.x}
               y={sticker.y}
+              angle={sticker.angle ?? 0}
               key={sticker.id + sticker.x + sticker.y}
               lightSource={light}
               label={sticker.label}
@@ -135,6 +146,7 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
       {/* My Cursor */}
       <Cursor
         type="sticker"
+        stickerAngle={currentAngle}
         player={{ x: mouse.elementX, y: mouse.elementY, name: user.name, color: user.color }}
         isMe={true}
         visible={isCursorVisible}

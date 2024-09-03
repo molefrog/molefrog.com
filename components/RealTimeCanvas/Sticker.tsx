@@ -17,9 +17,11 @@ type StickerProps = {
   x: number;
   y: number;
   lightSource: [number, number];
-  label?: string;
+  angle: number;
   animation: "none" | "pop" | "stamp";
+
   animationDelay?: number;
+  label?: string;
 };
 
 function Sticker({
@@ -27,6 +29,7 @@ function Sticker({
   y,
   lightSource,
   label,
+  angle,
   animation = "none",
   animationDelay = 0,
 }: StickerProps) {
@@ -113,6 +116,7 @@ function Sticker({
     >
       <div>
         <StickerSprite
+          angle={angle}
           image={stickerImg}
           x={x}
           y={y}
@@ -130,6 +134,7 @@ type StickerSpriteProps = {
   x: number;
   y: number;
   lightSource: [number, number];
+  angle?: number;
 
   elevation?: number; // 0..1
   elevationValue?: MotionValue<number>;
@@ -143,6 +148,7 @@ export function StickerSprite({
   elevation: elevationProp = 1,
   elevationValue,
   image,
+  angle = 0,
 }: StickerSpriteProps) {
   const elevationStatic = useMotionValue(elevationProp); // used when `elevationValue` is not provided
   const elevation = elevationValue ?? elevationStatic;
@@ -175,6 +181,7 @@ export function StickerSprite({
         backgroundImage: `url(${image.src})`,
         filter: filterProperty,
         scale,
+        rotate: angle,
       }}
     >
       <motion.div

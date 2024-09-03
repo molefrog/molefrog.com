@@ -22,6 +22,7 @@ interface CursorProps {
   isMe?: boolean;
   type: "arrow" | "sticker";
   visible?: boolean;
+  stickerAngle?: number;
 }
 
 const PlayerName = ({ color, name }: { color: string; name: string }) => {
@@ -59,7 +60,13 @@ const PlayerName = ({ color, name }: { color: string; name: string }) => {
   );
 };
 
-export const Cursor = ({ visible = true, type, player, isMe = false }: CursorProps) => {
+export const Cursor = ({
+  visible = true,
+  type,
+  player,
+  isMe = false,
+  stickerAngle = 0,
+}: CursorProps) => {
   const userTypeClass = isMe ? styles.cursor_me : styles.cursor_other;
   const isTool = type !== "arrow";
 
@@ -84,6 +91,7 @@ export const Cursor = ({ visible = true, type, player, isMe = false }: CursorPro
             image={stickers.lyoha}
             x={player.x}
             y={player.y}
+            angle={stickerAngle}
             lightSource={[800, 300]}
             elevation={1}
           />
