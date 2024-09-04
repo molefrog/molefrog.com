@@ -24,6 +24,7 @@ type StickerProps = {
 
   animationDelay?: number;
   label?: string;
+  order?: number;
 };
 
 function Sticker({
@@ -34,6 +35,7 @@ function Sticker({
   angle,
   animation = "none",
   animationDelay = 0,
+  order = 0,
 }: StickerProps) {
   const stickerImg = stickers[asset];
   const elevation = useMotionValue(1);
@@ -115,6 +117,7 @@ function Sticker({
         left: -stickerImg.width * 0.25, // Centering the sticker (84px / 2)
         top: -stickerImg.height * 0.25,
         transform: `translate(${x}px, ${y}px)`,
+        zIndex: order,
       }}
     >
       <div>

@@ -39,7 +39,7 @@ type Sticker = {
   user: string;
   asset: StickerAssetName;
   angle: number; // in degrees
-  attachedAt: Date;
+  attachedAt: number;
 };
 
 export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
@@ -96,7 +96,7 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
         user: user.id,
         angle: stickerToolProps.angle,
         asset: stickerToolProps.asset,
-        attachedAt: new Date(),
+        attachedAt: Date.now(),
       }),
     ]);
 
@@ -121,26 +121,39 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
 
   if (isLoading || !data) return null;
 
+  const stickerOrder = Object.fromEntries(
+    data.stickers
+      .toSorted((a, b) => {
+        return (Number(a.attachedAt) ?? 0) - (Number(b.attachedAt) ?? 0);
+      })
+      .map((s, idx) => {
+        return [s.id, idx];
+      }),
+  );
+
   return (
     <div className={styles.container} ref={containerRef} onClick={handleClick}>
       {/* Shadow Sticker that always follows the cursor */}
 
-      <AnimatePresence initial={false}>
-        {data.stickers.map((sticker) => {
-          return (
-            <Sticker
-              x={sticker.x}
-              y={sticker.y}
-              asset={sticker.asset}
-              angle={sticker.angle ?? 0}
-              key={sticker.id + sticker.x + sticker.y}
-              label={sticker.label}
-              animation={animateStickers ? "stamp" : "pop"} // `initial` won't affect manual animations (via `useAnimate`)
-              animationDelay={Math.random() * 0.5}
-            />
-          );
-        })}
-      </AnimatePresence>
+      <div className={styles.stickers}>
+        <AnimatePresence initial={false}>
+          {data.stickers.map((sticker) => {
+            return (
+              <Sticker
+                x={sticker.x}
+                y={sticker.y}
+                asset={sticker.asset}
+                angle={sticker.angle ?? 0}
+                key={sticker.id + sticker.x + sticker.y}
+                label={sticker.label}
+                order={stickerOrder[sticker.id]}
+                animation={animateStickers ? "stamp" : "pop"} // `initial` won't affect manual animations (via `useAnimate`)
+                animationDelay={Math.random() * 0.5}
+              />
+            );
+          })}
+        </AnimatePresence>
+      </div>
 
       {Object.entries(peers).map(([peerId, v]) => {
         return (
