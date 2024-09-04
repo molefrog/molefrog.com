@@ -1,4 +1,5 @@
 import ash from "./ash.png";
+import duck from "./duck.png";
 import lyoha from "./lyoha.png";
 import milk from "./milk.png";
 import nokia from "./nokia.png";
@@ -16,6 +17,7 @@ export const stickers = {
   nokia,
   tisha,
   lyoha,
+  duck,
 } as const;
 
 export type StickerAssetName = keyof typeof stickers;

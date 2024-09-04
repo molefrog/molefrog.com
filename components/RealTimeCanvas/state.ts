@@ -17,7 +17,7 @@ export const $isEditing = atom((get) => get($currentTool) !== Tool.Cursor);
 
 // Atom to manage the sticker tool options
 export const $stickerToolProps = atom({
-  asset: "milk" as StickerAssetName,
+  asset: "duck" as StickerAssetName,
   angle: -5,
 });
 
