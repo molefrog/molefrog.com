@@ -1,44 +1,46 @@
-import useLeaderThumbImg from "@/public/showcase/use-leader-thumb.webp";
-import useLeaderImg from "@/public/showcase/use-leader.webp";
-import unhashThumbImg from "@/public/showcase/unhash-thumb.webp";
-import unhashVideo from "@/public/showcase/unhash.mp4";
-import wultraImg from "@/public/showcase/wultra.webp";
-import wultraThumbImg from "@/public/showcase/wultra-thumb.webp";
-import pplaworkImg from "@/public/showcase/pplawork.webp";
-import pplaworkThumbImg from "@/public/showcase/pplawork-thumb.webp";
-import dirtyAnimationsThumbImg from "@/public/showcase/dirty-animations-thumb.gif";
-import dirtyAnimationsVideo from "@/public/showcase/dirty-animations.mp4";
-import resumeThumbImg from "@/public/showcase/resume-thumb.gif";
-import resumeVideo from "@/public/showcase/resume-io-builder-v1.mp4";
-import ficusThumbImg from "@/public/showcase/ficus-thumb.webp";
-import ficusVideo from "@/public/showcase/ficus-stars.mp4";
-import reduxActuatorThumbImg from "@/public/showcase/redux-actuator-thumb.gif";
-import reduxActuatorImg from "@/public/showcase/redux-actuator.gif";
-import laxlabsThumbImg from "@/public/showcase/laxlabs-thumb.webp";
-import laxlabsVideo from "@/public/showcase/laxlabs.mp4";
-import fttThumbImg from "@/public/showcase/ftt-thumb.webp";
-import fttVideo from "@/public/showcase/ftt.mp4";
-import theseGuysThumbImg from "@/public/showcase/these-guys-thumb.webp";
-import theseGuysVideo from "@/public/showcase/these-guys.mp4";
-import railsFrontendImg from "@/public/showcase/rails-frontend.webp";
-import railsFrontendThumbImg from "@/public/showcase/rails-webpack-thumb.jpg";
 import dateParseThumbImg from "@/public/showcase/date-parse-thumb.webp";
 import dateParseImg from "@/public/showcase/date-parse.webp";
-import smartomatoThumbImg from "@/public/showcase/smartomato-thumb.webp";
-import smartomatoVideo from "@/public/showcase/smartomato.mp4";
-import kaleidoscopeThumbImg from "@/public/showcase/kaleidoscope-thumb.gif";
-import kaleidoscopeVideo from "@/public/showcase/kaleidoscope.mp4";
-import pidnnThumbImg from "@/public/showcase/pidnn-thumb.jpg";
-import piddnVideo from "@/public/showcase/pidnn-talk.mp4";
-import ryeThumbImg from "@/public/showcase/rye-thumb.gif";
-import ryeVideo from "@/public/showcase/rye.mp4";
+import dirtyAnimationsThumbImg from "@/public/showcase/dirty-animations-thumb.gif";
+import dirtyAnimationsVideo from "@/public/showcase/dirty-animations.mp4";
+import ficusVideo from "@/public/showcase/ficus-stars.mp4";
+import ficusThumbImg from "@/public/showcase/ficus-thumb.webp";
+import fttThumbImg from "@/public/showcase/ftt-thumb.webp";
+import fttVideo from "@/public/showcase/ftt.mp4";
 import jsthingsThumbImg from "@/public/showcase/js-things-thumb.gif";
 import jsthingsVideo from "@/public/showcase/js-things.mp4";
+import kaleidoscopeThumbImg from "@/public/showcase/kaleidoscope-thumb.gif";
+import kaleidoscopeVideo from "@/public/showcase/kaleidoscope.mp4";
+import laxlabsThumbImg from "@/public/showcase/laxlabs-thumb.webp";
+import laxlabsVideo from "@/public/showcase/laxlabs.mp4";
+import piddnVideo from "@/public/showcase/pidnn-talk.mp4";
+import pidnnThumbImg from "@/public/showcase/pidnn-thumb.jpg";
+import pplaworkThumbImg from "@/public/showcase/pplawork-thumb.webp";
+import pplaworkImg from "@/public/showcase/pplawork.webp";
+import railsFrontendImg from "@/public/showcase/rails-frontend.webp";
+import railsFrontendThumbImg from "@/public/showcase/rails-webpack-thumb.jpg";
 import reactTricksThumbImg from "@/public/showcase/react-tricks-thumb.webp";
+import reduxActuatorThumbImg from "@/public/showcase/redux-actuator-thumb.gif";
+import reduxActuatorImg from "@/public/showcase/redux-actuator.gif";
+import resumeVideo from "@/public/showcase/resume-io-builder-v1.mp4";
+import resumeThumbImg from "@/public/showcase/resume-thumb.gif";
+import ryeThumbImg from "@/public/showcase/rye-thumb.gif";
+import ryeVideo from "@/public/showcase/rye.mp4";
+import smartomatoThumbImg from "@/public/showcase/smartomato-thumb.webp";
+import smartomatoVideo from "@/public/showcase/smartomato.mp4";
+import spoiledThumbImg from "@/public/showcase/spoiled-thumb.gif";
+import spoiledVideo from "@/public/showcase/spoiled.mp4";
+import theseGuysThumbImg from "@/public/showcase/these-guys-thumb.webp";
+import theseGuysVideo from "@/public/showcase/these-guys.mp4";
+import unhashThumbImg from "@/public/showcase/unhash-thumb.webp";
+import unhashVideo from "@/public/showcase/unhash.mp4";
+import useLeaderThumbImg from "@/public/showcase/use-leader-thumb.webp";
+import useLeaderImg from "@/public/showcase/use-leader.webp";
+import wultraThumbImg from "@/public/showcase/wultra-thumb.webp";
+import wultraImg from "@/public/showcase/wultra.webp";
 import reactTricksVideo from "@/public/speaking/multiplayer-demo.mp4";
 
-import { ComponentProps } from "react";
 import Image from "next/image";
+import { ComponentProps } from "react";
 
 type ImageSrc = ComponentProps<typeof Image>["src"];
 
@@ -52,7 +54,18 @@ type Project = Resource & {
   url: string;
 };
 
+console.log(spoiledVideo);
+
 const projects: Project[] = [
+  {
+    thumb: spoiledThumbImg,
+    video: spoiledVideo,
+    aspectRatio: 3 / 2,
+    description:
+      "Spoiled: spoiler component that recreates particle animation used in Telegram messenger. Powered by CSS Paint API.",
+    tags: ["2024", "React", "Exp"],
+    url: "https://spoiled.vercel.app",
+  },
   {
     thumb: reactTricksThumbImg,
     video: reactTricksVideo,
@@ -66,7 +79,7 @@ const projects: Project[] = [
     image: useLeaderImg,
     description:
       "Experimental library for primary tab detection that uses `BroadcastChannel` and distributed leader election. Not to be used in production!",
-    tags: ["2023", "React"],
+    tags: ["2023", "React", "Exp"],
     url: "https://use-leader.surge.sh",
   },
 
