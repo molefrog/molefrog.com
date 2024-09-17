@@ -36,13 +36,13 @@ export default function Page() {
           <div className="about__text">
             <p></p>
             <p>
-              Occasionally, I{" "}
+              I am a full-stack engineer,{" "}
               <Showcase media={{ video: speakingVideo, aspectRatio: 2.2 }} prefer="below">
                 <Link className="solid-link" href="/speaking">
-                  speak
+                  conference speaker
                 </Link>
-              </Showcase>{" "}
-              at tech conferences, contribute to{" "}
+              </Showcase>
+              , an{" "}
               <ShowcaseLink
                 media={{ image: githubImg, aspectRatio: "auto" }}
                 href="https://github.com/molefrog"
@@ -51,18 +51,24 @@ export default function Page() {
               >
                 open-source
               </ShowcaseLink>{" "}
-              and teach others to code. I love designing UIs, playing around with animations, and
-              writing performant web apps & backends. I primarily use JS, Node/Deno, and Ruby.
+              maintainer and founder. I love designing UIs, playing around with animations, and
+              writing small yet expressive programs. I primarily use JS, Node/Deno, and Ruby on
+              Rails.
             </p>
             <p>
-              I&apos;ve recently finished my work at{" "}
+              Now that{" "}
               <Showcase media={{ video: resumeBuilderVideo, aspectRatio: 1200 / 768 }}>
                 <Link className="solid-link" href="https://resume.io">
                   resume.io
                 </Link>
-              </Showcase>{" "}
-              — the company I co-founded, and helped to build. If you have some interesting project
-              or a startup idea, drop me a line, I&apos;m always happy to talk!
+              </Showcase>
+              , where I was a technical co-founder and head of engineering, has been acquired,
+              I&apos;m focusing on my own projects and exploring fresh ideas.
+            </p>
+
+            <p>
+              If you&apos;d like to collaborate or start a business together, feel free to reach
+              out! I&apos;m also open to contract work, consulting and non-profit projects.
             </p>
           </div>
         </div>
