@@ -82,7 +82,7 @@ export default function Speaking() {
                   <Spoiler density={0.25} theme="light" mimicWords noiseFadeDuration={0.8}>
                     Telegram-inspired spoiler
                   </Spoiler>{" "}
-                  animation. I&apos; dived into complexities related to the stateless nature of
+                  animation. I&apos;ve dived into complexities related to the stateless nature of
                   worklets, along with performance benefits and drawbacks.
                 </p>
 
