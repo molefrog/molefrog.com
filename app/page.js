@@ -42,7 +42,7 @@ export default function Page() {
                   conference speaker
                 </Link>
               </Showcase>
-              , an{" "}
+              ,{" "}
               <ShowcaseLink
                 media={{ image: githubImg, aspectRatio: "auto" }}
                 href="https://github.com/molefrog"
@@ -52,8 +52,8 @@ export default function Page() {
                 open-source
               </ShowcaseLink>{" "}
               maintainer and founder. I love designing UIs, playing around with animations, and
-              writing small yet expressive programs. I primarily use JS, Node/Deno, and Ruby on
-              Rails.
+              writing small yet expressive programs. I primarily use JavaScript, Node/Deno, and Ruby
+              on Rails.
             </p>
             <p>
               Now that{" "}
@@ -63,7 +63,8 @@ export default function Page() {
                 </Link>
               </Showcase>
               , where I was a technical co-founder and head of engineering, has been acquired,
-              I&apos;m focusing on my own projects and exploring fresh ideas.
+              I&apos;m focusing on my own projects and exploring fresh ideas. I&apos;m particularly
+              obsessed with silly software.
             </p>
 
             <p>
