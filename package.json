@@ -30,7 +30,7 @@
     "jotai": "^2.9.3",
     "mapbox-gl": "^3.6.0",
     "nanoid": "^5.0.7",
-    "next": "^14.2.6",
+    "next": "^14.2.12",
     "next-sitemap": "^4.2.3",
     "notion-client": "^6.16.0",
     "raf": "^3.3.0",
