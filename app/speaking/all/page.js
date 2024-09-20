@@ -40,7 +40,7 @@ const talks = [
   {
     title: "React Hooks: Interactivity in Functional Components",
     conference: "SFU",
-    city: "Moscow",
+    city: "Online",
     country: "Russia",
     flag: "🇷🇺",
     date: "2021-11-17",
@@ -48,7 +48,7 @@ const talks = [
   {
     title: "Practical Serverless and Edge Computing",
     conference: "HolyJS",
-    city: "Moscow",
+    city: "Online",
     country: "Russia",
     flag: "🇷🇺",
     date: "2021-04-22",
@@ -56,10 +56,18 @@ const talks = [
   {
     title: "Practical Serverless and Edge Computing",
     conference: "TverIO Perf Meetup",
-    city: "Tver",
+    city: "Online",
     country: "Russia",
     flag: "🇷🇺",
     date: "2021-01-21",
+  },
+  {
+    title: "React Hooks: Interactivity in Functional Components",
+    conference: "SFU",
+    city: "Online",
+    country: "Russia",
+    flag: "🇷🇺",
+    date: "2020-11-09",
   },
   {
     title: "Can Design Principles Help me Become a Better Software Engineer?",
