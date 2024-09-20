@@ -25,6 +25,7 @@
     "clsx": "^2.1.1",
     "colord": "^2.9.3",
     "cookie": "^0.6.0",
+    "date-fns": "^4.1.0",
     "eslint": "8.31.0",
     "framer-motion": "^11.3.30",
     "jotai": "^2.9.3",

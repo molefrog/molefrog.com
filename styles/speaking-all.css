@@ -1,0 +1,49 @@
+.speaking-all {
+  font: var(--type-text-small);
+  color: var(--color-gray-900);
+}
+
+.speaking-all__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.speaking-all__year {
+  padding: 14px 0;
+  text-align: left;
+  vertical-align: top;
+  color: var(--color-gray-600);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.speaking-all__talk-row:not(:last-of-type) {
+  border-bottom: 1px solid var(--color-gray-150);
+}
+
+.speaking-all__title-cell {
+  padding: 14px 12px;
+  vertical-align: top;
+}
+
+.speaking-all__title-with-icon {
+  margin-bottom: 5px;
+}
+
+.speaking-all__conference {
+  color: var(--color-gray-500);
+  margin-top: 4px;
+  font-weight: 400;
+}
+
+.speaking-all__date-cell {
+  text-align: right;
+  vertical-align: top;
+  padding: 14px 0;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--color-gray-400);
+  white-space: nowrap;
+  font-weight: 400;
+}

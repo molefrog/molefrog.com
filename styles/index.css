@@ -17,6 +17,7 @@
 @import "./sketches.css";
 @import "./blog.css";
 @import "./404.css";
+@import "./speaking-all.css";
 
 :root {
   --type-text-x-small: 600 13px / 22px var(--font-sans);
@@ -34,6 +35,7 @@
 
   --color-gray-50: #fafafa;
   --color-gray-100: #f4f4f5;
+  --color-gray-150: #ececee;
   --color-gray-200: #e4e4e7;
   --color-gray-300: #d4d4d8;
   --color-gray-400: #a1a1aa;
