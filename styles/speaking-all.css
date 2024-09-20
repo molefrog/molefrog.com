@@ -1,6 +1,7 @@
 .speaking-all {
   font: var(--type-text-small);
   color: var(--color-gray-900);
+  padding-bottom: 128px;
 }
 
 .speaking-all__table {
