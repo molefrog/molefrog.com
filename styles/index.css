@@ -20,8 +20,8 @@
 @import "./speaking-all.css";
 
 :root {
-  --type-text-x-small: 600 13px / 22px var(--font-sans);
-  --type-text-small: 500 17px / 26px var(--font-sans);
+  --type-text-x-small: 500 13px / 22px var(--font-sans);
+  --type-text-small: 400 17px / 26px var(--font-sans);
   --type-text-regular: 400 18px / 30px var(--font-sans);
   --type-text-medium: 400 20px / 32px var(--font-sans);
   --type-text-large: 500 24px / 36px var(--font-sans);
