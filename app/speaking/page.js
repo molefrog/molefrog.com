@@ -364,7 +364,7 @@ export default function Speaking() {
                 >
                   HolyJS
                 </SpeakingConference>
-                <SpeakingConference year="2017">Krasnodar Dev Days</SpeakingConference>
+                <SpeakingConference year="2016">Krasnodar Dev Days</SpeakingConference>
               </div>
             </div>
           </div>
@@ -446,7 +446,7 @@ export default function Speaking() {
                     TverIO Design
                   </SpeakingConference>
                   <SpeakingConference year="2019">SouthConf</SpeakingConference>
-                  <SpeakingConference year="2018">SPB Frontend</SpeakingConference>
+                  <SpeakingConference year="2019">SPB Frontend</SpeakingConference>
                 </div>
               </div>
             </div>
