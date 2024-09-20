@@ -124,6 +124,43 @@
   color: var(--color-gray-50);
 }
 
+.speaking__footer {
+  padding: 32px 0 48px 0;
+  text-align: center;
+}
+
+.speaking__nav-btn {
+  background-color: var(--color-gray-50);
+  padding: 0px 16px;
+  padding-bottom: 1px;
+  border-radius: 40px;
+  height: 40px;
+  vertical-align: middle;
+  align-items: center;
+  box-shadow: inset 0px 0px 0px 1px var(--color-gray-200);
+  color: var(--color-gray-500);
+  text-decoration: none;
+  transition: box-shadow 0.2s ease;
+  font: var(--type-text-small);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.speaking__nav-btn > svg {
+  color: var(--color-gray-800);
+  margin-top: 1px;
+}
+
+.speaking__nav-btn:hover > svg {
+  color: var(--color-accent);
+}
+
+.speaking__nav-btn:hover {
+  color: var(--color-accent);
+  box-shadow: inset 0px 0px 0px 2px var(--color-accent);
+}
+
 @media (max-width: 1024px) {
   .speaking {
     padding-top: 0;

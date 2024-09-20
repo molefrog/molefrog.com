@@ -12,7 +12,8 @@
   padding: 14px 0;
   text-align: left;
   vertical-align: top;
-  color: var(--color-gray-600);
+
+  color: var(--color-gray-400);
   font-family: var(--font-mono);
   font-size: 14px;
   font-weight: 400;
@@ -46,4 +47,9 @@
   color: var(--color-gray-400);
   white-space: nowrap;
   font-weight: 400;
+}
+
+.speaking-all__nav {
+  display: flex;
+  margin-bottom: 32px;
 }

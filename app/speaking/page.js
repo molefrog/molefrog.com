@@ -7,6 +7,7 @@ import { Projector } from "@/components/Projector";
 import { Container } from "@/components/Grid";
 import { ShowcaseLink } from "@/components/Showcase";
 import { SpeakingConference } from "@/components/SpeakingConference";
+import { ListIcon } from "./icons";
 
 import viipuriLibraryImg from "@/public/speaking/viipuri-library.webp";
 import hooksCharactersImg from "@/public/speaking/hooks-characters.webp";
@@ -524,6 +525,13 @@ export default function Speaking() {
               </div>
             </div>
           </section>
+
+          <div className="speaking__footer">
+            <Link href="/speaking/all" className="speaking__nav-btn">
+              <ListIcon />
+              Show As List
+            </Link>
+          </div>
         </div>
       </Container>
     </main>

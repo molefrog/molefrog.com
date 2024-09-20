@@ -1,6 +1,8 @@
 import React from "react";
 import { getYear, format } from "date-fns";
 import { Container } from "@/components/Grid";
+import Link from "next/link";
+import { BackIcon } from "../icons";
 
 const talks = [
   {
@@ -156,6 +158,12 @@ export default function SpeakingAll() {
   return (
     <Container placement="inner">
       <div className="speaking-all">
+        <div className="speaking-all__nav">
+          <Link href="/speaking" className="speaking__nav-btn">
+            <BackIcon /> Back to Talks
+          </Link>
+        </div>
+
         <table className="speaking-all__table">
           <tbody>
             {talks.map((talk, index) => {
