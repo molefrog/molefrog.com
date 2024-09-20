@@ -168,6 +168,13 @@ export default function Speaking() {
 
               <div className="speaking__confs">
                 <SpeakingConference
+                  year="2024"
+                  format="link"
+                  href="https://guild.host/events/react-advanced-london-3n0aqe"
+                >
+                  React Advanced London
+                </SpeakingConference>
+                <SpeakingConference
                   year="2023"
                   format="link"
                   href="https://www.meetup.com/copenhagen-react-meetup/events/297182537/"
