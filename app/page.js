@@ -85,7 +85,7 @@ export default function Page() {
               </Showcase>
               , where I was a technical co-founder and head of engineering, has been acquired,
               I&apos;m focusing on my own projects and exploring fresh ideas. I&apos;m particularly
-              obsessed with silly software.
+              interested in local-first web, multiplayer apps and interactive storytelling.
             </p>
 
             <p>
