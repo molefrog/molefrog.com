@@ -18,6 +18,7 @@
 @import "./blog.css";
 @import "./404.css";
 @import "./speaking-all.css";
+@import "./expand-inline.css";
 
 :root {
   --type-text-x-small: 500 13px / 22px var(--font-sans);

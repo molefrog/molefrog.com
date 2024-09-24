@@ -14,6 +14,7 @@ import speakingVideo from "@/public/showcase/speaking-use-state.mp4";
 import resumeBuilderVideo from "@/public/showcase/resume-io-builder.mp4";
 
 import MINI_MAP_ITEMS from "@/content/mini-map.tsx";
+import ExpandInline from "@/components/ExpandInline";
 
 export const metadata = {
   alternates: {
@@ -52,8 +53,28 @@ export default function Page() {
                 open-source
               </ShowcaseLink>{" "}
               maintainer and founder. I love designing UIs, playing around with animations, and
-              writing small yet expressive programs. I primarily use JavaScript, Node/Deno, and Ruby
-              on Rails.
+              writing small yet expressive programs. The tools I use to get the job done are:{" "}
+              <ExpandInline
+                items={[
+                  "Figma",
+                  "React",
+                  "Svelte",
+                  "Ruby on Rails",
+                  "Node.js",
+                  "Deno",
+                  "framer-motion",
+                  "TypeScript",
+                  "Tailwind",
+                  "Remix",
+                  "Next.js",
+                  "Postgres",
+                  "Redis",
+                  "Cloudflare Workers",
+                ]}
+                withAnd
+                expandBy={3}
+                displayFirst={6}
+              />
             </p>
             <p>
               Now that{" "}
