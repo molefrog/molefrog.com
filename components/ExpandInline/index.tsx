@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
 
 interface ExpandInlineProps {
@@ -26,23 +27,54 @@ export const ExpandInline: React.FC<ExpandInlineProps> = ({
 
   return (
     <span className="expand-inline">
-      {visibleItems.map((item, index) => {
-        const shouldAddAnd = withAnd && index === items.length - 1;
+      <AnimatePresence initial={false}>
+        {visibleItems.map((item, index) => {
+          const shouldAddAnd = withAnd && index === items.length - 1;
 
-        return (
-          <React.Fragment key={index}>
-            {index > 0 && (shouldAddAnd ? " and " : ", ")}
-            {item}
-            {index === items.length - 1 && "."}
-          </React.Fragment>
-        );
-      })}
+          const delay = Math.max(0, 0.1 * (index - (visibleItems.length - expandBy)));
+
+          return (
+            <motion.span
+              key={index}
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{
+                scale: {
+                  type: "spring",
+                  stiffness: 1000,
+                  damping: 25,
+                  delay: delay,
+                },
+                opacity: {
+                  ease: "linear",
+                  duration: 0.1,
+                  delay: delay,
+                },
+              }}
+            >
+              {item}
+              {index < visibleItems.length - 1 && (
+                <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                  {shouldAddAnd ? " and " : ", "}
+                </motion.span>
+              )}
+              {index === items.length - 1 && "."}
+            </motion.span>
+          );
+        })}
+      </AnimatePresence>
+
       {hasMore && (
         <>
           {" "}
-          <button className="expand-inline__button" onClick={handleExpand}>
+          <motion.button
+            className="expand-inline__button"
+            onClick={handleExpand}
+            layout
+            transition={{ type: "spring", stiffness: 400, damping: 35 }}
+          >
             <MoreHorizontalIcon />
-          </button>
+          </motion.button>
         </>
       )}
     </span>

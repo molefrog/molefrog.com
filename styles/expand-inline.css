@@ -2,6 +2,11 @@
   display: inline;
 }
 
+.expand-inline span {
+  display: inline-block;
+  white-space: pre;
+}
+
 .expand-inline__button {
   display: inline-flex;
   align-items: center;
@@ -17,7 +22,7 @@
   font: inherit;
   line-height: 10px;
   font-weight: 600;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.15s ease;
   position: relative;
   top: -2px;
 }
