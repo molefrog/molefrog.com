@@ -12,6 +12,7 @@ import wouterImg from "@/public/images/wouter-highlight.webp";
 import githubImg from "@/public/showcase/github.webp";
 import speakingVideo from "@/public/showcase/speaking-use-state.mp4";
 import resumeBuilderVideo from "@/public/showcase/resume-io-builder.mp4";
+import domikLtdVideo from "@/public/showcase/domik-ltd.mp4";
 
 import MINI_MAP_ITEMS from "@/content/mini-map.tsx";
 import ExpandInline from "@/components/ExpandInline";
@@ -85,7 +86,13 @@ export default function Page() {
               </Showcase>
               , where I was a technical co-founder and head of engineering, has been acquired,
               I&apos;m focusing on my own projects and exploring fresh ideas. I&apos;m particularly
-              interested in local-first web, multiplayer apps and interactive storytelling.
+              interested in local-first web, multiplayer apps and{" "}
+              <Showcase media={{ video: domikLtdVideo, aspectRatio: 1460 / 1080 }}>
+                <Link className="solid-link" href="https://domik.ltd/story">
+                  interactive storytelling
+                </Link>
+              </Showcase>
+              .
             </p>
 
             <p>
