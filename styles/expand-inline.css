@@ -11,7 +11,6 @@
   display: inline-flex;
   align-items: center;
   vertical-align: middle;
-  background-color: var(--color-gray-50);
   color: var(--color-gray-400);
   border: 1px solid var(--color-gray-200);
   border-radius: 12px;
@@ -22,9 +21,16 @@
   font: inherit;
   line-height: 10px;
   font-weight: 600;
-  transition: background-color 0.15s ease;
+  transition: box-shadow 0.15s ease;
   position: relative;
   top: -2px;
+  user-select: none;
+  box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.05);
+  background: linear-gradient(to bottom, var(--color-gray-50), var(--color-gray-150));
+}
+
+.expand-inline__button:active {
+  transform: translateY(1px);
 }
 
 .expand-inline__button > svg {
@@ -32,13 +38,13 @@
 }
 
 .expand-inline__button:hover {
-  background-color: var(--color-gray-150);
   color: var(--color-gray-600);
 }
 
 .expand-inline__button:active {
   transform: scale(0.95);
-  background-color: var(--color-gray-200);
+  background: var(--color-gray-150);
+  box-shadow: none;
 }
 
 .expand-inline__button:focus-visible {
