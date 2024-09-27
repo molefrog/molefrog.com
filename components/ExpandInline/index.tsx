@@ -2,6 +2,9 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
+import useSound from "use-sound";
+
+import soundEffect from "./expand.mp3";
 
 interface ExpandInlineProps {
   items: React.ReactNode[];
@@ -17,12 +20,14 @@ export const ExpandInline: React.FC<ExpandInlineProps> = ({
   expandBy = 1,
 }) => {
   const [displayCount, setDisplayCount] = useState(displayFirst);
+  const [playExpandSound] = useSound(soundEffect);
 
   const visibleItems = items.slice(0, displayCount);
   const hasMore = items.length > displayCount;
 
   const handleExpand = () => {
     setDisplayCount((prevCount) => Math.min(prevCount + expandBy, items.length));
+    playExpandSound();
   };
 
   return (
