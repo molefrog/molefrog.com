@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 interface ExpandInlineProps {
   items: React.ReactNode[];
@@ -13,7 +13,7 @@ interface ExpandInlineProps {
 export const ExpandInline: React.FC<ExpandInlineProps> = ({
   items,
   displayFirst,
-  withAnd = false,
+  withAnd = true,
   expandBy = 1,
 }) => {
   const [displayCount, setDisplayCount] = useState(displayFirst);
@@ -40,7 +40,7 @@ export const ExpandInline: React.FC<ExpandInlineProps> = ({
     <span className="expand-inline">
       <AnimatePresence initial={false}>
         {visibleItems.map((item, index) => {
-          const shouldAddAnd = withAnd && index === items.length - 1;
+          const shouldAddAnd = withAnd && index === items.length - 2;
 
           const delay = Math.max(0, 0.1 * (index - (visibleItems.length - expandBy)));
 

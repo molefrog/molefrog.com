@@ -3,10 +3,10 @@ import { Synth, now as nowTone } from "tone";
 /*
     .-=-.
  .-' . . '-.
- https://www.ars-nova.com/Theory%20Q&A/Q35.html 
+ https://www.ars-nova.com/Theory%20Q&A/Q35.html
 */
 
-const notes = ["G3", "A3", "F3", "F2", "C2"];
+const notes = ["G2", "A2", "F2", "F1", "C1"];
 
 export const synth = () => {
   const synth = new Synth({
