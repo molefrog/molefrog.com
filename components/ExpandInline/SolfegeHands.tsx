@@ -8,26 +8,17 @@ import hands from "./hands.jpg";
 
 export const $note = atom<string | null>(null);
 
-const noteToOffset: { [key: string]: number } = {
-  C: 0,
-  "C#": 1,
-  D: 2,
-  "D#": 3,
-  E: 4,
-  F: 5,
-  "F#": 6,
-  G: 7,
-  "G#": 8,
-  A: 9,
-  "A#": 10,
-  B: 11,
+const noteToSpriteOffset = (note: string): number => {
+  const notes = "C C# D D# E F F# G G# A A# B".split(" ");
+  const idx = notes.indexOf(note);
+  return idx !== -1 ? idx : 0;
 };
 
 const SolfegeHands: React.FC = () => {
   const note = useStore($note);
 
   const noteWithoutOctave = note?.replace(/\d/g, "");
-  const offset = noteWithoutOctave ? noteToOffset[noteWithoutOctave] : 0;
+  const offset = noteWithoutOctave ? noteToSpriteOffset(noteWithoutOctave) : 0;
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
