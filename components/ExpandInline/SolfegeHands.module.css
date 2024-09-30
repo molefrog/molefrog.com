@@ -1,0 +1,22 @@
+.container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 110px;
+  height: 80px;
+  overflow: hidden;
+  pointer-events: none;
+  scale: 2;
+  transform-origin: top right;
+  opacity: 0;
+
+  --horizontal-offset: 0;
+}
+
+.container img {
+  left: calc(var(--horizontal-offset) * -114.5px);
+}
+
+.visible {
+  opacity: 1;
+}

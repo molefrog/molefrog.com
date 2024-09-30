@@ -1,4 +1,5 @@
 import { Synth, now as nowTone } from "tone";
+import { $note } from "./SolfegeHands"; // Import the $note atom
 
 /*
     .-=-.
@@ -33,9 +34,20 @@ export const synth = () => {
     for (let i = 0; i < n; i++) {
       const index = (offset + i) % notes.length;
       const note = notes[index];
-      synth.triggerAttackRelease(note, "16n", nowTone() + i * delay);
+      const playTime = nowTone() + i * delay;
+
+      // Schedule note playing
+      synth.triggerAttackRelease(note, "16n", playTime);
+
+      // Schedule $note atom update
+      setTimeout(
+        () => {
+          $note.set(note);
+        },
+        i * delay * 1000,
+      );
     }
 
-    offset = (offset + n - 1) % notes.length;
+    offset = (offset + n) % notes.length;
   };
 };

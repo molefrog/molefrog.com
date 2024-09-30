@@ -1,7 +1,12 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
+import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
+
+const DynamicSolfegeHands = dynamic(() => import("./SolfegeHands"), {
+  ssr: false,
+});
 
 interface ExpandInlineProps {
   items: React.ReactNode[];
@@ -37,58 +42,62 @@ export const ExpandInline: React.FC<ExpandInlineProps> = ({
   };
 
   return (
-    <span className="expand-inline">
-      <AnimatePresence initial={false}>
-        {visibleItems.map((item, index) => {
-          const shouldAddAnd = withAnd && index === items.length - 2;
+    <>
+      <span className="expand-inline">
+        <AnimatePresence initial={false}>
+          {visibleItems.map((item, index) => {
+            const shouldAddAnd = withAnd && index === items.length - 2;
 
-          const delay = Math.max(0, 0.1 * (index - (visibleItems.length - expandBy)));
+            const delay = Math.max(0, 0.1 * (index - (visibleItems.length - expandBy)));
 
-          return (
-            <motion.span
-              key={index}
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{
-                scale: {
-                  type: "spring",
-                  stiffness: 1000,
-                  damping: 25,
-                  delay: delay,
-                },
-                opacity: {
-                  ease: "linear",
-                  duration: 0.1,
-                  delay: delay,
-                },
-              }}
+            return (
+              <motion.span
+                key={index}
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{
+                  scale: {
+                    type: "spring",
+                    stiffness: 1000,
+                    damping: 25,
+                    delay: delay,
+                  },
+                  opacity: {
+                    ease: "linear",
+                    duration: 0.1,
+                    delay: delay,
+                  },
+                }}
+              >
+                {item}
+                {index < visibleItems.length - 1 && (
+                  <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                    {shouldAddAnd ? " and " : ", "}
+                  </motion.span>
+                )}
+                {index === items.length - 1 && "."}
+              </motion.span>
+            );
+          })}
+        </AnimatePresence>
+
+        {hasMore && (
+          <>
+            {" "}
+            <motion.button
+              className="expand-inline__button"
+              onClick={handleExpand}
+              layout
+              transition={{ type: "spring", stiffness: 400, damping: 35 }}
             >
-              {item}
-              {index < visibleItems.length - 1 && (
-                <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                  {shouldAddAnd ? " and " : ", "}
-                </motion.span>
-              )}
-              {index === items.length - 1 && "."}
-            </motion.span>
-          );
-        })}
-      </AnimatePresence>
+              <MoreHorizontalIcon />
+            </motion.button>
+          </>
+        )}
+      </span>
 
-      {hasMore && (
-        <>
-          {" "}
-          <motion.button
-            className="expand-inline__button"
-            onClick={handleExpand}
-            layout
-            transition={{ type: "spring", stiffness: 400, damping: 35 }}
-          >
-            <MoreHorizontalIcon />
-          </motion.button>
-        </>
-      )}
-    </span>
+      <DynamicSolfegeHands />
+    </>
   );
 };
 
