@@ -1,10 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from "react";
-import useSound from "use-sound";
-
-import soundEffect from "./expand.mp3";
+import React, { useState, useEffect } from "react";
 
 interface ExpandInlineProps {
   items: React.ReactNode[];
@@ -20,14 +17,23 @@ export const ExpandInline: React.FC<ExpandInlineProps> = ({
   expandBy = 1,
 }) => {
   const [displayCount, setDisplayCount] = useState(displayFirst);
-  const [playExpandSound] = useSound(soundEffect);
+  const [playNotes, setPlayNotes] = useState<(n?: number) => void>(() => {});
+
+  useEffect(() => {
+    import("./synth").then((module) => {
+      const synthFunction = module.synth();
+      setPlayNotes(() => synthFunction);
+    });
+  }, []);
 
   const visibleItems = items.slice(0, displayCount);
   const hasMore = items.length > displayCount;
 
   const handleExpand = () => {
-    setDisplayCount((prevCount) => Math.min(prevCount + expandBy, items.length));
-    playExpandSound();
+    const n = Math.min(expandBy, items.length - displayCount);
+    setDisplayCount((prev) => Math.min(prev + expandBy, items.length));
+
+    playNotes(n);
   };
 
   return (
