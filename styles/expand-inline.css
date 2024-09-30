@@ -12,7 +12,7 @@
   align-items: center;
   vertical-align: middle;
   color: var(--color-gray-400);
-  border: 1px solid var(--color-gray-200);
+  border: none;
   border-radius: 12px;
   padding: 2px 10px 0px 10px;
   margin-left: 2px;
@@ -25,8 +25,10 @@
   position: relative;
   top: -2px;
   user-select: none;
-  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.03);
-  background: linear-gradient(to bottom, var(--color-gray-50), var(--color-gray-150));
+  box-shadow:
+    inset 0px 0px 0px 1px var(--color-gray-200),
+    inset 0px 3px 1px 0px rgba(255, 255, 255, 0.8);
+  background: linear-gradient(to bottom, var(--color-gray-100), var(--color-gray-200));
 }
 
 .expand-inline__button:active {

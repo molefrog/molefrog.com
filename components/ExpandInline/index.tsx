@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 const DynamicSolfegeHands = dynamic(() => import("./SolfegeHands"), {
   ssr: false,
@@ -23,12 +24,15 @@ export const ExpandInline: React.FC<ExpandInlineProps> = ({
 }) => {
   const [displayCount, setDisplayCount] = useState(displayFirst);
   const [playNotes, setPlayNotes] = useState<(n?: number) => void>(() => {});
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     import("./synth").then((module) => {
       const synthFunction = module.synth();
       setPlayNotes(() => synthFunction);
     });
+
+    setIsMounted(true);
   }, []);
 
   const visibleItems = items.slice(0, displayCount);
@@ -38,7 +42,7 @@ export const ExpandInline: React.FC<ExpandInlineProps> = ({
     const n = Math.min(expandBy, items.length - displayCount);
     setDisplayCount((prev) => Math.min(prev + expandBy, items.length));
 
-    playNotes(n);
+    playNotes?.(n);
   };
 
   return (
@@ -96,7 +100,7 @@ export const ExpandInline: React.FC<ExpandInlineProps> = ({
         )}
       </span>
 
-      <DynamicSolfegeHands />
+      {isMounted && createPortal(<DynamicSolfegeHands />, document.body)}
     </>
   );
 };
