@@ -106,6 +106,13 @@ export default function Speaking() {
                 <SpeakingConference
                   year="2024"
                   format="link"
+                  href="https://www.meetabit.com/events/helsinkijs-october-2024"
+                >
+                  HelsinkiJS
+                </SpeakingConference>
+                <SpeakingConference
+                  year="2024"
+                  format="link"
                   href="https://www.meetup.com/barcelonajs/events/302268223/"
                 >
                   BarcelonaJS

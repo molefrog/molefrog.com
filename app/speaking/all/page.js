@@ -6,6 +6,14 @@ import { BackIcon } from "../icons";
 
 const talks = [
   {
+    title: '"Spoiled": Leveraging CSS Paint API for Realistic Particle Animation',
+    conference: "HelsinkiJS",
+    city: "Helsinki",
+    country: "FI",
+    flag: "🇫🇮",
+    date: "2024-10-09",
+  },
+  {
     title: "React Tricks: Fast, Fit and Fun",
     conference: "React Advanced London Meetup",
     city: "London",
