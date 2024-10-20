@@ -48,7 +48,6 @@ const BlogPost = (props: BlogPostProps) => {
         src={props.icon}
         className="blog-posts__icon"
         alt="blog post icon"
-        placeholder="blur"
         width={26}
         height={26}
       />
