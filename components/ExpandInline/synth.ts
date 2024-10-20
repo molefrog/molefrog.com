@@ -1,4 +1,4 @@
-import { Synth, now as nowTone } from "tone";
+import { Synth, now as nowTone, start as startToneJS } from "tone";
 import { $note } from "./SolfegeHands"; // Import the $note atom
 
 /*
@@ -28,7 +28,9 @@ export const synth = () => {
 
   let offset = 0;
 
-  return (n = 3) => {
+  return async (n = 3) => {
+    await startToneJS();
+
     const delay = 0.15;
 
     for (let i = 0; i < n; i++) {
@@ -40,12 +42,9 @@ export const synth = () => {
       synth.triggerAttackRelease(note, "16n", playTime);
 
       // Schedule $note atom update
-      setTimeout(
-        () => {
-          $note.set(note);
-        },
-        i * delay * 1000,
-      );
+      setTimeout(() => {
+        $note.set(note);
+      }, i * delay * 1000);
     }
 
     offset = (offset + n) % notes.length;
