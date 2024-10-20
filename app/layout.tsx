@@ -28,6 +28,8 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
+const isProduction = process.env.NODE_ENV === "production";
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html className={fontsCSSVars} lang="en">
@@ -42,8 +44,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
         </WrapBalancerProvider>
 
-        <Script data-domain="molefrog.com" src="https://plausible.io/js/script.js"></Script>
-        <Script src="https://cdn.seline.so/seline.js"></Script>
+        {isProduction && (
+          <>
+            {/* 🌚 */}
+            <Script data-domain="molefrog.com" src="https://plausible.io/js/script.js"></Script>
+            <Script src="https://cdn.seline.so/seline.js"></Script>
+          </>
+        )}
       </body>
     </html>
   );
