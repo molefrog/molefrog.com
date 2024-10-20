@@ -1,4 +1,4 @@
-import { Synth, now as nowTone, start as startToneJS } from "tone";
+import { Distortion, Reverb, Synth, now as nowTone, start as startToneJS } from "tone";
 import { $note } from "./SolfegeHands"; // Import the $note atom
 
 /*
@@ -7,7 +7,7 @@ import { $note } from "./SolfegeHands"; // Import the $note atom
  https://www.ars-nova.com/Theory%20Q&A/Q35.html
 */
 
-const notes = ["G2", "A2", "F2", "F1", "C1"];
+const notes = ["G3", "A3", "F3", "F2", "C2"];
 
 export const synth = () => {
   const synth = new Synth({
@@ -24,7 +24,18 @@ export const synth = () => {
       release: 1.5,
     },
     portamento: 0.05,
+  });
+
+  const reverb = new Reverb({
+    decay: 1,
   }).toDestination();
+
+  const dist = new Distortion({
+    distortion: 1,
+  }).toDestination();
+
+  synth.connect(reverb).connect(dist);
+  synth.toDestination();
 
   let offset = 0;
 
@@ -42,9 +53,12 @@ export const synth = () => {
       synth.triggerAttackRelease(note, "16n", playTime);
 
       // Schedule $note atom update
-      setTimeout(() => {
-        $note.set(note);
-      }, i * delay * 1000);
+      setTimeout(
+        () => {
+          $note.set(note);
+        },
+        i * delay * 1000,
+      );
     }
 
     offset = (offset + n) % notes.length;
