@@ -69,9 +69,9 @@ const Footer = () => (
               className="footer__link"
               target="_blank"
               rel="noopener noreferrer"
-              href="https://instagram.com/molefrog"
+              href="https://www.linkedin.com/in/molefrog/"
             >
-              Instagram
+              LinkedIn
             </a>
           </div>
 
@@ -80,9 +80,9 @@ const Footer = () => (
               className="footer__link"
               target="_blank"
               rel="noopener noreferrer"
-              href="https://unsplash.com/@molefrog"
+              href="https://instagram.com/molefrog"
             >
-              Unsplash
+              Instagram
             </a>
           </div>
         </div>
