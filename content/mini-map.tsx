@@ -38,6 +38,8 @@ import useLeaderImg from "@/public/showcase/use-leader.webp";
 import wultraThumbImg from "@/public/showcase/wultra-thumb.webp";
 import wultraImg from "@/public/showcase/wultra.webp";
 import reactTricksVideo from "@/public/speaking/multiplayer-demo.mp4";
+import riddlemethisVideo from "@/public/showcase/riddlemethis.mp4";
+import riddlemethisThumbImg from "@/public/showcase/riddlemethis-thumb.gif";
 
 import Image from "next/image";
 import { ComponentProps } from "react";
@@ -54,9 +56,16 @@ type Project = Resource & {
   url: string;
 };
 
-console.log(spoiledVideo);
-
 const projects: Project[] = [
+  {
+    thumb: riddlemethisThumbImg,
+    video: riddlemethisVideo,
+    aspectRatio: 1114 / 720,
+    description:
+      "Crafted (code+design) a social game for guessing the prompt of an AI generated image. Runs on a real-time stable diffusion API.",
+    tags: ["2024", "Gen AI"],
+    url: "https://riddlemethis.com",
+  },
   {
     thumb: spoiledThumbImg,
     video: spoiledVideo,
