@@ -3,6 +3,20 @@
   padding-right: 64px;
 }
 
+.speaking__header {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 24px;
+  justify-content: center;
+  padding-bottom: 12px;
+}
+
+.speaking__title {
+  font: var(--type-text-medium);
+  margin: 0;
+}
+
 .speaking__talk {
   display: flex;
   flex-flow: row nowrap;
@@ -122,11 +136,6 @@
   width: 100%;
   transform: rotate(-3deg);
   color: var(--color-gray-50);
-}
-
-.speaking__footer {
-  padding: 32px 0 48px 0;
-  text-align: center;
 }
 
 .speaking__nav-btn {

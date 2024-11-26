@@ -52,6 +52,15 @@ export default function Speaking() {
   return (
     <main>
       <Container placement="outer">
+        <div className="speaking__header">
+          <Link href="/speaking/all" className="speaking__nav-btn">
+            <ListIcon />
+            View All Chronologically
+          </Link>
+        </div>
+      </Container>
+
+      <Container placement="outer">
         <div className="speaking">
           {/* CSS Paint API talk */}
           <div className="speaking__talk">
@@ -532,13 +541,6 @@ export default function Speaking() {
               </div>
             </div>
           </section>
-
-          <div className="speaking__footer">
-            <Link href="/speaking/all" className="speaking__nav-btn">
-              <ListIcon />
-              Show As List
-            </Link>
-          </div>
         </div>
       </Container>
     </main>
