@@ -6,6 +6,14 @@ import { BackIcon } from "../icons";
 
 const talks = [
   {
+    title: "The challenges of web apps: what we've solved and what's next?",
+    conference: "JSConf.JP",
+    city: "Tokyo",
+    country: "JP",
+    flag: "🇯🇵",
+    date: "2024-11-23",
+  },
+  {
     title: '"Spoiled": Leveraging CSS Paint API for Realistic Particle Animation',
     conference: "HelsinkiJS",
     city: "Helsinki",

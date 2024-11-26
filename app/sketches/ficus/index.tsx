@@ -6,7 +6,6 @@ import clsx from "clsx";
 import { useLocalStorage } from "usehooks-ts";
 
 // Importing the createPoll function from the provided CDN
-import "./ficus-widget.d.ts";
 import { createPoll } from "https://ficus.io/widget.js";
 
 // API for fetching poll state on startup and real-time voting
