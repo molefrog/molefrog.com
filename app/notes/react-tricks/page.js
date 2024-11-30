@@ -27,7 +27,7 @@ export default async function Index(props) {
           <WrapBalancer>React Tricks: Fast, Fit and Fun</WrapBalancer>
         </h1>
 
-        <WrapBalancer>
+        <div className="article__description">
           Lessons and hacks learned from developing a{" "}
           <ShowcaseLink
             href="https://github.com/molefrog/wouter"
@@ -36,7 +36,11 @@ export default async function Index(props) {
           >
             micro-library
           </ShowcaseLink>
-        </WrapBalancer>
+        </div>
+
+        <div className="article__info">
+          <div className="article__date">November 30, 2024</div>
+        </div>
       </Container>
 
       <Container placement="inner">
