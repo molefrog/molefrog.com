@@ -26,6 +26,7 @@
   --type-text-regular: 400 18px / 30px var(--font-sans);
   --type-text-medium: 400 20px / 32px var(--font-sans);
   --type-text-large: 500 24px / 36px var(--font-sans);
+  --type-text-post: 400 19px / 30px var(--font-sans);
 
   --type-header-large: 500 italic 48px / 52px var(--font-serif);
   --type-header-medium: 500 italic 39px / 48px var(--font-serif);
@@ -43,7 +44,7 @@
   --color-gray-500: #71717a;
   --color-gray-600: #52525b;
   --color-gray-700: #3f3f46;
-  --color-gray-800: #27272a;
+  --color-gray-800: #262626;
   --color-gray-900: #18181b;
 
   --color-accent-200: #738efc;
@@ -66,6 +67,7 @@
     --type-text-regular: 400 17px / 28px var(--font-sans);
     --type-text-medium: 400 18px / 30px var(--font-sans);
     --type-text-large: 500 20px / 30px var(--font-sans);
+    --type-text-post: 400 18px / 28px var(--font-sans);
 
     --type-header-large: 500 italic 36px / 39px var(--font-serif);
     --type-header-medium: 500 italic 32px / 38px var(--font-serif);

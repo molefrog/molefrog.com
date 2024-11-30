@@ -1,6 +1,5 @@
 .article {
   --type-article-header: 600 normal 58px / 60px var(--font-serif);
-  --type-text-content: 400 19px / 1.66 var(--font-sans);
   --type-article-title: var(--type-text-large);
 
   padding-bottom: 96px;
@@ -9,7 +8,6 @@
 @media (max-width: 768px) {
   .article {
     --type-article-header: 600 38px / 42px var(--font-serif);
-    --type-text-content: 400 17px / 28px var(--font-sans);
   }
 
   .article__header {
@@ -66,8 +64,8 @@
     --notion-max-width: var(--inner-grid-width);
     --notion-font: var(--font-sans);
     padding: 0;
-    font: var(--type-text-content);
-    color: var(--color-gray-900);
+    font: var(--type-text-post);
+    color: var(--color-gray-800);
   }
 
   & ::selection {

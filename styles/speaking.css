@@ -147,7 +147,7 @@
   vertical-align: middle;
   align-items: center;
   box-shadow: inset 0px 0px 0px 1px var(--color-gray-200);
-  color: var(--color-gray-500);
+  color: var(--color-gray-600);
   text-decoration: none;
   transition: box-shadow 0.2s ease;
   font: var(--type-text-small);
