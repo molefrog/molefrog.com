@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import cookie from "cookie";
+import * as cookie from "cookie";
 
 const COOKIE_NAME = "_rt-id";
 
