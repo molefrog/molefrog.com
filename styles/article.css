@@ -19,13 +19,14 @@
 
 .article__info {
   font: var(--type-text-small);
-  color: var(--color-gray-400);
-  margin-top: 2px;
+  color: var(--color-gray-500);
+  margin-top: 6px;
 }
 
 .article__h1 {
   font: var(--type-article-header);
   color: var(--color-gray-800);
+  letter-spacing: var(--type-ls-header);
   max-width: 480px;
   margin-bottom: 24px;
 }
@@ -40,7 +41,11 @@
   }
 
   .article__h1 {
-    margin-bottom: 12px;
+    margin-bottom: 22px;
+  }
+
+  .article__info {
+    margin-top: 4px;
   }
 }
 
