@@ -189,13 +189,16 @@
 
 .speaking-talk-link__icon {
   flex: 0 0 auto;
-  width: 20px;
-  color: var(--color-gray-600);
   display: flex;
   align-items: center;
   justify-content: center;
 
-  .speaking-talk-link:hover & {
+  & > svg {
+    width: 20px;
+    color: var(--color-gray-600);
+  }
+
+  .speaking-talk-link:hover & svg {
     color: var(--color-gray-900);
   }
 }
