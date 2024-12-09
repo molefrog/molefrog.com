@@ -52,5 +52,11 @@
 
 .speaking-all__nav {
   display: flex;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .speaking-all__nav {
+    margin-bottom: 12px;
+  }
 }
