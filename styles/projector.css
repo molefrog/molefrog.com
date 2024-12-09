@@ -3,8 +3,7 @@
 
   border-radius: 12px;
   width: 380px;
-  min-height: 260px;
-  aspect-ratio: 4 / 3;
+  min-height: 240px;
   background-color: var(--color-gray-50);
 
   display: flex;
@@ -26,7 +25,7 @@
   overflow: auto;
   scroll-snap-type: x mandatory;
   scroll-snap-stop: always;
-  padding: 32px 0;
+  padding: 24px 0;
 }
 
 .projector__slides::-webkit-scrollbar {
@@ -46,6 +45,8 @@
   box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   position: relative;
+  cursor: pointer;
+  user-select: none;
 }
 
 .projector__slide-img {
@@ -55,7 +56,9 @@
 }
 
 .projector__progress {
-  height: 11px;
+  --step-w: 20px;
+  --step-h: 7px;
+  height: calc(var(--step-h) + 1px);
 
   background: white;
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05), inset 0px 2px 0px rgba(0, 0, 0, 0.07);
@@ -64,9 +67,21 @@
   gap: 1px;
   padding: 0px 1px;
 
-  width: calc(var(--total) * 10px);
+  width: calc(var(--total) * var(--step-w));
   position: relative;
-  margin-top: -4px;
+}
+
+.projector__progress-control {
+  border-radius: 16px;
+  padding: 10px;
+  margin-top: -12px;
+  margin-bottom: 14px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.projector__progress-control:hover {
+  background: rgba(0, 0, 0, 0.03);
 }
 
 .projector__progress-mark {
@@ -78,10 +93,10 @@
 }
 
 .projector__progress-step {
-  height: 10px;
-  width: 10px;
+  height: var(--step-h);
+  width: var(--step-w);
   margin-top: 1px;
-  border-radius: 10px;
+  border-radius: 16px;
   background-color: var(--color-accent-400);
   box-shadow: inset 0px 1px 2px rgba(255, 255, 255, 0.4), 0px 0px 0px 0.5px var(--color-accent-300);
 
