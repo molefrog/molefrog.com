@@ -7,7 +7,13 @@ import { Projector } from "@/components/Projector";
 import { Container } from "@/components/Grid";
 import { ShowcaseLink } from "@/components/Showcase";
 import { SpeakingConference } from "@/components/SpeakingConference";
-import { ListIcon } from "./icons";
+import {
+  Play as PlayIcon,
+  Presentation as PresentationIcon,
+  List as ListIcon,
+  Document as DocumentIcon,
+  CursorRipple as CursorRippleIcon,
+} from "@/components/icons";
 
 import viipuriLibraryImg from "@/public/speaking/viipuri-library.webp";
 import hooksCharactersImg from "@/public/speaking/hooks-characters.webp";
@@ -53,6 +59,14 @@ import socketIcon from "@/public/speaking/anicon-socket.png";
 import radioIcon from "@/public/speaking/anicon-radio.png";
 import phoneIcon from "@/public/speaking/anicon-phone.png";
 
+const TalkResourceLink = ({ icon, body, details, href }) => (
+  <Link href={href} className="speaking-talk-link">
+    <div className="speaking-talk-link__icon">{icon}</div>
+    <span className="speaking-talk-link__text">{body}</span>
+    {details && <span className="speaking-talk-link__details">{details}</span>}
+  </Link>
+);
+
 export default function Speaking() {
   return (
     <main>
@@ -74,6 +88,21 @@ export default function Speaking() {
                 title="The challenges of web apps: what we've solved and what's next?"
                 slides={[webappsSlide_1, webappsSlide_2, webappsSlide_3, webappsSlide_4]}
               />
+
+              <div className="speaking__talk-links">
+                <TalkResourceLink
+                  icon={<PlayIcon />}
+                  body="Watch"
+                  details="33 min"
+                  href="https://www.youtube.com/watch?v=NGNTJ1q9Bjo"
+                />
+
+                <TalkResourceLink
+                  icon={<PresentationIcon />}
+                  body="Slides"
+                  href="https://speakerdeck.com/molefrog/the-challenges-of-web-apps-what-weve-solved-and-whats-next"
+                />
+              </div>
             </div>
 
             <div className="speaking__info">
@@ -140,6 +169,14 @@ export default function Speaking() {
                 title="Leveraging CSS Paint API for Realistic Particle Animation"
                 slides={[spoiledSlide_1, spoiledSlide_2]}
               />
+
+              <div className="speaking__talk-links speaking__talk-links--single">
+                <TalkResourceLink
+                  icon={<CursorRippleIcon />}
+                  body="Demos"
+                  href="https://spoiler-talk.vercel.app/"
+                />
+              </div>
             </div>
 
             <div className="speaking__info">
@@ -215,6 +252,15 @@ export default function Speaking() {
                 title="React Tricks: Fast, Fit and Fun"
                 slides={[tricksSlide_1, tricksSlide_2, tricksSlide_3, tricksSlide_4, tricksSlide_5]}
               />
+
+              <div className="speaking__talk-links speaking__talk-links--single">
+                <TalkResourceLink
+                  icon={<DocumentIcon />}
+                  body="Blog post"
+                  href="/notes/react-tricks"
+                  details="15 min"
+                />
+              </div>
             </div>
 
             <div className="speaking__info">
@@ -329,6 +375,21 @@ export default function Speaking() {
                 title="React Hooks in action"
                 slides={[hooksSlide_1, hooksSlide_2, hooksSlide_3, hooksSlide_4]}
               />
+
+              <div className="speaking__talk-links">
+                <TalkResourceLink
+                  icon={<PlayIcon />}
+                  body="Watch"
+                  details="34 min"
+                  href="https://youtu.be/bFYxkONAmn8"
+                />
+
+                <TalkResourceLink
+                  icon={<PresentationIcon />}
+                  body="Slides"
+                  href="https://speakerdeck.com/molefrog/hooks-in-action-implementing-a-1kb-react-router"
+                />
+              </div>
             </div>
 
             <div className="speaking__info">
@@ -397,6 +458,14 @@ export default function Speaking() {
                 title="React Animations talk"
                 slides={[animSlide_1, animSlide_2, animSlide_3, animSlide_4]}
               />
+
+              <div className="speaking__talk-links speaking__talk-links--single">
+                <TalkResourceLink
+                  icon={<CursorRippleIcon />}
+                  body="Slides + Demos"
+                  href="https://molefrog.com/etc/stateful-animations/"
+                />
+              </div>
             </div>
 
             <div className="speaking__info">

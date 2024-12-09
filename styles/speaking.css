@@ -170,9 +170,86 @@
   box-shadow: inset 0px 0px 0px 2px var(--color-accent);
 }
 
+.speaking-talk-link {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  border-radius: 12px;
+  gap: 12px;
+  background-color: var(--color-gray-50);
+  text-decoration: none;
+  color: inherit;
+  padding: 8px 16px;
+  white-space: nowrap;
+}
+
+.speaking-talk-link:hover {
+  background-color: var(--color-gray-100);
+}
+
+.speaking-talk-link__icon {
+  flex: 0 0 auto;
+  width: 20px;
+  color: var(--color-gray-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .speaking-talk-link:hover & {
+    color: var(--color-gray-900);
+  }
+}
+
+.speaking-talk-link__text {
+  flex: 1 1 auto;
+  font: var(--type-text-small);
+  text-decoration: inherit;
+  color: var(--color-gray-600);
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  .speaking-talk-link:hover & {
+    color: var(--color-gray-900);
+  }
+}
+
+.speaking-talk-link__details {
+  font: var(--type-text-x-small);
+  color: var(--color-gray-400);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding-top: 2px;
+  margin-left: 6px;
+}
+
+.speaking__talk-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+
+  &.speaking__talk-links--single {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .speaking__talk-links {
+    width: 320px;
+  }
+}
+
+@media (max-width: 640px) {
+  .speaking__talk-links {
+    width: 100%;
+  }
+}
+
 @media (max-width: 1024px) {
   .speaking {
-    padding-top: 0;
+    padding-top: 16px;
     padding-right: 0;
   }
 

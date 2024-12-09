@@ -2,7 +2,7 @@ import React from "react";
 import { getYear, format } from "date-fns";
 import { Container } from "@/components/Grid";
 import Link from "next/link";
-import { BackIcon } from "../icons";
+import { Back as BackIcon } from "@/components/icons";
 
 const talks = [
   {
