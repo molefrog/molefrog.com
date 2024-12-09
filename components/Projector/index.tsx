@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image, { StaticImageData } from "next/image";
 import clsx from "clsx";
+import { animate } from "motion/react";
 
 interface ProjectorProps {
   slides: StaticImageData[];
@@ -38,6 +39,36 @@ export const Projector: React.FC<ProjectorProps> = ({ slides, title }) => {
     };
   }, [slides.length]);
 
+  const animationRef = useRef<{ stop: () => void }>();
+
+  const scrollToSlide = async (index: number) => {
+    const el = slidesRef.current;
+    if (!el) return;
+
+    // Cancel any existing animation
+    animationRef.current?.stop();
+
+    const slideWidth = el.clientWidth;
+    const targetScroll = slideWidth * index;
+
+    // Disable scroll snap before animation
+    el.style.scrollSnapType = "none";
+
+    // Save new animation reference
+    animationRef.current = animate(el.scrollLeft, targetScroll, {
+      onUpdate: (latest) => {
+        el.scrollLeft = latest;
+      },
+      duration: 0.4,
+      ease: "anticipate",
+    });
+
+    await animationRef.current;
+
+    // Restore scroll snap after animation
+    el.style.scrollSnapType = "x mandatory";
+  };
+
   const shouldDisplayProgress = slides.length > 1;
 
   return (
@@ -61,6 +92,7 @@ export const Projector: React.FC<ProjectorProps> = ({ slides, title }) => {
       {shouldDisplayProgress && (
         <div
           className="projector__progress"
+          onClick={() => scrollToSlide((currentSlide + 1) % slides.length)}
           style={{ "--total": slides.length, "--current": currentSlide } as React.CSSProperties}
         >
           {Array.from({ length: slides.length - 1 }).map((_, i) => (
