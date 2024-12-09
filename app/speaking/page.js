@@ -43,6 +43,11 @@ import tricksSlide_5 from "@/public/speaking/react-tricks-5.webp";
 import spoiledSlide_1 from "@/public/speaking/spoiled-1.webp";
 import spoiledSlide_2 from "@/public/speaking/spoiled-2.webp";
 
+import webappsSlide_1 from "@/public/speaking/webapps-1.webp";
+import webappsSlide_2 from "@/public/speaking/webapps-2.webp";
+import webappsSlide_3 from "@/public/speaking/webapps-3.webp";
+import webappsSlide_4 from "@/public/speaking/webapps-4.webp";
+
 import milkIcon from "@/public/speaking/anicon-milk.png";
 import socketIcon from "@/public/speaking/anicon-socket.png";
 import radioIcon from "@/public/speaking/anicon-radio.png";
@@ -62,6 +67,72 @@ export default function Speaking() {
 
       <Container placement="outer">
         <div className="speaking">
+          {/* Web Apps Evolution talk */}
+          <div className="speaking__talk">
+            <div className="speaking__slides">
+              <Projector
+                title="The challenges of web apps: what we've solved and what's next?"
+                slides={[webappsSlide_1, webappsSlide_2, webappsSlide_3, webappsSlide_4]}
+              />
+            </div>
+
+            <div className="speaking__info">
+              <h3 className="speaking__head">
+                <WrapBalancer>
+                  The challenges of web apps: what we&apos;ve solved and what&apos;s next?
+                </WrapBalancer>
+              </h3>
+
+              <div className="speaking__desc">
+                <p>
+                  This talk is my overview of how web apps evolved over time: from traditional CGI
+                  to full-stack SSR frameworks and local-first apps. By using an analogy of a
+                  physical distance between a human and computer, I tried to prove my point that the
+                  variety and complexity of tools we have now makes total sense. As developers, we
+                  are trying to wipe the boundary between desktop and web UX, while iterating on the
+                  platform and dev tools. I also included a simple explanation of concepts like
+                  partial hydration, resumability, islands architecture and signals.
+                </p>
+
+                <p>
+                  The second part of this talk is an overview of the arising web development trends
+                  (all-in-one tooling, local-first, backend-first) and some speculations of
+                  what&apos;s coming next: for example, can AI run entirely in the browser?
+                </p>
+
+                <p>
+                  The illustrations and visual style for this talk were designed by{" "}
+                  <Link
+                    className="solid-link"
+                    href="https://www.instagram.com/crimina1iza/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Liza Zaft
+                  </Link>
+                  .
+                </p>
+              </div>
+
+              <div className="speaking__confs">
+                <SpeakingConference
+                  year="2024"
+                  format="link"
+                  href="https://jsconf.jp/2024/talk/alexey-taktarov/"
+                >
+                  JSConf.JP 2024
+                </SpeakingConference>
+                <SpeakingConference
+                  year="2024"
+                  format="recording"
+                  href="https://www.youtube.com/watch?v=NGNTJ1q9Bjo"
+                >
+                  CopenhagenJS 2024
+                </SpeakingConference>
+              </div>
+            </div>
+          </div>
+
           {/* CSS Paint API talk */}
           <div className="speaking__talk">
             <div className="speaking__slides">

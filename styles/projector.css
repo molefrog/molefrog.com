@@ -47,6 +47,11 @@
   position: relative;
   cursor: pointer;
   user-select: none;
+  transition: scale 0.1s ease;
+}
+
+.projector__slide:hover {
+  scale: 0.99;
 }
 
 .projector__slide-img {
