@@ -11,7 +11,7 @@ import {
   useMotionValue,
   usePresence,
   useTransform,
-} from "framer-motion";
+} from "motion/react";
 import { useAtomValue } from "jotai";
 import { StaticImageData } from "next/image";
 
@@ -82,12 +82,12 @@ function Sticker({
               backgroundPositionX: ["40%", "0%"],
               opacity: [0, 0.3, 0.2],
             },
-            { duration: 1.2, ease: "easeOut", delay: 0.2 },
+            { duration: 1.2, ease: "easeOut", delay: 0.2 }
           ).then(() => {
             return animate(
               "." + styles.shine,
               { opacity: [0.2, 0.0] },
-              { duration: 1, ease: "easeOut" },
+              { duration: 1, ease: "easeOut" }
             );
           }),
         ]);
@@ -99,7 +99,7 @@ function Sticker({
         await animate(
           scope.current,
           { opacity: 0, filter: "blur(24px)" },
-          { duration: 0.6, ease: "circIn" },
+          { duration: 0.6, ease: "circIn" }
         );
 
         safeToRemove();

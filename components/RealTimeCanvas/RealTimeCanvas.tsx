@@ -1,6 +1,6 @@
 import { id, init, tx } from "@instantdb/react";
 import { useMouse } from "@uidotdev/usehooks";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "motion/react";
 
 import { useEffect, useState } from "react";
 import useSound from "use-sound";
@@ -128,7 +128,7 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
       })
       .map((s, idx) => {
         return [s.id, idx];
-      }),
+      })
   );
 
   return (
