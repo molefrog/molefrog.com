@@ -181,6 +181,7 @@
   color: inherit;
   padding: 8px 16px;
   white-space: nowrap;
+  transition: background-color 0.15s ease;
 }
 
 .speaking-talk-link:hover {
