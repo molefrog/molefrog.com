@@ -10,6 +10,7 @@ import { RecentBlogPosts } from "@/components/RecentBlogPosts";
 import domikImg from "@/public/images/domik-highlight.webp";
 import wouterImg from "@/public/images/wouter-highlight.webp";
 import githubImg from "@/public/showcase/github.webp";
+import firaImg from "@/public/showcase/fira.webp";
 import speakingVideo from "@/public/showcase/speaking-use-state.mp4";
 import resumeBuilderVideo from "@/public/showcase/resume-io-builder.mp4";
 import domikLtdVideo from "@/public/showcase/domik-ltd.mp4";
@@ -98,9 +99,11 @@ export default function Page() {
 
             <p>
               Currently, I am building{" "}
-              <Link href="https://firaresearch.com" className="solid-link">
-                Fira (YC W25)
-              </Link>
+              <Showcase media={{ image: firaImg }}>
+                <Link href="https://firaresearch.com" className="solid-link">
+                  Fira (YC W25)
+                </Link>
+              </Showcase>
               , an AI-powered financial research assistant. We're on a mission to help analysts at
               M&A and investment firms accelerate their research and due diligence work. Drop me a
               line if you're interested in joining us.
