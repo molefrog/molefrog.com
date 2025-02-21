@@ -38,7 +38,7 @@ export default function Page() {
           <div className="about__text">
             <p></p>
             <p>
-              I am a full-stack engineer,{" "}
+              I am a founder,{" "}
               <Showcase media={{ video: speakingVideo, aspectRatio: 2.2 }} prefer="below">
                 <Link className="solid-link" href="/speaking">
                   conference speaker
@@ -53,8 +53,9 @@ export default function Page() {
               >
                 open-source
               </ShowcaseLink>{" "}
-              maintainer and founder. I love designing UIs, playing around with animations, and
-              writing small yet expressive programs. The tools I use to get the job done are:{" "}
+              maintainer and full-stack engineer. I love designing UIs, playing around with
+              animations, and writing small yet expressive programs. The tools I use to get the job
+              done are:{" "}
               <ExpandInline
                 items={[
                   "Figma",
@@ -96,8 +97,13 @@ export default function Page() {
             </p>
 
             <p>
-              If you&apos;d like to collaborate or start a business together, feel free to reach
-              out! I&apos;m also open to contract work, consulting and non-profit projects.
+              Currently, I am building{" "}
+              <Link href="https://firaresearch.com" className="solid-link">
+                Fira (YC W25)
+              </Link>
+              , an AI-powered financial research assistant. We're on a mission to help analysts at
+              M&A and investment firms accelerate their research and due diligence work. Drop me a
+              line if you're interested in joining us.
             </p>
           </div>
         </div>
