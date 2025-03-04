@@ -104,9 +104,9 @@ export default function Page() {
                   Fira (YC W25)
                 </Link>
               </Showcase>
-              , an AI-powered financial research assistant. We're on a mission to help analysts at
+              , an AI-powered financial research assistant. We&apos;re on a mission to help analysts at
               M&A and investment firms accelerate their research and due diligence work. Drop me a
-              line if you're interested in joining us.
+              line if you&apos;re interested in joining us.
             </p>
           </div>
         </div>
