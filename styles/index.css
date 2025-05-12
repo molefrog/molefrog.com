@@ -19,6 +19,7 @@
 @import "./404.css";
 @import "./speaking-all.css";
 @import "./expand-inline.css";
+@import "./friends.css";
 
 :root {
   --type-text-x-small: 500 13px / 22px var(--font-sans);

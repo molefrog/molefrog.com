@@ -55,7 +55,16 @@ const TopBar = () => {
               })}
               href="/media"
             >
-              In the Media
+              Mentions
+            </Link>
+
+            <Link
+              className={clsx("top-bar__link", {
+                ["top-bar__link--active"]: pathname === "/friends",
+              })}
+              href="/friends"
+            >
+              Friends
             </Link>
 
             <Link
