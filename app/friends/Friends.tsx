@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { motion, LayoutGroup } from "framer-motion";
+import { motion, LayoutGroup, AnimatePresence } from "framer-motion";
 import { Container } from "@/components/Grid";
 import Image from "next/image";
 
@@ -10,9 +10,6 @@ interface Profile {
   bio: string;
   avatar?: string;
 }
-
-const AVATAR_URL =
-  "https://images.unsplash.com/profile-1557050951810-1bd1eabd4ab4?w=32&dpr=2&crop=faces&bg=%23fff&h=32&auto=format&fit=crop&q=60&ixlib=rb-4.0.3";
 
 const profiles: Profile[] = [
   {
@@ -77,6 +74,50 @@ const profiles: Profile[] = [
   },
 ];
 
+interface PreviewModalProps {
+  profile: Profile | null;
+  onClose: () => void;
+}
+
+function PreviewModal({ profile, onClose }: PreviewModalProps) {
+  if (!profile) return null;
+
+  return (
+    <motion.div
+      className="friends__overlay"
+      onClick={onClose}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+    >
+      <motion.div
+        className="friends__modal"
+        layout
+        layoutId={`item-${profile.website}`}
+        transition={{
+          type: "spring",
+          duration: 0.5,
+        }}
+      >
+        <button className="friends__close-button" onClick={onClose}>
+          ×
+        </button>
+        <div className="friends__modal-name">{profile.name}</div>
+        <div className="friends__modal-bio">{profile.bio}</div>
+        <a
+          href={`https://${profile.website}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="friends__website-button"
+        >
+          {profile.website}
+        </a>
+      </motion.div>
+    </motion.div>
+  );
+}
+
 export default function Friends() {
   const [preview, setPreview] = useState<Profile | null>(null);
   const [friendProfiles, setFriendProfiles] = useState<Profile[]>(profiles);
@@ -88,6 +129,7 @@ export default function Friends() {
   }, []);
 
   const handleItemClick = (item: Profile) => setPreview(item);
+  const handleClosePreview = () => setPreview(null);
 
   return (
     <Container placement="inner">
@@ -99,18 +141,18 @@ export default function Friends() {
         </div>
 
         <LayoutGroup>
-          <motion.div
-            layout
-            className="friends__list"
-            transition={{ layout: { duration: 0.8, ease: "easeInOut" } }}
-          >
-            {friendProfiles.map((item) => {
-              const isActive = preview?.website === item.website;
-              return (
+          <div className="friends__container">
+            <motion.div
+              layout
+              className="friends__list"
+              transition={{ layout: { duration: 0.8, ease: "easeInOut" } }}
+            >
+              {friendProfiles.map((item) => (
                 <motion.div
                   key={item.website}
                   layout
-                  className={`friends__item ${isActive ? "friends__item--active" : ""}`}
+                  layoutId={`item-${item.website}`}
+                  className="friends__item"
                   onClick={() => handleItemClick(item)}
                   transition={{ duration: 0.5, type: "spring" }}
                 >
@@ -124,43 +166,16 @@ export default function Friends() {
                     />
                   </div>
 
-                  {/* Always present pass-through layer for shared layout animation */}
-                  <motion.div
-                    layoutId={item.website}
-                    className="friends__item-overlay"
-                    style={{ visibility: isActive ? "visible" : "hidden" }}
-                    transition={{ duration: 0.5, type: "spring" }}
-                  />
-
                   <div className="friends__info">
-                    <div
-                      className={`friends__website ${isActive ? "friends__website--active" : ""}`}
-                    >
-                      {item.website}
-                    </div>
+                    <div className="friends__website">{item.website}</div>
                     <div className="friends__name">{item.name}</div>
                   </div>
                 </motion.div>
-              );
-            })}
-          </motion.div>
-
-          {preview && (
-            <motion.div
-              key={preview.website}
-              layoutId={preview.website}
-              layout
-              transition={{
-                layout: { duration: 0.6, type: "spring", bounce: 0.2 },
-                ease: "anticipate",
-              }}
-              className="friends__preview"
-            >
-              <div className="friends__preview-website">{preview.website} →</div>
-              <div className="friends__preview-name">{preview.name}</div>
-              <p className="friends__preview-bio">{preview.bio}</p>
+              ))}
             </motion.div>
-          )}
+
+            {preview && <PreviewModal profile={preview} onClose={handleClosePreview} />}
+          </div>
         </LayoutGroup>
       </section>
     </Container>
