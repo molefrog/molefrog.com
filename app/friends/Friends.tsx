@@ -3,6 +3,12 @@ import { useEffect, useState } from "react";
 import { motion, LayoutGroup, AnimatePresence } from "framer-motion";
 import { Container } from "@/components/Grid";
 import Image from "next/image";
+import clsx from "clsx";
+
+import ethanRubens from "@/public/friends/ethan-rubens.png";
+import tikhonBelousko from "@/public/friends/tikhon-belousko.svg";
+import katyaVakulenko from "@/public/friends/katya-vakulenko.jpg";
+import annaLiubimova from "@/public/friends/anna-liubimova.jpg";
 
 interface Profile {
   website: string;
@@ -15,61 +21,61 @@ const profiles: Profile[] = [
   {
     website: "elu.sh",
     name: "Eleonora Drykina",
-    bio: 'A creative developer with a fashion background and 2025 DEVINE program graduate, interested in WebGL, Three.js, full-stack frameworks, and finding creative solutions for "boring" problems.',
+    bio: "A creative developer with a fashion background and 2025 DEVINE program graduate, working with WebGL, Three.js, full-stack frameworks",
     avatar: `https://www.google.com/s2/favicons?domain=elu.sh&sz=128`,
   },
   {
     website: "soaniel.xyz",
     name: "Anna Liubimova",
     bio: "An interior architect and researcher based in Copenhagen, Denmark, curating interior projects, research, small-scale objects, and reflective writings.",
-    avatar: `https://www.google.com/s2/favicons?domain=soaniel.xyz&sz=128`,
+    avatar: annaLiubimova.src,
   },
   {
     website: "tikhon.io",
     name: "Tikhon Belousko",
-    bio: "A designer and engineer in London specializing in product and full-stack design, with experience co-founding and building multiple startups.",
-    avatar: `https://www.google.com/s2/favicons?domain=tikhon.io&sz=128`,
+    bio: "Designer, engineer and former co-founder of resume.io. Based in London.",
+    avatar: tikhonBelousko.src,
   },
   {
     website: "ethan-rubens.com",
     name: "Ethan Rubens",
-    bio: "Designer, researcher, and creative technologist—self-described technical anthropologist and creative engineer with anthropology and studio art background, holding MA/MSc degrees in Innovation Design Engineering.",
-    avatar: `https://www.google.com/s2/favicons?domain=ethan-rubens.com&sz=128`,
+    bio: "Anthropologist turned product designer. Examines culture to build empathetic tools, custom hardware, and immersive digital interactions.",
+    avatar: ethanRubens.src,
   },
   {
     website: "sashayaguza.com",
     name: "Sasha Yaguza",
-    bio: "A multidisciplinary visual designer and art director specializing in editorial projects, brand identities, web design, and UI/UX work for hospitality, real estate, and publishing.",
+    bio: "A multidisciplinary visual designer and art director specializing in editorial projects, brand identities, web design, and UI/UX work",
     avatar: `https://www.google.com/s2/favicons?domain=sashayaguza.com&sz=128`,
   },
   {
     website: "geranin.xyz",
     name: "Andrey Geranin",
-    bio: "Head of Product building, launching, and scaling digital products; recently led launches of pdf.net, resume.co, and contracts.net, with a background in product design and management.",
+    bio: "Head of Product building, launching, and scaling digital products such as pdf.net, resume.co, and contracts.net",
     avatar: `https://www.google.com/s2/favicons?domain=geranin.xyz&sz=128`,
   },
   {
     website: "jeetiss.vercel.app",
     name: "Dima Ivakhnenko",
-    bio: "A personal page owner known as Dima Ivakhnenko, showcasing contact links and portfolio highlights.",
+    bio: "Frontend tooling magician and maintainer of react-pdf. Experienced tree-shaker.",
     avatar: `https://avatars2.githubusercontent.com/u/6726016?s=460&v=4`,
   },
   {
     website: "esafev.com",
     name: "Vlad Esafev",
-    bio: 'Writer and blogger hosting essays such as "Burn Your Journals Out" and "Practicing the Art of Possession," with posts dating back to 2022 and updated as recently as May 2025.',
+    bio: "Aspiring design engineer. Minimalist.",
     avatar: `https://github.com/esafev/esafev/raw/main/me.jpg`,
   },
   {
     website: "katyavakulenko.art",
     name: "Katya Vakulenko",
-    bio: 'Illustrator based in Moscow working independently on comics and exploring personal themes in her work, with a playful style described as "Art that feels like fizzy drinks."',
-    avatar: `https://www.google.com/s2/favicons?domain=katyavakulenko.art&sz=128`,
+    bio: "Katya is an illustrator based in Tbilisi, Georgia. She takes joy in exploring ways to express conflicting emotions by bringing vibrant energy to her pieces and experimenting with visual techniques.",
+    avatar: katyaVakulenko.src,
   },
   {
     website: "blvdmitry.me",
     name: "Dmitry Belyaev",
-    bio: "Principal front-end engineer based in Amsterdam, working on the design system and web platform at Booking.com; passionate about building user interfaces and dev tools that make complexity invisible through great developer and user experiences.",
+    bio: "Principal front-end engineer based in Amsterdam, working on the design system and web platform at Booking.com. Creator of Reshaped.so design system.",
     avatar: `https://www.google.com/s2/favicons?domain=blvdmitry.me&sz=128`,
   },
 ];
@@ -142,39 +148,51 @@ export default function Friends() {
 
         <LayoutGroup>
           <div className="friends__container">
-            <motion.div
-              layout
-              className="friends__list"
-              transition={{ layout: { duration: 0.8, ease: "easeInOut" } }}
-            >
-              {friendProfiles.map((item) => (
-                <motion.div
-                  key={item.website}
-                  layout
-                  layoutId={`item-${item.website}`}
-                  className="friends__item"
-                  onClick={() => handleItemClick(item)}
-                  transition={{ duration: 0.5, type: "spring" }}
-                >
-                  {/* Avatar */}
-                  <div className="friends__avatar">
-                    <Image
-                      src={item.avatar || ""}
-                      alt={`${item.name} avatar`}
-                      width={44}
-                      height={44}
-                    />
-                  </div>
+            <div className="friends__list">
+              {friendProfiles.map((item) => {
+                const isActive = item.website === preview?.website;
 
-                  <div className="friends__info">
-                    <div className="friends__website">{item.website}</div>
-                    <div className="friends__name">{item.name}</div>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
+                return (
+                  <motion.div
+                    key={item.website}
+                    layout
+                    className={clsx("friends__item", {
+                      "friends__item--active": isActive,
+                    })}
+                    onClick={() => handleItemClick(item)}
+                    transition={{ duration: 0.5, type: "spring" }}
+                  >
+                    <motion.div
+                      className="friends__item-inner"
+                      layoutId={`item-${item.website}`}
+                      layout
+                      transition={{ duration: 0.3, type: "spring", bounce: 0.1 }}
+                    >
+                      <motion.div className="friends__item-content">
+                        {/* Avatar */}
+                        <div className="friends__avatar">
+                          <Image
+                            src={item.avatar || ""}
+                            alt={`${item.name} avatar`}
+                            width={44}
+                            height={44}
+                          />
+                        </div>
 
-            {preview && <PreviewModal profile={preview} onClose={handleClosePreview} />}
+                        <div className="friends__info">
+                          <div className="friends__website">{item.website}</div>
+                          <div className="friends__name">{item.name}</div>
+                        </div>
+                      </motion.div>
+                    </motion.div>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            <AnimatePresence>
+              {preview && <PreviewModal profile={preview} onClose={handleClosePreview} />}
+            </AnimatePresence>
           </div>
         </LayoutGroup>
       </section>
