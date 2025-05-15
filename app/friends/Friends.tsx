@@ -4,6 +4,9 @@ import { motion, LayoutGroup, AnimatePresence } from "framer-motion";
 import { Container } from "@/components/Grid";
 import Image from "next/image";
 import clsx from "clsx";
+import { ArrowTopRight } from "@/components/icons";
+import { useClickAway } from "@uidotdev/usehooks";
+import { useHotkeys } from "react-hotkeys-hook";
 
 import ethanRubens from "@/public/friends/ethan-rubens.png";
 import tikhonBelousko from "@/public/friends/tikhon-belousko.svg";
@@ -86,12 +89,18 @@ interface PreviewModalProps {
 }
 
 function PreviewModal({ profile, onClose }: PreviewModalProps) {
+  const ref = useClickAway(() => {
+    onClose();
+  });
+
+  // Add ESC key shortcut to close the modal
+  useHotkeys("esc", () => onClose());
+
   if (!profile) return null;
 
   return (
     <motion.div
       className="friends__overlay"
-      onClick={onClose}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -105,6 +114,7 @@ function PreviewModal({ profile, onClose }: PreviewModalProps) {
           type: "spring",
           duration: 0.5,
         }}
+        ref={ref as React.RefObject<HTMLDivElement>}
       >
         <button className="friends__close-button" onClick={onClose}>
           ×
@@ -118,6 +128,7 @@ function PreviewModal({ profile, onClose }: PreviewModalProps) {
           className="friends__website-button"
         >
           {profile.website}
+          <ArrowTopRight className="friends__button-icon" />
         </a>
       </motion.div>
     </motion.div>

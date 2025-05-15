@@ -69,8 +69,8 @@
 
 .friends__item-overlay {
   position: absolute;
-  pointer-events: none;
   inset: 0;
+  pointer-events: none;
 }
 
 .friends__info {
@@ -105,7 +105,6 @@
 
 .friends__overlay {
   position: absolute;
-  pointer-events: none;
   inset: 0;
   background-color: rgba(255, 255, 255, 0.7);
   z-index: 10;
@@ -163,7 +162,10 @@
 }
 
 .friends__website-button {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   width: 100%;
   padding: 5px;
   background-color: var(--color-gray-100);
@@ -175,6 +177,11 @@
   font-size: 14px;
   text-transform: uppercase;
   transition: background-color 0.2s;
+}
+
+.friends__button-icon {
+  width: 14px;
+  height: 14px;
 }
 
 .friends__website-button:hover {
@@ -232,5 +239,9 @@
 @media (max-width: 480px) {
   .friends__item {
     width: 100%;
+  }
+
+  .friends__container {
+    padding: 16px 4px;
   }
 }
