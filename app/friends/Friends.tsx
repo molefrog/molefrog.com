@@ -12,6 +12,7 @@ import ethanRubens from "@/public/friends/ethan-rubens.png";
 import tikhonBelousko from "@/public/friends/tikhon-belousko.svg";
 import katyaVakulenko from "@/public/friends/katya-vakulenko.jpg";
 import annaLiubimova from "@/public/friends/anna-liubimova.jpg";
+import sergeKazakov from "@/public/friends/serge-kazakov.png";
 
 interface Profile {
   website: string;
@@ -21,6 +22,12 @@ interface Profile {
 }
 
 const profiles: Profile[] = [
+  {
+    website: "kazaimazai.com",
+    name: "Serge Kazakov",
+    bio: "Serge is a software engineer, independent contractor, digital nomad (not exactly), investment enthusiast, and techie. Currently based in Lisbon.",
+    avatar: sergeKazakov.src,
+  },
   {
     website: "elu.sh",
     name: "Eleonora Drykina",
@@ -81,6 +88,12 @@ const profiles: Profile[] = [
     bio: "Principal front-end engineer based in Amsterdam, working on the design system and web platform at Booking.com. Creator of Reshaped.so design system.",
     avatar: `https://www.google.com/s2/favicons?domain=blvdmitry.me&sz=128`,
   },
+  {
+    website: "kemal.earth",
+    name: "Kemal",
+    bio: "Kemal is an earth based design engineer who enjoys building things on (and for) the web.",
+    avatar: `https://www.google.com/s2/favicons?domain=kemal.earth&sz=128`,
+  },
 ];
 
 interface PreviewModalProps {
@@ -112,7 +125,8 @@ function PreviewModal({ profile, onClose }: PreviewModalProps) {
         layoutId={`item-${profile.website}`}
         transition={{
           type: "spring",
-          duration: 0.5,
+          duration: 0.35,
+          bounce: 0.3,
         }}
         ref={ref as React.RefObject<HTMLDivElement>}
       >
@@ -179,7 +193,11 @@ export default function Friends() {
                       layout
                       transition={{ duration: 0.3, type: "spring", bounce: 0.1 }}
                     >
-                      <motion.div className="friends__item-content">
+                      <motion.div
+                        className="friends__item-content"
+                        animate={{ opacity: isActive ? 0 : 1 }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                      >
                         {/* Avatar */}
                         <div className="friends__avatar">
                           <Image
