@@ -49,6 +49,8 @@
   box-shadow: 0px 1px 0px 1px var(--color-gray-100);
   user-select: none;
   text-align: left;
+  display: block;
+  width: 100%;
 }
 
 .friends__item-content {
@@ -117,14 +119,16 @@
 }
 
 .friends__modal {
-  pointer-events: auto;
-  position: relative;
   width: 380px;
   background-color: white;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
-  padding: 12px;
   z-index: 20;
+}
+
+.friends__modal > div {
+  position: relative;
+  padding: 12px;
 }
 
 .friends__close-button {
@@ -250,6 +254,12 @@
 }
 
 @media (max-width: 480px) {
+  .friends__overlay {
+    position: fixed;
+    inset: 0;
+    align-items: center;
+  }
+
   .friends__item {
     width: 100%;
   }

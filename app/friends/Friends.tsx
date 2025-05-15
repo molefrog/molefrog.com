@@ -125,35 +125,37 @@ function PreviewModal({ profile, onClose }: PreviewModalProps) {
         layoutId={`item-${profile.website}`}
         transition={{
           type: "spring",
-          duration: 0.35,
+          duration: 0.3,
           bounce: 0.3,
         }}
         ref={ref as React.RefObject<HTMLDivElement>}
       >
-        <button className="friends__close-button" onClick={onClose}>
-          ×
-        </button>
-        <div className="friends__modal-name">
-          <div className="friends__modal-avatar">
-            <Image
-              src={profile.avatar || ""}
-              alt={`${profile.name} avatar`}
-              width={18}
-              height={18}
-            />
+        <motion.div layout>
+          <button className="friends__close-button" onClick={onClose}>
+            ×
+          </button>
+          <div className="friends__modal-name">
+            <div className="friends__modal-avatar">
+              <Image
+                src={profile.avatar || ""}
+                alt={`${profile.name} avatar`}
+                width={18}
+                height={18}
+              />
+            </div>
+            {profile.name}
           </div>
-          {profile.name}
-        </div>
-        <div className="friends__modal-bio">{profile.bio}</div>
-        <a
-          href={`https://${profile.website}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="friends__website-button"
-        >
-          {profile.website}
-          <ArrowTopRight className="friends__button-icon" />
-        </a>
+          <div className="friends__modal-bio">{profile.bio}</div>
+          <a
+            href={`https://${profile.website}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="friends__website-button"
+          >
+            {profile.website}
+            <ArrowTopRight className="friends__button-icon" />
+          </a>
+        </motion.div>
       </motion.div>
     </motion.div>
   );
