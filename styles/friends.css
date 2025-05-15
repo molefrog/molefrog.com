@@ -152,6 +152,18 @@
   font-weight: 500;
   margin-bottom: 8px;
   padding: 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.friends__modal-avatar {
+  flex-shrink: 0;
+  border-radius: 2px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .friends__modal-bio {

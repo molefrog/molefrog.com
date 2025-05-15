@@ -133,7 +133,17 @@ function PreviewModal({ profile, onClose }: PreviewModalProps) {
         <button className="friends__close-button" onClick={onClose}>
           ×
         </button>
-        <div className="friends__modal-name">{profile.name}</div>
+        <div className="friends__modal-name">
+          <div className="friends__modal-avatar">
+            <Image
+              src={profile.avatar || ""}
+              alt={`${profile.name} avatar`}
+              width={18}
+              height={18}
+            />
+          </div>
+          {profile.name}
+        </div>
         <div className="friends__modal-bio">{profile.bio}</div>
         <a
           href={`https://${profile.website}`}
@@ -187,11 +197,13 @@ export default function Friends() {
                     onClick={() => handleItemClick(item)}
                     transition={{ duration: 0.5, type: "spring" }}
                   >
-                    <motion.div
+                    <motion.button
                       className="friends__item-inner"
                       layoutId={`item-${item.website}`}
                       layout
                       transition={{ duration: 0.3, type: "spring", bounce: 0.1 }}
+                      type="button"
+                      whileTap={{ y: 2 }}
                     >
                       <motion.div
                         className="friends__item-content"
@@ -213,7 +225,7 @@ export default function Friends() {
                           <div className="friends__name">{item.name}</div>
                         </div>
                       </motion.div>
-                    </motion.div>
+                    </motion.button>
                   </motion.div>
                 );
               })}
