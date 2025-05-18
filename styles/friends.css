@@ -138,16 +138,18 @@
   right: 10px;
   width: 28px;
   height: 28px;
+  display: flex;
+  appearance: none;
   border-radius: 50%;
   background-color: var(--color-gray-100);
   border: none;
-  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
   cursor: pointer;
-  transition: background-color 0.2s, color 0.2s;
   color: inherit;
+  transition: background-color 0.2s;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .friends__close-button:hover {
