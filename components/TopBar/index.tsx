@@ -33,7 +33,7 @@ const TopBar = () => {
 
             <Link
               className={clsx("top-bar__link", {
-                ["top-bar__link--active"]: pathname === "/speaking",
+                ["top-bar__link--active"]: /^\/speaking(?:\/|$)/.test(pathname),
               })}
               href="/speaking"
             >
