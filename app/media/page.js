@@ -46,14 +46,6 @@ const REFERENCES = [
   },
 
   {
-    title: "A minimalist-friendly ~1.3KB routing for React and Preact.",
-
-    url: "https://bestofreactjs.com/repo/molefrog-wouter-react-router",
-
-    details: "Wouter featured on BestofReactjs.com, 2021",
-  },
-
-  {
     title: "Alexey Taktarov – Speaker Info",
 
     url: "https://github.com/Semigradsky/events/blob/master/speakers/%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B5%D0%B9%20%D0%A2%D0%B0%D0%BA%D1%82%D0%B0%D1%80%D0%BE%D0%B2.md",
@@ -90,14 +82,6 @@ const REFERENCES = [
     url: "https://www.typical.company/kollaboracii/kak-izmenit-orgstrukturu-tak-chtoby-komandy-zarabotali-po-principu-samostoyatelnyh-produktov-kompaniya-mogla-legko-masshtabirovatsya-a-osnovateli-vyshli-iz-operacionki",
 
     details: "TYPICAL case study, 2021",
-  },
-
-  {
-    title: "Пользователю не нужно прямо сейчас все, что задумано",
-
-    url: "https://rb.ru/opinion/start-razrabotki-saas/",
-
-    details: "Article for RB, 2021",
   },
 
   {
