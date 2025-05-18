@@ -57,6 +57,7 @@ li.references__item::marker {
   letter-spacing: var(--type-ls-header);
   -webkit-font-smoothing: none;
   margin-bottom: 16px;
+  margin-top: 16px;
 }
 
 .page-header__text {

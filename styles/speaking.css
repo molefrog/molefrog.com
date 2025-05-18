@@ -33,6 +33,10 @@
   margin-bottom: 26px;
 }
 
+.speaking__desc p {
+  margin: 18px 0;
+}
+
 .speaking__desc code {
   font-family: var(--font-mono);
   background-color: var(--color-gray-100);

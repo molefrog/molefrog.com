@@ -37,7 +37,6 @@ export default function Page() {
         </h1>
         <div className="about__description">
           <div className="about__text">
-            <p></p>
             <p>
               I am a founder,{" "}
               <Showcase media={{ video: speakingVideo, aspectRatio: 2.2 }} prefer="below">
@@ -104,9 +103,9 @@ export default function Page() {
                   Fira (YC W25)
                 </Link>
               </Showcase>
-              , an AI-powered financial research assistant. We&apos;re on a mission to help analysts at
-              M&A and investment firms accelerate their research and due diligence work. Drop me a
-              line if you&apos;re interested in joining us.
+              , an AI-powered financial research assistant. We&apos;re on a mission to help analysts
+              at M&A and investment firms accelerate their research and due diligence work. Drop me
+              a line if you&apos;re interested in joining us.
             </p>
           </div>
         </div>

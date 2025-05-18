@@ -1,4 +1,4 @@
-@import "~sanitize.css";
+@import "./reset.css";
 
 @import "./about.css";
 @import "./top-bar.css";

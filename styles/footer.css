@@ -60,7 +60,7 @@
 .footer__logo {
   width: 32px;
   opacity: 0.15;
-  margin-bottom: 24px;
+  margin: 0 auto 24px auto;
 }
 
 .footer__side-note {
@@ -73,6 +73,10 @@
 .footer__side-note a {
   color: var(--color-accent-300);
   text-decoration: none;
+}
+
+.footer__side-note p {
+  margin: 18px 0;
 }
 
 .footer__side-note a:hover {
