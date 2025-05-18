@@ -4,7 +4,7 @@ import { motion, LayoutGroup, AnimatePresence } from "framer-motion";
 import { Container } from "@/components/Grid";
 import Image from "next/image";
 import clsx from "clsx";
-import { ArrowTopRight } from "@/components/icons";
+import { ArrowTopRight, XMark } from "@/components/icons";
 import { useClickAway } from "@uidotdev/usehooks";
 import { useHotkeys } from "react-hotkeys-hook";
 
@@ -125,14 +125,14 @@ function PreviewModal({ profile, onClose }: PreviewModalProps) {
         layoutId={`item-${profile.website}`}
         transition={{
           type: "spring",
-          duration: 0.3,
-          bounce: 0.3,
+          duration: 0.4,
+          bounce: 0.25,
         }}
         ref={ref as React.RefObject<HTMLDivElement>}
       >
         <motion.div layout>
           <button className="friends__close-button" onClick={onClose}>
-            ×
+            <XMark className="friends__close-icon" strokeWidth={2} />
           </button>
           <div className="friends__modal-name">
             <div className="friends__modal-avatar">
