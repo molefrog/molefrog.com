@@ -209,8 +209,12 @@ export default function Friends() {
                     >
                       <motion.div
                         className="friends__item-content"
+                        layout
                         animate={{ opacity: isActive ? 0 : 1 }}
-                        transition={{ duration: 0.3, ease: "easeOut" }}
+                        transition={{
+                          opacity: { duration: 0.2, ease: "easeOut", delay: 0.1 },
+                          layout: { duration: 0.3 },
+                        }}
                       >
                         {/* Avatar */}
                         <div className="friends__avatar">
