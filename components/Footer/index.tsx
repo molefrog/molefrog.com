@@ -104,21 +104,21 @@ const Footer = () => (
           </a>
           . The website uses{" "}
           <a
+            className="footer__font footer__font--discordia"
+            href="https://store.naipefoundry.com/fonts/discordia"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Discórdia
+          </a>{" "}
+          typeface by Naipe Foundry,{" "}
+          <a
             className="footer__font footer__font--hanken"
             href="https://fonts.google.com/specimen/Hanken+Grotesk"
             target="_blank"
             rel="noopener noreferrer"
           >
             HK Grotesk
-          </a>
-          {", "}
-          <a
-            className="footer__font footer__font--redaction"
-            href="https://redaction.us"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redaction
           </a>{" "}
           and{" "}
           <a
@@ -129,7 +129,7 @@ const Footer = () => (
           >
             DSEG
           </a>{" "}
-          typefaces, which are distributed under the Open Font License. Hosted on{" "}
+          typefaces, distributed under the Open Font License. Hosted on{" "}
           <a href="https://pages.cloudflare.com/" target="_blank" rel="noopener noreferrer">
             Cloudflare Pages
           </a>

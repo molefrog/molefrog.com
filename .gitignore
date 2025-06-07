@@ -56,4 +56,6 @@ next-env.d.ts
 nbproject
 Thumbs.db
 
-
+# Discórdia fonts
+/styles/fonts/Discórdia/*
+!/styles/fonts/Discórdia/.keep

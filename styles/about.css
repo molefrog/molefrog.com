@@ -5,7 +5,6 @@
 .about__header {
   font: var(--type-header-large);
   letter-spacing: var(--type-ls-header);
-  -webkit-font-smoothing: none;
   margin-bottom: 24px;
   margin-top: 32px;
 }

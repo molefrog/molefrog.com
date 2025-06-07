@@ -42,6 +42,7 @@
 
 .sketches__block--intro {
   font-family: var(--font-serif);
+  font-style: italic;
 }
 
 .sketches__block a {

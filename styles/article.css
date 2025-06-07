@@ -1,8 +1,9 @@
 .article {
-  --type-article-header: 600 normal 48px / 51px var(--font-serif);
+  --type-article-header: 600 normal 54px / 56px var(--font-serif);
   --type-article-title: var(--type-text-medium);
 
   padding-bottom: 96px;
+  padding-top: 40px;
 }
 
 .article__header {
@@ -33,7 +34,7 @@
 
 @media (max-width: 768px) {
   .article {
-    --type-article-header: 600 40px / 42px var(--font-serif);
+    --type-article-header: 600 44px / 46px var(--font-serif);
   }
 
   .article__header {
@@ -105,7 +106,6 @@
 
   & .notion-h1 {
     font: var(--type-header-large);
-    -webkit-font-smoothing: none;
   }
 
   & .notion-h2 {

@@ -5,7 +5,6 @@
 .friends__header {
   font: var(--type-header-medium);
   letter-spacing: var(--type-ls-header);
-  -webkit-font-smoothing: none;
   text-align: center;
   margin-bottom: 6px;
 }

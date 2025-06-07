@@ -84,9 +84,8 @@
   text-decoration: underline;
 }
 
-.footer__font--redaction {
+.footer__font--discordia {
   font-family: var(--font-serif);
-  -webkit-font-smoothing: none;
   font-weight: bold;
 }
 

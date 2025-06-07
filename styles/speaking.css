@@ -48,7 +48,6 @@
 .speaking__head {
   flex: 1 1 auto;
   font: var(--type-header-regular);
-  -webkit-font-smoothing: none;
 }
 
 .speaking__confs {
