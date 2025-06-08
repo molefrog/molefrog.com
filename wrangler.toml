@@ -2,6 +2,7 @@ name = "molefrog-com"
 main = "workers/index.ts"
 compatibility_date = "2024-01-15"
 compatibility_flags = ["nodejs_compat"]
+workers_dev = false
 
 # Static Assets configuration for Workers (not Pages)
 [assets]
@@ -16,7 +17,11 @@ enabled = true
 [vars]
 # Add any public environment variables here
 
-# For production deployment with custom domain, uncomment and configure:
-# [[routes]]
-# pattern = "molefrog.com/*"
-# zone_name = "molefrog.com" 
+# Smart Placement - optimizes Worker placement to minimize latency
+[placement]
+mode = "smart"
+
+# Custom domain configuration - automatically manages DNS and certificates
+[[routes]]
+pattern = "molefrog.com"
+custom_domain = true 
