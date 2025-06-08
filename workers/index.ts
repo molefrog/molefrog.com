@@ -9,6 +9,8 @@ const app = new Hono<HonoEnv>();
 app.get("/real-time/id", handleRealTimeId);
 app.all("/etc/*", handleEtcProxy);
 
+app.get("/cf", () => new Response("Hello, world!"));
+
 // Serve static assets for all other routes
 app.get("*", async (c) => {
   const response = await c.env.ASSETS.fetch(c.req.raw);
