@@ -54,17 +54,17 @@ const DSEG14Classic = localFont({
 const Discordia = localFont({
   src: [
     {
-      path: "./Discórdia/Discórdia-Regular.woff2",
+      path: "./Discordia/Discordia-Regular.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "./Discórdia/Discórdia-Bold.woff2",
+      path: "./Discordia/Discordia-Bold.woff2",
       weight: "700",
       style: "normal",
     },
     {
-      path: "./Discórdia/Discórdia-Italic.woff2",
+      path: "./Discordia/Discordia-Italic.woff2",
       weight: "400",
       style: "italic",
     },

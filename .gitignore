@@ -57,5 +57,5 @@ nbproject
 Thumbs.db
 
 # Discórdia fonts
-/styles/fonts/Discórdia/*
-!/styles/fonts/Discórdia/.keep
+/styles/fonts/Discordia/*
+!/styles/fonts/Discordia/.keep

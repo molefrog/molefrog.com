@@ -10,7 +10,7 @@
     "start": "next start",
     "lint": "next lint",
     "postbuild": "next-sitemap",
-    "get-fonts": "curl -L \"$DISCORDIA_FONT\" -o styles/fonts/Discórdia/discordia.zip && cd styles/fonts/Discórdia && unzip -o discordia.zip && rm discordia.zip"
+    "get-fonts": "curl -L \"$DISCORDIA_FONT\" -o styles/fonts/Discordia/discordia.zip && cd styles/fonts/Discordia && unzip -o discordia.zip && rm discordia.zip"
   },
   "repository": {
     "type": "git",
