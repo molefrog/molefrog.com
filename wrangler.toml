@@ -1,0 +1,28 @@
+name = "molefrog-com"
+main = "workers/index.ts"
+compatibility_date = "2024-01-15"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = "./out"
+binding = "ASSETS"
+html_handling = "auto-trailing-slash"
+
+# Routes for your API endpoints
+[[routes]]
+pattern = "molefrog.com/real-time/id"
+zone_name = "molefrog.com"
+
+[[routes]]
+pattern = "molefrog.com/etc/*"
+zone_name = "molefrog.com"
+
+# Environment variables (add these via wrangler secret put if needed)
+[vars]
+# Add any public environment variables here
+
+# Optional: Configure custom domains
+# [env.production]
+# routes = [
+#   { pattern = "molefrog.com/*", zone_name = "molefrog.com" }
+# ] 
