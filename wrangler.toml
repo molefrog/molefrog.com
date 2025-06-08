@@ -9,6 +9,9 @@ directory = "./out"
 binding = "ASSETS"
 html_handling = "auto-trailing-slash"
 
+[observability.logs]
+enabled = true
+
 # Environment variables
 [vars]
 # Add any public environment variables here
