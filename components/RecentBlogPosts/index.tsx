@@ -17,12 +17,12 @@ export const RecentBlogPosts = () => {
           link="/notes/react-tricks"
         />
 
-        <BlogPost
+        {/* <BlogPost
           title="User-Centered Liquid Staking: UX Audit of Lido.fi"
           date={new Date("2023-10-21T00:00:00.000Z")}
           icon={lidoIcon}
           link="/notes/lido-staking-widget-ux"
-        />
+        /> */}
       </div>
     </div>
   );
