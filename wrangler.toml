@@ -10,7 +10,8 @@ directory = "./out"
 binding = "ASSETS"
 html_handling = "auto-trailing-slash"
 
-[observability.logs]
+# Observability configuration for Workers Logs
+[observability]
 enabled = true
 
 # Environment variables
@@ -25,3 +26,11 @@ mode = "smart"
 [[routes]]
 pattern = "molefrog.com"
 custom_domain = true 
+
+[[kv_namespaces]]
+binding = "KV"
+preview_id = "64c70bbb89e747078a995cc543dbc296"
+id = "83dba82eca4549748f772432256caa58"
+
+[browser]
+binding = "BROWSER"

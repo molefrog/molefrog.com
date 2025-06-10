@@ -69,6 +69,7 @@
     "react-pdf": "v9.1.0"
   },
   "devDependencies": {
+    "@cloudflare/puppeteer": "^1.0.2",
     "@cloudflare/workers-types": "^4.20241112.0",
     "@types/node": "^22.10.0",
     "@types/random-seed": "^0.3.5",

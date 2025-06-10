@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import { handleRealTimeId } from "./api/real-time-id";
 import { handleEtcProxy } from "./api/etc-proxy";
+import { handleScreenshot } from "./api/screenshot";
 import { HonoEnv } from "./types";
 
 const app = new Hono<HonoEnv>();
@@ -8,6 +9,7 @@ const app = new Hono<HonoEnv>();
 // API Routes
 app.get("/real-time/id", handleRealTimeId);
 app.all("/etc/*", handleEtcProxy);
+app.get("/screenshot/:website", handleScreenshot);
 
 app.get("/cf", () => new Response("Hello, world!"));
 
