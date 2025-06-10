@@ -45,14 +45,19 @@ export default function Page() {
                 </Link>
               </Showcase>
               ,{" "}
-              <ShowcaseLink
-                media={{ image: githubImg, aspectRatio: "auto" }}
-                href="https://github.com/molefrog"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Showcase
+                media={{ image: "/screenshot/github", aspectRatio: 1400 / 860 }}
+                prefer="below"
               >
-                open-source
-              </ShowcaseLink>{" "}
+                <Link
+                  className="solid-link"
+                  href="https://github.com/molefrog"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  open-source
+                </Link>
+              </Showcase>{" "}
               maintainer and full-stack engineer. I love designing UIs, playing around with
               animations, and writing small yet expressive programs. The tools I use to get the job
               done are:{" "}
