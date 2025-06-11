@@ -32,6 +32,9 @@ async function takeScreenshot(targetUrl: string, browser: Browser): Promise<Buff
     `,
   });
 
+  // wait for the activity to load
+  await page.waitForSelector(".js-calendar-graph", { timeout: 5000 });
+
   // Hide scrollbars using Chrome DevTools Protocol (CDP)
   const client = await page.target().createCDPSession();
   await client.send("Emulation.setScrollbarsHidden", { hidden: true });
