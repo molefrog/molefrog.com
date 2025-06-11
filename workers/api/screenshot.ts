@@ -2,7 +2,7 @@ import puppeteer, { Browser } from "@cloudflare/puppeteer";
 import { Context } from "hono";
 import { HonoEnv } from "../types";
 
-const REVALIDATION_TIME = 5 * 60 * 1000; // 5 minutes
+const REVALIDATION_TIME = 60 * 60 * 1000; // 1 hour
 
 /**
  * Take a screenshot of a website
@@ -63,6 +63,8 @@ async function createScreenshotResponse(
         "content-type": "image/webp",
         "cache-control": "public, max-age=3600, s-maxage=604800", // 1 hour browser cache, 7 days CDN cache
         date: new Date().toUTCString(),
+        // Add a custom header with timestamp that won't be modified by CDN
+        "x-screenshot-time": new Date().toISOString(),
       },
     });
   } finally {
@@ -84,38 +86,51 @@ export async function handleScreenshot(c: Context<HonoEnv>) {
   const cacheUrl = new URL(c.req.url);
   const cache = (caches as any).default;
 
+  /**
+   * Check if a cached response needs revalidation
+   */
+  function needsRevalidation(response: Response): boolean {
+    const timeHeader = response.headers.get("x-screenshot-time");
+
+    if (!timeHeader) {
+      // No timestamp header, needs revalidation
+      return true;
+    }
+
+    const age = Date.now() - new Date(timeHeader).getTime();
+    return age >= REVALIDATION_TIME;
+  }
+
+  /**
+   * Trigger background revalidation
+   */
+  function triggerRevalidation() {
+    c.executionCtx.waitUntil(
+      (async () => {
+        try {
+          const response = await createScreenshotResponse(targetUrl, c.env.BROWSER);
+          await cache.put(cacheUrl, response.clone());
+          console.log("Background revalidation completed");
+        } catch (error) {
+          console.error("Background revalidation failed:", error);
+        }
+      })()
+    );
+  }
+
   try {
     // Check if screenshot is cached
     const cachedResponse = await cache.match(cacheUrl);
 
     if (cachedResponse) {
-      const age = Date.now() - new Date(cachedResponse.headers.get("date") || 0).getTime();
-      const maxAge = REVALIDATION_TIME;
-
-      if (age < maxAge) {
-        // Cache is fresh, serve it immediately
-        console.log("Serving fresh cached screenshot");
-        return cachedResponse;
-      } else {
-        // Cache is stale, serve it but trigger revalidation in background
+      if (needsRevalidation(cachedResponse)) {
         console.log("Serving stale cached screenshot, revalidating in background");
-
-        // Fire-and-forget revalidation
-        c.executionCtx.waitUntil(
-          (async () => {
-            try {
-              console.log("Background revalidation started");
-              const response = await createScreenshotResponse(targetUrl, c.env.BROWSER);
-              await cache.put(cacheUrl, response.clone());
-              console.log("Background revalidation completed");
-            } catch (error) {
-              console.error("Background revalidation failed:", error);
-            }
-          })()
-        );
-
-        return cachedResponse;
+        triggerRevalidation();
+      } else {
+        console.log("Serving fresh cached screenshot");
       }
+
+      return cachedResponse;
     }
 
     // No cached response, take a new screenshot
