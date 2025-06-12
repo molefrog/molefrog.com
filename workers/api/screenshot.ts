@@ -4,10 +4,12 @@ import { HonoEnv } from "../types";
 
 const REVALIDATION_TIME = 60 * 60 * 1000; // 1 hour
 
+type AllowedWebsites = "github" | "fira" | "ficus";
+
 /**
  * Take a screenshot of a website
  */
-async function takeScreenshot(targetUrl: string, browser: Browser): Promise<Buffer> {
+async function takeScreenshot(target: AllowedWebsites, browser: Browser): Promise<Buffer> {
   const page = await browser.newPage();
 
   // Set zoom level for better content visibility
@@ -16,6 +18,17 @@ async function takeScreenshot(targetUrl: string, browser: Browser): Promise<Buff
     height: 860,
     deviceScaleFactor: 1.5,
   });
+
+  let targetUrl: string;
+  if (target === "github") {
+    targetUrl = "https://github.com/molefrog";
+  } else if (target === "fira") {
+    targetUrl = "https://firaresearch.com";
+  } else if (target === "ficus") {
+    targetUrl = "https://ficus.io";
+  } else {
+    throw new Error("Invalid target");
+  }
 
   await page.goto(targetUrl);
 
@@ -32,8 +45,10 @@ async function takeScreenshot(targetUrl: string, browser: Browser): Promise<Buff
     `,
   });
 
-  // wait for the activity to load
-  await page.waitForSelector(".js-calendar-graph", { timeout: 5000 });
+  if (target === "github") {
+    // wait for the activity to load
+    await page.waitForSelector(".js-calendar-graph", { timeout: 5000 });
+  }
 
   // Hide scrollbars using Chrome DevTools Protocol (CDP)
   const client = await page.target().createCDPSession();
@@ -54,12 +69,12 @@ async function takeScreenshot(targetUrl: string, browser: Browser): Promise<Buff
  * Internally manages browser lifecycle
  */
 async function createScreenshotResponse(
-  targetUrl: string,
+  target: AllowedWebsites,
   browserEnv: HonoEnv["Bindings"]["BROWSER"]
 ): Promise<Response> {
   const browser = await puppeteer.launch(browserEnv);
   try {
-    const screenshotBuffer = await takeScreenshot(targetUrl, browser);
+    const screenshotBuffer = await takeScreenshot(target, browser);
 
     return new Response(screenshotBuffer, {
       headers: {
@@ -76,14 +91,7 @@ async function createScreenshotResponse(
 }
 
 export async function handleScreenshot(c: Context<HonoEnv>) {
-  const website = c.req.param("website");
-
-  // Only allow 'github' as the website parameter
-  if (website !== "github") {
-    return c.text("Only 'github' is allowed as a website parameter", 400);
-  }
-
-  const targetUrl = "https://github.com/molefrog";
+  const website = c.req.param("website") as AllowedWebsites;
 
   // Create cache key using the request URL
   const cacheUrl = new URL(c.req.url);
@@ -111,7 +119,7 @@ export async function handleScreenshot(c: Context<HonoEnv>) {
     c.executionCtx.waitUntil(
       (async () => {
         try {
-          const response = await createScreenshotResponse(targetUrl, c.env.BROWSER);
+          const response = await createScreenshotResponse(website, c.env.BROWSER);
           await cache.put(cacheUrl, response.clone());
           console.log("Background revalidation completed");
         } catch (error) {
@@ -138,7 +146,7 @@ export async function handleScreenshot(c: Context<HonoEnv>) {
 
     // No cached response, take a new screenshot
     console.log("No cached screenshot found, generating new one");
-    const response = await createScreenshotResponse(targetUrl, c.env.BROWSER);
+    const response = await createScreenshotResponse(website, c.env.BROWSER);
 
     // Store in cache
     c.executionCtx.waitUntil(cache.put(cacheUrl, response.clone()));
