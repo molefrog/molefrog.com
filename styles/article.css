@@ -7,7 +7,7 @@
 }
 
 .article__header {
-  padding-bottom: 72px;
+  padding-bottom: 80px;
 
   font: var(--type-article-title);
   font-weight: normal;
@@ -15,12 +15,12 @@
 
 .article__description {
   text-wrap: pretty;
+  padding-right: 40px;
 }
 
 .article__info {
-  color: var(--color-gray-500);
-  font: var(--type-text-regular);
-  margin-top: 6px;
+  color: var(--color-gray-400);
+  margin-top: 4px;
 }
 
 .article__h1 {
@@ -37,7 +37,7 @@
   }
 
   .article__header {
-    padding-bottom: 36px;
+    padding-bottom: 56px;
   }
 
   .article__h1 {
@@ -109,15 +109,15 @@
 
   & .notion-h2 {
     font: var(--type-header-medium);
-    font-family: var(--font-sans);
-    font-style: normal;
-    margin-top: 72px;
+    margin-top: 80px;
   }
 
   & .notion-h3 {
     font: var(--type-header-regular);
-    font-family: var(--font-sans);
-    font-style: normal;
+  }
+
+  & .notion-h4 {
+    font: var(--type-header-regular);
   }
 
   & .notion-h1 + .notion-h2 {
@@ -194,7 +194,7 @@
   & .notion-callout {
     border-radius: 8px;
     padding: 24px 16px;
-    border-color: var(--color-gray-200);
+    border-color: transparent;
 
     & .notion-page-icon {
       margin-top: 6px;
@@ -215,7 +215,7 @@
     background: rgba(33, 31, 32, 1);
     padding: 40px 32px;
     font-family: var(--font-mono);
-    margin: 8px 0;
+    margin: 16px 0;
   }
 
   & .exec-code {

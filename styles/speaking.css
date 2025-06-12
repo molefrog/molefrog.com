@@ -38,10 +38,13 @@
 }
 
 .speaking__desc code {
+  font: var(--type-text-small);
   font-family: var(--font-mono);
+  font-weight: 500;
+
   background-color: var(--color-gray-100);
   letter-spacing: -0.01em;
-  padding: 2px 4px;
+  padding: 1px 4px;
   border-radius: 4px;
 }
 
