@@ -5,10 +5,10 @@
 }
 
 ._404 {
-  padding: 152px 0 320px 0;
+  padding: 256px 0 320px 0;
   position: relative;
 
-  height: calc(100vh - 196px);
+  height: calc(100vh - 176px);
   min-height: 600px;
 
   --canvas-width: 1600px;
@@ -20,11 +20,7 @@
   font-weight: 900;
   margin-bottom: 40px;
   text-align: center;
-  text-shadow:
-    0 6px 0px white,
-    6px 0 0px white,
-    -6px 0 0px white,
-    0 -6px 0px white;
+  text-shadow: 0 6px 0px white, 6px 0 0px white, -6px 0 0px white, 0 -6px 0px white;
 }
 
 @media (max-width: 768px) {
@@ -42,11 +38,7 @@
   color: var(--color-gray-600);
   text-wrap: balance;
 
-  text-shadow:
-    0 1px 0px white,
-    1px 0 0px white,
-    -1px 0 0px white,
-    0 -1px 0px white;
+  text-shadow: 0 1px 0px white, 1px 0 0px white, -1px 0 0px white, 0 -1px 0px white;
 }
 
 ._404__canvas-flex {
