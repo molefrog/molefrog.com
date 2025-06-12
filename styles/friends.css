@@ -1,5 +1,6 @@
 .friends {
   margin-bottom: 140px;
+  padding: 16px 0;
 }
 
 .friends__header {
@@ -38,6 +39,7 @@
 }
 
 .friends__item-inner {
+  padding: 0px;
   position: relative;
   background-color: white;
   border: 1px solid var(--color-gray-200);
@@ -65,7 +67,7 @@
 
 .friends__avatar {
   flex-shrink: 0;
-  border-radius: 6px;
+  border-radius: 4px;
   overflow: hidden;
 }
 

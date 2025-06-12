@@ -58,7 +58,7 @@ export default function Page() {
                   open-source
                 </Link>
               </Showcase>{" "}
-              maintainer and full-stack engineer. I love designing UIs, playing around with
+              maintainer and full-stack engineer. I&nbsp;love designing UIs, playing around with
               animations, and writing small yet expressive programs. The tools I use to get the job
               done are:{" "}
               <ExpandInline

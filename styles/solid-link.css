@@ -13,7 +13,7 @@
 .solid-link:before {
   display: inline-block;
   content: "";
-  height: 4px;
+  height: 2px;
   background-color: var(--color-accent);
 
   position: absolute;
@@ -26,5 +26,5 @@
 }
 
 .solid-link:hover:before {
-  height: 6px;
+  height: 5px;
 }

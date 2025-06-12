@@ -22,14 +22,15 @@
 @import "./friends.css";
 
 :root {
-  --type-text-x-small: 500 13px / 22px var(--font-sans);
-  --type-text-small: 400 17px / 26px var(--font-sans);
-  --type-text-regular: 400 18px / 30px var(--font-sans);
-  --type-text-medium: 400 20px / 32px var(--font-sans);
-  --type-text-large: 500 24px / 36px var(--font-sans);
-  --type-text-post: 400 19px / 30px var(--font-sans);
+  /* --font-sans: Helvetica Neue; */
 
-  --type-header-large: 500 italic 48px / 52px var(--font-serif);
+  --type-text-x-small: 500 13px / 22px var(--font-sans);
+  --type-text-small: 400 15px / 24px var(--font-sans);
+  --type-text-regular: 400 17px / 27px var(--font-sans);
+  --type-text-medium: 400 18px / 28px var(--font-sans);
+  --type-text-post: 400 18px / 29px var(--font-sans);
+
+  --type-header-large: 500 italic 42px / 48px var(--font-serif);
   --type-header-medium: 500 italic 39px / 48px var(--font-serif);
   --type-header-regular: 500 italic 28px / 34px var(--font-serif);
 
@@ -63,11 +64,8 @@
 
 @media (max-width: 768px) {
   :root {
-    --type-text-x-small: 600 14px / 24px var(--font-sans);
-    --type-text-small: 400 16px / 26px var(--font-sans);
+    /* adjust line-height for smaller screens */
     --type-text-regular: 400 17px / 28px var(--font-sans);
-    --type-text-medium: 400 18px / 30px var(--font-sans);
-    --type-text-large: 500 20px / 30px var(--font-sans);
     --type-text-post: 400 18px / 28px var(--font-sans);
 
     --type-header-large: 500 italic 36px / 39px var(--font-serif);

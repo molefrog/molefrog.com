@@ -1,6 +1,6 @@
 .speaking {
   padding-top: 48px;
-  padding-right: 64px;
+  padding-right: 32px;
 }
 
 .speaking__header {
@@ -60,7 +60,7 @@
   font: var(--type-text-small);
   font-weight: 500;
   border: 1px solid var(--color-gray-300);
-  height: 34px;
+  height: 32px;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -143,10 +143,9 @@
 
 .speaking__nav-btn {
   background-color: var(--color-gray-50);
-  padding: 0px 16px;
-  padding-bottom: 1px;
+  padding: 0px 17px;
   border-radius: 40px;
-  height: 40px;
+  height: 38px;
   vertical-align: middle;
   align-items: center;
   box-shadow: inset 0px 0px 0px 1px var(--color-gray-200);
@@ -154,6 +153,7 @@
   text-decoration: none;
   transition: box-shadow 0.2s ease;
   font: var(--type-text-small);
+  font-weight: 500;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -212,6 +212,7 @@
   font: var(--type-text-small);
   text-decoration: inherit;
   color: var(--color-gray-600);
+  padding-top: 1px;
 
   text-overflow: ellipsis;
   overflow: hidden;

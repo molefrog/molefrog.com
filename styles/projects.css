@@ -29,7 +29,6 @@
 
 .selected-projects__title {
   font: var(--type-text-regular);
-  line-height: 1.65;
 }
 
 .selected-projects__item {
@@ -71,11 +70,11 @@
 
 .project-link {
   background-color: var(--color-gray-50);
-  padding: 0px 18px;
+  padding: 0px 16px;
   padding-bottom: 1px;
   border-radius: 40px;
   font-weight: 600;
-  height: 40px;
+  height: 38px;
   vertical-align: middle;
   align-items: center;
   margin-right: 8px;
@@ -112,7 +111,5 @@
 
 .project-link--primary:hover {
   color: white;
-  box-shadow:
-    inset 0px 0px 0px 2px var(--primary-color),
-    inset 0px 0px 0px 4px white;
+  box-shadow: inset 0px 0px 0px 2px var(--primary-color), inset 0px 0px 0px 4px white;
 }

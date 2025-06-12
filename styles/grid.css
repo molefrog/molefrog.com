@@ -1,5 +1,5 @@
 .grid-layout {
-  --inner-grid-width: 768px;
+  --inner-grid-width: 700px;
   --spacer: 1fr; /* distance from left/right sides to the outer grid */
   --inner-grid-step: calc(var(--inner-grid-width) / 4);
   --outer-grid-step: var(--inner-grid-step);

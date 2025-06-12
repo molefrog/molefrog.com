@@ -1,6 +1,6 @@
 .article {
   --type-article-header: 600 normal 54px / 56px var(--font-serif);
-  --type-article-title: var(--type-text-medium);
+  --type-article-title: 600 normal 19px / 29px var(--font-sans);
 
   padding-bottom: 96px;
   padding-top: 40px;
@@ -14,13 +14,12 @@
 }
 
 .article__description {
-  text-wrap: balance;
   text-wrap: pretty;
 }
 
 .article__info {
-  font: var(--type-text-small);
   color: var(--color-gray-500);
+  font: var(--type-text-regular);
   margin-top: 6px;
 }
 
