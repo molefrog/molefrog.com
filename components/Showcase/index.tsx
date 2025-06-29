@@ -9,6 +9,7 @@ import {
   memo,
   ReactElement,
   ReactNode,
+  ComponentProps,
 } from "react";
 import { createPortal } from "react-dom";
 import clsx from "clsx";
@@ -23,9 +24,10 @@ const PREVIEW_W = 480;
 const MARGIN = 12;
 
 type PreferPosition = "above" | "below" | "left" | "right";
+type ImageSrc = ComponentProps<typeof Image>["src"];
 
 interface MediaData {
-  image?: string | StaticImageData;
+  image?: ImageSrc;
   video?: string;
   format?: string;
   aspectRatio?: number | "auto";
