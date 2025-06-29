@@ -1,9 +1,19 @@
 "use client";
 
-import { isValidElement, cloneElement, useRef, useEffect, useState, memo } from "react";
+import {
+  isValidElement,
+  cloneElement,
+  useRef,
+  useEffect,
+  useState,
+  memo,
+  ReactElement,
+  ReactNode,
+  ComponentProps,
+} from "react";
 import { createPortal } from "react-dom";
 import clsx from "clsx";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import useMouse from "@react-hook/mouse-position";
 import { useLockBodyScroll } from "react-use";
 import Marquee from "react-fast-marquee";
@@ -13,7 +23,51 @@ import WonderingEyes from "../WonderingEyes";
 const PREVIEW_W = 480;
 const MARGIN = 12;
 
-const shouldUseModalDialog = () => {
+type PreferPosition = "above" | "below" | "left" | "right";
+type ImageSrc = ComponentProps<typeof Image>["src"];
+
+interface MediaData {
+  image?: ImageSrc;
+  video?: string;
+  format?: string;
+  aspectRatio?: number | "auto";
+  description?: string;
+  tags?: string | string[];
+  link?: string;
+}
+
+interface MousePosition {
+  clientX: number;
+  clientY: number;
+  x: number;
+  y: number;
+  isOver: boolean;
+}
+
+interface PopoverProps {
+  mousePosition?: any; // Using any for compatibility with @react-hook/mouse-position
+  anchorElement?: HTMLElement | null;
+  media: MediaData;
+  prefer?: PreferPosition;
+  modal?: boolean;
+}
+
+interface ShowcaseProps {
+  children: ReactElement;
+  media: MediaData;
+  prefer?: PreferPosition;
+}
+
+interface ShowcaseLinkProps {
+  children: ReactNode;
+  prefer?: PreferPosition;
+  href?: string;
+  media?: MediaData;
+  className?: string;
+  [key: string]: any;
+}
+
+const shouldUseModalDialog = (): boolean => {
   if (typeof window === "undefined") return false;
 
   const isMobile = window.matchMedia("(max-width: 640px)").matches;
@@ -21,12 +75,12 @@ const shouldUseModalDialog = () => {
   return isMobile || isTouch;
 };
 
-const Popover = ({ mousePosition, anchorElement, media, prefer, modal = false }) => {
+const Popover = ({ mousePosition, anchorElement, media, prefer, modal = false }: PopoverProps) => {
   // "init" | "placeholder" | "loaded"
-  const [loadingState, setLoadingState] = useState("init");
+  const [loadingState, setLoadingState] = useState<"init" | "placeholder" | "loaded">("init");
 
-  const placeholderTimer = useRef(null);
-  const loadedTimer = useRef(null);
+  const placeholderTimer = useRef<NodeJS.Timeout | null>(null);
+  const loadedTimer = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     if (modal) {
@@ -37,28 +91,39 @@ const Popover = ({ mousePosition, anchorElement, media, prefer, modal = false })
     loadedTimer.current = setTimeout(() => setLoadingState("loaded"), 2000);
 
     return () => {
-      clearTimeout(placeholderTimer.current);
-      clearTimeout(loadedTimer.current);
+      if (placeholderTimer.current) clearTimeout(placeholderTimer.current);
+      if (loadedTimer.current) clearTimeout(loadedTimer.current);
     };
   }, [modal]);
 
   const handleResourceLoaded = () => {
-    clearTimeout(placeholderTimer.current);
-    clearTimeout(loadedTimer.current);
+    if (placeholderTimer.current) clearTimeout(placeholderTimer.current);
+    if (loadedTimer.current) clearTimeout(loadedTimer.current);
     setLoadingState("loaded");
   };
 
-  let { aspectRatio = 1.5 } = media;
-  if (media.aspectRatio === "auto" && typeof media.image === "object") {
-    aspectRatio = media.image.width / media.image.height;
+  let aspectRatio: number = 1.5;
+
+  if (media.aspectRatio === "auto") {
+    if (
+      typeof media.image === "object" &&
+      media.image &&
+      "width" in media.image &&
+      "height" in media.image
+    ) {
+      const staticImg = media.image as StaticImageData;
+      aspectRatio = staticImg.width / staticImg.height;
+    }
+  } else if (typeof media.aspectRatio === "number") {
+    aspectRatio = media.aspectRatio;
   }
 
   const position = modal
     ? {} // static dialog
     : calculatePopoverPosition(
-        anchorElement,
-        mousePosition,
-        prefer,
+        anchorElement!,
+        mousePosition!,
+        prefer || "above",
         PREVIEW_W,
         PREVIEW_W / aspectRatio,
         MARGIN
@@ -72,7 +137,7 @@ const Popover = ({ mousePosition, anchorElement, media, prefer, modal = false })
         "showcase__popover--hidden": loadingState === "init",
         "showcase__popover--modal": modal,
       })}
-      style={{ ...position, "--aspect-ratio": aspectRatio }}
+      style={{ ...position, "--aspect-ratio": aspectRatio } as React.CSSProperties}
     >
       <div className="showcase__media">
         {media.image && (
@@ -111,7 +176,7 @@ const Popover = ({ mousePosition, anchorElement, media, prefer, modal = false })
             speed={loadingState === "loaded" ? 40 : 0}
             gradient
             gradientWidth={24}
-            gradientColor={[14, 62, 250]}
+            gradientColor="rgb(14, 62, 250)"
           >
             <div className="showcase__marquee">
               {tags.map((tag) => (
@@ -128,7 +193,7 @@ const Popover = ({ mousePosition, anchorElement, media, prefer, modal = false })
   );
 };
 
-const getURLHost = (url) => {
+const getURLHost = (url: string): string => {
   try {
     return new URL(url).host;
   } catch (e) {
@@ -136,8 +201,8 @@ const getURLHost = (url) => {
   }
 };
 
-const Showcase = ({ children, media, prefer = "above" }) => {
-  const ref = useRef(null);
+const Showcase = ({ children, media, prefer = "above" }: ShowcaseProps) => {
+  const ref = useRef<HTMLElement>(null);
 
   const [Wrap] = useState(() =>
     memo(function W() {
@@ -155,9 +220,9 @@ const Showcase = ({ children, media, prefer = "above" }) => {
   /* Static modal dialog, on mobiles and small screens */
   const isStatic = shouldUseModalDialog();
   const [staticDialogOpen, setStaticDialogOpen] = useState(false);
-  const backdropRef = useRef(null);
+  const backdropRef = useRef<HTMLDivElement>(null);
 
-  const handleBackdropClick = (event) => {
+  const handleBackdropClick = (event: React.MouseEvent) => {
     if (event.target === backdropRef.current) {
       setStaticDialogOpen(false);
     }
@@ -167,7 +232,7 @@ const Showcase = ({ children, media, prefer = "above" }) => {
   // when in static mode, open the dialog on click
   useEffect(() => {
     if (isStatic && ref.current) {
-      const handleAnchorClick = (event) => {
+      const handleAnchorClick = (event: Event) => {
         event.preventDefault();
         setStaticDialogOpen(true);
       };
@@ -179,7 +244,7 @@ const Showcase = ({ children, media, prefer = "above" }) => {
     }
   }, [isStatic]);
 
-  const url = children.props.href || media?.link;
+  const url = (children.props as any).href || media?.link;
 
   if (!isValidElement) return "Children must be a single element";
 
@@ -220,12 +285,12 @@ const Showcase = ({ children, media, prefer = "above" }) => {
 };
 
 const calculatePopoverPosition = (
-  element,
-  pos,
-  preferredPosition,
-  popoverWidth,
-  popoverHeight,
-  margin
+  element: HTMLElement,
+  pos: any, // Using any for compatibility with @react-hook/mouse-position
+  preferredPosition: PreferPosition,
+  popoverWidth: number,
+  popoverHeight: number,
+  margin: number
 ) => {
   const { clientX, clientY, x, y } = pos;
 
@@ -260,7 +325,7 @@ const calculatePopoverPosition = (
     },
   };
 
-  const keys = Object.keys(positions);
+  const keys = Object.keys(positions) as PreferPosition[];
   let i = keys.indexOf(preferredPosition);
   if (i === -1) i = 0;
 
@@ -272,7 +337,13 @@ const calculatePopoverPosition = (
 
 export default Showcase;
 
-export const ShowcaseLink = ({ children, prefer, href, media = {}, ...props }) => {
+export const ShowcaseLink = ({
+  children,
+  prefer = "above",
+  href,
+  media = {},
+  ...props
+}: ShowcaseLinkProps) => {
   const link = media.link || href;
 
   return (

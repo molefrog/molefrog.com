@@ -11,16 +11,21 @@ const formats = {
   link: "LINK",
 } as const;
 
+interface SpeakingConferenceProps {
+  year: string;
+  children: React.ReactNode;
+  format: keyof typeof formats;
+  href?: string;
+  target?: string;
+  rel?: string;
+}
+
 export const SpeakingConference = ({
   year,
   children,
   format,
   ...props
-}: {
-  year: string;
-  children: React.ReactNode;
-  format: keyof typeof formats;
-}) => {
+}: SpeakingConferenceProps) => {
   const ref = useRef(null);
   const pos = useMouse(ref, { fps: 24 });
 
