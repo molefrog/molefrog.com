@@ -1,10 +1,26 @@
 import React from "react";
 import { getYear, format } from "date-fns";
+import { Metadata } from "next";
 import { Container } from "@/components/Grid";
 import Link from "next/link";
 import { Back as BackIcon } from "@/components/icons";
 
-const talks = [
+export const metadata: Metadata = {
+  title: "All Speaking Engagements | molefrog",
+  description: "Complete chronological list of conference talks and presentations",
+};
+
+interface Talk {
+  title: string;
+  conference: string;
+  city: string;
+  country: string;
+  flag: string;
+  date: string;
+  year?: number;
+}
+
+const talks: Talk[] = [
   {
     title: "The challenges of web apps: what we've solved and what's next?",
     conference: "CopenhagenJS",
@@ -184,8 +200,8 @@ const talks = [
   },
 ];
 
-export default function SpeakingAll() {
-  let currentYear = null;
+export default function SpeakingAll(): JSX.Element {
+  let currentYear: number | null = null;
 
   return (
     <Container placement="inner">
@@ -210,7 +226,7 @@ export default function SpeakingAll() {
               return (
                 <React.Fragment key={index}>
                   <tr className="speaking-all__talk-row">
-                    <td className="speaking-all__year" colSpan="3">
+                    <td className="speaking-all__year" colSpan={3}>
                       {isNewYear ? talk.year : null}
                     </td>
 
