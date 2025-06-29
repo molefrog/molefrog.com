@@ -41,10 +41,15 @@ import reactTricksVideo from "@/public/speaking/multiplayer-demo.mp4";
 import riddlemethisVideo from "@/public/showcase/riddlemethis.mp4";
 import riddlemethisThumbImg from "@/public/showcase/riddlemethis-thumb.gif";
 
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { ComponentProps } from "react";
 
 type ImageSrc = ComponentProps<typeof Image>["src"];
+
+// Helper function to extract URL from ImageSrc (handles both strings and StaticImageData)
+export const getImageUrl = (src: ImageSrc): string => {
+  return typeof src === "string" ? src : (src as StaticImageData).src;
+};
 
 type Resource = { image: ImageSrc } | { video: string };
 

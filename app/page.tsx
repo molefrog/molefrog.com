@@ -1,10 +1,10 @@
-import React from "react";
 import Image from "next/image";
 import WrapBalancer from "react-wrap-balancer";
 import { Container } from "@/components/Grid";
 import Link from "next/link";
+import { Metadata } from "next";
 
-import Showcase, { ShowcaseLink } from "@/components/Showcase";
+import Showcase from "@/components/Showcase";
 import { RecentBlogPosts } from "@/components/RecentBlogPosts";
 
 import domikImg from "@/public/images/domik-highlight.webp";
@@ -13,16 +13,16 @@ import speakingVideo from "@/public/showcase/speaking-use-state.mp4";
 import resumeBuilderVideo from "@/public/showcase/resume-io-builder.mp4";
 import domikLtdVideo from "@/public/showcase/domik-ltd.mp4";
 
-import MINI_MAP_ITEMS from "@/content/mini-map.tsx";
+import MINI_MAP_ITEMS, { getImageUrl } from "@/content/mini-map";
 import ExpandInline from "@/components/ExpandInline";
 
-export const metadata = {
+export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
 };
 
-export default function Page() {
+export default function Page(): JSX.Element {
   return (
     <Container placement="inner">
       <section className="about">
@@ -179,7 +179,7 @@ export default function Page() {
                     className="mini-map__item"
                     aria-label={`Read more on ${item.url}`}
                     style={{
-                      backgroundImage: `url(${item.thumb?.src})`,
+                      backgroundImage: `url(${getImageUrl(item.thumb)})`,
                     }}
                     href={item.url}
                   />
@@ -197,7 +197,7 @@ export default function Page() {
   );
 }
 
-const PlayIcon = () => (
+const PlayIcon = (): JSX.Element => (
   <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M7.32995 3.61615C8.0396 3.99172 8.0396 5.00828 7.32995 5.38385L1.46777 8.48634C0.801771 8.83881 -4.08964e-07 8.356 -3.76027e-07 7.60249L-1.04798e-07 1.39751C-7.18613e-08 0.643995 0.801772 0.161188 1.46777 0.513658L7.32995 3.61615Z"
