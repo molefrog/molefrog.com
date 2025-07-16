@@ -179,9 +179,9 @@ const Showcase = ({ children, media, prefer = "above" }) => {
     }
   }, [isStatic]);
 
-  const url = children.props.href || media?.link;
+  const url = children?.props?.href || media?.link;
 
-  if (!isValidElement) return "Children must be a single element";
+  if (!isValidElement(children)) return "Children must be a single element";
 
   return (
     <>
