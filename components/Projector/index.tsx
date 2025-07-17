@@ -5,6 +5,9 @@ import Image, { StaticImageData } from "next/image";
 import clsx from "clsx";
 import { animate } from "motion/react";
 
+import { BlossomCarousel } from "@blossom-carousel/react";
+import "@blossom-carousel/core/style.css";
+
 interface ProjectorProps {
   slides: StaticImageData[];
   title: string;
@@ -15,8 +18,12 @@ export const Projector: React.FC<ProjectorProps> = ({ slides, title }) => {
   const slidesRef = useRef<HTMLDivElement>(null);
   const posRef = useRef<number>(0);
 
+  const getCarouselElement = () => {
+    return slidesRef.current?.querySelector("[blossom-carousel]") as HTMLDivElement;
+  };
+
   useEffect(() => {
-    const el = slidesRef.current;
+    const el = getCarouselElement();
     if (!el) return;
 
     const handleScroll = () => {
@@ -39,48 +46,32 @@ export const Projector: React.FC<ProjectorProps> = ({ slides, title }) => {
     };
   }, [slides.length]);
 
-  const animationRef = useRef<{ stop: () => void }>();
   const scrollingToSlide = useRef<number | null>(null);
 
   const scrollToNextSlide = async () => {
-    const el = slidesRef.current;
+    const el = getCarouselElement();
     if (!el) return;
 
     scrollingToSlide.current = ((scrollingToSlide.current ?? currentSlide) + 1) % slides.length;
 
-    // Cancel any existing animation
-    animationRef.current?.stop();
-
     const slideWidth = el.clientWidth;
     const targetScroll = slideWidth * scrollingToSlide.current;
 
-    // Disable scroll snap before animation
-    el.style.scrollSnapType = "none";
-
-    // Save new animation reference
-    animationRef.current = animate(el.scrollLeft, targetScroll, {
-      onUpdate: (latest) => {
-        el.scrollLeft = latest;
-      },
-      duration: animationRef.current ? 0 : 0.25,
-      ease: "circInOut",
+    el.scrollTo({
+      left: targetScroll,
+      behavior: "smooth",
     });
-
-    await animationRef.current;
-
-    // clean up temp state
-    scrollingToSlide.current = null;
-    animationRef.current = undefined;
-
-    // Restore scroll snap after animation
-    el.style.scrollSnapType = "x mandatory";
   };
 
   const shouldDisplayProgress = slides.length > 1;
 
   return (
-    <div className="projector" style={{ "--slides-n": slides.length } as React.CSSProperties}>
-      <div className="projector__slides" ref={slidesRef}>
+    <div
+      className="projector"
+      style={{ "--slides-n": slides.length } as React.CSSProperties}
+      ref={slidesRef}
+    >
+      <BlossomCarousel className="projector__slides">
         {slides.slice().map((slide, i) => (
           <div className="projector__slide-step" key={slide.src + String(i)}>
             <div className="projector__slide" onClick={() => scrollToNextSlide()}>
@@ -94,7 +85,7 @@ export const Projector: React.FC<ProjectorProps> = ({ slides, title }) => {
             </div>
           </div>
         ))}
-      </div>
+      </BlossomCarousel>
 
       {shouldDisplayProgress && (
         <div className="projector__progress-control" onClick={() => scrollToNextSlide()}>
