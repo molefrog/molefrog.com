@@ -1,6 +1,5 @@
 {
-  "https://fast-fit-fun.vercel.app/fast-fit-fun.js": { "integrity": "sha512-OYQhrUTqU7LTPEhLjqUrJGOs0PBGKHlRi+h1HxQdU5vlo35RvVMocaUplaA0uQY9SX/Ovl4HEsCzzt+xiLF7Ww==", "contentType": "application/javascript; charset=utf-8" },
-  "https://ficus.io/d/widget-720c1656.mjs": { "integrity": "sha512-aFOZYJdpM5PeS86itQqRTe2w4zdi176AjmulUfuxVSqJdJLcDcHPGHupoYn3d5hY6iir9RnI0rzl4LkWlp9DDg==", "contentType": "application/javascript; charset=utf-8" },
-  "https://ficus.io/widget.js": { "integrity": "sha512-5zj1uwFluwZc8PxprUjbdM6FTK3vtFVEa2/Loah2umdcUhpbaHRYNNwpAcbF1hfXeADCnDVfpFHLTvcBAA+OuQ==", "contentType": "application/javascript; charset=utf-8" },
+  "https://classic.ficus.io/d/widget-720c1656.mjs": { "integrity": "sha512-aFOZYJdpM5PeS86itQqRTe2w4zdi176AjmulUfuxVSqJdJLcDcHPGHupoYn3d5hY6iir9RnI0rzl4LkWlp9DDg==", "contentType": "application/javascript; charset=utf-8" },
+  "https://classic.ficus.io/widget.js": { "integrity": "sha512-5zj1uwFluwZc8PxprUjbdM6FTK3vtFVEa2/Loah2umdcUhpbaHRYNNwpAcbF1hfXeADCnDVfpFHLTvcBAA+OuQ==", "contentType": "application/javascript; charset=utf-8" },
   "version": 1
 }
