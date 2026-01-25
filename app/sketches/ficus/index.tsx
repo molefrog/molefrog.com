@@ -5,8 +5,8 @@ import useSound from "use-sound";
 import clsx from "clsx";
 import { useLocalStorage } from "usehooks-ts";
 
-// Importing the createPoll function from the provided CDN
-import { createPoll } from "https://ficus.io/widget.js";
+// Importing the createPoll function from classic.ficus.io
+import { createPoll } from "https://classic.ficus.io/widget.js";
 
 // API for fetching poll state on startup and real-time voting
 import type { API } from "./ficus-api";
@@ -157,14 +157,14 @@ function FicusPoll({ id }: { id: string }) {
         })}
       </div>
       <p>
-        <a href="https://ficus.io">ficus.io</a> was an app for making online presentations with
-        real-time polls and instant feedback from the audience. Initially, it was a hackathon
-        project that had been running until it was shut down in 2018.
+        <a href="https://classic.ficus.io">Classic Ficus</a> — the original real-time polls from
+        2014. Initially a hackathon project that ran until 2018.
       </p>
       <p>
-        In 2024, I brought it back online as an{" "}
-        <a href="https://github.com/molefrog/ficus.io">ESM module</a> for drawing polls and a
-        limited real-time API powered by Cloudflare Workers and Durable Objects.
+        In 2024, I brought it back as an{" "}
+        <a href="https://github.com/molefrog/ficus.io">ESM module</a> for drawing polls with a
+        real-time API on Cloudflare Workers. Now <a href="https://ficus.io">Ficus is back</a> —
+        reimagined for the AI era.
       </p>
     </>
   );

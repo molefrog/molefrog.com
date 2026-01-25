@@ -1,4 +1,4 @@
-import type { Config } from "https://ficus.io/widget.js";
+import type { Config } from "https://classic.ficus.io/widget.js";
 
 export namespace API {
   interface PollStateVote {
