@@ -5,7 +5,7 @@ import useSound from "use-sound";
 import clsx from "clsx";
 import { useLocalStorage } from "usehooks-ts";
 
-// Importing the createPoll function from classic.ficus.io
+// @ts-ignore URL import
 import { createPoll } from "https://classic.ficus.io/widget.js";
 
 // API for fetching poll state on startup and real-time voting

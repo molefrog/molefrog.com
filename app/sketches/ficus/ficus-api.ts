@@ -1,14 +1,14 @@
-import type { Config } from "https://classic.ficus.io/widget.js";
-
 export namespace API {
   interface PollStateVote {
     id: string;
     answers: string[];
   }
 
-  interface FetchedConfig extends Config {
+  interface FetchedConfig {
     id: string;
     name: string;
+    question: string;
+    answers: { id: string; label: string }[];
   }
 
   export type PollState = {
