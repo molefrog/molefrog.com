@@ -20,7 +20,7 @@ const nextConfig = {
     return config;
   },
   experimental: {
-    urlImports: ["https://ficus.io"],
+    urlImports: ["https://ficus.io", "https://classic.ficus.io"],
   },
 };
 
