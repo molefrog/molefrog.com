@@ -11,8 +11,8 @@ const Footer = () => (
         {/* Divider */}
         <div className="h-0.5 bg-gradient-to-r from-transparent via-ds-gray-100 to-transparent" />
 
-        <div className="text-ds-gray-600 mb-8 pt-12 text-sm">
-          You can reach out to me online via one of the links below
+        <div className="text-ds-gray-600 mb-8 pt-12 text-ds-sm">
+          Want to get in touch? Here are a few ways to reach me
         </div>
 
         {/* Links grid */}

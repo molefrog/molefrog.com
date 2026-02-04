@@ -19,10 +19,9 @@ export default function Media(): JSX.Element {
         <h2 className="text-2xl leading-10 md:text-3xl md:leading-12 font-medium font-serif tracking-tight mb-4 mt-4">
           Media Mentions and Publications
         </h2>
-        <div className="text-base md:text-ds-md mb-16 text-ds-gray-800">
-          Here is a <i>&quot;humble&quot;</i> list of the articles I or my projects have been
-          mentioned in, the podcasts I&apos;ve joined as a guest, or some articles I&apos;ve written
-          over the years.
+        <div className="text-base md:text-base text-pretty mb-16 text-ds-gray-600">
+          List of the articles I or my projects have been mentioned in, the podcasts I&apos;ve
+          joined as a guest, or some articles I&apos;ve written over the years.
         </div>
 
         <ol className="p-0 list-[decimal-leading-zero] marker:font-ds-mono marker:text-ds-gray-400 marker:text-sm marker:font-medium">
@@ -37,7 +36,7 @@ export default function Media(): JSX.Element {
                 >
                   <span className="before:content-['«'] after:content-['»']">{title}</span>
                 </a>
-                <div className="mt-1 text-sm text-ds-gray-700 font-normal">{details}</div>
+                <div className="mt-1 text-base text-ds-gray-600 font-normal">{details}</div>
               </li>
             );
           })}
@@ -137,11 +136,6 @@ const REFERENCES: Reference[] = [
     title: "Rules of parsing dates with Date.parse",
     url: "https://medium.com/people-at-work/rules-of-parsing-dates-with-date-parse-c5a73525a72e",
     details: "Published in People at Work / Medium, 2016",
-  },
-  {
-    title: "Победители программы УМНИК 2015 года",
-    url: "https://www.iidf.ru/media/articles/fond/opredeleny-pervye-pobediteli-programmy-umnik-2015-goda-1/",
-    details: "Hackathon project ficus.io received funding from IIDF, 2015",
   },
   {
     title: "A New Breed of Acumen Ping Pong Players",

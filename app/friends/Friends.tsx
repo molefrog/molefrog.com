@@ -183,7 +183,7 @@ export default function Friends() {
         <h1 className="text-2xl leading-10 md:text-3xl md:leading-12 font-medium font-serif tracking-tight text-center mb-2">
           Talented Humans
         </h1>
-        <div className="text-md text-ds-gray-500 text-center max-w-xl mx-auto mb-8 md:mb-4 md:text-balance">
+        <div className="text-md text-ds-gray-600 text-center max-w-xl mx-auto mb-8 md:mb-4 md:text-balance">
           If you liked my website, please take a look at what these folks are doing. They are good
           people.
         </div>

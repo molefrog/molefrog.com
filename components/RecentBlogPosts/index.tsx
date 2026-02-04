@@ -6,7 +6,9 @@ import fffIcon from "@/public/images/fff-icon.png";
 export const RecentBlogPosts = () => {
   return (
     <div>
-      <h2 className="text-base font-mono uppercase text-ds-gray-400 mb-2">Recent posts</h2>
+      <h2 className="text-sm font-medium font-mono uppercase text-ds-gray-400 mb-2">
+        Recent blog posts
+      </h2>
 
       <div className="border-t border-ds-gray-100">
         <BlogPost

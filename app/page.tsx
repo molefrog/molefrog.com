@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 export default function Page(): JSX.Element {
   return (
     <Container placement="inner" className="pt-2 md:pt-8">
-      <section className="mb-12 md:mb-17.5">
+      <section className="md:pb-32 pb-24">
         <h1 className="text-2xl sm:text-3xl md:text-4xl/12 font-ds-serif mb-4 md:mb-6 text-pretty">
           Hi, I&apos;m Alexey.
           <br />
@@ -141,7 +141,9 @@ export default function Page(): JSX.Element {
 
         {/* Mini Map */}
         <div className="mb-14 md:mb-20">
-          <h2 className="text-base font-mono uppercase text-ds-gray-400 mb-3">Recent posts</h2>
+          <h2 className="text-sm font-mono uppercase text-ds-gray-400 tracking-wide mb-3 font-medium text-pretty">
+            Uncategorized bits, projects and experiments
+          </h2>
 
           <div className="grid grid-cols-[repeat(auto-fill,minmax(80px,1fr))] gap-[7px]">
             {MINI_MAP_ITEMS.map((item, idx) => {
