@@ -35,7 +35,6 @@ We're gradually migrating from BEM CSS to Tailwind. Inter is the default body fo
 Defined in `@theme` block in `/styles/index.css`. Use these for consistency:
 
 **Fonts** (use as `font-ds-*`):
-- `font-ds-sans` - Inter
 - `font-ds-mono` - Berkeley Mono
 - `font-ds-serif` - Discordia
 - `font-ds-segm7` / `font-ds-segm14` - DSEG display fonts

@@ -63,12 +63,8 @@ export const Segmented = ({
 
   return (
     <span
-      className="segmented__text"
-      style={
-        {
-          "--cell-color": cellColor,
-        } as React.CSSProperties
-      }
+      className="font-ds-segm14 relative text-inherit before:absolute before:inset-0 before:-z-10 before:text-[var(--cell-color)] before:content-[attr(data-cells)] after:content-[attr(data-text)]"
+      style={{ "--cell-color": cellColor } as React.CSSProperties}
       data-cells={cells}
       data-text={seg}
     />

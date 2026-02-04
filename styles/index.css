@@ -11,7 +11,6 @@
 
   /* DS Font Families */
   --font-inter: var(--font-sans);
-  --font-ds-sans: var(--font-sans);
   --font-ds-mono: var(--font-mono);
   --font-ds-serif: var(--font-serif);
   --font-ds-segm7: var(--font-segm7);
@@ -56,10 +55,8 @@
 
 @import "./showcase.css";
 @import "./solid-link.css";
-@import "./segmented.css";
 @import "./projector.css";
 @import "./article.css";
-@import "./blog.css";
 @import "./404.css";
 @import "./expand-inline.css";
 
@@ -99,9 +96,6 @@
   --color-accent-700: #0f3efa;
 
   --color-accent: #2c57fb;
-  --color-accent-rgb: 44, 87, 251;
-
-  --main-container-width: 768px;
 }
 
 @media (max-width: 768px) {

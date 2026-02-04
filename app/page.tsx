@@ -141,6 +141,8 @@ export default function Page(): JSX.Element {
 
         {/* Mini Map */}
         <div className="mb-14 md:mb-20">
+          <h2 className="text-base font-mono uppercase text-ds-gray-400 mb-3">Recent posts</h2>
+
           <div className="grid grid-cols-[repeat(auto-fill,minmax(80px,1fr))] gap-[7px]">
             {MINI_MAP_ITEMS.map((item, idx) => {
               const shouldPrefetch = !/molefrog\.com\/etc\//.test(item.url);

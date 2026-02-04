@@ -22,6 +22,22 @@ interface Talk {
 
 const talks: Talk[] = [
   {
+    title: "Good Ideas Stick",
+    conference: "Design Engineering Night",
+    city: "London",
+    country: "UK",
+    flag: "🇬🇧",
+    date: "2026-01-29",
+  },
+  {
+    title: "Let's Build a Vibe-Coding Agent!",
+    conference: "CopenhagenJS",
+    city: "Copenhagen",
+    country: "Denmark",
+    flag: "🇩🇰",
+    date: "2026-01-22",
+  },
+  {
     title: "The challenges of web apps: what we've solved and what's next?",
     conference: "CopenhagenJS",
     city: "Copenhagen",
