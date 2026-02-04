@@ -10,7 +10,7 @@
     "start": "next start",
     "lint": "next lint",
     "postbuild": "next-sitemap",
-    "get-fonts": "curl -L \"$DISCORDIA_FONT\" -o styles/fonts/Discordia/discordia.zip && cd styles/fonts/Discordia && unzip -o discordia.zip && rm discordia.zip",
+    "decrypt-fonts": "cd styles/fonts && age -d fonts.age | tar xz",
     "workers:dev": "wrangler dev",
     "workers:deploy": "npm run build && wrangler deploy",
     "workers:preview": "wrangler deploy --env preview"

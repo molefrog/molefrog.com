@@ -51,6 +51,13 @@ const DSEG14Classic = localFont({
   display: "swap",
 });
 
+const BerkeleyMono = localFont({
+  src: "./BerkeleyMono/Berkeley Mono Variable.woff2",
+  fallback: ["monospace"],
+  variable: "--font-berkeley",
+  display: "swap",
+});
+
 const Discordia = localFont({
   src: [
     {
@@ -74,8 +81,8 @@ const Discordia = localFont({
   display: "swap",
 });
 
-export const fontsCSSVars = [JetBrainsMono, DSEG7Classic, DSEG14Classic, Discordia, HankenGrotesk]
+export const fontsCSSVars = [JetBrainsMono, DSEG7Classic, DSEG14Classic, BerkeleyMono, Discordia, HankenGrotesk]
   .map((f) => f.variable)
   .join(" ");
 
-export { JetBrainsMono, DSEG7Classic, DSEG14Classic, Discordia, HankenGrotesk };
+export { JetBrainsMono, DSEG7Classic, DSEG14Classic, BerkeleyMono, Discordia, HankenGrotesk };

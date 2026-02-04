@@ -56,8 +56,8 @@ next-env.d.ts
 nbproject
 Thumbs.db
 
-# Discórdia fonts
-/styles/fonts/Discordia/*
-!/styles/fonts/Discordia/.keep
+# Licensed fonts (encrypted with age)
+/styles/fonts/Discordia/*.woff2
+/styles/fonts/BerkeleyMono/*.woff2
 
 .wrangler
