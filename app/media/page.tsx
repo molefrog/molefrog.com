@@ -18,7 +18,7 @@ export default function Media(): JSX.Element {
       <Container placement="inner">
         <h2 className="page-header__header">Media Mentions and Publications</h2>
         <div className="page-header__text">
-          Here is a <i>&quot;humble&quot;</i> list of the articles me or my projects have been
+          Here is a <i>&quot;humble&quot;</i> list of the articles I or my projects have been
           mentioned in, the podcasts I&apos;ve joined as a guest, or some articles I&apos;ve written
           over the years.
         </div>
@@ -49,6 +49,11 @@ export default function Media(): JSX.Element {
  * The list of publications, articles, podcasts
  */
 const REFERENCES: Reference[] = [
+  {
+    title: "Fira: Agentic AI Analyst",
+    url: "https://www.ycombinator.com/launches/Mu8-fira-agentic-ai-analyst",
+    details: "YC Launch announcement, Y Combinator W25, 2025",
+  },
   {
     title: "Resume.io and Talent Inc. merge!",
     url: "https://updates.resume.io/resume-io-and-talent-inc-merge!-203399",
