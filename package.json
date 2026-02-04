@@ -2,7 +2,7 @@
   "name": "molefrog.com",
   "description": "Alexey Taktarov's website",
   "author": "Alexey Taktarov <molefrog@gmail.com>",
-  "version": "0.1.337",
+  "version": "0.1.338",
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
