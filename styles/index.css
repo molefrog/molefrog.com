@@ -2,30 +2,65 @@
 @source "../app/**/*.tsx";
 @source "../components/**/*.tsx";
 
+@theme {
+  /* DS Layout */
+  --container-ds-inner: 760px;
+  --container-ds-outer: 1050px;
+  --spacing-ds-page: 32px;
+  --spacing-ds-page-mobile: 20px;
+
+  /* DS Font Families */
+  --font-ds-sans: var(--font-inter);
+  --font-ds-mono: var(--font-mono);
+  --font-ds-serif: var(--font-serif);
+  --font-ds-segm7: var(--font-segm7);
+  --font-ds-segm14: var(--font-segm14);
+
+  /* DS Text Sizes */
+  --text-ds-xs: 13px;
+  --text-ds-xs--line-height: 22px;
+  --text-ds-sm: 15px;
+  --text-ds-sm--line-height: 24px;
+  --text-ds-base: 17px;
+  --text-ds-base--line-height: 27px;
+  --text-ds-md: 18px;
+  --text-ds-md--line-height: 28px;
+
+  /* DS Gray Colors */
+  --color-ds-gray-50: #f8f8fa;
+  --color-ds-gray-100: #f4f4f5;
+  --color-ds-gray-150: #ececee;
+  --color-ds-gray-200: #e4e4e7;
+  --color-ds-gray-300: #d4d4d8;
+  --color-ds-gray-400: #a1a1aa;
+  --color-ds-gray-500: #71717a;
+  --color-ds-gray-600: #52525b;
+  --color-ds-gray-700: #3f3f46;
+  --color-ds-gray-800: #262626;
+  --color-ds-gray-900: #18181b;
+
+  /* DS Accent Colors */
+  --color-ds-accent-200: #738efc;
+  --color-ds-accent-300: #5f7efc;
+  --color-ds-accent-400: #4b6efb;
+  --color-ds-accent-500: #2c57fb;
+  --color-ds-accent-600: #234efb;
+  --color-ds-accent-700: #0f3efa;
+  --color-ds-accent: #2c57fb;
+}
+
 @layer base {
   @import "./reset.css";
 }
 
-@import "./about.css";
-@import "./top-bar.css";
-@import "./footer.css";
-@import "./mini-map.css";
 @import "./showcase.css";
-@import "./references.css";
-@import "./banner-cv.css";
-@import "./grid.css";
 @import "./solid-link.css";
-@import "./projects.css";
-@import "./speaking.css";
 @import "./segmented.css";
 @import "./projector.css";
 @import "./article.css";
-@import "./sketches.css";
 @import "./blog.css";
 @import "./404.css";
-@import "./speaking-all.css";
 @import "./expand-inline.css";
-@import "./friends.css";
 
 :root {
   /* --font-sans: Helvetica Neue; */
@@ -80,10 +115,6 @@
   }
 }
 
-h3 {
-  margin: 0;
-}
-
 body {
   font-family: var(--font-sans);
   font-synthesis: none;
@@ -91,8 +122,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-
-  font: var(--type-text-regular);
   color: var(--color-gray-900);
 }
 

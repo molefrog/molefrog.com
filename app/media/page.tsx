@@ -1,4 +1,4 @@
-import { Container } from "@/components/Grid";
+import { Container } from "@/components/Container";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,28 +14,30 @@ interface Reference {
 
 export default function Media(): JSX.Element {
   return (
-    <main>
+    <main className="font-[family-name:var(--font-inter)] md:pb-32 pb-24">
       <Container placement="inner">
-        <h2 className="page-header__header">Media Mentions and Publications</h2>
-        <div className="page-header__text">
+        <h2 className="text-2xl leading-10 md:text-3xl md:leading-12 font-medium font-serif tracking-tight mb-4 mt-4">
+          Media Mentions and Publications
+        </h2>
+        <div className="text-base md:text-ds-md mb-16 text-ds-gray-800">
           Here is a <i>&quot;humble&quot;</i> list of the articles I or my projects have been
           mentioned in, the podcasts I&apos;ve joined as a guest, or some articles I&apos;ve written
           over the years.
         </div>
 
-        <ol className="references">
+        <ol className="p-0 list-[decimal-leading-zero] marker:font-ds-mono marker:text-ds-gray-400 marker:text-sm marker:font-medium">
           {REFERENCES.map(({ title, url, details }, idx_) => {
             return (
-              <li key={idx_} className="references__item">
+              <li key={idx_} className="pl-3 -ml-3 mt-0 first:mt-0 [&+li]:mt-8">
                 <a
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="references__link"
+                  className="text-ds-gray-800 italic block underline decoration-ds-gray-300 hover:decoration-ds-accent hover:decoration-2"
                 >
-                  {title}
+                  <span className="before:content-['«'] after:content-['»']">{title}</span>
                 </a>
-                <div className="references__details">{details}</div>
+                <div className="mt-1 text-sm text-ds-gray-700 font-normal">{details}</div>
               </li>
             );
           })}

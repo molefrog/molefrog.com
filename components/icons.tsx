@@ -111,6 +111,27 @@ export const Back = ({ className }: { className?: string }) => {
     </svg>
   );
 };
+
+export const ChevronRight = ({ className }: { className?: string }) => {
+  return (
+    <svg
+      width="10"
+      height="10"
+      viewBox="0 0 10 10"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <path
+        d="M3 1L7 5L3 9"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
 export const Document = ({ className }: { className?: string }) => {
   return (
     <svg

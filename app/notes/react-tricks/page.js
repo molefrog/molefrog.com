@@ -1,6 +1,6 @@
 import WrapBalancer from "react-wrap-balancer";
 
-import { Container } from "@/components/Grid";
+import { Container } from "@/components/Container";
 import { NotionPage } from "./NotionPage";
 import { NotionAPI } from "notion-client";
 import { ShowcaseLink } from "@/components/Showcase";

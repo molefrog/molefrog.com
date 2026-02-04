@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion, LayoutGroup, AnimatePresence } from "framer-motion";
-import { Container } from "@/components/Grid";
+import { Container } from "@/components/Container";
 import Image from "next/image";
 import clsx from "clsx";
 import { ArrowTopRight, XMark } from "@/components/icons";
@@ -113,14 +113,14 @@ function PreviewModal({ profile, onClose }: PreviewModalProps) {
 
   return (
     <motion.div
-      className="friends__overlay"
+      className="fixed sm:absolute inset-0 bg-white/70 z-10 backdrop-blur-sm flex items-center sm:items-start justify-center sm:pt-8"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
     >
       <motion.div
-        className="friends__modal"
+        className="w-96 bg-white shadow-lg rounded-xl z-20 m-2"
         layout
         layoutId={`item-${profile.website}`}
         transition={{
@@ -130,12 +130,15 @@ function PreviewModal({ profile, onClose }: PreviewModalProps) {
         }}
         ref={ref as React.RefObject<HTMLDivElement>}
       >
-        <motion.div layout>
-          <button className="friends__close-button" onClick={onClose}>
-            <XMark className="friends__close-icon" strokeWidth={2} />
+        <motion.div className="relative p-3" layout>
+          <button
+            className="absolute top-2.5 right-2.5 w-7 h-7 flex appearance-none rounded-full bg-ds-gray-100 border-none items-center justify-center cursor-pointer transition-colors p-0 hover:bg-ds-gray-200"
+            onClick={onClose}
+          >
+            <XMark className="w-4 h-4" strokeWidth={2} />
           </button>
-          <div className="friends__modal-name">
-            <div className="friends__modal-avatar">
+          <div className="text-ds-base font-medium mb-2 px-1.5 flex items-center gap-2.5">
+            <div className="shrink-0 rounded-sm overflow-hidden flex items-center justify-center">
               <Image
                 src={profile.avatar || ""}
                 alt={`${profile.name} avatar`}
@@ -145,15 +148,15 @@ function PreviewModal({ profile, onClose }: PreviewModalProps) {
             </div>
             {profile.name}
           </div>
-          <div className="friends__modal-bio">{profile.bio}</div>
+          <div className="text-ds-sm text-ds-gray-600 mb-5 px-1.5">{profile.bio}</div>
           <a
             href={`https://${profile.website}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="friends__website-button"
+            className="flex items-center justify-center gap-1.5 w-full py-1.5 bg-ds-gray-100 rounded-lg text-center no-underline text-ds-gray-800 font-ds-mono text-sm font-medium uppercase transition-colors hover:bg-ds-gray-200"
           >
             {profile.website}
-            <ArrowTopRight className="friends__button-icon" />
+            <ArrowTopRight className="w-3.5 h-3.5" />
           </a>
         </motion.div>
       </motion.div>
@@ -176,16 +179,18 @@ export default function Friends() {
 
   return (
     <Container placement="inner">
-      <section className="friends">
-        <h1 className="friends__header">Talented Humans</h1>
-        <div className="friends__intro">
+      <section className="mb-12 md:mb-36 font-[family-name:var(--font-inter)]">
+        <h1 className="text-2xl leading-10 md:text-3xl md:leading-12 font-medium font-serif tracking-tight text-center mb-2">
+          Talented Humans
+        </h1>
+        <div className="text-md text-ds-gray-500 text-center max-w-xl mx-auto mb-8 md:mb-4 md:text-balance">
           If you liked my website, please take a look at what these folks are doing. They are good
           people.
         </div>
 
         <LayoutGroup>
-          <div className="friends__container">
-            <div className="friends__list">
+          <div className="relative py-4 px-1 sm:py-8 sm:px-4">
+            <div className="flex flex-wrap justify-center gap-2.5">
               {friendProfiles.map((item) => {
                 const isActive = item.website === preview?.website;
 
@@ -193,14 +198,14 @@ export default function Friends() {
                   <motion.div
                     key={item.website}
                     layout
-                    className={clsx("friends__item", {
-                      "friends__item--active": isActive,
+                    className={clsx("select-none bg-ds-gray-100 rounded-lg w-full sm:w-auto", {
+                      "opacity-0": isActive,
                     })}
                     onClick={() => handleItemClick(item)}
                     transition={{ duration: 0.5, type: "spring" }}
                   >
                     <motion.button
-                      className="friends__item-inner"
+                      className="p-0 relative bg-white border border-ds-gray-200 rounded-lg cursor-pointer overflow-hidden transition-colors shadow-sm select-none text-left block w-full hover:bg-ds-gray-100"
                       layoutId={`item-${item.website}`}
                       layout
                       transition={{ duration: 0.3, type: "spring", bounce: 0.1 }}
@@ -208,7 +213,7 @@ export default function Friends() {
                       whileTap={{ y: 2 }}
                     >
                       <motion.div
-                        className="friends__item-content"
+                        className="flex items-center p-1.5"
                         layout
                         animate={{ opacity: isActive ? 0 : 1 }}
                         transition={{
@@ -217,7 +222,7 @@ export default function Friends() {
                         }}
                       >
                         {/* Avatar */}
-                        <div className="friends__avatar">
+                        <div className="shrink-0 rounded overflow-hidden">
                           <Image
                             src={item.avatar || ""}
                             alt={`${item.name} avatar`}
@@ -226,9 +231,11 @@ export default function Friends() {
                           />
                         </div>
 
-                        <div className="friends__info">
-                          <div className="friends__website">{item.website}</div>
-                          <div className="friends__name">{item.name}</div>
+                        <div className="ml-3.5 mr-3">
+                          <div className="font-ds-mono font-medium text-xs leading-tight mt-1 uppercase whitespace-nowrap overflow-hidden text-ellipsis text-ds-gray-800">
+                            {item.website}
+                          </div>
+                          <div className="text-ds-xs font-medium text-ds-gray-400">{item.name}</div>
                         </div>
                       </motion.div>
                     </motion.button>

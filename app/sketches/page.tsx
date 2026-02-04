@@ -1,36 +1,35 @@
 import dynamic from "next/dynamic";
+import { ReactNode } from "react";
 
-import { Container } from "@/components/Grid";
+import { Container } from "@/components/Container";
 
-const FicusSketch = dynamic(() => import("./ficus/index.tsx"));
-const PogSketch = dynamic(() => import("./pogs/index.tsx"));
-const SpoilerSketch = dynamic(() => import("./spoiler/index.tsx"));
+const FicusSketch = dynamic(() => import("./ficus"));
+const PogSketch = dynamic(() => import("./pogs"));
+const SpoilerSketch = dynamic(() => import("./spoiler"));
 
-export default function Media() {
+export default function Sketches() {
   return (
-    <main>
+    <main className="font-[family-name:var(--font-inter)] pb-24 md:pb-32">
       <Container placement="inner">
-        <div className="sketches__grid">
-          <div className="sketches__left">
-            <div className="sketches__block">
+        <div className="grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-2 mb-10 justify-items-center">
+          <div className="md:order-none order-2">
+            <div className="max-w-sm sm:max-w-full md:max-w-sm rounded-2xl p-4 bg-ds-gray-100 text-ds-sm font-normal text-ds-gray-800 mb-2 [&_a]:text-ds-accent-600 [&_a]:font-semibold [&_a]:no-underline [&_a:hover]:underline [&_p]:m-0 [&_p+p]:mt-3">
               <FicusSketch />
-
               <PublicationDate>2014–2024</PublicationDate>
             </div>
-            <div className="sketches__block">
+            <div className="max-w-sm sm:max-w-full md:max-w-sm rounded-2xl p-4 bg-ds-gray-100 text-ds-sm font-normal text-ds-gray-800 mb-2 last:mb-0 [&_a]:text-ds-accent-600 [&_a]:font-semibold [&_a]:no-underline [&_a:hover]:underline [&_p]:m-0 [&_p+p]:mt-3">
               <SpoilerSketch />
               <PublicationDate>April, 2024</PublicationDate>
             </div>
           </div>
 
-          <div className="sketches__right">
-            <div className="sketches__block sketches__block--intro">
+          <div>
+            <div className="max-w-sm sm:max-w-full md:max-w-sm rounded-2xl p-4 bg-ds-gray-100 text-sm tracking-tight font-normal text-ds-gray-800 mb-2 font-ds-mono">
               Here be dragons! This is the place for various sketches, experiments, and side-project
               demos.
             </div>
-            <div className="sketches__block">
+            <div className="max-w-sm sm:max-w-full md:max-w-sm rounded-2xl p-4 bg-ds-gray-100 text-ds-sm font-normal text-ds-gray-800 mb-2 last:mb-0 [&_a]:text-ds-accent-600 [&_a]:font-semibold [&_a]:no-underline [&_a:hover]:underline [&_p]:m-0 [&_p+p]:mt-3">
               <PogSketch />
-
               <PublicationDate>June, 2023</PublicationDate>
             </div>
           </div>
@@ -40,11 +39,20 @@ export default function Media() {
   );
 }
 
-const PublicationDate = (props) => {
+interface PublicationDateProps {
+  children: ReactNode;
+}
+
+const PublicationDate = ({ children }: PublicationDateProps) => {
   return (
-    <div className="sketches__info">
-      <div className="sketches__published">
-        <svg viewBox="0 0 60 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div className="pt-4">
+      <div className="font-ds-mono uppercase text-xs font-bold inline-flex items-center text-ds-gray-600 tracking-wide bg-white py-1 px-3 rounded-xl">
+        <svg
+          className="w-2.5 rotate-45 align-middle mr-1.5 pt-px"
+          viewBox="0 0 60 76"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             fillRule="evenodd"
             clipRule="evenodd"
@@ -58,8 +66,7 @@ const PublicationDate = (props) => {
             fill="currentColor"
           />
         </svg>
-
-        {props.children}
+        {children}
       </div>
     </div>
   );

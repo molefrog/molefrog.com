@@ -69,10 +69,7 @@ export default function POGDemo() {
 
   return (
     <>
-      <div
-        className="mb-3 h-[280px] rounded-t-[18px] overflow-hidden"
-        style={{ margin: "calc(var(--sketches-block-padding) * -1)", marginBottom: "12px" }}
-      >
+      <div className="-m-4 mb-3 h-[280px] rounded-t-2xl overflow-hidden">
         <Map
           mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
           initialViewState={{
@@ -115,10 +112,7 @@ export default function POGDemo() {
         business card, but less formal.
       </p>
 
-      <div
-        className="flex items-start"
-        style={{ margin: "18px calc(var(--sketches-block-padding) * -1)" }}
-      >
+      <div className="flex items-start my-4 -mx-4">
         <div>
           <video className="w-full pointer-events-none" autoPlay loop muted playsInline>
             <source src={clip1} type="video/mp4" />

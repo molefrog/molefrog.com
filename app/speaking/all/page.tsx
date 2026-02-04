@@ -1,7 +1,7 @@
 import React from "react";
 import { getYear, format } from "date-fns";
 import { Metadata } from "next";
-import { Container } from "@/components/Grid";
+import { Container } from "@/components/Container";
 import Link from "next/link";
 import { Back as BackIcon } from "@/components/icons";
 
@@ -205,14 +205,19 @@ export default function SpeakingAll(): JSX.Element {
 
   return (
     <Container placement="inner">
-      <div className="speaking-all">
-        <div className="speaking-all__nav">
-          <Link href="/speaking" className="speaking__nav-btn">
+      <div className="text-sm text-ds-gray-900 pb-24 md:pb-32 font-[family-name:var(--font-inter)]">
+        {/* Nav */}
+        <div className="flex mb-4">
+          <Link
+            href="/speaking"
+            className="bg-ds-gray-50 px-4 rounded-full h-9 align-middle items-center shadow-[inset_0px_0px_0px_1px_var(--color-ds-gray-200)] text-ds-gray-600 no-underline transition-shadow text-sm font-medium inline-flex gap-2 cursor-pointer hover:text-ds-accent hover:shadow-[inset_0px_0px_0px_2px_var(--color-ds-accent)] [&>svg]:text-ds-gray-800 [&>svg]:mt-px hover:[&>svg]:text-ds-accent"
+          >
             <BackIcon /> Back to Talks
           </Link>
         </div>
 
-        <table className="speaking-all__table">
+        {/* Table */}
+        <table className="w-full border-collapse">
           <tbody>
             {talks.map((talk, index) => {
               const talkYear = getYear(new Date(talk.date));
@@ -225,20 +230,25 @@ export default function SpeakingAll(): JSX.Element {
 
               return (
                 <React.Fragment key={index}>
-                  <tr className="speaking-all__talk-row">
-                    <td className="speaking-all__year" colSpan={3}>
+                  <tr className="[&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:border-ds-gray-150">
+                    <td
+                      className="py-3.5 text-left align-top text-ds-gray-400 font-ds-mono text-sm font-normal"
+                      colSpan={3}
+                    >
                       {isNewYear ? talk.year : null}
                     </td>
 
-                    <td className="speaking-all__title-cell">
-                      <div className="speaking-all__title-with-icon">
+                    <td className="py-3.5 px-3 align-top">
+                      <div className="mb-1">
                         {talk.title}
-                        <div className="speaking-all__conference">
+                        <div className="text-ds-gray-500 mt-1 font-normal">
                           {talk.flag} {talk.conference}, {talk.city}
                         </div>
                       </div>
                     </td>
-                    <td className="speaking-all__date-cell">{formattedDate}</td>
+                    <td className="text-right align-top py-3.5 font-ds-mono text-sm text-ds-gray-400 whitespace-nowrap font-normal">
+                      {formattedDate}
+                    </td>
                   </tr>
                 </React.Fragment>
               );

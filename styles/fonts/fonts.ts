@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { Hanken_Grotesk } from "next/font/google";
+import { Hanken_Grotesk, Inter } from "next/font/google";
 
 const HankenGrotesk = Hanken_Grotesk({
   subsets: ["latin", "cyrillic-ext"],
@@ -74,8 +74,15 @@ const Discordia = localFont({
   display: "swap",
 });
 
-export const fontsCSSVars = [DSEG7Classic, DSEG14Classic, BerkeleyMono, Discordia, HankenGrotesk]
+const InterFont = Inter({
+  subsets: ["latin", "cyrillic"],
+  display: "swap",
+  fallback: ["system-ui", "sans-serif"],
+  variable: "--font-inter",
+});
+
+export const fontsCSSVars = [DSEG7Classic, DSEG14Classic, BerkeleyMono, Discordia, HankenGrotesk, InterFont]
   .map((f) => f.variable)
   .join(" ");
 
-export { DSEG7Classic, DSEG14Classic, BerkeleyMono, Discordia, HankenGrotesk };
+export { DSEG7Classic, DSEG14Classic, BerkeleyMono, Discordia, HankenGrotesk, InterFont };

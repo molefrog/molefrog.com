@@ -1,12 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import WrapBalancer from "react-wrap-balancer";
 import { Spoiler } from "spoiled";
 import { Metadata } from "next";
 import { ReactNode } from "react";
 
 import { Projector } from "@/components/Projector";
-import { Container } from "@/components/Grid";
+import { Container } from "@/components/Container";
 import { ShowcaseLink } from "@/components/Showcase";
 import { SpeakingConference } from "@/components/SpeakingConference";
 import {
@@ -15,6 +14,7 @@ import {
   List as ListIcon,
   Document as DocumentIcon,
   CursorRipple as CursorRippleIcon,
+  ChevronRight as ChevronRightIcon,
 } from "@/components/icons";
 
 import viipuriLibraryImg from "@/public/speaking/viipuri-library.webp";
@@ -28,6 +28,13 @@ import gotMilkImg from "@/public/speaking/got-milk.webp";
 import simachevaImg from "@/public/speaking/simacheva.webp";
 
 import servSlide_1 from "@/public/speaking/serverless-1.webp";
+
+const Prose = ({ children }: { children: ReactNode }) => (
+  <div className="mb-6 md:mb-5 [&_p]:my-4 [&_code]:text-ds-sm [&_code]:font-ds-mono [&_code]:font-medium [&_code]:bg-ds-gray-100 [&_code]:tracking-tight [&_code]:px-1 [&_code]:py-px [&_code]:rounded text-base/relaxed text-ds-gray-800">
+    {children}
+  </div>
+);
+
 import servSlide_2 from "@/public/speaking/serverless-2.webp";
 import servSlide_3 from "@/public/speaking/serverless-3.webp";
 import servSlide_4 from "@/public/speaking/serverless-4.webp";
@@ -75,10 +82,23 @@ interface TalkResourceLinkProps {
 }
 
 const TalkResourceLink = ({ icon, body, details, href }: TalkResourceLinkProps): JSX.Element => (
-  <Link href={href} className="speaking-talk-link">
-    <div className="speaking-talk-link__icon">{icon}</div>
-    <span className="speaking-talk-link__text">{body}</span>
-    {details && <span className="speaking-talk-link__details">{details}</span>}
+  <Link
+    href={href}
+    className="group flex flex-row flex-nowrap items-center rounded-xl gap-3 bg-ds-gray-50 no-underline text-inherit py-2 px-4 whitespace-nowrap transition-colors cursor-pointer hover:bg-ds-gray-100"
+  >
+    <div className="shrink-0 flex items-center justify-center [&>svg]:w-5 [&>svg]:text-ds-gray-600 group-hover:[&>svg]:text-ds-gray-900">
+      {icon}
+    </div>
+    <span className="flex-auto text-ds-sm text-ds-gray-600 pt-px overflow-hidden text-ellipsis group-hover:text-ds-gray-900">
+      {body}
+    </span>
+    {details ? (
+      <span className="text-ds-xs text-ds-gray-400 overflow-hidden text-ellipsis pt-0.5 ml-1.5">
+        {details}
+      </span>
+    ) : (
+      <ChevronRightIcon className="w-2.5 text-ds-gray-400 group-hover:text-ds-gray-600" />
+    )}
   </Link>
 );
 
@@ -88,26 +108,42 @@ interface AnimatedIconProps {
 
 const AnimatedIcon = ({ icon }: AnimatedIconProps): JSX.Element => {
   return (
-    <div className="sp-icon">
+    <div className="size-[50px] shrink-0 relative">
       {/** Squircle background */}
-      <svg width="48" viewBox="0 0 49 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg
+        width="48"
+        viewBox="0 0 49 48"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full -rotate-3 text-ds-gray-50"
+      >
         <path
           d="M0.187012 24C0.187012 12.6863 0.187012 7.02944 3.70173 3.51472C7.21645 0 12.8733 0 24.187 0C35.5007 0 41.1576 0 44.6723 3.51472C48.187 7.02944 48.187 12.6863 48.187 24C48.187 35.3137 48.187 40.9706 44.6723 44.4853C41.1576 48 35.5007 48 24.187 48C12.8733 48 7.21645 48 3.70173 44.4853C0.187012 40.9706 0.187012 35.3137 0.187012 24Z"
           fill="currentColor"
         />
       </svg>
 
-      <Image src={icon} width="54" height="54" className="sp-icon__img" alt="" aria-hidden />
+      <Image
+        src={icon}
+        width="54"
+        height="54"
+        className="absolute -top-0.5 left-0"
+        alt=""
+        aria-hidden
+      />
     </div>
   );
 };
 
 export default function Speaking(): JSX.Element {
   return (
-    <main>
+    <main className="font-[family-name:var(--font-inter)] pb-24 md:pb-32">
       <Container placement="outer">
-        <div className="speaking__header">
-          <Link href="/speaking/all" className="speaking__nav-btn">
+        <div className="flex flex-row flex-nowrap items-center gap-6 justify-center pb-3">
+          <Link
+            href="/speaking/all"
+            className="bg-ds-gray-50 px-4 rounded-full h-9 items-center shadow-[inset_0px_0px_0px_1px_var(--color-ds-gray-200)] text-ds-gray-600 no-underline transition-shadow text-ds-sm font-medium inline-flex gap-2 hover:text-ds-accent hover:shadow-[inset_0px_0px_0px_2px_var(--color-ds-accent)] [&>svg]:text-ds-gray-800 [&>svg]:mt-px hover:[&>svg]:text-ds-accent"
+          >
             <ListIcon />
             View All Chronologically
           </Link>
@@ -115,16 +151,16 @@ export default function Speaking(): JSX.Element {
       </Container>
 
       <Container placement="outer">
-        <div className="speaking">
+        <div className="pt-4 lg:pt-12 lg:pr-8">
           {/* Web Apps Evolution talk */}
-          <div className="speaking__talk">
-            <div className="speaking__slides">
+          <div className="flex flex-wrap lg:flex-nowrap items-start gap-8 lg:gap-14 mb-20 lg:mb-32">
+            <div className="shrink-0 w-full lg:w-auto">
               <Projector
                 title="The challenges of web apps: what we've solved and what's next?"
                 slides={[webappsSlide_1, webappsSlide_2, webappsSlide_3, webappsSlide_4]}
               />
 
-              <div className="speaking__talk-links">
+              <div className="grid grid-cols-2 gap-2 mt-3">
                 <TalkResourceLink
                   icon={<PlayIcon />}
                   body="Watch"
@@ -140,14 +176,12 @@ export default function Speaking(): JSX.Element {
               </div>
             </div>
 
-            <div className="speaking__info">
-              <h3 className="speaking__head">
-                <WrapBalancer>
-                  The challenges of web apps: what we&apos;ve solved and what&apos;s next?
-                </WrapBalancer>
+            <div>
+              <h3 className="flex-auto font-medium text-2xl leading-8 tracking-[-0.03em] font-ds-serif text-pretty">
+                The challenges of web apps: what we&apos;ve solved and what&apos;s next?
               </h3>
 
-              <div className="speaking__desc">
+              <Prose>
                 <p>
                   This talk is my overview of how web apps evolved over time: from traditional CGI
                   to full-stack SSR frameworks and local-first apps. By using an analogy of a
@@ -176,9 +210,9 @@ export default function Speaking(): JSX.Element {
                   </Link>
                   .
                 </p>
-              </div>
+              </Prose>
 
-              <div className="speaking__confs">
+              <div className="flex flex-wrap gap-2">
                 <SpeakingConference
                   year="2024"
                   format="link"
@@ -198,14 +232,14 @@ export default function Speaking(): JSX.Element {
           </div>
 
           {/* CSS Paint API talk */}
-          <div className="speaking__talk">
-            <div className="speaking__slides">
+          <div className="flex flex-wrap lg:flex-nowrap items-start gap-8 lg:gap-14 mb-20 lg:mb-32">
+            <div className="shrink-0 w-full lg:w-auto">
               <Projector
                 title="Leveraging CSS Paint API for Realistic Particle Animation"
                 slides={[spoiledSlide_1, spoiledSlide_2]}
               />
 
-              <div className="speaking__talk-links speaking__talk-links--single">
+              <div className="grid grid-cols-1 gap-2 mt-3">
                 <TalkResourceLink
                   icon={<CursorRippleIcon />}
                   body="Demos"
@@ -214,14 +248,12 @@ export default function Speaking(): JSX.Element {
               </div>
             </div>
 
-            <div className="speaking__info">
-              <h3 className="speaking__head">
-                <WrapBalancer>
-                  {'"Spoiled"'}: Leveraging CSS Paint API for Realistic Particle Animation{" "}
-                </WrapBalancer>
+            <div>
+              <h3 className="flex-auto font-medium text-2xl leading-8 tracking-[-0.03em] font-ds-serif text-pretty">
+                {'"Spoiled"'}: Leveraging CSS Paint API for Realistic Particle Animation{" "}
               </h3>
 
-              <div className="speaking__desc">
+              <Prose>
                 <p>
                   CSS Paint API isn&apos;t new, yet it&apos;s still an experimental web API for
                   extending browser&apos;s rendering engine. Using special worklet scripts, you can
@@ -252,9 +284,9 @@ export default function Speaking(): JSX.Element {
                   </ShowcaseLink>{" "}
                   instead of regular slides for the first time.
                 </p>
-              </div>
+              </Prose>
 
-              <div className="speaking__confs">
+              <div className="flex flex-wrap gap-2">
                 <SpeakingConference
                   year="2024"
                   format="link"
@@ -281,14 +313,14 @@ export default function Speaking(): JSX.Element {
           </div>
 
           {/* React Tricks talk */}
-          <div className="speaking__talk">
-            <div className="speaking__slides">
+          <div className="flex flex-wrap lg:flex-nowrap items-start gap-8 lg:gap-14 mb-20 lg:mb-32">
+            <div className="shrink-0 w-full lg:w-auto">
               <Projector
                 title="React Tricks: Fast, Fit and Fun"
                 slides={[tricksSlide_1, tricksSlide_2, tricksSlide_3, tricksSlide_4, tricksSlide_5]}
               />
 
-              <div className="speaking__talk-links speaking__talk-links--single">
+              <div className="grid grid-cols-1 gap-2 mt-3">
                 <TalkResourceLink
                   icon={<DocumentIcon />}
                   body="Blog post"
@@ -298,12 +330,12 @@ export default function Speaking(): JSX.Element {
               </div>
             </div>
 
-            <div className="speaking__info">
-              <h3 className="speaking__head">
-                <WrapBalancer>React Tricks: Fast, Fit and Fun</WrapBalancer>
+            <div>
+              <h3 className="flex-auto font-medium text-2xl leading-8 tracking-[-0.03em] font-ds-serif text-pretty">
+                React Tricks: Fast, Fit and Fun
               </h3>
 
-              <div className="speaking__desc">
+              <Prose>
                 <p>
                   In this talk, I uncovered some tricks and hacks in React that I learned while
                   maintaining a micro-library. I discussed performance and size optimizations, as
@@ -333,9 +365,9 @@ export default function Speaking(): JSX.Element {
                   </Link>
                   , including these demos, in my blog.
                 </p>
-              </div>
+              </Prose>
 
-              <div className="speaking__confs">
+              <div className="flex flex-wrap gap-2">
                 <SpeakingConference
                   year="2024"
                   format="link"
@@ -354,20 +386,20 @@ export default function Speaking(): JSX.Element {
             </div>
           </div>
 
-          <div className="speaking__talk">
-            <div className="speaking__slides">
+          <div className="flex flex-wrap lg:flex-nowrap items-start gap-8 lg:gap-14 mb-20 lg:mb-32">
+            <div className="shrink-0 w-full lg:w-auto">
               <Projector
                 title="Practical Serverless and Edge Computing"
                 slides={[servSlide_1, servSlide_2, servSlide_3, servSlide_4]}
               />
             </div>
 
-            <div className="speaking__info">
-              <h3 className="speaking__head">
-                <WrapBalancer>Practical Serverless and Edge Computing</WrapBalancer>
+            <div>
+              <h3 className="flex-auto font-medium text-2xl leading-8 tracking-[-0.03em] font-ds-serif text-pretty">
+                Practical Serverless and Edge Computing
               </h3>
 
-              <div className="speaking__desc">
+              <Prose>
                 <p>
                   In this talk, I provided an overview of serverless functions in Vercel and
                   Cloudflare Workers. I covered frontend microservices, JWT authorization, dynamic
@@ -383,9 +415,9 @@ export default function Speaking(): JSX.Element {
                   </ShowcaseLink>
                   , serving OG previews, and automatically injecting Critical CSS at the edge.
                 </p>
-              </div>
+              </Prose>
 
-              <div className="speaking__confs">
+              <div className="flex flex-wrap gap-2">
                 <SpeakingConference
                   year="2021"
                   format="recording"
@@ -404,14 +436,14 @@ export default function Speaking(): JSX.Element {
             </div>
           </div>
 
-          <div className="speaking__talk">
-            <div className="speaking__slides">
+          <div className="flex flex-wrap lg:flex-nowrap items-start gap-8 lg:gap-14 mb-20 lg:mb-32">
+            <div className="shrink-0 w-full lg:w-auto">
               <Projector
                 title="React Hooks in action"
                 slides={[hooksSlide_1, hooksSlide_2, hooksSlide_3, hooksSlide_4]}
               />
 
-              <div className="speaking__talk-links">
+              <div className="grid grid-cols-2 gap-2 mt-3">
                 <TalkResourceLink
                   icon={<PlayIcon />}
                   body="Watch"
@@ -427,12 +459,12 @@ export default function Speaking(): JSX.Element {
               </div>
             </div>
 
-            <div className="speaking__info">
-              <h3 className="speaking__head">
-                <WrapBalancer>Hooks in action: implementing a 1KB React router</WrapBalancer>
+            <div>
+              <h3 className="flex-auto font-medium text-2xl leading-8 tracking-[-0.03em] font-ds-serif text-pretty">
+                Hooks in action: implementing a 1KB React router
               </h3>
 
-              <div className="speaking__desc">
+              <Prose>
                 <p>
                   A comprehensive introduction to React hooks, including a step-by-step tutorial on
                   building a fully-functional router library. This presentation showcases my work on
@@ -466,9 +498,9 @@ export default function Speaking(): JSX.Element {
                   </ShowcaseLink>
                   .
                 </p>
-              </div>
+              </Prose>
 
-              <div className="speaking__confs">
+              <div className="flex flex-wrap gap-2">
                 <SpeakingConference
                   year="2019"
                   format="recording"
@@ -487,14 +519,14 @@ export default function Speaking(): JSX.Element {
             </div>
           </div>
 
-          <div className="speaking__talk">
-            <div className="speaking__slides">
+          <div className="flex flex-wrap lg:flex-nowrap items-start gap-8 lg:gap-14 mb-20 lg:mb-32">
+            <div className="shrink-0 w-full lg:w-auto">
               <Projector
                 title="React Animations talk"
                 slides={[animSlide_1, animSlide_2, animSlide_3, animSlide_4]}
               />
 
-              <div className="speaking__talk-links speaking__talk-links--single">
+              <div className="grid grid-cols-1 gap-2 mt-3">
                 <TalkResourceLink
                   icon={<CursorRippleIcon />}
                   body="Slides + Demos"
@@ -503,12 +535,12 @@ export default function Speaking(): JSX.Element {
               </div>
             </div>
 
-            <div className="speaking__info">
-              <h3 className="speaking__head">
-                <WrapBalancer>Animations in a Stateful World</WrapBalancer>
+            <div>
+              <h3 className="flex-auto font-medium text-2xl leading-8 tracking-[-0.03em] font-ds-serif text-pretty">
+                Animations in a Stateful World
               </h3>
 
-              <div className="speaking__desc">
+              <Prose>
                 <p>
                   A highly interactive presentation that explores the principles of creating fluid
                   and stateful animations in React. In this talk, I cover CSS transitions,
@@ -539,9 +571,9 @@ export default function Speaking(): JSX.Element {
                   </a>{" "}
                   talks.
                 </p>
-              </div>
+              </Prose>
 
-              <div className="speaking__confs">
+              <div className="flex flex-wrap gap-2">
                 <SpeakingConference
                   year="2018"
                   format="recording"
@@ -565,162 +597,150 @@ export default function Speaking(): JSX.Element {
 
           {/* other conferences */}
 
-          <section className="speaking__rest">
-            <div className="speaking__talk">
-              <div className="speaking__info">
-                <div className="speaking__title-with-icon">
-                  <AnimatedIcon icon={phoneIcon} />
+          <section className="grid grid-cols-1 lg:grid-cols-2 gap-y-18 lg:gap-y-24 gap-x-20 mb-20">
+            <div>
+              <div className="flex flex-col gap-7 md:flex-row md:items-center md:gap-6">
+                <AnimatedIcon icon={phoneIcon} />
 
-                  <h3 className="speaking__head">
-                    <WrapBalancer>React Hooks: Iteractivity in Functional Components</WrapBalancer>
-                  </h3>
-                </div>
+                <h3 className="flex-auto font-medium text-xl leading-8 tracking-[-0.03em] font-ds-serif text-pretty">
+                  React Hooks: Iteractivity in Functional Components
+                </h3>
+              </div>
 
-                <div className="speaking__desc">
-                  <p>
-                    Guest lecture for the Web Development class at the SFU university with live
-                    coding demos. React Hooks overview: from <code>useState</code> to{" "}
-                    <code>useImperativeHandle</code>. How rendering in React works under the hood.
-                  </p>
+              <Prose>
+                <p>
+                  Guest lecture for the Web Development class at the SFU university with live coding
+                  demos. React Hooks overview: from <code>useState</code> to{" "}
+                  <code>useImperativeHandle</code>. How rendering in React works under the hood.
+                </p>
 
-                  <p>
-                    The final demo of this lecture was a simplified{" "}
-                    <ShowcaseLink
-                      href="https://codesandbox.io/s/react-hooks-playground-kdpxx"
-                      media={{ video: instaStoriesVideo, aspectRatio: 16 / 9 }}
-                    >
-                      Instagram stories
-                    </ShowcaseLink>{" "}
-                    look-alike app.
-                  </p>
-                </div>
-
-                <div className="speaking__confs">
-                  <SpeakingConference
-                    year="2021"
-                    format="slides"
-                    href="https://speakerdeck.com/molefrog/react-hooks-iteractivity-in-functional-components"
+                <p>
+                  The final demo of this lecture was a simplified{" "}
+                  <ShowcaseLink
+                    href="https://codesandbox.io/s/react-hooks-playground-kdpxx"
+                    media={{ video: instaStoriesVideo, aspectRatio: 16 / 9 }}
                   >
-                    SFU
-                  </SpeakingConference>
-                </div>
+                    Instagram stories
+                  </ShowcaseLink>{" "}
+                  look-alike app.
+                </p>
+              </Prose>
+
+              <div className="flex flex-wrap gap-2">
+                <SpeakingConference
+                  year="2021"
+                  format="slides"
+                  href="https://speakerdeck.com/molefrog/react-hooks-iteractivity-in-functional-components"
+                >
+                  SFU
+                </SpeakingConference>
               </div>
             </div>
 
-            <div className="speaking__talk">
-              <div className="speaking__info">
-                <div className="speaking__title-with-icon">
-                  <AnimatedIcon icon={radioIcon} />
+            <div>
+              <div className="flex flex-col gap-7 md:flex-row md:items-center md:gap-6">
+                <AnimatedIcon icon={radioIcon} />
 
-                  <h3 className="speaking__head">
-                    <WrapBalancer>
-                      Can Design Principles Help me Become a Better Software Engineer?
-                    </WrapBalancer>
-                  </h3>
-                </div>
+                <h3 className="flex-auto font-medium text-xl leading-8 tracking-[-0.03em] font-ds-serif text-pretty">
+                  Can Design Principles Help me Become a Better Software Engineer?
+                </h3>
+              </div>
 
-                <div className="speaking__desc">
-                  <p>
-                    How is Panasonic tape recorder related to the APIs we write and deploy? And do
-                    programmers need to be concerned of how their code will be used by others?
-                  </p>
+              <Prose>
+                <p>
+                  How is Panasonic tape recorder related to the APIs we write and deploy? And do
+                  programmers need to be concerned of how their code will be used by others?
+                </p>
 
-                  <p>
-                    Inspired by the history of design and Bauhas, I&apos;ve tried to draw a parallel
-                    between the design principles and coding best practices.
-                  </p>
-                </div>
+                <p>
+                  Inspired by the history of design and Bauhas, I&apos;ve tried to draw a parallel
+                  between the design principles and coding best practices.
+                </p>
+              </Prose>
 
-                <div className="speaking__confs">
-                  <SpeakingConference
-                    year="2019"
-                    format="recording"
-                    href="https://youtu.be/08I6pIpXsgU"
-                  >
-                    TverIO Design
-                  </SpeakingConference>
-                  <SpeakingConference year="2019" format="link">
-                    SouthConf
-                  </SpeakingConference>
-                  <SpeakingConference year="2019" format="link">
-                    SPB Frontend
-                  </SpeakingConference>
-                </div>
+              <div className="flex flex-wrap gap-2">
+                <SpeakingConference
+                  year="2019"
+                  format="recording"
+                  href="https://youtu.be/08I6pIpXsgU"
+                >
+                  TverIO Design
+                </SpeakingConference>
+                <SpeakingConference year="2019" format="link">
+                  SouthConf
+                </SpeakingConference>
+                <SpeakingConference year="2019" format="link">
+                  SPB Frontend
+                </SpeakingConference>
               </div>
             </div>
 
-            <div className="speaking__talk">
-              <div className="speaking__info">
-                <div className="speaking__title-with-icon">
-                  <AnimatedIcon icon={socketIcon} />
+            <div>
+              <div className="flex flex-col gap-7 md:flex-row md:items-center md:gap-6">
+                <AnimatedIcon icon={socketIcon} />
 
-                  <h3 className="speaking__head">
-                    <WrapBalancer>Give a Second Chance to Rails Frontend!</WrapBalancer>
-                  </h3>
-                </div>
+                <h3 className="flex-auto font-medium text-xl leading-8 tracking-[-0.03em] font-ds-serif text-pretty">
+                  Give a Second Chance to Rails Frontend!
+                </h3>
+              </div>
 
-                <div className="speaking__desc">
-                  <p>
-                    How to bundle frontend with Webpack in Rails 4 projects. Brief overview of
-                    Webpack features: HMR, code splitting, <code>manifest.json</code> generation.
-                  </p>
-                </div>
+              <Prose>
+                <p>
+                  How to bundle frontend with Webpack in Rails 4 projects. Brief overview of Webpack
+                  features: HMR, code splitting, <code>manifest.json</code> generation.
+                </p>
+              </Prose>
 
-                <div className="speaking__confs">
-                  <SpeakingConference
-                    year="2016"
-                    format="slides"
-                    href="https://speakerdeck.com/molefrog/give-a-second-change-to-rails-frontend"
-                  >
-                    Rails Club
-                  </SpeakingConference>
-                  <SpeakingConference year="2017" format="link">
-                    Rails Meetup RND
-                  </SpeakingConference>
-                </div>
+              <div className="flex flex-wrap gap-2">
+                <SpeakingConference
+                  year="2016"
+                  format="slides"
+                  href="https://speakerdeck.com/molefrog/give-a-second-change-to-rails-frontend"
+                >
+                  Rails Club
+                </SpeakingConference>
+                <SpeakingConference year="2017" format="link">
+                  Rails Meetup RND
+                </SpeakingConference>
               </div>
             </div>
 
-            <div className="speaking__talk">
-              <div className="speaking__info">
-                <div className="speaking__title-with-icon">
-                  <AnimatedIcon icon={milkIcon} />
+            <div>
+              <div className="flex flex-col gap-7 md:flex-row md:items-center md:gap-6">
+                <AnimatedIcon icon={milkIcon} />
 
-                  <h3 className="speaking__head">
-                    <WrapBalancer>
-                      Got Milk? A Short Introduction to Node.js and Event-Driven Programming
-                    </WrapBalancer>
-                  </h3>
-                </div>
+                <h3 className="flex-auto font-medium text-xl leading-8 tracking-[-0.03em] font-ds-serif text-pretty">
+                  Got Milk? A Short Introduction to Node.js and Async Programming
+                </h3>
+              </div>
 
-                <div className="speaking__desc">
-                  <p>
-                    When I was first introduced to Node.js, it blew my mind. I was fascinated with
-                    its simplicity and a hacker spirit of the growing Node community.
-                  </p>
+              <Prose>
+                <p>
+                  When I was first introduced to Node.js, it blew my mind. I was fascinated with its
+                  simplicity and a hacker spirit of the growing Node community.
+                </p>
 
-                  <p>
-                    In this short presentation that I made for a Web Dev club at my university, I
-                    explained how the JS event loop works using an analogy of{" "}
-                    <ShowcaseLink
-                      href="https://speakerdeck.com/molefrog/got-milk-a-short-introduction-to-nodejs-and-event-driven-programming"
-                      media={{ image: gotMilkImg, aspectRatio: "auto" }}
-                    >
-                      buying milk
-                    </ShowcaseLink>{" "}
-                    at the supermarket.
-                  </p>
-                </div>
-
-                <div className="speaking__confs">
-                  <SpeakingConference
-                    year="2012"
-                    format="slides"
-                    href="https://speakerdeck.com/molefrog/give-a-second-change-to-rails-frontend"
+                <p>
+                  In this short presentation that I made for a Web Dev club at my university, I
+                  explained how the JS event loop works using an analogy of{" "}
+                  <ShowcaseLink
+                    href="https://speakerdeck.com/molefrog/got-milk-a-short-introduction-to-nodejs-and-event-driven-programming"
+                    media={{ image: gotMilkImg, aspectRatio: "auto" }}
                   >
-                    WebDevClub, MMCS
-                  </SpeakingConference>
-                </div>
+                    buying milk
+                  </ShowcaseLink>{" "}
+                  at the supermarket.
+                </p>
+              </Prose>
+
+              <div className="flex flex-wrap gap-2">
+                <SpeakingConference
+                  year="2012"
+                  format="slides"
+                  href="https://speakerdeck.com/molefrog/give-a-second-change-to-rails-frontend"
+                >
+                  WebDevClub, MMCS
+                </SpeakingConference>
               </div>
             </div>
           </section>

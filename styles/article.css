@@ -1,5 +1,5 @@
 .article {
-  --type-article-header: 600 normal 54px / 56px var(--font-serif);
+  --type-article-header: 400 normal 54px / 56px var(--font-serif);
   --type-article-title: 600 normal 19px / 29px var(--font-sans);
 
   padding-bottom: 96px;
@@ -33,7 +33,7 @@
 
 @media (max-width: 768px) {
   .article {
-    --type-article-header: 600 44px / 46px var(--font-serif);
+    --type-article-header: 400 44px / 46px var(--font-serif);
   }
 
   .article__header {

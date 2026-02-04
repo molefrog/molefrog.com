@@ -32,9 +32,13 @@ export const SpeakingConference = ({
   const label = pos.isOver ? formats[format] ?? "none" : year;
 
   return (
-    <a className="speaking__conf" {...props} ref={ref}>
+    <a
+      className="text-ds-sm font-medium border border-ds-gray-300 h-8 rounded-lg flex items-center pl-3 whitespace-nowrap gap-4 overflow-hidden shadow-[0px_1px_0px_1px_var(--color-ds-gray-100)] no-underline text-inherit hover:text-ds-accent-700 hover:border-ds-accent-700 [&:hover_span]:border-ds-accent-700"
+      {...props}
+      ref={ref}
+    >
       {children}
-      <span className="speaking__conf-year">
+      <span className="flex h-full items-center px-3 text-ds-xs border-l border-ds-gray-300 italic font-bold tracking-tighter">
         <Segmented animated>{label}</Segmented>
       </span>
     </a>

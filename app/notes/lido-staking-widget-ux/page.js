@@ -1,7 +1,7 @@
 import Image from "next/image";
 import WrapBalancer from "react-wrap-balancer";
 
-import { Container } from "@/components/Grid";
+import { Container } from "@/components/Container";
 import { ShowcaseLink } from "@/components/Showcase";
 import { NotionPage } from "./NotionPage";
 import { NotionAPI } from "notion-client";

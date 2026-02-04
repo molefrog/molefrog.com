@@ -1,4 +1,4 @@
-import { Container } from "@/components/Grid";
+import { Container } from "@/components/Container";
 import { RealTimeCanvas } from "@/components/RealTimeCanvas";
 
 export default function NotFound() {

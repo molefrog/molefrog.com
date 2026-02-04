@@ -1,8 +1,8 @@
-import Image from "next/image";
-import WrapBalancer from "react-wrap-balancer";
-import { Container } from "@/components/Grid";
+import Image, { StaticImageData } from "next/image";
+import { Container } from "@/components/Container";
 import Link from "next/link";
 import { Metadata } from "next";
+import { clsx } from "clsx";
 
 import Showcase from "@/components/Showcase";
 import { RecentBlogPosts } from "@/components/RecentBlogPosts";
@@ -24,17 +24,16 @@ export const metadata: Metadata = {
 
 export default function Page(): JSX.Element {
   return (
-    <Container placement="inner">
-      <section className="about">
-        <h1 className="about__header">
-          <WrapBalancer>
-            Hi, it&apos;s Alexey.
-            <br />
-            I&nbsp;design and code web things.
-          </WrapBalancer>
+    <Container placement="inner" className="pt-2 md:pt-8">
+      <section className="mb-12 md:mb-17.5 font-[family-name:var(--font-inter)]">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl/12 font-ds-serif mb-4 md:mb-6 text-pretty">
+          Hi, I&apos;m Alexey.
+          <br />
+          I&nbsp;design and code web things.
         </h1>
-        <div className="about__description">
-          <div className="about__text">
+
+        <div className="text-ds-gray-800 text-base/relaxed md:text-ds-base/relaxed mb-14 md:mb-16">
+          <div className="[&_p]:my-5">
             <p>
               I am a founder,{" "}
               <Showcase media={{ video: speakingVideo, aspectRatio: 2.2 }} prefer="below">
@@ -113,74 +112,46 @@ export default function Page(): JSX.Element {
           </div>
         </div>
 
-        <div className="about__selected-projects selected-projects__grid">
-          <div className="selected-projects__item">
-            <a href="https://domik.ltd" className="selected-projects__pic">
-              <Image
-                src={domikImg}
-                fill
-                placeholder="blur"
-                priority
-                className="selected-projects__img"
-                alt="Domik Limited. Interactive story."
-              />
-            </a>
+        {/* Selected Projects */}
+        <div className="mb-14 md:mb-18 grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-4">
+          <ProjectCard
+            href="https://domik.ltd"
+            image={domikImg}
+            alt="Domik Limited. Interactive story."
+            description="As a side-project, I've written, designed and programmed an illustrated web-story with puzzles, animations and mini-games."
+          >
+            <ProjectLink href="https://domik.ltd" primary>
+              Read
+            </ProjectLink>
+            <ProjectLink href="https://youtu.be/rA4dgn4rt5E?si=1Gv_nncJrY6zcU9B">
+              <PlayIcon />
+              Behind the scenes
+            </ProjectLink>
+          </ProjectCard>
 
-            <div className="selected-projects__title">
-              As a side-project, I&apos;ve written, designed and programmed an illustrated web-story
-              with puzzles, animations and mini-games.
-            </div>
-
-            <div className="selected-projects__links">
-              <a href="https://domik.ltd" className="project-link project-link--primary">
-                Read
-              </a>
-
-              <a href="https://youtu.be/rA4dgn4rt5E?si=1Gv_nncJrY6zcU9B" className="project-link">
-                <PlayIcon />
-                Behind the scenes
-              </a>
-            </div>
-          </div>
-          <div className="selected-projects__item">
-            <a href="https://github.com/molefrog/wouter" className="selected-projects__pic">
-              <Image
-                src={wouterImg}
-                fill
-                placeholder="blur"
-                priority
-                className="selected-projects__img"
-                alt="wouter, open-source React.js router"
-              />
-            </a>
-
-            <div className="selected-projects__title">
-              Minimalistic React and Preact router library with 5k+&nbsp;stars on GitHub and an API
-              similar to classic react-router.
-            </div>
-
-            <div className="selected-projects__links">
-              <a href="https://github.com/molefrog/wouter" className="project-link">
-                GitHub
-              </a>
-            </div>
-          </div>
+          <ProjectCard
+            href="https://github.com/molefrog/wouter"
+            image={wouterImg}
+            alt="wouter, open-source React.js router"
+            description="Minimalistic React and Preact router library with 5k+ stars on GitHub and an API similar to classic react-router."
+          >
+            <ProjectLink href="https://github.com/molefrog/wouter">GitHub</ProjectLink>
+          </ProjectCard>
         </div>
-        <div className="about__mini-map">
-          <div className="mini-map">
+
+        {/* Mini Map */}
+        <div className="mb-14 md:mb-20">
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(80px,1fr))] gap-[7px]">
             {MINI_MAP_ITEMS.map((item, idx) => {
-              // all /etc/* pages are actually external apps mounted on the same domain
               const shouldPrefetch = !/molefrog\.com\/etc\//.test(item.url);
 
               return (
                 <Showcase key={String(idx) + item.url} media={item}>
                   <Link
                     prefetch={shouldPrefetch}
-                    className="mini-map__item"
+                    className="block aspect-square min-w-20 min-h-20 max-w-24 max-h-24 bg-cover bg-center bg-no-repeat cursor-pointer bg-ds-gray-200 rounded-md relative overflow-hidden shadow-[inset_-1px_-1px_0_1px_rgba(0,0,0,0.07),inset_1px_1px_0px_1px_rgba(128,128,128,0.2),inset_2px_2px_0px_1px_rgba(255,255,255,0.2)] before:content-[''] before:block before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.3)_0%,transparent_35%,transparent_70%,rgba(0,0,0,0.05))] before:rounded-md before:transition-shadow before:shadow-[inset_0px_0px_0px_2px_transparent] hover:before:shadow-[inset_0px_0px_0px_2px_var(--color-ds-accent)]"
                     aria-label={`Read more on ${item.url}`}
-                    style={{
-                      backgroundImage: `url(${getImageUrl(item.thumb)})`,
-                    }}
+                    style={{ backgroundImage: `url(${getImageUrl(item.thumb)})` }}
                     href={item.url}
                   />
                 </Showcase>
@@ -189,7 +160,8 @@ export default function Page(): JSX.Element {
           </div>
         </div>
 
-        <div className="about__blog">
+        {/* Blog */}
+        <div>
           <RecentBlogPosts />
         </div>
       </section>
@@ -197,7 +169,57 @@ export default function Page(): JSX.Element {
   );
 }
 
-const PlayIcon = (): JSX.Element => (
+/* ---------------------------------- Local Components ---------------------------------- */
+
+interface ProjectCardProps {
+  href: string;
+  image: StaticImageData;
+  alt: string;
+  description: string;
+  children: React.ReactNode;
+}
+
+const ProjectCard = ({ href, image, alt, description, children }: ProjectCardProps) => (
+  <div>
+    <a
+      href={href}
+      className="block relative aspect-video bg-ds-gray-50 border-2 border-ds-gray-200 rounded-md overflow-hidden cursor-pointer mb-4 transition-colors hover:border-ds-accent"
+    >
+      <Image
+        src={image}
+        fill
+        placeholder="blur"
+        priority
+        className="object-cover object-bottom"
+        alt={alt}
+      />
+    </a>
+    <div className="text-base/relaxed">{description}</div>
+    <div className="mt-5 flex flex-wrap gap-2">{children}</div>
+  </div>
+);
+
+interface ProjectLinkProps {
+  href: string;
+  primary?: boolean;
+  children: React.ReactNode;
+}
+
+const ProjectLink = ({ href, primary, children }: ProjectLinkProps) => (
+  <a
+    href={href}
+    className={clsx(
+      "inline-flex items-center gap-2 h-[38px] px-4 pb-px rounded-full font-medium no-underline cursor-pointer transition-shadow",
+      primary
+        ? "bg-ds-accent-500 text-white hover:shadow-[inset_0px_0px_0px_2px_var(--color-ds-accent-500),inset_0px_0px_0px_4px_white]"
+        : "bg-ds-gray-50 text-ds-gray-600 shadow-[inset_0px_0px_0px_1px_var(--color-ds-gray-200)] hover:text-ds-accent hover:shadow-[inset_0px_0px_0px_2px_var(--color-ds-accent)] [&>svg]:text-ds-gray-800 [&>svg]:mt-px hover:[&>svg]:text-ds-accent",
+    )}
+  >
+    {children}
+  </a>
+);
+
+const PlayIcon = () => (
   <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M7.32995 3.61615C8.0396 3.99172 8.0396 5.00828 7.32995 5.38385L1.46777 8.48634C0.801771 8.83881 -4.08964e-07 8.356 -3.76027e-07 7.60249L-1.04798e-07 1.39751C-7.18613e-08 0.643995 0.801772 0.161188 1.46777 0.513658L7.32995 3.61615Z"
