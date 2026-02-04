@@ -10,7 +10,7 @@ const TopBar = () => {
   const pathname = usePathname();
 
   return (
-    <header className="pt-8 mb-12 md:mb-16 relative z-50 font-[family-name:var(--font-inter)]">
+    <header className="pt-8 mb-12 md:mb-16 relative z-50">
       <Container placement="inner">
         <div className="flex items-center flex-wrap md:flex-nowrap md:-ml-[106px]">
           {/* Logo wrapper */}

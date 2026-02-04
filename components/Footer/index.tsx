@@ -5,7 +5,7 @@ import Image from "next/image";
 import logo from "./logo.svg";
 
 const Footer = () => (
-  <footer className="pb-20 mt-8 font-[family-name:var(--font-inter)]">
+  <footer className="pb-20 mt-8">
     <Container placement="inner">
       <div className="mx-auto mb-16 md:mb-20">
         {/* Divider */}

@@ -9,7 +9,7 @@ const SpoilerSketch = dynamic(() => import("./spoiler"));
 
 export default function Sketches() {
   return (
-    <main className="font-[family-name:var(--font-inter)] pb-24 md:pb-32">
+    <main className="pb-24 md:pb-32">
       <Container placement="inner">
         <div className="grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-2 mb-10 justify-items-center">
           <div className="md:order-none order-2">

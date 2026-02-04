@@ -137,7 +137,7 @@ const AnimatedIcon = ({ icon }: AnimatedIconProps): JSX.Element => {
 
 export default function Speaking(): JSX.Element {
   return (
-    <main className="font-[family-name:var(--font-inter)] pb-24 md:pb-32">
+    <main className="pb-24 md:pb-32">
       <Container placement="outer">
         <div className="flex flex-row flex-nowrap items-center gap-6 justify-center pb-3">
           <Link

@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 export default function Page(): JSX.Element {
   return (
     <Container placement="inner" className="pt-2 md:pt-8">
-      <section className="mb-12 md:mb-17.5 font-[family-name:var(--font-inter)]">
+      <section className="mb-12 md:mb-17.5">
         <h1 className="text-2xl sm:text-3xl md:text-4xl/12 font-ds-serif mb-4 md:mb-6 text-pretty">
           Hi, I&apos;m Alexey.
           <br />

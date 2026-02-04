@@ -205,7 +205,7 @@ export default function SpeakingAll(): JSX.Element {
 
   return (
     <Container placement="inner">
-      <div className="text-sm text-ds-gray-900 pb-24 md:pb-32 font-[family-name:var(--font-inter)]">
+      <div className="text-sm text-ds-gray-900 pb-24 md:pb-32">
         {/* Nav */}
         <div className="flex mb-4">
           <Link

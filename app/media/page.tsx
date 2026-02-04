@@ -14,7 +14,7 @@ interface Reference {
 
 export default function Media(): JSX.Element {
   return (
-    <main className="font-[family-name:var(--font-inter)] md:pb-32 pb-24">
+    <main className="md:pb-32 pb-24">
       <Container placement="inner">
         <h2 className="text-2xl leading-10 md:text-3xl md:leading-12 font-medium font-serif tracking-tight mb-4 mt-4">
           Media Mentions and Publications

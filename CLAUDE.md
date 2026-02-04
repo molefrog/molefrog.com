@@ -29,7 +29,7 @@ No specific testing commands found in package.json. If tests are added later, co
 
 # Styling: Tailwind + Design System Tokens
 
-We're gradually migrating from BEM CSS to Tailwind. Pages using Tailwind apply Inter font via `font-[family-name:var(--font-inter)]`.
+We're gradually migrating from BEM CSS to Tailwind. Inter is the default body font (`--font-sans`).
 
 ## Design System Tokens (`--ds-*`)
 Defined in `@theme` block in `/styles/index.css`. Use these for consistency:

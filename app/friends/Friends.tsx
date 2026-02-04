@@ -179,7 +179,7 @@ export default function Friends() {
 
   return (
     <Container placement="inner">
-      <section className="mb-12 md:mb-36 font-[family-name:var(--font-inter)]">
+      <section className="mb-12 md:mb-36">
         <h1 className="text-2xl leading-10 md:text-3xl md:leading-12 font-medium font-serif tracking-tight text-center mb-2">
           Talented Humans
         </h1>

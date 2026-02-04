@@ -10,7 +10,8 @@
   --spacing-ds-page-mobile: 20px;
 
   /* DS Font Families */
-  --font-ds-sans: var(--font-inter);
+  --font-inter: var(--font-sans);
+  --font-ds-sans: var(--font-sans);
   --font-ds-mono: var(--font-mono);
   --font-ds-serif: var(--font-serif);
   --font-ds-segm7: var(--font-segm7);
