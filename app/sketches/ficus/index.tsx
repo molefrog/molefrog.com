@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState, useMemo } from "react";
+import { useRef, useEffect, useState } from "react";
 import useSound from "use-sound";
 import clsx from "clsx";
 import { useLocalStorage } from "usehooks-ts";
@@ -12,7 +12,6 @@ import { createPoll } from "https://classic.ficus.io/widget.js";
 import type { API } from "./ficus-api";
 
 import clickFX from "./click.mp3";
-import styles from "./ficus.module.css";
 
 function FicusPoll({ id }: { id: string }) {
   const elementRef = useRef<HTMLDivElement>(null);
@@ -114,20 +113,29 @@ function FicusPoll({ id }: { id: string }) {
 
   return (
     <>
-      <div className={styles.poll}>
+      <div className="overflow-hidden rounded-[14px] shadow-sm -m-2 mb-4 min-h-32 bg-white aspect-video">
         <div ref={elementRef}></div>
       </div>
 
-      <div className={styles.vote}>
+      <div className="mb-6 flex flex-wrap gap-1">
         {config?.answers.map((answer) => {
           const isActiveVote = votedFor.includes(answer.id);
 
           return (
             <button
               key={answer.id}
-              className={clsx(styles.button, {
-                [styles.button_voted]: isActiveVote,
-              })}
+              className="inline-block px-3 py-1.5 rounded text-white text-[15px] leading-6 font-medium cursor-pointer transition-colors outline-none appearance-none border-none"
+              style={
+                isActiveVote
+                  ? {
+                      backgroundColor: "var(--color-accent-200)",
+                      boxShadow: "inset 0 2px 0px 1px var(--color-accent-300)",
+                    }
+                  : {
+                      backgroundColor: "var(--color-accent-500)",
+                      boxShadow: "inset 0 -1px 0 2px var(--color-accent-700)",
+                    }
+              }
               onClick={async () => {
                 if (!config || !votes) return;
 
@@ -151,7 +159,9 @@ function FicusPoll({ id }: { id: string }) {
                 setVotes(data.votes);
               }}
             >
-              <span>{answer.label}</span>
+              <span className={isActiveVote ? "inline-block translate-y-px" : undefined}>
+                {answer.label}
+              </span>
             </button>
           );
         })}

@@ -1,4 +1,10 @@
-@import "./reset.css";
+@import "tailwindcss" source(none);
+@source "../app/**/*.tsx";
+@source "../components/**/*.tsx";
+
+@layer base {
+  @import "./reset.css";
+}
 
 @import "./about.css";
 @import "./top-bar.css";

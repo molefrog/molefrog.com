@@ -110,8 +110,8 @@ const Footer = () => (
             rel="noopener noreferrer"
           >
             Discórdia
-          </a>{" "}
-          typeface by Naipe Foundry,{" "}
+          </a>
+          ,{" "}
           <a
             className="footer__font footer__font--hanken"
             href="https://fonts.google.com/specimen/Hanken+Grotesk"
@@ -119,6 +119,15 @@ const Footer = () => (
             rel="noopener noreferrer"
           >
             HK Grotesk
+          </a>
+          ,{" "}
+          <a
+            className="footer__font footer__font--mono"
+            href="https://berkeleygraphics.com/typefaces/berkeley-mono/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Berkeley Mono
           </a>{" "}
           and{" "}
           <a
@@ -129,7 +138,7 @@ const Footer = () => (
           >
             DSEG
           </a>{" "}
-          typefaces, distributed under the Open Font License. Hosted on{" "}
+          typefaces. Hosted on{" "}
           <a href="https://pages.cloudflare.com/" target="_blank" rel="noopener noreferrer">
             Cloudflare Pages
           </a>

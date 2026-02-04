@@ -88,6 +88,11 @@
   font-weight: bold;
 }
 
+.footer__font--mono {
+  font-family: var(--font-mono);
+  letter-spacing: -1px;
+}
+
 .footer__font--dseg7 {
   font-family: var(--font-segm7);
   font-size: 0.8em;

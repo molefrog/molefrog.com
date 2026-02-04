@@ -181,7 +181,7 @@ const Showcase = ({ children, media, prefer = "above" }) => {
 
   const url = children?.props?.href || media?.link;
 
-  if (!isValidElement(children)) return "Children must be a single element";
+  if (!isValidElement(children)) return null;
 
   return (
     <>

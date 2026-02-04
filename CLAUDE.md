@@ -1,9 +1,11 @@
 # Development Commands
-- `npm run dev` - Start dev server
-- `npm run build` - Build for production
-- `npm run start` - Run production build
-- `npm run lint` - Run ESLint
-- `npm run postbuild` - Generate sitemap (automatically runs after build)
+- `bun dev` - Start dev server
+- `bun run build` - Build for production
+- `bun start` - Run production build
+- `bun lint` - Run ESLint
+- `bun run postbuild` - Generate sitemap (automatically runs after build)
+
+**IMPORTANT: Always use `bun` instead of `npm` or `yarn`.**
 
 # Testing
 No specific testing commands found in package.json. If tests are added later, commands should be added here.

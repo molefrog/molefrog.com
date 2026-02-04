@@ -1,18 +1,11 @@
 import localFont from "next/font/local";
-import { JetBrains_Mono, Hanken_Grotesk } from "next/font/google";
+import { Hanken_Grotesk } from "next/font/google";
 
 const HankenGrotesk = Hanken_Grotesk({
   subsets: ["latin", "cyrillic-ext"],
   display: "swap",
   fallback: ["system-ui", "sans-serif"],
   variable: "--font-sans",
-});
-
-const JetBrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  display: "swap",
-  fallback: ["monospace"],
-  variable: "--font-mono",
 });
 
 const DSEG7Classic = localFont({
@@ -54,7 +47,7 @@ const DSEG14Classic = localFont({
 const BerkeleyMono = localFont({
   src: "./BerkeleyMono/Berkeley Mono Variable.woff2",
   fallback: ["monospace"],
-  variable: "--font-berkeley",
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -81,8 +74,8 @@ const Discordia = localFont({
   display: "swap",
 });
 
-export const fontsCSSVars = [JetBrainsMono, DSEG7Classic, DSEG14Classic, BerkeleyMono, Discordia, HankenGrotesk]
+export const fontsCSSVars = [DSEG7Classic, DSEG14Classic, BerkeleyMono, Discordia, HankenGrotesk]
   .map((f) => f.variable)
   .join(" ");
 
-export { JetBrainsMono, DSEG7Classic, DSEG14Classic, BerkeleyMono, Discordia, HankenGrotesk };
+export { DSEG7Classic, DSEG14Classic, BerkeleyMono, Discordia, HankenGrotesk };

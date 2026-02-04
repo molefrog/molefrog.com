@@ -2,7 +2,6 @@
 
 import useSWR from "swr";
 import Map, { Marker, FullscreenControl } from "react-map-gl";
-import styles from "./styles.module.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 import { Pin } from "./pin";
@@ -70,7 +69,10 @@ export default function POGDemo() {
 
   return (
     <>
-      <div className={styles.map}>
+      <div
+        className="mb-3 h-[280px] rounded-t-[18px] overflow-hidden"
+        style={{ margin: "calc(var(--sketches-block-padding) * -1)", marginBottom: "12px" }}
+      >
         <Map
           mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
           initialViewState={{
@@ -97,10 +99,12 @@ export default function POGDemo() {
         </Map>
       </div>
       {latestPoint && (
-        <div className={styles.latest}>
-          <span className={styles.serial}>#{latestPoint.serial}</span>
+        <div className="text-[13px] leading-[22px] font-medium font-mono mb-[22px]">
+          <span className="inline-block bg-gray-900 font-bold text-white py-0 px-1.5 rounded-[32px] mr-1.5">
+            #{latestPoint.serial}
+          </span>
           {latestPoint.location}{" "}
-          <span className={styles.date}>/ {formatDate(latestPoint.timestamp)}</span>
+          <span className="text-gray-400">/ {formatDate(latestPoint.timestamp)}</span>
         </div>
       )}
 
@@ -111,14 +115,17 @@ export default function POGDemo() {
         business card, but less formal.
       </p>
 
-      <div className={styles.clips}>
+      <div
+        className="flex items-start"
+        style={{ margin: "18px calc(var(--sketches-block-padding) * -1)" }}
+      >
         <div>
-          <video className={styles.video} autoPlay loop muted playsInline>
+          <video className="w-full pointer-events-none" autoPlay loop muted playsInline>
             <source src={clip1} type="video/mp4" />
           </video>
         </div>
         <div>
-          <video className={styles.video} autoPlay loop muted playsInline>
+          <video className="w-full pointer-events-none" autoPlay loop muted playsInline>
             <source src={clip2} type="video/mp4" />
           </video>
         </div>
