@@ -1,0 +1,160 @@
+# Alexey Taktarov (molefrog)
+
+## Overview
+
+Alexey Taktarov, known online as "molefrog", is a **design-minded full-stack engineer** who operates at the intersection of **product craft, technical architecture, and communication**. Based in Copenhagen, Denmark.
+
+A "builder" not just in the coding sense — cares about **systems that scale, tools that stay simple, and experiences that feel well-designed**. Engineer + designer hybrid: enjoys both technical and visual design, with projects reflecting a bias toward UI quality and polish.
+
+## Core Identity
+
+- **Founder / ex-CTO / engineering leader**: Built and scaled engineering teams through acquisition-era complexity
+- **Engineer + designer hybrid**: Technical depth combined with strong visual design sensibility
+- **Open-source maintainer**: Long-running anchor projects with strong opinions on simplicity and developer ergonomics
+- **Speaker / explainer**: Invests heavily in talks and teaching as part of thinking and contributing to the ecosystem
+
+## Current Ventures
+
+### something.new (Dec 2025 - Present)
+A constrained vibe-coding tool for building embeddable, real-time interactive widgets. The agent produces a specific type of app: single-screen (no routing/scrolling), real-time by default (InstantDB for local-first state/presence), and opinionated design (curated libraries: React, Tailwind, Motion, Heroicons). Focus areas include sessions/events, "go live" flow, and UI/UX refinement. Built on the belief that constraints unlock creativity.
+
+### "Persistent AI Computer" (Product Thesis)
+Agent + code + disk + DBs + tunnels as durable infrastructure for doing business tasks through code. Not just "using agents" but building the conceptual and technical stack for them (tools, feedback, environment).
+
+### Fira (YC W25) - Advisor
+Former CTO and Co-founder, now serving as Advisor. Fira is an AI-powered financial research assistant helping analysts at M&A and investment firms accelerate their research and due diligence work. Part of Y Combinator Winter 2025 batch.
+
+## Past Experience
+
+### resume.io (2016-2021) - Co-founder & Head of Engineering
+Co-founded resume.io, a resume builder that grew to serve millions of users. The company was acquired by Talent Inc. in 2021. As technical co-founder, Alexey built the engineering team and technical infrastructure from scratch.
+
+## Technical Skills
+
+**Frontend:** React, Svelte, TypeScript, Tailwind CSS, framer-motion, Next.js, Remix
+**Backend:** Ruby on Rails, Node.js, Deno, Postgres, Redis
+**Infrastructure:** Cloudflare Workers, Edge Computing, Serverless
+**Design:** Figma, UI/UX design, Animation
+
+## Open Source
+
+### wouter
+Creator and maintainer of wouter, a minimalist React and Preact router library with 5,700+ stars on GitHub. Known for its tiny footprint (~1KB) and API similar to react-router. Featured in "React.js Open Source for the Past Month" as a Top-10 project.
+
+GitHub: github.com/molefrog
+
+## Side Projects
+
+### domik.ltd
+An illustrated interactive web-story featuring puzzles, animations, and mini-games. Alexey wrote, designed, and programmed the entire experience. Includes a house-building minigame where users can construct, photograph, and save their creations. Featured in a "Behind the Scenes" video documenting the creative process.
+
+### Piano Tutor
+An AI agent experiment with an unconventional interface: no chat, only piano keys. Users interact by playing notes — the agent offers options on screen, users respond by pressing keys. Built with Web Audio API and MIDI support. It can play melodies, give exercises to repeat, and teach chords.
+
+## Speaking & Conferences
+
+Active conference speaker since 2012 with 25+ talks across Europe and beyond:
+
+**Recent (2024-2026):**
+- "Good Ideas Stick" - Design Engineering Night, London (2026)
+- "Let's Build a Vibe-Coding Agent!" - CopenhagenJS (2026)
+- "The challenges of web apps" - JSConf.JP Tokyo, CopenhagenJS (2024)
+- "Spoiled: CSS Paint API for Particle Animation" - HelsinkiJS, BarcelonaJS, CopenhagenJS (2024)
+- "React Tricks: Fast, Fit and Fun" - React Advanced London (2024)
+
+**Notable Past Talks:**
+- "Animations in a Stateful World" - HolyJS Moscow (ranked Top-10 talks), React Kyiv
+- "Hooks in action: implementing a 1KB React router" - React Amsterdam, React Russia
+- "Can Design Principles Help me Become a Better Software Engineer?" - Multiple venues
+
+## Creative Philosophy
+
+Influenced early on by Bret Victor's "Inventing on Principle" (2012) and Stuart Memo's "JavaScript is the new punk rock", Alexey has developed a consistent creative thread over 10+ years of experimentation.
+
+**Core Principles:**
+- **Interactivity over static content** — Whether it's a blog post, presentation, or tool, use the platform fully. The web can do more than display text. Let people touch, play, explore.
+- **Real-time and collaborative by default** — Things are meant to be shared. When multiple people can use something together, it becomes more alive.
+
+**The Work Shape:**
+Likes to **build from scratch**, define the constraints, then iterate toward something elegant and minimal. Gravitates toward products that combine:
+- Real-time / multiplayer / collaborative dynamics (presence, sessions, rooms, shared state)
+- Agentic tooling (LLMs + tools + environment + feedback loops) with a practical "how do we ship this?" angle
+- Data + analysis infrastructure (DuckDB, SQLite, background processing)
+
+Also does "public craft": writing, speaking, maintaining libraries — work that reinforces taste and clarity.
+
+**Evolution of Ideas:**
+- 2013: First JS experiments with PID Neural Network visualization using Bret Victor's Tangle library
+- 2018: React + React Motion for composable animated presentations
+- 2022: MDX discovery leading to domik.ltd — interactive storytelling with embedded puzzles and games
+- 2024-25: AI agents with unconventional interfaces (Piano Tutor — interact by playing notes, not chatting)
+- 2025: Constrained vibe-coding tool — embeddable one-screen apps, real-time by default (InstantDB), opinionated design
+
+**On Constraints:**
+Believes in the "paradox of choice" (Barry Schwartz) — too much freedom reduces creativity. Intentionally constrains tools to unlock better output: curated libraries, strict design rules, single-file components.
+
+## Values & Motivations
+
+**1. Care and Simplicity**
+Prefers a minimal toolset, clean organization. Drawn to solutions that make complex systems feel simple.
+
+**2. Autonomy and Meaning**
+Becomes unproductive when motivation is missing. Dislikes following orders without clear reasoning. Strong need for agency + purpose alignment.
+
+**3. Culture and How People Work Together**
+Frames "engineering culture" as a superpower (rituals, principles, hiring, communication). Values transparency even when uncomfortable.
+
+**4. Craft in Interfaces**
+UI polish, animations, and "make it feel good" are first-order concerns, not afterthoughts.
+
+## Strengths
+
+- **Architectural simplification**: Consistently aims to reduce conceptual weight while keeping power
+- **Taste + execution**: Iterates on visuals and interaction details with persistence
+- **Clear thinking in systems**: Decomposes problems into primitives (agent + tools + FS + build + feedback)
+- **Communication**: Strong ability to turn messy domains into teachable structure
+
+## Friction Points
+
+- **Motivation sensitivity**: If the "why" is missing, output drops sharply
+- **Procrastination on "easy" tasks**: Pattern of deferring low-stimulation work in favor of interesting exploration
+- **Conflict aversion**: Tries to avoid arguments; tough managerial conversations are emotionally expensive
+
+## Interests
+
+- Local-first web applications
+- Multiplayer/collaborative apps
+- Interactive storytelling
+- Design engineering
+- Web animations
+- Typography
+- AI agents with non-traditional interfaces
+
+## Media & Publications
+
+Featured in various publications and podcasts including:
+- Y Combinator Launch announcements (Fira)
+- Inc. Russia - company culture articles
+- TYPICAL case study on organizational structure
+- Multiple Russian tech podcasts ("Это Провал", "Прорыв")
+- Habr articles on React animations
+
+## Personal
+
+- Logs every movie watched since 2010 on Letterboxd (letterboxd.com/molefrog)
+- Currently learning Danish
+- Active on GitHub, Twitter (@mlfrg), Telegram (@molefrog), Are.na
+- Continuous learner: deep technical exploration logs alongside language learning
+
+## Network
+
+Connected with designers, engineers, and creative technologists across Europe including collaborators from resume.io era and the broader React/frontend community.
+
+## Links
+
+- Website: molefrog.com
+- GitHub: github.com/molefrog
+- Twitter: twitter.com/mlfrg
+- LinkedIn: linkedin.com/in/molefrog
+- Letterboxd: letterboxd.com/molefrog
+- Telegram: t.me/molefrog

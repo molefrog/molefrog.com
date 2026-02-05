@@ -22,7 +22,7 @@ interface Talk {
 
 const talks: Talk[] = [
   {
-    title: "Good Ideas Stick",
+    title: "Interactive by Default: From Slides to AI Agents",
     conference: "Design Engineering Night",
     city: "London",
     country: "UK",
