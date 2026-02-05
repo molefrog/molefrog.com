@@ -26,7 +26,7 @@ export default function Page(): JSX.Element {
   return (
     <Container placement="inner" className="pt-2 md:pt-8">
       <section className="md:pb-32 pb-24">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl/12 font-ds-serif mb-4 md:mb-6 text-pretty">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl/12 font-ds-serif mb-4 md:mb-6 text-pretty tracking-tight">
           Hi, I&apos;m Alexey.
           <br />
           I&nbsp;design and code web things.
@@ -35,13 +35,11 @@ export default function Page(): JSX.Element {
         <div className="text-ds-gray-800 text-base/relaxed md:text-ds-base/relaxed mb-14 md:mb-16">
           <div className="[&_p]:my-5">
             <p>
-              I am a founder,{" "}
-              <Showcase media={{ video: speakingVideo, aspectRatio: 2.2 }} prefer="below">
-                <Link className="solid-link" href="/speaking">
-                  conference speaker
-                </Link>
-              </Showcase>
-              ,{" "}
+              I&apos;m a design-minded engineer and founder. I care about systems that scale, tools
+              that stay simple, and UIs that feel good.
+            </p>
+            <p>
+              For over 15 years I&apos;ve been writing code professionally. I maintain{" "}
               <Showcase
                 media={{ image: "/screenshot/github", aspectRatio: 1400 / 860 }}
                 prefer="below"
@@ -54,21 +52,27 @@ export default function Page(): JSX.Element {
                 >
                   open-source
                 </Link>
-              </Showcase>{" "}
-              maintainer and full-stack engineer. I&nbsp;love designing UIs, playing around with
-              animations, and writing small yet expressive programs. The tools I use to get the job
-              done are:{" "}
+              </Showcase>
+              , give{" "}
+              <Showcase media={{ video: speakingVideo, aspectRatio: 2.2 }} prefer="below">
+                <Link className="solid-link" href="/speaking">
+                  conference talks
+                </Link>
+              </Showcase>
+              , and have spent years leading engineering teams. Tools I use:{" "}
               <ExpandInline
                 items={[
-                  "Figma",
                   "React",
+                  "Bun",
                   "Svelte",
+                  "Figma",
+                  "motion",
                   "Ruby on Rails",
                   "Node.js",
                   "Deno",
-                  "framer-motion",
                   "TypeScript",
                   "Tailwind",
+                  "TanStack Start",
                   "Remix",
                   "Next.js",
                   "Postgres",
@@ -81,33 +85,32 @@ export default function Page(): JSX.Element {
               />
             </p>
             <p>
-              Now that{" "}
+              Previously, I co-founded{" "}
               <Showcase media={{ video: resumeBuilderVideo, aspectRatio: 1200 / 768 }}>
                 <Link className="solid-link" href="https://resume.io">
                   resume.io
                 </Link>
-              </Showcase>
-              , where I was a technical co-founder and head of engineering, has been acquired,
-              I&apos;m focusing on my own projects and exploring fresh ideas. I&apos;m particularly
-              interested in local-first web, multiplayer apps and{" "}
-              <Showcase media={{ video: domikLtdVideo, aspectRatio: 1460 / 1080 }}>
-                <Link className="solid-link" href="https://domik.ltd/story">
-                  interactive storytelling
-                </Link>
-              </Showcase>
-              .
-            </p>
-
-            <p>
-              Currently, I am building{" "}
+              </Showcase>{" "}
+              and led it through scaling and acquisition. More recently, co-founded{" "}
               <Showcase media={{ image: "/screenshot/fira", aspectRatio: 1400 / 860 }}>
                 <Link href="https://firaresearch.com" className="solid-link">
                   Fira (YC W25)
                 </Link>
               </Showcase>
-              , an AI-powered financial research assistant. We&apos;re on a mission to help analysts
-              at M&A and investment firms accelerate their research and due diligence work. Drop me
-              a line if you&apos;re interested in joining us.
+              , an agentic AI analyst for financial research. Now I&apos;m exploring real-time
+              collaborative software and agentic tooling and building something new.
+              {/* TODO: add back interactive storytelling with new preview
+              , and{" "}
+              <Showcase media={{ video: domikLtdVideo, aspectRatio: 1460 / 1080 }}>
+                <Link className="solid-link" href="https://domik.ltd/story">
+                  interactive storytelling
+                </Link>
+              </Showcase>
+              */}
+            </p>
+            <p>
+              Principles: I believe constraints unlock creativity. Interactivity and collaboration
+              over static. Tools should be simple and minimal.
             </p>
           </div>
         </div>
