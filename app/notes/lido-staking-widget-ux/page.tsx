@@ -1,5 +1,5 @@
 import Image from "next/image";
-import WrapBalancer from "react-wrap-balancer";
+import { Metadata } from "next";
 
 import { Container } from "@/components/Container";
 import { ShowcaseLink } from "@/components/Showcase";
@@ -9,28 +9,30 @@ import { NotionAPI } from "notion-client";
 import lidoImg from "@/public/txt/lido-ui.webp";
 import coverImg from "@/public/images/lido-article-cover.webp";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Lido.fi UX: User-Centered Audit of the Staking Widget",
   description:
     "How user experience of Ethereum staking on Lido.fi can be improved: research, customer journey maps, draft ideas, futher steps.",
   keywords: ["Web3 UX Patterns", "UX Audit", "Etherium", "Crypto"],
 };
 
-export default async function Index(props) {
+export default async function Index() {
   const PAGE_ID = "196e6fc3715b4d9a95e2d46549df07eb";
 
   const notion = new NotionAPI();
   const recordMap = await notion.getPage(PAGE_ID);
 
   return (
-    <article className="article">
-      <Container className="article__header" placement="inner">
-        <div className="article__category">research</div>
-        <h1 className="article__h1">
-          <WrapBalancer>User-Centered Liquid Staking</WrapBalancer>
+    <article className="pt-10 pb-24">
+      <Container className="pb-14 md:pb-20 text-lg/[29px] font-normal" placement="inner">
+        <div className="text-ds-xs font-medium text-ds-accent-400 uppercase tracking-[2px] mb-4 inline-block rounded-md">
+          research
+        </div>
+        <h1 className="font-ds-serif font-normal text-[44px]/[46px] md:text-[54px]/[56px] tracking-tight text-ds-gray-800 max-w-[480px] mb-5 md:mb-6 text-balance">
+          User-Centered Liquid Staking
         </h1>
 
-        <WrapBalancer>
+        <div className="text-pretty">
           Initial UX evaluation of{" "}
           <ShowcaseLink
             href="https://stake.lido.fi"
@@ -39,11 +41,11 @@ export default async function Index(props) {
             Lido.fi
           </ShowcaseLink>
           , the leading decentralised protocol for Ethereum liquid staking
-        </WrapBalancer>
+        </div>
       </Container>
 
       <Container placement="outer">
-        <div className="article__cover">
+        <div className="h-[200px] sm:h-[380px] overflow-hidden relative rounded mb-8 sm:mb-12 [&_img]:object-cover [&_img]:object-top">
           <Image src={coverImg} alt="Lido.fi staking widget UX" fill placeholder="blur" />
         </div>
       </Container>

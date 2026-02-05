@@ -84,7 +84,7 @@ interface TalkResourceLinkProps {
 const TalkResourceLink = ({ icon, body, details, href }: TalkResourceLinkProps): JSX.Element => (
   <Link
     href={href}
-    className="group flex flex-row flex-nowrap items-center rounded-xl gap-3 bg-ds-gray-50 no-underline text-inherit py-2 px-4 whitespace-nowrap transition-colors cursor-pointer hover:bg-ds-gray-100"
+    className="group flex flex-row flex-nowrap items-center rounded-xl gap-3 bg-ds-gray-100 no-underline text-inherit py-2 px-4 whitespace-nowrap transition-colors cursor-pointer hover:bg-ds-gray-150"
   >
     <div className="shrink-0 flex items-center justify-center [&>svg]:w-5 [&>svg]:text-ds-gray-600 group-hover:[&>svg]:text-ds-gray-900">
       {icon}
@@ -115,7 +115,7 @@ const AnimatedIcon = ({ icon }: AnimatedIconProps): JSX.Element => {
         viewBox="0 0 49 48"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full -rotate-3 text-ds-gray-50"
+        className="w-full -rotate-3 text-ds-gray-100"
       >
         <path
           d="M0.187012 24C0.187012 12.6863 0.187012 7.02944 3.70173 3.51472C7.21645 0 12.8733 0 24.187 0C35.5007 0 41.1576 0 44.6723 3.51472C48.187 7.02944 48.187 12.6863 48.187 24C48.187 35.3137 48.187 40.9706 44.6723 44.4853C41.1576 48 35.5007 48 24.187 48C12.8733 48 7.21645 48 3.70173 44.4853C0.187012 40.9706 0.187012 35.3137 0.187012 24Z"
@@ -142,7 +142,7 @@ export default function Speaking(): JSX.Element {
         <div className="flex flex-row flex-nowrap items-center gap-6 justify-center pb-3">
           <Link
             href="/speaking/all"
-            className="bg-ds-gray-50 px-4 rounded-full h-9 items-center shadow-[inset_0px_0px_0px_1px_var(--color-ds-gray-200)] text-ds-gray-600 no-underline transition-shadow text-ds-sm font-medium inline-flex gap-2 hover:text-ds-accent hover:shadow-[inset_0px_0px_0px_2px_var(--color-ds-accent)] [&>svg]:text-ds-gray-800 [&>svg]:mt-px hover:[&>svg]:text-ds-accent"
+            className="bg-ds-gray-100 px-4 rounded-full h-9 items-center shadow-[inset_0px_0px_0px_1px_var(--color-ds-gray-200)] text-ds-gray-600 no-underline transition-shadow text-ds-sm font-medium inline-flex gap-2 hover:text-ds-accent hover:shadow-[inset_0px_0px_0px_2px_var(--color-ds-accent)] [&>svg]:text-ds-gray-800 [&>svg]:mt-px hover:[&>svg]:text-ds-accent"
           >
             <ListIcon />
             View All Chronologically

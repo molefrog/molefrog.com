@@ -39,6 +39,9 @@
   --color-ds-gray-800: #262626;
   --color-ds-gray-900: #18181b;
 
+  /* DS Background */
+  --color-ds-bg: #fafafa;
+
   /* DS Accent Colors */
   --color-ds-accent-200: #738efc;
   --color-ds-accent-300: #5f7efc;
@@ -47,6 +50,36 @@
   --color-ds-accent-600: #234efb;
   --color-ds-accent-700: #0f3efa;
   --color-ds-accent: #2c57fb;
+
+  /* DS Shadows */
+  --shadow-ds-border: 0 0 0 1px rgba(0, 0, 0, 0.08);
+  --shadow-ds-small: 0px 2px 2px rgba(0, 0, 0, 0.04);
+  --shadow-ds-border-small:
+    0 0 0 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.04);
+  --shadow-ds-medium:
+    0px 2px 2px rgba(0, 0, 0, 0.04), 0px 8px 8px -8px rgba(0, 0, 0, 0.04);
+  --shadow-ds-border-medium:
+    0 0 0 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.04),
+    0px 8px 8px -8px rgba(0, 0, 0, 0.04);
+  --shadow-ds-large:
+    0px 2px 2px rgba(0, 0, 0, 0.04), 0px 8px 16px -4px rgba(0, 0, 0, 0.04);
+  --shadow-ds-border-large:
+    0 0 0 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.04),
+    0px 8px 16px -4px rgba(0, 0, 0, 0.04);
+  --shadow-ds-tooltip:
+    0 0 0 1px rgba(0, 0, 0, 0.08), 0px 1px 1px rgba(0, 0, 0, 0.02),
+    0px 4px 8px rgba(0, 0, 0, 0.04);
+  --shadow-ds-menu:
+    0 0 0 1px rgba(0, 0, 0, 0.08), 0px 1px 1px rgba(0, 0, 0, 0.02),
+    0px 4px 8px -4px rgba(0, 0, 0, 0.04), 0px 16px 24px -8px rgba(0, 0, 0, 0.06);
+  --shadow-ds-modal:
+    0 0 0 1px rgba(0, 0, 0, 0.08), 0px 1px 1px rgba(0, 0, 0, 0.02),
+    0px 8px 16px -4px rgba(0, 0, 0, 0.04),
+    0px 24px 32px -8px rgba(0, 0, 0, 0.06);
+  --shadow-ds-fullscreen:
+    0 0 0 1px rgba(0, 0, 0, 0.08), 0px 1px 1px rgba(0, 0, 0, 0.02),
+    0px 8px 16px -4px rgba(0, 0, 0, 0.04),
+    0px 24px 32px -8px rgba(0, 0, 0, 0.06);
 }
 
 @layer base {
@@ -118,6 +151,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   color: var(--color-gray-900);
+  background-color: var(--color-ds-bg);
 }
 
 ::selection {

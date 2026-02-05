@@ -226,7 +226,7 @@ export default function SpeakingAll(): JSX.Element {
         <div className="flex mb-4">
           <Link
             href="/speaking"
-            className="bg-ds-gray-50 px-4 rounded-full h-9 align-middle items-center shadow-[inset_0px_0px_0px_1px_var(--color-ds-gray-200)] text-ds-gray-600 no-underline transition-shadow text-sm font-medium inline-flex gap-2 cursor-pointer hover:text-ds-accent hover:shadow-[inset_0px_0px_0px_2px_var(--color-ds-accent)] [&>svg]:text-ds-gray-800 [&>svg]:mt-px hover:[&>svg]:text-ds-accent"
+            className="bg-ds-gray-100 px-4 rounded-full h-9 align-middle items-center shadow-[inset_0px_0px_0px_1px_var(--color-ds-gray-200)] text-ds-gray-600 no-underline transition-shadow text-sm font-medium inline-flex gap-2 cursor-pointer hover:text-ds-accent hover:shadow-[inset_0px_0px_0px_2px_var(--color-ds-accent)] [&>svg]:text-ds-gray-800 [&>svg]:mt-px hover:[&>svg]:text-ds-accent"
           >
             <BackIcon /> Back to Talks
           </Link>

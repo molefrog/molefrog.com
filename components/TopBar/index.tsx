@@ -21,7 +21,7 @@ const TopBar = () => {
                 "after:block after:w-full after:h-full after:bg-ds-gray-800 after:content-['']",
                 "after:[mask:url('/components/TopBar/logo-mask.png')_no-repeat_center/100%]",
                 "hover:after:bg-ds-accent",
-                { "after:bg-ds-gray-500": pathname === "/" }
+                { "after:bg-ds-gray-500": pathname === "/" },
               )}
               aria-label="Home"
               href="/"
@@ -33,9 +33,12 @@ const TopBar = () => {
             <Link
               className={clsx(
                 "inline-flex h-9 px-3 rounded-sm items-center text-ds-gray-800 text-sm md:text-base font-medium no-underline cursor-pointer",
-                "hover:bg-ds-gray-50 hover:text-ds-accent",
+                "select-none hover:bg-ds-gray-150 hover:text-ds-gray-600",
                 "md:hidden",
-                { "text-ds-gray-500 bg-ds-gray-100 hover:bg-ds-gray-100 hover:text-ds-gray-500": pathname === "/" }
+                {
+                  "text-ds-gray-500 bg-ds-gray-100 hover:bg-ds-gray-100 hover:text-ds-gray-500":
+                    pathname === "/",
+                },
               )}
               href="/"
             >
@@ -45,8 +48,11 @@ const TopBar = () => {
             <Link
               className={clsx(
                 "inline-flex h-9 px-3 rounded-sm items-center text-ds-gray-800 text-sm md:text-base font-medium no-underline cursor-pointer",
-                "hover:bg-ds-gray-50 hover:text-ds-accent",
-                { "text-ds-gray-500 bg-ds-gray-100 hover:bg-ds-gray-100 hover:text-ds-gray-500": /^\/speaking(?:\/|$)/.test(pathname) }
+                "select-none hover:bg-ds-gray-150 hover:text-ds-gray-600",
+                {
+                  "text-ds-gray-500 bg-ds-gray-100 hover:bg-ds-gray-100 hover:text-ds-gray-500":
+                    /^\/speaking(?:\/|$)/.test(pathname),
+                },
               )}
               href="/speaking"
             >
@@ -56,8 +62,11 @@ const TopBar = () => {
             <Link
               className={clsx(
                 "inline-flex h-9 px-3 rounded-sm items-center text-ds-gray-800 text-sm md:text-base font-medium no-underline cursor-pointer",
-                "hover:bg-ds-gray-50 hover:text-ds-accent",
-                { "text-ds-gray-500 bg-ds-gray-100 hover:bg-ds-gray-100 hover:text-ds-gray-500": pathname === "/sketches" }
+                "select-none hover:bg-ds-gray-150 hover:text-ds-gray-600",
+                {
+                  "text-ds-gray-500 bg-ds-gray-100 hover:bg-ds-gray-100 hover:text-ds-gray-500":
+                    pathname === "/sketches",
+                },
               )}
               href="/sketches"
             >
@@ -67,8 +76,11 @@ const TopBar = () => {
             <Link
               className={clsx(
                 "inline-flex h-9 px-3 rounded-sm items-center text-ds-gray-800 text-sm md:text-base font-medium no-underline cursor-pointer",
-                "hover:bg-ds-gray-50 hover:text-ds-accent",
-                { "text-ds-gray-500 bg-ds-gray-100 hover:bg-ds-gray-100 hover:text-ds-gray-500": pathname === "/media" }
+                "select-none hover:bg-ds-gray-150 hover:text-ds-gray-600",
+                {
+                  "text-ds-gray-500 bg-ds-gray-100 hover:bg-ds-gray-100 hover:text-ds-gray-500":
+                    pathname === "/media",
+                },
               )}
               href="/media"
             >
@@ -78,8 +90,11 @@ const TopBar = () => {
             <Link
               className={clsx(
                 "inline-flex h-9 px-3 rounded-sm items-center text-ds-gray-800 text-sm md:text-base font-medium no-underline cursor-pointer",
-                "hover:bg-ds-gray-50 hover:text-ds-accent",
-                { "text-ds-gray-500 bg-ds-gray-100 hover:bg-ds-gray-100 hover:text-ds-gray-500": pathname === "/friends" }
+                "select-none hover:bg-ds-gray-150 hover:text-ds-gray-600",
+                {
+                  "text-ds-gray-500 bg-ds-gray-100 hover:bg-ds-gray-100 hover:text-ds-gray-500":
+                    pathname === "/friends",
+                },
               )}
               href="/friends"
             >
@@ -89,9 +104,9 @@ const TopBar = () => {
             <Link
               className={clsx(
                 "inline-flex h-9 px-3 rounded-sm items-center text-ds-gray-800 text-sm md:text-base font-medium no-underline cursor-pointer",
-                "hover:bg-ds-gray-50 hover:text-ds-accent",
+                "select-none hover:bg-ds-gray-150 hover:text-ds-gray-600",
                 "after:inline-block after:content-[''] after:bg-ds-gray-300 after:size-1 after:rounded-full after:relative after:-top-1.5 after:ml-1",
-                "hover:after:bg-ds-accent hover:after:opacity-80"
+                "hover:after:bg-ds-accent hover:after:opacity-80",
               )}
               target="_blank"
               rel="noopener noreferrer"
@@ -103,9 +118,9 @@ const TopBar = () => {
             <Link
               className={clsx(
                 "inline-flex h-9 px-3 rounded-sm items-center text-ds-gray-800 text-sm md:text-base font-medium no-underline cursor-pointer",
-                "hover:bg-ds-gray-50 hover:text-ds-accent",
+                "select-none hover:bg-ds-gray-150 hover:text-ds-gray-600",
                 "after:inline-block after:content-[''] after:bg-ds-gray-300 after:size-1 after:rounded-full after:relative after:-top-1.5 after:ml-1",
-                "hover:after:bg-ds-accent hover:after:opacity-80"
+                "hover:after:bg-ds-accent hover:after:opacity-80",
               )}
               target="_blank"
               rel="noopener noreferrer"

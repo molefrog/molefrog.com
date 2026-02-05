@@ -1,123 +1,36 @@
-.article {
-  --type-article-header: 400 normal 54px / 56px var(--font-serif);
-  --type-article-title: 600 normal 19px / 29px var(--font-sans);
-
-  padding-bottom: 96px;
-  padding-top: 40px;
-}
-
-.article__header {
-  padding-bottom: 80px;
-
-  font: var(--type-article-title);
-  font-weight: normal;
-}
-
-.article__description {
-  text-wrap: pretty;
-  padding-right: 40px;
-}
-
-.article__info {
-  color: var(--color-gray-400);
-  margin-top: 4px;
-}
-
-.article__h1 {
-  font: var(--type-article-header);
-  color: var(--color-gray-800);
-  letter-spacing: var(--type-ls-header);
-  max-width: 480px;
-  margin-bottom: 24px;
-}
-
-@media (max-width: 768px) {
-  .article {
-    --type-article-header: 400 44px / 46px var(--font-serif);
-  }
-
-  .article__header {
-    padding-bottom: 56px;
-  }
-
-  .article__h1 {
-    margin-bottom: 22px;
-  }
-
-  .article__info {
-    margin-top: 4px;
-  }
-}
-
-.article__category {
-  font: var(--type-text-x-small);
-  color: var(--color-accent-400);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 16px;
-  display: inline-block;
-  border-radius: 6px;
-}
-
-.article__cover {
-  height: 380px;
-  overflow: hidden;
-  position: relative;
-  border-radius: 4px;
-  margin-bottom: 48px;
-
-  & img {
-    object-fit: cover;
-    object-position: top center;
-  }
-}
-
-@media (max-width: 640px) {
-  .article__cover {
-    height: 200px;
-    margin-bottom: 32px;
-  }
-}
-
 .article__notion.notion {
   & {
-    --notion-max-width: var(--inner-grid-width);
+    --notion-max-width: var(--container-ds-inner);
     --notion-font: var(--font-sans);
-    padding: 0;
-    font: var(--type-text-post);
-    color: var(--color-gray-800);
+    @apply text-base leading-8 text-ds-gray-800 p-0;
   }
 
   & ::selection {
-    color: var(--color-gray-50);
-    background-color: var(--color-accent);
+    @apply text-ds-gray-50 bg-ds-accent;
   }
 
   & code {
-    font-family: var(--font-mono);
+    @apply font-ds-mono;
   }
 
   & .notion-h {
-    letter-spacing: var(--type-ls-header);
-    margin-bottom: 16px;
-    padding: 0;
+    @apply tracking-tight mb-4 p-0;
   }
 
   & .notion-h1 {
-    font: var(--type-header-large);
+    @apply font-ds-serif font-medium text-2xl/[38px] md:text-[42px]/[48px];
   }
 
   & .notion-h2 {
-    font: var(--type-header-medium);
-    margin-top: 80px;
+    @apply font-ds-serif font-medium text-[32px]/[38px] md:text-[39px]/[48px] mt-20;
   }
 
   & .notion-h3 {
-    font: var(--type-header-regular);
+    @apply font-ds-serif font-medium text-[26px]/[32px] md:text-[28px]/[34px];
   }
 
   & .notion-h4 {
-    font: var(--type-header-regular);
+    @apply font-ds-serif font-medium text-[26px]/[32px] md:text-[28px]/[34px];
   }
 
   & .notion-h1 + .notion-h2 {
@@ -125,15 +38,12 @@
   }
 
   & .notion-inline-code {
-    background-color: var(--color-gray-100);
-    letter-spacing: -0.01em;
+    @apply bg-ds-gray-100 tracking-tight rounded font-bold;
     padding: 2px 4px;
-    border-radius: 4px;
-    font-weight: 700;
     color: hsl(346 76% 59% / 1);
 
     & b {
-      font-weight: 800;
+      @apply font-extrabold;
     }
   }
 
@@ -143,106 +53,84 @@
   */
 
   & .notion-link:has(.notion-inline-code) {
-    text-decoration: none;
-    border-bottom: none;
-    opacity: 1;
+    @apply no-underline border-b-0 opacity-100;
   }
 
   & .notion-link > .notion-inline-code {
-    text-decoration: underline;
+    @apply underline;
   }
 
   & .notion-link > .notion-inline-code:hover {
-    background: var(--color-gray-200);
+    @apply bg-ds-gray-200;
   }
 
   & .notion-text {
-    margin: 16px 0;
-    padding: 0;
+    @apply my-4 p-0;
   }
 
   & .notion-list-numbered > li::marker {
-    font: var(--type-text-small);
+    @apply text-ds-sm;
   }
 
   & .notion-asset-wrapper {
-    margin: 16px 0;
-    padding: 0;
+    @apply my-4 p-0;
   }
 
   & .notion-asset-wrapper-image {
-    border-radius: 3px;
-    overflow: hidden;
+    @apply rounded-sm overflow-hidden;
   }
 
   & .notion-asset-wrapper-full:has(iframe) {
-    border: 1px solid var(--color-gray-200);
-    border-radius: 3px;
-    overflow: hidden;
+    @apply border border-ds-gray-200 rounded-sm overflow-hidden;
     max-width: calc(100vw - 32px);
   }
 
   & .notion-asset-wrapper:not(.notion-asset-wrapper-full):has(iframe) {
-    border: 1px solid var(--color-gray-200);
-    border-radius: 4px;
+    @apply border border-ds-gray-200 rounded;
   }
 
   & .notion-asset-caption {
-    font: var(--type-text-small);
+    @apply text-ds-sm;
   }
 
   & .notion-callout {
-    border-radius: 8px;
-    padding: 24px 16px;
-    border-color: transparent;
+    @apply rounded-lg py-6 px-4 border-transparent;
 
     & .notion-page-icon {
-      margin-top: 6px;
+      @apply mt-1.5;
     }
   }
 
   & .notion-code {
-    --sh-class: #f8f8f2; /* Dracula Foreground */
-    --sh-identifier: #50fa7b; /* Dracula Green */
-    --sh-sign: #ff79c6; /* Dracula Pink */
-    --sh-string: #f1fa8c; /* Dracula Yellow */
-    --sh-keyword: #8be9fd; /* Dracula Cyan */
-    --sh-comment: #6272a4; /* Dracula Comment */
-    --sh-jsxliterals: #bd93f9; /* Dracula Purple */
-    --sh-property: #50fa7b; /* Dracula Green */
+    --sh-class: #f8f8f2;
+    --sh-identifier: #50fa7b;
+    --sh-sign: #ff79c6;
+    --sh-string: #f1fa8c;
+    --sh-keyword: #8be9fd;
+    --sh-comment: #6272a4;
+    --sh-jsxliterals: #bd93f9;
+    --sh-property: #50fa7b;
     --sh-entity: #f8f8f2;
 
+    @apply font-ds-mono my-4;
     background: rgba(33, 31, 32, 1);
     padding: 40px 32px;
-    font-family: var(--font-mono);
-    margin: 16px 0;
   }
 
   & .exec-code {
-    margin: 16px 0px;
+    @apply my-4;
   }
 
   & .exec-code__content {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 24px;
+    @apply w-full flex items-center justify-center flex-wrap gap-6;
   }
 
   & .exec-code--full {
-    /* Pad with 16px on each side to avoid horizontal overflow */
-    /* https://destroytoday.com/blog/100vw-and-the-horizontal-overflow-you-probably-didnt-know-about */
     width: calc(100dvw - 32px);
-    align-self: center;
+    @apply self-center;
   }
 
   & .exec-code__loading {
-    min-height: 240px;
-    display: flex;
-    align-items: center;
-    font: var(--type-header-regular);
-    color: var(--color-gray-500);
+    @apply min-h-60 flex items-center font-ds-serif font-medium italic text-[26px]/[32px] md:text-[28px]/[34px] text-ds-gray-500;
   }
 }

@@ -4,7 +4,7 @@
   border-radius: 12px;
   width: 380px;
   min-height: 240px;
-  background-color: var(--color-gray-50);
+  background-color: var(--color-ds-gray-100);
 
   display: flex;
   flex-flow: column nowrap;

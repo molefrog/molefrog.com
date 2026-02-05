@@ -113,7 +113,7 @@ function PreviewModal({ profile, onClose }: PreviewModalProps) {
 
   return (
     <motion.div
-      className="fixed sm:absolute inset-0 bg-white/70 z-10 backdrop-blur-sm flex items-center sm:items-start justify-center sm:pt-8"
+      className="fixed sm:absolute inset-0 bg-ds-bg/70 z-10 backdrop-blur-sm flex items-center sm:items-start justify-center sm:pt-8"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -183,7 +183,7 @@ export default function Friends() {
         <h1 className="text-2xl leading-10 md:text-3xl md:leading-12 font-medium font-serif tracking-tight text-center mb-2">
           Talented Humans
         </h1>
-        <div className="text-md text-ds-gray-600 text-center max-w-xl mx-auto mb-8 md:mb-4 md:text-balance">
+        <div className="text-lg text-ds-gray-600 text-center max-w-xl mx-auto mb-8 md:mb-4 md:text-balance">
           If you liked my website, please take a look at what these folks are doing. They are good
           people.
         </div>
@@ -205,7 +205,7 @@ export default function Friends() {
                     transition={{ duration: 0.5, type: "spring" }}
                   >
                     <motion.button
-                      className="p-0 relative bg-white border border-ds-gray-200 rounded-lg cursor-pointer overflow-hidden transition-colors shadow-sm select-none text-left block w-full hover:bg-ds-gray-100"
+                      className="p-0 relative bg-white rounded-lg cursor-pointer overflow-hidden transition-colors shadow-ds-border-small select-none text-left block w-full hover:bg-ds-gray-100"
                       layoutId={`item-${item.website}`}
                       layout
                       transition={{ duration: 0.3, type: "spring", bounce: 0.1 }}
