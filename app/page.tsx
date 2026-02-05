@@ -35,8 +35,8 @@ export default function Page(): JSX.Element {
         <div className="text-ds-gray-800 text-base/relaxed md:text-ds-base/relaxed mb-14 md:mb-16">
           <div className="[&_p]:my-5">
             <p>
-              I&apos;m a design-minded engineer and founder. I care about systems that scale, tools
-              that stay simple, and UIs that feel good.
+              I&apos;m a design-minded engineer and founder based in Copenhagen. I care about
+              systems that scale, tools that stay simple, and UIs that feel good.
             </p>
             <p>
               For over 15 years I&apos;ve been writing code professionally. I maintain{" "}
@@ -97,8 +97,8 @@ export default function Page(): JSX.Element {
                   Fira (YC W25)
                 </Link>
               </Showcase>
-              , an agentic AI analyst for financial research. Now I&apos;m exploring real-time
-              collaborative software and agentic tooling and building something new.
+              , an agentic AI analyst for financial research. Now I&apos;m exploring collaborative
+              software and agentic tooling and building something new.
               {/* TODO: add back interactive storytelling with new preview
               , and{" "}
               <Showcase media={{ video: domikLtdVideo, aspectRatio: 1460 / 1080 }}>
