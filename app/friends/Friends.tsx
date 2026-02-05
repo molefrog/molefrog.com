@@ -13,6 +13,9 @@ import tikhonBelousko from "@/public/friends/tikhon-belousko.svg";
 import katyaVakulenko from "@/public/friends/katya-vakulenko.jpg";
 import annaLiubimova from "@/public/friends/anna-liubimova.jpg";
 import sergeKazakov from "@/public/friends/serge-kazakov.png";
+import deepakGupta from "@/public/friends/deepak-gupta.webp";
+import antonFresher from "@/public/friends/anton-fresher.webp";
+import criminaliza from "@/public/friends/criminaliza.webp";
 
 interface Profile {
   website: string;
@@ -93,6 +96,36 @@ const profiles: Profile[] = [
     name: "Kemal",
     bio: "Kemal is an earth based design engineer who enjoys building things on (and for) the web.",
     avatar: `https://www.google.com/s2/favicons?domain=kemal.earth&sz=128`,
+  },
+  {
+    website: "baytas.net",
+    name: "Dr. M.A. Baytaş",
+    bio: "Designer and engineer with a PhD in human-computer interaction design.",
+    avatar: `https://www.google.com/s2/favicons?domain=baytas.net&sz=128`,
+  },
+  {
+    website: "deeepsig.me",
+    name: "Deepak Gupta",
+    bio: "New grad engineer and designer obsessed with crafting thoughtful experiences — whether in code or in the kitchen.",
+    avatar: deepakGupta.src,
+  },
+  {
+    website: "jvg.omg.lol",
+    name: "James Greenaway",
+    bio: "UK-based senior design engineer working at the intersection of UX and software. Excited by AI as a creative amplifier — tools that help people bring ideas to life.",
+    avatar: `https://www.google.com/s2/favicons?domain=jvg.omg.lol&sz=128`,
+  },
+  {
+    website: "tonyfresher.com",
+    name: "Anton Fresher",
+    bio: "Product designer and engineer with a math and CS background. Generalist at heart, thriving in early-stage teams and exploring applied AI.",
+    avatar: antonFresher.src,
+  },
+  {
+    website: "criminaliza.com",
+    name: "criminaliza",
+    bio: "Illustrator working independently and with collective Trincea Ibiza. Shaky lines and questionable humor that can't be imitated by AI.",
+    avatar: criminaliza.src,
   },
 ];
 
