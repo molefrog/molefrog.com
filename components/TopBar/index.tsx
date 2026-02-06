@@ -5,38 +5,31 @@ import Link from "next/link";
 import { clsx } from "clsx";
 
 import { Container } from "../Container";
+import { MolefrogLogo } from "../MolefrogLogo";
 
 const TopBar = () => {
   const pathname = usePathname();
 
   return (
-    <header className="pt-8 mb-12 md:mb-16 relative z-50">
+    <header className="pt-8 mb-12 md:mb-18 relative z-50">
       <Container placement="inner">
-        <div className="flex items-center flex-wrap md:flex-nowrap md:-ml-[106px]">
+        <div className="flex items-center flex-wrap md:flex-nowrap md:-ml-0.5">
           {/* Logo wrapper */}
-          <div className="mr-0 ml-3 order-2 self-start md:order-none md:mr-10 md:ml-0">
-            <Link
-              className={clsx(
-                "block rounded-sm size-8 md:size-14",
-                "after:block after:w-full after:h-full after:bg-ds-gray-800 after:content-['']",
-                "after:[mask:url('/components/TopBar/logo-mask.png')_no-repeat_center/100%]",
-                "hover:after:bg-ds-accent",
-                { "after:bg-ds-gray-500": pathname === "/" },
-              )}
-              aria-label="Home"
-              href="/"
-            />
+          <div className="mr-0 ml-3 order-2 self-start md:order-0 top-4 left-4 md:ml-0 md:mr-4">
+            <Link href="/" aria-label="Home">
+              <MolefrogLogo />
+            </Link>
           </div>
 
           {/* Links */}
-          <div className="flex-1 gap-x-3 gap-y-2 flex flex-row flex-wrap items-center order-1 md:order-none">
+          <div className="flex-1 gap-x-3 gap-y-2 flex flex-row flex-wrap items-center order-1 md:order-0">
             <Link
               className={clsx(
                 "inline-flex h-9 px-3 rounded-sm items-center text-ds-gray-800 text-sm md:text-base font-medium no-underline cursor-pointer",
                 "select-none hover:bg-ds-gray-150 hover:text-ds-gray-600",
                 "md:hidden",
                 {
-                  "text-ds-gray-500 bg-ds-gray-100 hover:bg-ds-gray-100 hover:text-ds-gray-500":
+                  "text-ds-gray-500 bg-ds-gray-150 hover:bg-ds-gray-150 hover:text-ds-gray-500":
                     pathname === "/",
                 },
               )}
@@ -50,7 +43,7 @@ const TopBar = () => {
                 "inline-flex h-9 px-3 rounded-sm items-center text-ds-gray-800 text-sm md:text-base font-medium no-underline cursor-pointer",
                 "select-none hover:bg-ds-gray-150 hover:text-ds-gray-600",
                 {
-                  "text-ds-gray-500 bg-ds-gray-100 hover:bg-ds-gray-100 hover:text-ds-gray-500":
+                  "text-ds-gray-500 bg-ds-gray-150 hover:bg-ds-gray-150 hover:text-ds-gray-500":
                     /^\/speaking(?:\/|$)/.test(pathname),
                 },
               )}
@@ -64,7 +57,7 @@ const TopBar = () => {
                 "inline-flex h-9 px-3 rounded-sm items-center text-ds-gray-800 text-sm md:text-base font-medium no-underline cursor-pointer",
                 "select-none hover:bg-ds-gray-150 hover:text-ds-gray-600",
                 {
-                  "text-ds-gray-500 bg-ds-gray-100 hover:bg-ds-gray-100 hover:text-ds-gray-500":
+                  "text-ds-gray-500 bg-ds-gray-150 hover:bg-ds-gray-150 hover:text-ds-gray-500":
                     pathname === "/sketches",
                 },
               )}
@@ -78,7 +71,7 @@ const TopBar = () => {
                 "inline-flex h-9 px-3 rounded-sm items-center text-ds-gray-800 text-sm md:text-base font-medium no-underline cursor-pointer",
                 "select-none hover:bg-ds-gray-150 hover:text-ds-gray-600",
                 {
-                  "text-ds-gray-500 bg-ds-gray-100 hover:bg-ds-gray-100 hover:text-ds-gray-500":
+                  "text-ds-gray-500 bg-ds-gray-150 hover:bg-ds-gray-150 hover:text-ds-gray-500":
                     pathname === "/media",
                 },
               )}
@@ -92,7 +85,7 @@ const TopBar = () => {
                 "inline-flex h-9 px-3 rounded-sm items-center text-ds-gray-800 text-sm md:text-base font-medium no-underline cursor-pointer",
                 "select-none hover:bg-ds-gray-150 hover:text-ds-gray-600",
                 {
-                  "text-ds-gray-500 bg-ds-gray-100 hover:bg-ds-gray-100 hover:text-ds-gray-500":
+                  "text-ds-gray-500 bg-ds-gray-150 hover:bg-ds-gray-150 hover:text-ds-gray-500":
                     pathname === "/friends",
                 },
               )}
