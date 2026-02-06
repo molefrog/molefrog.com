@@ -11,7 +11,7 @@ const TopBar = () => {
   const pathname = usePathname();
 
   return (
-    <header className="pt-8 mb-12 md:mb-18 relative z-50">
+    <header className="pt-8 mb-12 md:mb-22 relative z-50">
       <Container placement="inner">
         <div className="flex items-center flex-wrap md:flex-nowrap md:-ml-0.5">
           {/* Logo wrapper */}
