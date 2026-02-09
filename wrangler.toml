@@ -38,8 +38,9 @@ binding = "BROWSER"
 # Preview environment for PR deployments
 # Deploy with: wrangler deploy --env preview
 [env.preview]
-name = "molefrog-com-preview"
+name = "molefrog-com"
 workers_dev = true
+preview_urls = true
 # Explicitly set no custom domain routes for preview — only workers.dev
 routes = []
 
