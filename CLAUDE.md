@@ -1,3 +1,6 @@
+# Repository
+Public repo: https://github.com/molefrog/molefrog.com — use `gh` CLI to check failed builds, deployments, PR checks, etc.
+
 # Development Commands
 - `bun dev` - Start dev server
 - `bun run build` - Build for production
