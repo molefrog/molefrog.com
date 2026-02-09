@@ -34,21 +34,3 @@ id = "83dba82eca4549748f772432256caa58"
 
 [browser]
 binding = "BROWSER"
-
-# Preview environment for PR deployments
-# Deploy with: wrangler deploy --env preview
-[env.preview]
-name = "molefrog-com-preview"
-workers_dev = true
-
-[env.preview.assets]
-directory = "./out"
-binding = "ASSETS"
-html_handling = "auto-trailing-slash"
-
-[[env.preview.kv_namespaces]]
-binding = "KV"
-id = "64c70bbb89e747078a995cc543dbc296"
-
-[env.preview.browser]
-binding = "BROWSER"
