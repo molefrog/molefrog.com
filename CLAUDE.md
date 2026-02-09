@@ -23,6 +23,17 @@ curl -sL https://github.com/FiloSottile/age/releases/download/v1.3.1/age-v1.3.1-
   && rm -rf /tmp/age_key.txt /tmp/fonts.tar.gz ./age
 ```
 
+# Cloudflare (wrangler)
+`CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` env vars are available on the web. Use `wrangler` to inspect Cloudflare resources — deployments, KV data, logs, etc.
+
+```bash
+wrangler deployments list              # recent deployments
+wrangler versions list                 # worker versions
+wrangler kv key list --namespace-id <id>  # list KV keys
+wrangler kv key get --namespace-id <id> "key"  # read KV value
+wrangler tail --format json            # tail live logs
+```
+
 # Testing
 No specific testing commands found in package.json. If tests are added later, commands should be added here.
 
