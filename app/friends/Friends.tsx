@@ -127,6 +127,12 @@ const profiles: Profile[] = [
     bio: "Illustrator working independently and with collective Trincea Ibiza. Shaky lines and questionable humor that can't be imitated by AI.",
     avatar: criminaliza.src,
   },
+  {
+    website: "seungmee-lee.com",
+    name: "Seungmee Lee",
+    bio: "A designer experimenting with pixels and codes.",
+    avatar: `https://www.google.com/s2/favicons?domain=seungmee-lee.com&sz=128`,
+  },
 ];
 
 interface PreviewModalProps {
