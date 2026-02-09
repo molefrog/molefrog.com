@@ -1,7 +1,7 @@
 "use client";
 
 import useSWR from "swr";
-import Map, { Marker, FullscreenControl } from "react-map-gl";
+import Map, { Marker, FullscreenControl } from "react-map-gl/mapbox";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 import { Pin } from "./pin";
