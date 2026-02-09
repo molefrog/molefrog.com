@@ -40,6 +40,11 @@ binding = "BROWSER"
 [env.preview]
 name = "molefrog-com-preview"
 workers_dev = true
+# Explicitly set no custom domain routes for preview — only workers.dev
+routes = []
+
+[env.preview.vars]
+# Mirrors top-level [vars] — wrangler does not inherit vars into environments
 
 [env.preview.assets]
 directory = "./out"
