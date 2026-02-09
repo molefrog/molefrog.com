@@ -9,6 +9,17 @@
 
 **DO NOT run `bun run build` - it breaks the dev server. Use `bun dev` for development.**
 
+# Claude Web Setup
+When running in Claude Code on the web, decrypt the licensed fonts before starting the dev server. The `AGE_KEY` env var is available in the environment.
+
+```bash
+curl -sL https://github.com/FiloSottile/age/releases/download/v1.3.1/age-v1.3.1-linux-amd64.tar.gz | tar xz \
+  && printf '%s\n' "$AGE_KEY" > /tmp/age_key.txt \
+  && ./age/age -d -i /tmp/age_key.txt -o /tmp/fonts.tar.gz styles/fonts/fonts.age \
+  && tar xzf /tmp/fonts.tar.gz -C styles/fonts \
+  && rm -rf /tmp/age_key.txt /tmp/fonts.tar.gz ./age
+```
+
 # Testing
 No specific testing commands found in package.json. If tests are added later, commands should be added here.
 
