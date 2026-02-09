@@ -1,3 +1,6 @@
+# Repository
+Public repo: https://github.com/molefrog/molefrog.com — use `gh` CLI to check failed builds, deployments, PR checks, etc.
+
 # Development Commands
 - `bun dev` - Start dev server
 - `bun run build` - Build for production
@@ -5,9 +8,31 @@
 - `bun lint` - Run ESLint
 - `bun run postbuild` - Generate sitemap (automatically runs after build)
 
-**IMPORTANT: Always use `bun` instead of `npm` or `yarn`.**
+**IMPORTANT: Always use `bun` instead of `npm` or `yarn`. Use `bun --bun` for builds and running scripts to ensure bun's runtime is used.**
 
 **DO NOT run `bun run build` - it breaks the dev server. Use `bun dev` for development.**
+
+# Claude Web Setup
+When running in Claude Code on the web, decrypt the licensed fonts before starting the dev server. The `AGE_KEY` env var is available in the environment.
+
+```bash
+curl -sL https://github.com/FiloSottile/age/releases/download/v1.3.1/age-v1.3.1-linux-amd64.tar.gz | tar xz \
+  && printf '%s\n' "$AGE_KEY" > /tmp/age_key.txt \
+  && ./age/age -d -i /tmp/age_key.txt -o /tmp/fonts.tar.gz styles/fonts/fonts.age \
+  && tar xzf /tmp/fonts.tar.gz -C styles/fonts \
+  && rm -rf /tmp/age_key.txt /tmp/fonts.tar.gz ./age
+```
+
+# Cloudflare (wrangler)
+`CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` env vars are available on the web. Use `wrangler` to inspect Cloudflare resources — deployments, KV data, logs, etc.
+
+```bash
+wrangler deployments list              # recent deployments
+wrangler versions list                 # worker versions
+wrangler kv key list --namespace-id <id>  # list KV keys
+wrangler kv key get --namespace-id <id> "key"  # read KV value
+wrangler tail --format json            # tail live logs
+```
 
 # Testing
 No specific testing commands found in package.json. If tests are added later, commands should be added here.
