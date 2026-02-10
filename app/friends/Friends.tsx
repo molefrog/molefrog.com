@@ -16,6 +16,7 @@ import sergeKazakov from "@/public/friends/serge-kazakov.png";
 import deepakGupta from "@/public/friends/deepak-gupta.webp";
 import antonFresher from "@/public/friends/anton-fresher.webp";
 import criminaliza from "@/public/friends/criminaliza.webp";
+import seungmeeLee from "@/public/friends/seungmee-lee.jpg";
 
 interface Profile {
   website: string;
@@ -131,7 +132,7 @@ const profiles: Profile[] = [
     website: "seungmee-lee.com",
     name: "Seungmee Lee",
     bio: "A designer experimenting with pixels and codes.",
-    avatar: `https://www.google.com/s2/favicons?domain=seungmee-lee.com&sz=128`,
+    avatar: seungmeeLee.src,
   },
 ];
 
