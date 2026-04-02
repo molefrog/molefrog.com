@@ -21,7 +21,7 @@ function FicusPoll({ id }: { id: string }) {
   const [me, setMe] = useState<string>();
   const [votes, setVotes] = useState<API.PollState["votes"]>();
 
-  const instanceRef = useRef<ReturnType<typeof createPoll>>();
+  const instanceRef = useRef<ReturnType<typeof createPoll>>(undefined);
 
   const [token, setToken] = useLocalStorage<string | null>("ficus-token", null, {
     initializeWithValue: typeof window !== "undefined",

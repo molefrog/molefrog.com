@@ -216,7 +216,7 @@ const talks: Talk[] = [
   },
 ];
 
-export default function SpeakingAll(): JSX.Element {
+export default function SpeakingAll() {
   let currentYear: number | null = null;
 
   return (
