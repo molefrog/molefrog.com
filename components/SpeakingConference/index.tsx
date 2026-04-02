@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import React, { useRef } from "react";
 import useMouse from "@react-hook/mouse-position";
 
 import { Segmented } from "@/components/Segmented";
@@ -26,8 +26,8 @@ export const SpeakingConference = ({
   format,
   ...props
 }: SpeakingConferenceProps) => {
-  const ref = useRef(null);
-  const pos = useMouse(ref, { fps: 24 });
+  const ref = useRef<HTMLAnchorElement>(null);
+  const pos = useMouse(ref as React.RefObject<HTMLElement>, { fps: 24 });
 
   const label = pos.isOver ? formats[format] ?? "none" : year;
 

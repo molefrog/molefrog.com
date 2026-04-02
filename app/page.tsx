@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Page(): JSX.Element {
+export default function Page() {
   return (
     <Container placement="inner" className="pt-2 md:pt-8">
       <section className="md:pb-32 pb-24">

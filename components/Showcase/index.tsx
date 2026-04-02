@@ -206,11 +206,11 @@ const Showcase = ({ children, media, prefer = "above" }: ShowcaseProps) => {
 
   const [Wrap] = useState(() =>
     memo(function W() {
-      return cloneElement(children, { ref });
+      return cloneElement(children as ReactElement<{ ref: typeof ref }>, { ref });
     })
   );
 
-  const pos = useMouse(ref, { enterDelay: 0, leaveDelay: 0, fps: 60 });
+  const pos = useMouse(ref as React.RefObject<HTMLElement>, { enterDelay: 0, leaveDelay: 0, fps: 60 });
   const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {

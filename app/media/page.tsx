@@ -12,7 +12,7 @@ interface Reference {
   details: string;
 }
 
-export default function Media(): JSX.Element {
+export default function Media() {
   return (
     <main className="md:pb-32 pb-24">
       <Container placement="inner">

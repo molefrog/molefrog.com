@@ -81,7 +81,7 @@ interface TalkResourceLinkProps {
   href: string;
 }
 
-const TalkResourceLink = ({ icon, body, details, href }: TalkResourceLinkProps): JSX.Element => (
+const TalkResourceLink = ({ icon, body, details, href }: TalkResourceLinkProps) => (
   <Link
     href={href}
     className="group flex flex-row flex-nowrap items-center rounded-xl gap-3 bg-ds-gray-100 no-underline text-inherit py-2 px-4 whitespace-nowrap transition-colors cursor-pointer hover:bg-ds-gray-150"
@@ -106,7 +106,7 @@ interface AnimatedIconProps {
   icon: string | any; // Can be a string path or imported image
 }
 
-const AnimatedIcon = ({ icon }: AnimatedIconProps): JSX.Element => {
+const AnimatedIcon = ({ icon }: AnimatedIconProps) => {
   return (
     <div className="size-[50px] shrink-0 relative">
       {/** Squircle background */}
@@ -135,7 +135,7 @@ const AnimatedIcon = ({ icon }: AnimatedIconProps): JSX.Element => {
   );
 };
 
-export default function Speaking(): JSX.Element {
+export default function Speaking() {
   return (
     <main className="pb-24 md:pb-32">
       <Container placement="outer">
