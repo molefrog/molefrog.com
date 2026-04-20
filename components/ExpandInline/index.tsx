@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { useStore } from "@nanostores/react";
 import { $variant } from "./variant";
+import { getVariant } from "./synth";
 
 const DynamicSolfegeHands = dynamic(() => import("./SolfegeHands"), {
   ssr: false,
@@ -34,6 +35,7 @@ export const ExpandInline: React.FC<ExpandInlineProps> = ({
   const [playNotes, setPlayNotes] = useState<(n?: number) => void>(() => {});
   const [isMounted, setIsMounted] = useState(false);
   const variant = useStore($variant);
+  const noteDelay = getVariant(variant).delay;
 
   useEffect(() => {
     let cancelled = false;
@@ -66,7 +68,7 @@ export const ExpandInline: React.FC<ExpandInlineProps> = ({
           {visibleItems.map((item, index) => {
             const shouldAddAnd = withAnd && index === items.length - 2;
 
-            const delay = Math.max(0, 0.1 * (index - (visibleItems.length - expandBy)));
+            const delay = Math.max(0, noteDelay * (index - (visibleItems.length - expandBy)));
 
             return (
               <motion.span
