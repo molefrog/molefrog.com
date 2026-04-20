@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { useStore } from "@nanostores/react";
 import { $variant } from "./variant";
-import { getVariant } from "./synth";
+import type { PlayFn } from "./synth";
 
 const DynamicSolfegeHands = dynamic(() => import("./SolfegeHands"), {
   ssr: false,
@@ -32,17 +32,16 @@ export const ExpandInline: React.FC<ExpandInlineProps> = ({
   expandBy = 1,
 }) => {
   const [displayCount, setDisplayCount] = useState(displayFirst);
-  const [playNotes, setPlayNotes] = useState<(n?: number) => void>(() => {});
+  const [playNotes, setPlayNotes] = useState<PlayFn | null>(null);
   const [isMounted, setIsMounted] = useState(false);
   const variant = useStore($variant);
-  const noteDelay = getVariant(variant).delay;
 
   useEffect(() => {
     let cancelled = false;
     import("./synth").then((module) => {
       if (cancelled) return;
-      const synthFunction = module.synth(variant);
-      setPlayNotes(() => synthFunction);
+      const fn = module.synth(variant);
+      setPlayNotes(() => fn);
     });
 
     setIsMounted(true);
@@ -56,15 +55,16 @@ export const ExpandInline: React.FC<ExpandInlineProps> = ({
 
   const handleExpand = () => {
     const n = Math.min(expandBy, items.length - displayCount);
+    if (!playNotes || n <= 0) return;
 
-    playNotes?.(n);
-
-    // Reveal one item per note onset so the "..." button steps forward with
-    // the melody instead of jumping ahead.
+    // The synth returns per-note onset times; we use the same timing to
+    // reveal items so the "..." button steps forward note-by-note.
+    const { onsets } = playNotes(n);
     for (let i = 0; i < n; i++) {
-      const reveal = () => setDisplayCount((prev) => Math.min(prev + 1, items.length));
+      const reveal = () =>
+        setDisplayCount((prev) => Math.min(prev + 1, items.length));
       if (i === 0) reveal();
-      else setTimeout(reveal, i * noteDelay * 1000);
+      else setTimeout(reveal, onsets[i] * 1000);
     }
   };
 
