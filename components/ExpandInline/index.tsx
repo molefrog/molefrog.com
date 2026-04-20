@@ -4,10 +4,18 @@ import { AnimatePresence, motion } from "motion/react";
 import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import { useStore } from "@nanostores/react";
+import { $variant } from "./variant";
 
 const DynamicSolfegeHands = dynamic(() => import("./SolfegeHands"), {
   ssr: false,
 });
+
+const DynamicDevTuneSelector = dynamic(() => import("./DevTuneSelector"), {
+  ssr: false,
+});
+
+const isDev = process.env.NODE_ENV === "development";
 
 interface ExpandInlineProps {
   items: React.ReactNode[];
@@ -25,15 +33,21 @@ export const ExpandInline: React.FC<ExpandInlineProps> = ({
   const [displayCount, setDisplayCount] = useState(displayFirst);
   const [playNotes, setPlayNotes] = useState<(n?: number) => void>(() => {});
   const [isMounted, setIsMounted] = useState(false);
+  const variant = useStore($variant);
 
   useEffect(() => {
+    let cancelled = false;
     import("./synth").then((module) => {
-      const synthFunction = module.synth();
+      if (cancelled) return;
+      const synthFunction = module.synth(variant);
       setPlayNotes(() => synthFunction);
     });
 
     setIsMounted(true);
-  }, []);
+    return () => {
+      cancelled = true;
+    };
+  }, [variant]);
 
   const visibleItems = items.slice(0, displayCount);
   const hasMore = items.length > displayCount;
@@ -101,6 +115,9 @@ export const ExpandInline: React.FC<ExpandInlineProps> = ({
       </span>
 
       {isMounted && createPortal(<DynamicSolfegeHands />, document.body)}
+      {isMounted &&
+        isDev &&
+        createPortal(<DynamicDevTuneSelector />, document.body)}
     </>
   );
 };
