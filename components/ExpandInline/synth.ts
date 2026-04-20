@@ -41,7 +41,7 @@ export type Variant = {
 
 const makePlayer = (
   notes: string[],
-  trigger: (note: string, time: number) => void,
+  trigger: (note: string, time: number, isLast: boolean) => void,
   delay: number,
 ): PlayFn => {
   let offset = 0;
@@ -53,8 +53,9 @@ const makePlayer = (
       const index = (offset + i) % notes.length;
       const note = notes[index];
       const playTime = nowTone() + i * delay;
+      const isLast = i === n - 1;
 
-      trigger(note, playTime);
+      trigger(note, playTime, isLast);
 
       setTimeout(
         () => {
@@ -89,7 +90,11 @@ const buildCurrent = (delay: number): PlayFn => {
   synth.connect(reverb).connect(dist);
   synth.toDestination();
 
-  return makePlayer(notes, (note, time) => synth.triggerAttackRelease(note, "16n", time), delay);
+  return makePlayer(
+    notes,
+    (note, time, isLast) => synth.triggerAttackRelease(note, isLast ? "4n" : "16n", time),
+    delay,
+  );
 };
 
 // B. Mothership — bell-like FM, C-major register, slow & spacious.
@@ -107,7 +112,11 @@ const buildMothership = (delay: number): PlayFn => {
   synth.connect(reverb);
   synth.toDestination();
 
-  return makePlayer(notes, (note, time) => synth.triggerAttackRelease(note, "4n", time), delay);
+  return makePlayer(
+    notes,
+    (note, time, isLast) => synth.triggerAttackRelease(note, isLast ? "2n" : "8n", time),
+    delay,
+  );
 };
 
 // C. Tubular — PolySynth with triangle, lush reverb.
@@ -121,7 +130,11 @@ const buildTubular = (delay: number): PlayFn => {
   const reverb = new Reverb({ decay: 5, wet: 0.55 }).toDestination();
   poly.chain(filter, reverb);
 
-  return makePlayer(notes, (note, time) => poly.triggerAttackRelease(note, "2n", time), delay);
+  return makePlayer(
+    notes,
+    (note, time, isLast) => poly.triggerAttackRelease(note, isLast ? "1n" : "4n", time),
+    delay,
+  );
 };
 
 // D. ARP 2500 — homage to the film’s actual synthesizer. Detuned triangle stack
@@ -138,7 +151,11 @@ const buildArp2500 = (delay: number): PlayFn => {
   poly.chain(chorus, reverb);
   reverb.toDestination();
 
-  return makePlayer(notes, (note, time) => poly.triggerAttackRelease(note, "2n", time), delay);
+  return makePlayer(
+    notes,
+    (note, time, isLast) => poly.triggerAttackRelease(note, isLast ? "1n" : "4n", time),
+    delay,
+  );
 };
 
 // E. Pure — simple sine, minimal effects, mid register.
@@ -152,7 +169,11 @@ const buildPure = (delay: number): PlayFn => {
   synth.connect(reverb);
   synth.toDestination();
 
-  return makePlayer(notes, (note, time) => synth.triggerAttackRelease(note, "4n", time), delay);
+  return makePlayer(
+    notes,
+    (note, time, isLast) => synth.triggerAttackRelease(note, isLast ? "2n" : "8n", time),
+    delay,
+  );
 };
 
 // F. Celesta — twinkly FM with short reverb.
@@ -170,7 +191,11 @@ const buildCelesta = (delay: number): PlayFn => {
   synth.connect(reverb);
   synth.toDestination();
 
-  return makePlayer(notes, (note, time) => synth.triggerAttackRelease(note, "8n", time), delay);
+  return makePlayer(
+    notes,
+    (note, time, isLast) => synth.triggerAttackRelease(note, isLast ? "4n" : "16n", time),
+    delay,
+  );
 };
 
 /* --------------------------- Registry --------------------------- */
@@ -180,35 +205,35 @@ export const VARIANTS: Variant[] = [
     id: "mothership",
     name: "Mothership",
     blurb: "FM bell, C major, spacious reverb",
-    delay: 0.36,
+    delay: 0.22,
     build: buildMothership,
   },
   {
     id: "tubular",
     name: "Tubular",
     blurb: "Polyphonic triangle, lush hall",
-    delay: 0.32,
+    delay: 0.2,
     build: buildTubular,
   },
   {
     id: "arp2500",
     name: "ARP 2500",
     blurb: "Detuned triangle stack, chorus, film homage",
-    delay: 0.42,
+    delay: 0.26,
     build: buildArp2500,
   },
   {
     id: "celesta",
     name: "Celesta",
     blurb: "FM sparkle, G major",
-    delay: 0.3,
+    delay: 0.18,
     build: buildCelesta,
   },
   {
     id: "pure",
     name: "Pure",
     blurb: "Clean sine, low register",
-    delay: 0.28,
+    delay: 0.2,
     build: buildPure,
   },
   {

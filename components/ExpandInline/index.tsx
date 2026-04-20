@@ -56,9 +56,16 @@ export const ExpandInline: React.FC<ExpandInlineProps> = ({
 
   const handleExpand = () => {
     const n = Math.min(expandBy, items.length - displayCount);
-    setDisplayCount((prev) => Math.min(prev + expandBy, items.length));
 
     playNotes?.(n);
+
+    // Reveal one item per note onset so the "..." button steps forward with
+    // the melody instead of jumping ahead.
+    for (let i = 0; i < n; i++) {
+      const reveal = () => setDisplayCount((prev) => Math.min(prev + 1, items.length));
+      if (i === 0) reveal();
+      else setTimeout(reveal, i * noteDelay * 1000);
+    }
   };
 
   return (
@@ -68,25 +75,14 @@ export const ExpandInline: React.FC<ExpandInlineProps> = ({
           {visibleItems.map((item, index) => {
             const shouldAddAnd = withAnd && index === items.length - 2;
 
-            const delay = Math.max(0, noteDelay * (index - (visibleItems.length - expandBy)));
-
             return (
               <motion.span
                 key={index}
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{
-                  scale: {
-                    type: "spring",
-                    stiffness: 1000,
-                    damping: 25,
-                    delay: delay,
-                  },
-                  opacity: {
-                    ease: "linear",
-                    duration: 0.1,
-                    delay: delay,
-                  },
+                  scale: { type: "spring", stiffness: 1000, damping: 25 },
+                  opacity: { ease: "linear", duration: 0.1 },
                 }}
               >
                 {item}
