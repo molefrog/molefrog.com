@@ -35,11 +35,12 @@ export default function Page() {
         <div className="text-ds-gray-800 text-base/relaxed md:text-ds-base/relaxed mb-14 md:mb-16">
           <div className="[&_p]:my-5">
             <p>
-              I&apos;m a design-minded engineer and founder based in Copenhagen. I care about
-              systems that scale, tools that stay simple, and UIs that feel good.
+              Designer-engineer and founder based in Copenhagen. I&apos;m obsessed with craft
+              &mdash; systems that scale gracefully, tools that stay out of the way, and
+              interfaces that feel alive.
             </p>
             <p>
-              For over 15 years I&apos;ve been writing code professionally. I maintain{" "}
+              Shipping code for 15+ years. I maintain{" "}
               <Showcase
                 media={{ image: "/screenshot/github", aspectRatio: 1400 / 860 }}
                 prefer="below"
@@ -59,7 +60,7 @@ export default function Page() {
                   conference talks
                 </Link>
               </Showcase>
-              , and have spent years leading engineering teams. Tools I use:{" "}
+              , and have led engineering teams from scrappy to grown-up. Stack of choice:{" "}
               <ExpandInline
                 items={[
                   "React",
@@ -85,20 +86,20 @@ export default function Page() {
               />
             </p>
             <p>
-              Previously, I co-founded{" "}
+              I co-founded{" "}
               <Showcase media={{ video: resumeBuilderVideo, aspectRatio: 1200 / 768 }}>
                 <Link className="solid-link" href="https://resume.io">
                   resume.io
                 </Link>
               </Showcase>{" "}
-              and led it through scaling and acquisition. More recently, co-founded{" "}
+              and steered it from zero to acquisition. More recently,{" "}
               <Showcase media={{ image: "/screenshot/fira", aspectRatio: 1400 / 860 }}>
                 <Link href="https://firaresearch.com" className="solid-link">
                   Fira (YC W25)
                 </Link>
               </Showcase>
-              , an agentic AI analyst for financial research. Now I&apos;m exploring collaborative
-              software and agentic tooling and building something new.
+              {" "}&mdash; an agentic AI analyst for financial research. Currently heads-down on
+              something new at the intersection of collaborative software and agents.
               {/* TODO: add back interactive storytelling with new preview
               , and{" "}
               <Showcase media={{ video: domikLtdVideo, aspectRatio: 1460 / 1080 }}>
@@ -109,8 +110,8 @@ export default function Page() {
               */}
             </p>
             <p>
-              Principles: I believe constraints unlock creativity. Interactivity and collaboration
-              over static. Tools should be simple and minimal.
+              A few beliefs: constraints are a gift. Interactive beats static. The best tools are
+              invisible.
             </p>
           </div>
         </div>
