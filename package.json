@@ -42,7 +42,7 @@
     "next": "^15.5.14",
     "next-sitemap": "^4.2.3",
     "notion-client": "^7.10.0",
-    "postcss": "^8.5.8",
+    "postcss": "^8.5.10",
     "raf": "^3.4.1",
     "random-seed": "^0.3.0",
     "react": "^19.1.0",
