@@ -6,7 +6,7 @@ module.exports = {
   output: "export",
   autoLastmod: false,
   generateIndexSitemap: false,
-  exclude: ["/notes/lido-staking-widget-ux"],
+  exclude: ["/notes/lido-staking-widget-ux", "/notes/the-feel-of-motion"],
   additionalPaths: async (config) => {
     const etc = [
       "/etc/pid-neural-network/",

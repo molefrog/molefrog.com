@@ -1,6 +1,9 @@
+const createMDX = require("@next/mdx");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
+  pageExtensions: ["ts", "tsx", "js", "jsx", "mdx"],
   images: {
     // disable Next Image Optimization API for remote images
     unoptimized: true,
@@ -24,4 +27,8 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+const withMDX = createMDX({
+  extension: /\.mdx?$/,
+});
+
+module.exports = withMDX(nextConfig);

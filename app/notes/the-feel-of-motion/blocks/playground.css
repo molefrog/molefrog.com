@@ -1,0 +1,116 @@
+.feel-range {
+  --track: var(--color-ds-gray-200);
+  --thumb: var(--color-ds-accent);
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  cursor: pointer;
+  height: 22px;
+}
+
+.feel-range:focus {
+  outline: none;
+}
+
+.feel-range::-webkit-slider-runnable-track {
+  height: 4px;
+  background: var(--track);
+  border-radius: 999px;
+}
+
+.feel-range::-moz-range-track {
+  height: 4px;
+  background: var(--track);
+  border-radius: 999px;
+}
+
+.feel-range::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: var(--thumb);
+  border-radius: 50%;
+  margin-top: -7px;
+  box-shadow:
+    0 2px 6px -1px rgba(44, 87, 251, 0.45),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.18),
+    inset 0 1px 3px rgba(255, 255, 255, 0.4);
+  transition: transform 120ms ease;
+}
+
+.feel-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: var(--thumb);
+  border: none;
+  border-radius: 50%;
+  box-shadow:
+    0 2px 6px -1px rgba(44, 87, 251, 0.45),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.18),
+    inset 0 1px 3px rgba(255, 255, 255, 0.4);
+  transition: transform 120ms ease;
+}
+
+.feel-range:active::-webkit-slider-thumb {
+  transform: scale(1.1);
+}
+.feel-range:active::-moz-range-thumb {
+  transform: scale(1.1);
+}
+
+.feel-pullquote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  font-size: 28px;
+  line-height: 36px;
+  color: var(--color-ds-gray-800);
+  margin: 48px 0;
+  padding: 0;
+  border-left: 3px solid var(--color-ds-accent);
+  padding-left: 20px;
+  text-wrap: balance;
+}
+
+@media (min-width: 768px) {
+  .feel-pullquote {
+    font-size: 34px;
+    line-height: 42px;
+    margin: 64px -8px;
+    padding-left: 28px;
+  }
+}
+
+.feel-aside {
+  margin: 32px 0;
+  padding: 18px 20px;
+  background: var(--color-ds-gray-50);
+  border-radius: 12px;
+  border: 1px solid var(--color-ds-gray-150);
+  color: var(--color-ds-gray-700);
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.feel-aside-label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-ds-accent);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.feel-aside p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--color-ds-gray-700);
+}
+.feel-aside p + p {
+  margin-top: 8px;
+}

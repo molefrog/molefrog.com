@@ -1,0 +1,57 @@
+import { SpringFlick } from "./blocks/SpringFlick";
+import { BezierEditor } from "./blocks/BezierEditor";
+import { SpringTuner } from "./blocks/SpringTuner";
+import { SpringRace } from "./blocks/SpringRace";
+import { Pullquote, Aside } from "./blocks/Prose";
+
+We usually talk about motion the way we talk about deadlines — in milliseconds. *Make it 200ms. Bump it to 240. A touch slower on mobile.* The numbers feel sturdy, but they describe a ghost. What people actually remember is **how a thing answered them**.
+
+Motion is the most embodied thing on a screen. Tap a button: did it lean back, or just blink? Drag a card: does it follow your finger like a friend, or like a clipboard? The whole pleasure of a good interface lives in those few hundred milliseconds, and the choices we make there are choices about manners.
+
+<SpringFlick />
+
+Most engineers I know reach for an `ease-out` and call it a day. There's nothing wrong with that — it's polite, predictable, finishes quickly, and gets out of the way. But it isn't the only voice you have, and once you know what else is on the shelf, the world gets bigger.
+
+## The vocabulary of curves
+
+A cubic Bézier is just two anchor points and two control handles. The first handle pulls the start of the motion; the second pulls the end. Drag them around and the curve says new things: rush in, settle slowly, undershoot, overshoot, hesitate, *snap*.
+
+<BezierEditor />
+
+The interesting thing is how few of these curves correspond to anything that has ever actually moved in the physical world. A cubic Bézier is *fictional motion*. We're not modeling a falling object — we're authoring a feeling and then asking the computer to walk through our drawing in lockstep, frame by frame. That's why a duration is mandatory. The curve has no idea how long it should take; you tell it.
+
+<Pullquote>
+A cubic Bézier is fictional motion. A spring is the opposite — you describe the world, and the world tells you when it's done.
+</Pullquote>
+
+## Springs aren't curves — they're physics
+
+A spring doesn't have a duration. You don't get to set one. Instead you describe a tiny universe — *here is a ball, here is its mass, here is the stiffness pulling it to its target, here is the friction slowing it down* — and you let go.
+
+The feel changes character on the dials. Stiff and lightly damped, it's a paper clip flicked across a desk. Floppy and over-damped, it's a thumb pressed slowly into a pillow. There is no &ldquo;duration&rdquo; field anywhere; the spring stops when it stops.
+
+<SpringTuner />
+
+This is the part I find genuinely surprising about springs in interfaces: most of them aren't trying to *simulate* anything. The numbers are just convenient knobs for shaping a feeling. Nobody believes a notification panel weighs one kilogram. But because we picked spring math as our coordinate system, the language of weight and stiffness gives us a much richer place to design from than &ldquo;220ms ease-out&rdquo; ever did.
+
+<Aside label="working note">
+  A spring's <em>damping ratio</em> — roughly <code>damping / (2 · √(mass · stiffness))</code> — is the
+  single most useful number to keep in your head. Below 1 it overshoots. Around 1 it kisses the target.
+  Above 1 it sneaks in. Most UI springs I like sit between <code>0.5</code> and <code>0.9</code>.
+</Aside>
+
+## Choosing between them
+
+There's an easy rule that almost works: use eases for entrances and exits where the *destination* is the point, and use springs for direct manipulation where the *response* is the point. A modal sliding in: ease-out. A card you just dropped: spring.
+
+But the real test is to put them next to each other.
+
+<SpringRace />
+
+Watch the two long enough and you'll start to feel the difference. The eased ball is *efficient* — it gets the work done and disappears. The spring takes a beat longer, finishes with a tiny breath, and somehow the screen feels more inhabited for it. That extra fraction of a second isn't friction; it's *acknowledgement*. The interface is saying, &ldquo;yes, I heard you.&rdquo;
+
+When something needs to be invisible — a tooltip dismissing, a sheet retracting after the user has moved on — the ease wins. When something needs to feel held — a card you tossed, a panel snapping back into place — the spring wins. Almost everything else is taste.
+
+## A small principle
+
+The numbers are easy to copy. The feel isn't. Whatever you choose, sit with it longer than you think you should, on the device you'd actually use it on. Tap, drag, scroll, let go. If the screen feels like it's listening, you're done. If it feels like it's reciting, keep tuning.
