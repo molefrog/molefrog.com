@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion, useMotionValue, animate } from "motion/react";
-import { PlaygroundFrame } from "./PlaygroundFrame";
+import { PlaygroundFrame } from "@/components/MDX/PlaygroundFrame";
 
 const SPRING = { type: "spring" as const, stiffness: 280, damping: 14, mass: 1 };
 

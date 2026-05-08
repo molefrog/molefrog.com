@@ -3,7 +3,7 @@
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { animate } from "motion/react";
 import { clsx } from "clsx";
-import { PlaygroundFrame } from "./PlaygroundFrame";
+import { PlaygroundFrame } from "@/components/MDX/PlaygroundFrame";
 
 type Point = readonly [number, number];
 

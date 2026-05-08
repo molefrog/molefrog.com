@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { animate } from "motion/react";
-import { PlaygroundFrame } from "./PlaygroundFrame";
+import { PlaygroundFrame } from "@/components/MDX/PlaygroundFrame";
 
 type Mode = "ease" | "spring";
 
