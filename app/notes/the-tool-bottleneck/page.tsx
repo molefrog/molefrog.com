@@ -5,9 +5,9 @@ import Body from "./body.mdx";
 import "@/components/MDX/mdx.css";
 
 export const metadata: Metadata = {
-  title: "The Feel of Motion → Alexey Taktarov",
+  title: "If LLMs Were Free → Alexey Taktarov",
   description:
-    "A working notebook on what makes interfaces come alive — easings, springs, and how to tell the two apart by hand.",
+    "A thought experiment about where the time really goes in an agent loop, and why the model isn't the slow part.",
   robots: { index: false, follow: false },
   alternates: { canonical: undefined },
 };
@@ -20,19 +20,19 @@ export default function Page() {
           Field notes · interactive
         </div>
 
-        <h1 className="font-ds-serif font-medium tracking-tight text-[44px]/[46px] md:text-[56px]/[58px] text-ds-gray-900 max-w-[520px] mb-3 md:mb-5 text-balance">
-          The Feel of Motion
+        <h1 className="font-ds-serif font-medium tracking-tight text-[44px]/[46px] md:text-[56px]/[58px] text-ds-gray-900 max-w-[560px] mb-3 md:mb-5 text-balance">
+          If LLMs Were Free
         </h1>
 
-        <p className="text-ds-md/relaxed md:text-[19px]/relaxed text-ds-gray-700 max-w-[560px] text-pretty">
-          A working notebook on what makes interfaces come alive — easings, springs, and how to tell
-          the two apart by hand.
+        <p className="text-ds-md/relaxed md:text-[19px]/relaxed text-ds-gray-700 max-w-[600px] text-pretty">
+          A thought experiment about where the time really goes in an agent loop — and why the
+          model is almost never the slow part.
         </p>
 
         <div className="flex items-center gap-3 text-ds-gray-500 text-sm font-ds-mono mt-6 md:mt-8">
           <span>@molefrog</span>
           <span aria-hidden>·</span>
-          <span>May 8, 2026</span>
+          <span>May 9, 2026</span>
           <span aria-hidden>·</span>
           <span className="inline-flex items-center gap-1.5">
             <span className="block w-1.5 h-1.5 rounded-full bg-ds-accent" />

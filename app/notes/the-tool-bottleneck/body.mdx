@@ -1,0 +1,68 @@
+import { LatencyBreakdown } from "./blocks/LatencyBreakdown";
+import { AgentTrace } from "./blocks/AgentTrace";
+import { ParallelismKnob } from "./blocks/ParallelismKnob";
+import { Pullquote, Aside } from "@/components/MDX/Prose";
+
+Thought experiment. Imagine that LLMs are instant and extremely cheap.
+
+Imagine a model that responds in zero milliseconds, with zero token cost, perfect at planning, perfect at code. You hand it a task — *find the bug, ship the fix* — and the model itself takes no time at all.
+
+How long does the agent take?
+
+Most engineers, asked this in passing, will say *"a fraction of a second."* They are wrong by an order of magnitude or two. The model is not the slow part. It hasn't been the slow part for a while.
+
+<LatencyBreakdown />
+
+Drag the *model thinking* knob down to zero. Watch the bar barely shift. The agent's wall clock isn't dominated by the model — it's dominated by everything the model has to wait *for*. Files being read. Greps scanning repositories. Bash commands compiling, linking, installing, testing. Browsers opening and screenshotting pages. RPCs to internal services. Disks seeking. The model spends most of its life waiting on someone else's clock.
+
+This isn't a complaint about today's models being slow. It's a structural fact about agents that holds even if model latency goes to zero — which, on the small fast endpoints, it more or less already has.
+
+## A turn, by the millisecond
+
+Look at any real agent transcript and you see the same shape: a few hundred milliseconds of token generation, then a hard wall while a tool runs, then more generation, then another wall. The model thinks in microseconds and waits in seconds.
+
+<AgentTrace />
+
+The colored bars are tool calls. Toggle *instant model* and watch what the trace looks like if our hypothetical free-and-fast LLM existed. The wall clock doesn't collapse. It barely moves.
+
+<Pullquote>
+A free LLM doesn't free the agent. It only makes the model the one piece of the system that isn't waiting on something else.
+</Pullquote>
+
+What's surprising is how lopsided the cost distribution gets in practice. A `Read` of a small file is 200–500ms. A `Grep` over a medium repo is 800ms–2s. A `Bash bun test` is comfortably four seconds. A browser screenshot is sometimes ten. These aren't outliers — they're the median path on a typical task.
+
+The model itself, on a fast inference endpoint, lands somewhere around 150ms per round trip plus generation. Over a long task with twenty tool calls, the model adds up to a few seconds of total runtime; the tools add up to a minute. The gap only widens as inference speed keeps falling and tools keep needing to talk to the actual world.
+
+## The compounding problem
+
+The thing that makes agent latency uniquely painful is that tool calls don't only add up — they *gate* each other. The model can't call the second tool until it has the result of the first. Every tool call is a dependency edge in a chain, and chains take exactly as long as their longest serial path.
+
+A vanilla agent that wants to read four files reads them one at a time. Four reads × 400ms is 1.6s of pure waiting between thoughts. Now imagine those reads sit inside a longer chain: read four files, then grep, then read again, then bash. You haven't done anything difficult. You've just spent eight seconds doing it.
+
+<Aside label="rough numbers">
+  In a sample of fifty mid-sized agent tasks I've watched run end-to-end, model time
+  averaged around <strong>11%</strong> of wall clock. Tool execution averaged <strong>74%</strong>.
+  The remaining <strong>~15%</strong> was spent serializing tool inputs and outputs, which is
+  itself a kind of tool cost — and the easiest one to forget about.
+</Aside>
+
+## What helps
+
+The good news in all this is that "tools are the bottleneck" is actually an *easier* problem than "models are the bottleneck", because tool latency yields to plain old engineering: parallelism, batching, caching, locality.
+
+<ParallelismKnob />
+
+The lanes above are the simplest fix in the box. Send independent calls in parallel and the math behaves the way you'd expect — until you run out of things to parallelize, after which the wall clock pins to the longest single tool. That floor isn't physics; it's Amdahl's law showing up at the agent's stand-up.
+
+Beyond parallelism, the moves that actually move the needle:
+
+- **Batch.** Instead of `Read foo`, `Read bar`, `Read baz`, give the agent one tool that takes a list. Three round trips become one.
+- **Locate.** Run the tool where the data is. A grep that ships gigabytes across the network to do a regex is a slow grep.
+- **Cache.** Most agent tasks re-read the same handful of files three or four times across the run. Memoize aggressively per session.
+- **Make tools that say less.** A 200KB tool result spends 5–20s being serialized, sent, and re-tokenized. The model isn't reading 200KB. Pre-summarize, paginate, or both.
+
+None of these are clever. They're the same tricks we've been applying to web backends for twenty years. They were always going to come for the agent loop, because the agent loop is, structurally, a chatty client of really slow services.
+
+## A small principle
+
+A free LLM doesn't make a fast agent. A *thoughtful tool layer* does. Most of the perceived progress in agents over the next year won't come from the models at all — it will come from people quietly making the things on the other side of the tool calls answer faster.
