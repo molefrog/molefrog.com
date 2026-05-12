@@ -7,7 +7,7 @@ module.exports = {
   autoLastmod: false,
   generateIndexSitemap: false,
   exclude: ["/notes/lido-staking-widget-ux"],
-  additionalPaths: async (config) => {
+  additionalPaths: async () => {
     const etc = [
       "/etc/pid-neural-network/",
       "/etc/stateful-animations/",

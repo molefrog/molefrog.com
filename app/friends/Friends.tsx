@@ -210,7 +210,7 @@ export default function Friends() {
 
   useEffect(() => {
     // Shuffle profiles on mount
-    const shuffled = [...profiles].sort(() => Math.random() - 0.5);
+    const shuffled = profiles.toSorted(() => Math.random() - 0.5);
     setFriendProfiles(shuffled);
   }, []);
 

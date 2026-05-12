@@ -36,14 +36,6 @@ interface MediaData {
   link?: string;
 }
 
-interface MousePosition {
-  clientX: number;
-  clientY: number;
-  x: number;
-  y: number;
-  isOver: boolean;
-}
-
 interface PopoverProps {
   mousePosition?: any; // Using any for compatibility with @react-hook/mouse-position
   anchorElement?: HTMLElement | null;
@@ -196,7 +188,7 @@ const Popover = ({ mousePosition, anchorElement, media, prefer, modal = false }:
 const getURLHost = (url: string): string => {
   try {
     return new URL(url).host;
-  } catch (e) {
+  } catch {
     return url;
   }
 };
@@ -224,6 +216,11 @@ const Showcase = ({ children, media, prefer = "above" }: ShowcaseProps) => {
 
   const handleBackdropClick = (event: React.MouseEvent) => {
     if (event.target === backdropRef.current) {
+      setStaticDialogOpen(false);
+    }
+  };
+  const handleBackdropKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === "Escape") {
       setStaticDialogOpen(false);
     }
   };
@@ -265,7 +262,9 @@ const Showcase = ({ children, media, prefer = "above" }: ShowcaseProps) => {
               <div
                 className="showcase__static-backdrop"
                 ref={backdropRef}
+                role="presentation"
                 onClick={handleBackdropClick}
+                onKeyDown={handleBackdropKeyDown}
               >
                 <Popover modal media={media} />
 
@@ -329,10 +328,10 @@ const calculatePopoverPosition = (
   let i = keys.indexOf(preferredPosition);
   if (i === -1) i = 0;
 
-  const key =
-    [...keys.slice(i), ...keys.slice(0, i)].filter((key) => positions[key].fits)[0] || keys[0];
+  const chosenKey =
+    [...keys.slice(i), ...keys.slice(0, i)].filter((k) => positions[k].fits)[0] || keys[0];
 
-  return positions[key].coords;
+  return positions[chosenKey].coords;
 };
 
 export default Showcase;
