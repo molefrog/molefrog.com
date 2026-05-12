@@ -2,7 +2,6 @@
 
 import { useRef, useEffect, useState } from "react";
 import useSound from "use-sound";
-import clsx from "clsx";
 import { useLocalStorage } from "usehooks-ts";
 
 // @ts-ignore URL import
@@ -45,11 +44,11 @@ function FicusPoll({ id }: { id: string }) {
         setToken(response.headers.get("X-Ficus"));
       }
 
-      const { config, votes: initialVotes, me } = (await response.json()) as API.PollState;
+      const state = (await response.json()) as API.PollState;
 
-      setMe(me.id);
-      setConfig(config);
-      setVotes(initialVotes);
+      setMe(state.me.id);
+      setConfig(state.config);
+      setVotes(state.votes);
     }
 
     init();
@@ -94,10 +93,10 @@ function FicusPoll({ id }: { id: string }) {
     if (!config) return;
     const socket = new WebSocket(`https://v.ficus.io/${config.name}/sub`);
 
-    socket.onmessage = function (event) {
+    socket.addEventListener("message", (event) => {
       const state = JSON.parse(event.data) as API.PollState;
       setVotes(state.votes);
-    };
+    });
 
     return () => {
       socket.close();
@@ -140,7 +139,7 @@ function FicusPoll({ id }: { id: string }) {
                 if (!config || !votes) return;
 
                 const newVotes = isActiveVote
-                  ? votedFor.filter((id) => id !== answer.id)
+                  ? votedFor.filter((voteId) => voteId !== answer.id)
                   : [...votedFor, answer.id];
 
                 setVotedFor(newVotes); // optimistic update

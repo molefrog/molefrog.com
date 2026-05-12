@@ -38,7 +38,7 @@ export const Segmented = ({
       };
 
       // characters are not present in the alphabet, just add them
-      const alphabet = [...ALPHA, ch, prCh].filter((v, i, a) => a.indexOf(v) === i);
+      const alphabet = [...ALPHA, ch, prCh].filter((v, idx, a) => a.indexOf(v) === idx);
       let s = alphabet.indexOf(prCh);
 
       const anim = () => {

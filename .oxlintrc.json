@@ -2,7 +2,7 @@
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "plugins": ["react", "typescript", "jsx-a11y", "nextjs", "react-perf", "unicorn"],
   "categories": {
-    "correctness": "warn",
+    "correctness": "error",
     "suspicious": "warn"
   },
   "rules": {
