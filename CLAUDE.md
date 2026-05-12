@@ -5,7 +5,7 @@ Public repo: https://github.com/molefrog/molefrog.com — use `gh` CLI to check 
 - `bun dev` - Start dev server
 - `bun run build` - Build for production
 - `bun start` - Run production build
-- `bun lint` - Run ESLint
+- `bun lint` - Run oxlint
 - `bun run postbuild` - Generate sitemap (automatically runs after build)
 
 **IMPORTANT: Always use `bun` instead of `npm` or `yarn`. Use `bun --bun` for builds and running scripts to ensure bun's runtime is used.**
