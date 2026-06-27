@@ -44,8 +44,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
         </WrapBalancerProvider>
 
-        <Script type="module" src="https://vetka.sh/notch.js"></Script>
-
         {isProduction && (
           <>
             {/* 🌚 */}
