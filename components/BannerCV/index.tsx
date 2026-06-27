@@ -9,9 +9,6 @@ export interface BannerCVProps {
 export const BannerCV = ({ resumeSSID }: BannerCVProps) => {
   const cache = new Date().getMonth(); // update the preview once in a month
 
-  const width = 460; // a4
-  const height = 325;
-
   const imageSrc = `https://ssr.resume.tools/to-image/ssid-${resumeSSID}-1.webp?size=${460}&cache=${cache}`;
   const url = `https://resume.io/r/${resumeSSID}`;
 

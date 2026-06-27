@@ -11,7 +11,6 @@ import domikImg from "@/public/images/domik-highlight.webp";
 import wouterImg from "@/public/images/wouter-highlight.webp";
 import speakingVideo from "@/public/showcase/speaking-use-state.mp4";
 import resumeBuilderVideo from "@/public/showcase/resume-io-builder.mp4";
-import domikLtdVideo from "@/public/showcase/domik-ltd.mp4";
 
 import MINI_MAP_ITEMS, { getImageUrl } from "@/content/mini-map";
 import ExpandInline from "@/components/ExpandInline";
@@ -22,7 +21,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Page(): JSX.Element {
+export default function Page() {
   return (
     <Container placement="inner" className="pt-2 md:pt-8">
       <section className="md:pb-32 pb-24">

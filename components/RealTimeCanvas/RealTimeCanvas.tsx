@@ -1,8 +1,8 @@
-import { id, init, tx } from "@instantdb/react";
+import { i, id, init, tx } from "@instantdb/react";
 import { useMouse } from "@uidotdev/usehooks";
 import { AnimatePresence } from "motion/react";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type KeyboardEvent } from "react";
 import useSound from "use-sound";
 import { Cursor } from "./Cursor";
 import styles from "./RealTimeCanvas.module.css";
@@ -19,28 +19,37 @@ export type User = {
   color: string;
 };
 
-export type Schema = {
-  stickers: Sticker;
-};
+const schemaDef = i.schema({
+  entities: {
+    stickers: i.entity({
+      x: i.number(),
+      y: i.number(),
+      label: i.string().optional(),
+      user: i.string(),
+      asset: i.string(),
+      angle: i.number(),
+      attachedAt: i.number(),
+    }),
+  },
+  links: {},
+  rooms: {
+    realTimeCanvas: {
+      presence: i.entity({
+        id: i.string(),
+        name: i.string(),
+        color: i.string(),
+        x: i.number(),
+        y: i.number(),
+      }),
+    },
+  },
+});
 
-export type RoomSchema = {
-  realTimeCanvas: {
-    presence: User & { x: number; y: number };
-  };
-};
+type SchemaDef = typeof schemaDef;
+export interface AppSchema extends SchemaDef {}
+export const schema: AppSchema = schemaDef;
 
-export type DB = ReturnType<typeof init<Schema, RoomSchema>>;
-
-// Define the Sticker type (in the DB)
-type Sticker = {
-  x: number;
-  y: number;
-  label: string | undefined;
-  user: string;
-  asset: StickerAssetName;
-  angle: number; // in degrees
-  attachedAt: number;
-};
+export type DB = ReturnType<typeof init<AppSchema>>;
 
 export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
   const [mouse, containerRef] = useMouse<HTMLDivElement>();
@@ -48,7 +57,7 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
   const [playSound] = useSound(stickSfx, { volume: 0.75, playbackRate: 1.1 });
   const [isCursorVisible, setIsCursorVisible] = useState(true);
 
-  const { user: myPresence, peers, publishPresence } = room.usePresence();
+  const { peers, publishPresence } = room.usePresence();
   const [publish] = useState(() => publishPresence);
 
   // Publish your presence to the room
@@ -72,7 +81,7 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
 
   const { isLoading, data } = db.useQuery({ stickers: {} });
 
-  const [currentTool, setCurrentTool] = useAtom($currentTool);
+  const [currentTool] = useAtom($currentTool);
   const [stickerToolProps, setStickerToolProps] = useAtom($stickerToolProps);
 
   const handleClick = () => {
@@ -124,15 +133,28 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
   const stickerOrder = Object.fromEntries(
     data.stickers
       .toSorted((a, b) => {
-        return (Number(a.attachedAt) ?? 0) - (Number(b.attachedAt) ?? 0);
+        return (a.attachedAt ?? 0) - (b.attachedAt ?? 0);
       })
       .map((s, idx) => {
         return [s.id, idx];
       })
   );
 
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleClick();
+    }
+  };
+
   return (
-    <div className={styles.container} ref={containerRef} onClick={handleClick}>
+    <div
+      className={styles.container}
+      ref={containerRef}
+      role="application"
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+    >
       {/* Shadow Sticker that always follows the cursor */}
 
       <div className={styles.stickers}>
@@ -142,7 +164,7 @@ export function RealTimeCanvas({ db, user }: { user: User; db: DB }) {
               <Sticker
                 x={sticker.x}
                 y={sticker.y}
-                asset={sticker.asset}
+                asset={sticker.asset as StickerAssetName}
                 angle={sticker.angle ?? 0}
                 key={sticker.id + sticker.x + sticker.y}
                 label={sticker.label}

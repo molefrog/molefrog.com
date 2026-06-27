@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image, { StaticImageData } from "next/image";
 import clsx from "clsx";
-import { animate } from "motion/react";
 
 import { BlossomCarousel } from "@blossom-carousel/react";
 import "@blossom-carousel/core/style.css";
@@ -74,7 +73,11 @@ export const Projector: React.FC<ProjectorProps> = ({ slides, title }) => {
       <BlossomCarousel className="projector__slides">
         {slides.slice().map((slide, i) => (
           <div className="projector__slide-step" key={slide.src + String(i)}>
-            <div className="projector__slide" onClick={() => scrollToNextSlide()}>
+            <button
+              type="button"
+              className="projector__slide appearance-none border-none p-0 bg-transparent cursor-pointer"
+              onClick={() => scrollToNextSlide()}
+            >
               <Image
                 className="projector__slide-img"
                 placeholder="blur"
@@ -82,20 +85,24 @@ export const Projector: React.FC<ProjectorProps> = ({ slides, title }) => {
                 fill
                 src={slide}
               />
-            </div>
+            </button>
           </div>
         ))}
       </BlossomCarousel>
 
       {shouldDisplayProgress && (
-        <div className="projector__progress-control" onClick={() => scrollToNextSlide()}>
+        <button
+          type="button"
+          className="projector__progress-control appearance-none border-none p-0 bg-transparent cursor-pointer"
+          onClick={() => scrollToNextSlide()}
+        >
           <div
             className="projector__progress"
             style={{ "--total": slides.length, "--current": currentSlide } as React.CSSProperties}
           >
             <div className={clsx("projector__progress-step")} />
           </div>
-        </div>
+        </button>
       )}
     </div>
   );

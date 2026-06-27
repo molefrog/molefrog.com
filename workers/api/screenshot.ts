@@ -76,7 +76,7 @@ async function createScreenshotResponse(
   try {
     const screenshotBuffer = await takeScreenshot(target, browser);
 
-    return new Response(screenshotBuffer, {
+    return new Response(new Uint8Array(screenshotBuffer), {
       headers: {
         "content-type": "image/webp",
         "cache-control": "public, max-age=3600, s-maxage=604800", // 1 hour browser cache, 7 days CDN cache

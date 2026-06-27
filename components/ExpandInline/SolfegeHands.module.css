@@ -14,6 +14,7 @@
 }
 
 .container img {
+  max-width: none;
   left: calc(var(--horizontal-offset) * -114.5px);
 }
 

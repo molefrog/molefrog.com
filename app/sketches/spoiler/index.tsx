@@ -1,11 +1,8 @@
 "use client";
 
-import { useRef, useEffect } from "react";
 import { Spoiler } from "spoiled";
 
 export default function Sketches() {
-  const elementRef = useRef<HTMLDivElement>(null);
-
   return (
     <>
       <p>

@@ -3,13 +3,13 @@
 import { init } from "@instantdb/react";
 import seedrandom from "random-seed";
 import { useEffect, useState } from "react";
-import { RealTimeCanvas as Canvas, RoomSchema, Schema, User } from "./RealTimeCanvas";
+import { RealTimeCanvas as Canvas, AppSchema, schema, User } from "./RealTimeCanvas";
 
 // shell: inits the connection
 export function RealTimeCanvas() {
   const [user, setUser] = useState<User | null>(null);
   const [db] = useState(() =>
-    init<Schema, RoomSchema>({ appId: process.env.NEXT_PUBLIC_INSTANTDB_APP_ID! }),
+    init<AppSchema>({ appId: process.env.NEXT_PUBLIC_INSTANTDB_APP_ID!, schema }),
   );
 
   useEffect(() => {

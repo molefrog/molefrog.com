@@ -5,7 +5,11 @@ export interface SolidLinkProps extends ComponentProps<"a"> {
   external?: boolean;
 }
 
-export const SolidLink = ({ external, className, ...props }: SolidLinkProps) => {
+export const SolidLink = ({ external, className, children, ...props }: SolidLinkProps) => {
   const relProps = external ? { target: "_blank", rel: "noopener noreferrer" } : {};
-  return <a {...relProps} {...props} className={clsx(className, "solid-link")} />;
+  return (
+    <a {...relProps} {...props} className={clsx(className, "solid-link")}>
+      {children}
+    </a>
+  );
 };

@@ -16,6 +16,7 @@ import sergeKazakov from "@/public/friends/serge-kazakov.png";
 import deepakGupta from "@/public/friends/deepak-gupta.webp";
 import antonFresher from "@/public/friends/anton-fresher.webp";
 import criminaliza from "@/public/friends/criminaliza.webp";
+import seungmeeLee from "@/public/friends/seungmee-lee.jpg";
 
 interface Profile {
   website: string;
@@ -127,6 +128,12 @@ const profiles: Profile[] = [
     bio: "Illustrator working independently and with collective Trincea Ibiza. Shaky lines and questionable humor that can't be imitated by AI.",
     avatar: criminaliza.src,
   },
+  {
+    website: "seungmee-lee.com",
+    name: "Seungmee Lee",
+    bio: "A designer experimenting with pixels and codes.",
+    avatar: seungmeeLee.src,
+  },
 ];
 
 interface PreviewModalProps {
@@ -203,7 +210,7 @@ export default function Friends() {
 
   useEffect(() => {
     // Shuffle profiles on mount
-    const shuffled = [...profiles].sort(() => Math.random() - 0.5);
+    const shuffled = profiles.toSorted(() => Math.random() - 0.5);
     setFriendProfiles(shuffled);
   }, []);
 

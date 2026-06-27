@@ -1,7 +1,7 @@
 "use client";
 
 import useSWR from "swr";
-import Map, { Marker, FullscreenControl } from "react-map-gl";
+import Map, { Marker, FullscreenControl } from "react-map-gl/mapbox";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 import { Pin } from "./pin";
@@ -49,9 +49,9 @@ const revealInOrderOfActivation = (points: POGOpenEvent[]) => {
 
   return (p: POGOpenEvent, total: number = 1000) => {
     if (isFinite(min) && isFinite(max) && max !== min) {
-      const ts = latestTimestampPerCountry[p.country] ?? p.timestamp;
+      const pointTs = latestTimestampPerCountry[p.country] ?? p.timestamp;
 
-      const t = (ts - min) / (max - min);
+      const t = (pointTs - min) / (max - min);
       return t * total;
     } else {
       return 0;
