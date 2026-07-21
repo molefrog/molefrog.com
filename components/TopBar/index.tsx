@@ -34,7 +34,7 @@ const TopBar = () => {
                 },
               )}
               href="/"
-              data-cuelume-hover="tick"
+              data-cuelume-press="tick"
             >
               About
             </Link>
@@ -49,7 +49,7 @@ const TopBar = () => {
                 },
               )}
               href="/speaking"
-              data-cuelume-hover="tick"
+              data-cuelume-press="tick"
             >
               Speaking
             </Link>
@@ -64,7 +64,7 @@ const TopBar = () => {
                 },
               )}
               href="/sketches"
-              data-cuelume-hover="tick"
+              data-cuelume-press="tick"
             >
               Sketches
             </Link>
@@ -79,7 +79,7 @@ const TopBar = () => {
                 },
               )}
               href="/media"
-              data-cuelume-hover="tick"
+              data-cuelume-press="tick"
             >
               Mentions
             </Link>
@@ -94,7 +94,7 @@ const TopBar = () => {
                 },
               )}
               href="/friends"
-              data-cuelume-hover="tick"
+              data-cuelume-press="tick"
             >
               Friends
             </Link>
@@ -109,7 +109,7 @@ const TopBar = () => {
               target="_blank"
               rel="noopener noreferrer"
               href="https://github.com/molefrog"
-              data-cuelume-hover="tick"
+              data-cuelume-press="tick"
             >
               GitHub
             </Link>
@@ -124,7 +124,7 @@ const TopBar = () => {
               target="_blank"
               rel="noopener noreferrer"
               href="https://resume.io/r/vGP2z"
-              data-cuelume-hover="tick"
+              data-cuelume-press="tick"
             >
               CV
             </Link>

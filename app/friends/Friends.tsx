@@ -251,6 +251,8 @@ export default function Friends() {
                       transition={{ duration: 0.3, type: "spring", bounce: 0.1 }}
                       type="button"
                       whileTap={{ y: 2 }}
+                      data-cuelume-press
+                      data-cuelume-release
                     >
                       <motion.div
                         className="flex items-center p-1.5"
