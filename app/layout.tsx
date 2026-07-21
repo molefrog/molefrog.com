@@ -3,6 +3,7 @@ import Script from "next/script";
 import React from "react";
 import { Provider as WrapBalancerProvider } from "react-wrap-balancer";
 
+import { CuelumeSounds } from "@/components/CuelumeSounds";
 import Footer from "@/components/Footer";
 import TopBar from "@/components/TopBar";
 import favicon from "../public/favicon.svg";
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html className={fontsCSSVars} lang="en">
       <body>
+        <CuelumeSounds />
         <VideoAssets />
 
         <WrapBalancerProvider>

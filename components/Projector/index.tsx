@@ -7,6 +7,8 @@ import clsx from "clsx";
 import { BlossomCarousel } from "@blossom-carousel/react";
 import "@blossom-carousel/core/style.css";
 
+import { play } from "cuelume";
+
 interface ProjectorProps {
   slides: StaticImageData[];
   title: string;
@@ -52,6 +54,8 @@ export const Projector: React.FC<ProjectorProps> = ({ slides, title }) => {
     if (!el) return;
 
     scrollingToSlide.current = ((scrollingToSlide.current ?? currentSlide) + 1) % slides.length;
+
+    play("page");
 
     const slideWidth = el.clientWidth;
     const targetScroll = slideWidth * scrollingToSlide.current;

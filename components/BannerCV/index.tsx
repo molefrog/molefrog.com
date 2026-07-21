@@ -18,6 +18,8 @@ export const BannerCV = ({ resumeSSID }: BannerCVProps) => {
       className="group bg-white rounded-md h-16 sm:h-15 px-4 flex items-center cursor-pointer relative overflow-hidden select-none max-w-none sm:max-w-md text-inherit no-underline shadow-[0px_0px_0px_2px_var(--color-ds-gray-200)] z-10 hover:shadow-[0px_0px_0px_2px_var(--color-ds-accent)]"
       target="_blank"
       rel="noopener noreferrer"
+      data-cuelume-press
+      data-cuelume-release
     >
       <div>
         <div className="text-ds-sm text-ds-gray-700 font-medium mr-24 mb-0.5 flex items-center gap-1 group-hover:text-ds-accent">

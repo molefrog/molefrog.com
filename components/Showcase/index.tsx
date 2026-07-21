@@ -17,6 +17,7 @@ import Image, { StaticImageData } from "next/image";
 import useMouse from "@react-hook/mouse-position";
 import { useLockBodyScroll } from "react-use";
 import Marquee from "react-fast-marquee";
+import { play } from "cuelume";
 
 import WonderingEyes from "../WonderingEyes";
 
@@ -87,6 +88,13 @@ const Popover = ({ mousePosition, anchorElement, media, prefer, modal = false }:
       if (loadedTimer.current) clearTimeout(loadedTimer.current);
     };
   }, [modal]);
+
+  // play the cue once the popover becomes visible — the 150ms placeholder
+  // delay doubles as an intent filter for quick mouse passes
+  const isVisible = loadingState !== "init";
+  useEffect(() => {
+    if (isVisible) play("whisper");
+  }, [isVisible]);
 
   const handleResourceLoaded = () => {
     if (placeholderTimer.current) clearTimeout(placeholderTimer.current);
