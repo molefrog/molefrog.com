@@ -2,7 +2,6 @@
 
 import {
   isValidElement,
-  cloneElement,
   useRef,
   useEffect,
   useState,
@@ -17,6 +16,7 @@ import Image, { StaticImageData } from "next/image";
 import useMouse from "@react-hook/mouse-position";
 import { useLockBodyScroll } from "react-use";
 import Marquee from "react-fast-marquee";
+import { play } from "cuelume";
 
 import WonderingEyes from "../WonderingEyes";
 
@@ -87,6 +87,13 @@ const Popover = ({ mousePosition, anchorElement, media, prefer, modal = false }:
       if (loadedTimer.current) clearTimeout(loadedTimer.current);
     };
   }, [modal]);
+
+  // play the cue once the popover becomes visible — the 150ms placeholder
+  // delay doubles as an intent filter for quick mouse passes
+  const isVisible = loadingState !== "init";
+  useEffect(() => {
+    if (isVisible) play("whisper");
+  }, [isVisible]);
 
   const handleResourceLoaded = () => {
     if (placeholderTimer.current) clearTimeout(placeholderTimer.current);
@@ -198,7 +205,20 @@ const Showcase = ({ children, media, prefer = "above" }: ShowcaseProps) => {
 
   const [Wrap] = useState(() =>
     memo(function W() {
-      return cloneElement(children as ReactElement<{ ref: typeof ref }>, { ref });
+      // `children` can be a lazy reference rather than a materialized element
+      // (React 19 hands those out when an element crosses the RSC boundary),
+      // so instead of cloning a ref into it, capture the anchor node from a
+      // layout-neutral wrapper
+      return (
+        <span
+          style={{ display: "contents" }}
+          ref={(span) => {
+            ref.current = (span?.firstElementChild as HTMLElement | null) ?? null;
+          }}
+        >
+          {children}
+        </span>
+      );
     })
   );
 
@@ -241,9 +261,12 @@ const Showcase = ({ children, media, prefer = "above" }: ShowcaseProps) => {
     }
   }, [isStatic]);
 
-  const url = (children.props as any).href || media?.link;
-
-  if (!isValidElement(children)) return null;
+  // lazy children can't be introspected for an href, read it off the anchor
+  // node instead (set by the time the static dialog opens)
+  const childHref = isValidElement(children)
+    ? (children.props as { href?: string }).href
+    : (ref.current?.getAttribute("href") ?? undefined);
+  const url = childHref || media?.link;
 
   return (
     <>

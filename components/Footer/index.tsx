@@ -139,6 +139,15 @@ const Footer = () => (
           <a href="https://pages.cloudflare.com/" target="_blank" rel="noopener noreferrer">
             Cloudflare Pages
           </a>
+          . Interaction sounds by{" "}
+          <a
+            href="https://cuelume-site.pages.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cuelume-hover="chime"
+          >
+            Cuelume
+          </a>
           .
         </p>
 
