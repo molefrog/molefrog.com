@@ -16,7 +16,13 @@ const TopBar = () => {
         <div className="flex items-center flex-wrap md:flex-nowrap md:-ml-0.5">
           {/* Logo wrapper */}
           <div className="mr-0 ml-3 order-2 self-start md:order-0 top-4 left-4 md:ml-0 md:mr-4">
-            <Link href="/" aria-label="Home">
+            <Link
+              href="/"
+              aria-label="Home"
+              data-cuelume-hover="droplet"
+              data-cuelume-press
+              data-cuelume-release
+            >
               <MolefrogLogo />
             </Link>
           </div>
