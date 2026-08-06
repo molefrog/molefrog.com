@@ -17,6 +17,7 @@ import deepakGupta from "@/public/friends/deepak-gupta.webp";
 import antonFresher from "@/public/friends/anton-fresher.webp";
 import criminaliza from "@/public/friends/criminaliza.webp";
 import seungmeeLee from "@/public/friends/seungmee-lee.jpg";
+import lloydHumphreys from "@/public/friends/lloyd-humphreys.webp";
 
 interface Profile {
   website: string;
@@ -133,6 +134,12 @@ const profiles: Profile[] = [
     name: "Seungmee Lee",
     bio: "A designer experimenting with pixels and codes.",
     avatar: seungmeeLee.src,
+  },
+  {
+    website: "lloydhumphreys.com",
+    name: "Lloyd Humphreys",
+    bio: "Full-stack product designer and engineer building things on the internet since 2008. Makes tools and infrastructure that give people more power in their day-to-day work.",
+    avatar: lloydHumphreys.src,
   },
 ];
 
