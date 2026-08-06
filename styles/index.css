@@ -152,6 +152,10 @@
 
 body {
   font-family: var(--font-sans);
+  /* Inter: keep ligatures & contextual alternates on (Chrome fix, see rsms.me/inter) */
+  font-feature-settings:
+    "liga" 1,
+    "calt" 1;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

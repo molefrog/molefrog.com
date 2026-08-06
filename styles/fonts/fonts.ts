@@ -1,8 +1,10 @@
 import localFont from "next/font/local";
-import { Inter } from "next/font/google";
 
-const InterFont = Inter({
-  subsets: ["latin", "cyrillic"],
+// Inter 4.1, self-hosted from https://rsms.me/inter/download/ (SIL OFL 1.1)
+const InterFont = localFont({
+  src: "./Inter/InterVariable.woff2",
+  weight: "100 900",
+  style: "normal",
   display: "swap",
   fallback: ["system-ui", "sans-serif"],
   variable: "--font-sans",
