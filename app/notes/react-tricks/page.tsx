@@ -1,6 +1,6 @@
 import { Container } from "@/components/Container";
 import { NotionPage } from "./NotionPage";
-import { NotionAPI } from "notion-client";
+import { notion } from "@/content/notion";
 import { ShowcaseLink } from "@/components/Showcase";
 import { Metadata } from "next";
 
@@ -16,7 +16,6 @@ export const metadata: Metadata = {
 export default async function Index() {
   const PAGE_ID = "a08dd8c84fb443ac997d33174409ff9f";
 
-  const notion = new NotionAPI();
   const recordMap = await notion.getPage(PAGE_ID);
 
   return (

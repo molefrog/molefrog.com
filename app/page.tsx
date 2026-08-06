@@ -190,6 +190,8 @@ const ProjectCard = ({ href, image, alt, description, children }: ProjectCardPro
     <a
       href={href}
       className="block relative aspect-video bg-ds-gray-100 border-2 border-ds-gray-200 rounded-md overflow-hidden cursor-pointer mb-4 transition-colors hover:border-ds-accent"
+      data-cuelume-press
+      data-cuelume-release
     >
       <Image
         src={image}
@@ -220,6 +222,8 @@ const ProjectLink = ({ href, primary, children }: ProjectLinkProps) => (
         ? "bg-ds-accent-500 text-white hover:shadow-[inset_0px_0px_0px_2px_var(--color-ds-accent-500),inset_0px_0px_0px_4px_white]"
         : "bg-ds-gray-100 text-ds-gray-600 shadow-[inset_0px_0px_0px_1px_var(--color-ds-gray-200)] hover:text-ds-accent hover:shadow-[inset_0px_0px_0px_2px_var(--color-ds-accent)] [&>svg]:text-ds-gray-800 [&>svg]:mt-px hover:[&>svg]:text-ds-accent",
     )}
+    data-cuelume-press
+    data-cuelume-release
   >
     {children}
   </a>

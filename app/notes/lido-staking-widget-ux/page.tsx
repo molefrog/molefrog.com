@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { ShowcaseLink } from "@/components/Showcase";
 import { NotionPage } from "./NotionPage";
-import { NotionAPI } from "notion-client";
+import { notion } from "@/content/notion";
 
 import lidoImg from "@/public/txt/lido-ui.webp";
 import coverImg from "@/public/images/lido-article-cover.webp";
@@ -19,7 +19,6 @@ export const metadata: Metadata = {
 export default async function Index() {
   const PAGE_ID = "196e6fc3715b4d9a95e2d46549df07eb";
 
-  const notion = new NotionAPI();
   const recordMap = await notion.getPage(PAGE_ID);
 
   return (
