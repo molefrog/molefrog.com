@@ -1,11 +1,10 @@
 "use client";
 
 import useSWR from "swr";
-import Map, { Marker, FullscreenControl } from "react-map-gl/mapbox";
-import "mapbox-gl/dist/mapbox-gl.css";
+
+import { Map, MapControls, MapMarker, MarkerContent, MarkerTooltip } from "@/components/ui/map";
 
 import { Pin } from "./pin";
-import { useMapboxStyles } from "./useMapboxStyles";
 
 import clip1 from "./clip-1.mp4";
 import clip2 from "./clip-2.mp4";
@@ -60,8 +59,6 @@ const revealInOrderOfActivation = (points: POGOpenEvent[]) => {
 };
 
 export default function POGDemo() {
-  useMapboxStyles();
-
   const { data: points } = useSWR<POGOpenEvent[]>("https://pog.molefrog.com/stat", fetcher);
   const latestPoint = points && points[points.length - 1];
 
@@ -70,28 +67,23 @@ export default function POGDemo() {
   return (
     <>
       <div className="-m-4 mb-3 h-[280px] rounded-t-2xl overflow-hidden">
-        <Map
-          mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
-          initialViewState={{
-            latitude: 50.0518891,
-            longitude: 10.1791843,
-            zoom: 1.5,
-          }}
-          style={{ width: "100%", height: "100%" }}
-          mapStyle="mapbox://styles/mapbox/dark-v11"
-        >
-          <FullscreenControl position="top-right" />
+        <Map theme="dark" center={[10.1791843, 50.0518891]} zoom={1.5}>
+          <MapControls position="top-right" showZoom={false} showFullscreen />
 
           {points &&
             points.map((pog, idx) => (
-              <Marker
+              <MapMarker
                 key={`${pog.serial}-${pog.timestamp}-${idx}`}
                 longitude={pog.lon}
                 latitude={pog.lat}
-                anchor="center"
               >
-                <Pin delay={delay(pog)} active={idx === points.length - 1} />
-              </Marker>
+                <MarkerContent>
+                  <Pin delay={delay(pog)} active={idx === points.length - 1} />
+                </MarkerContent>
+                <MarkerTooltip>
+                  {pog.location} / {formatDate(pog.timestamp)}
+                </MarkerTooltip>
+              </MapMarker>
             ))}
         </Map>
       </div>

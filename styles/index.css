@@ -99,6 +99,7 @@
 @import "./article.css";
 @import "./404.css";
 @import "./expand-inline.css";
+@import "./map.css";
 
 :root {
   /* --font-sans: Helvetica Neue; */

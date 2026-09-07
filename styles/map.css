@@ -1,0 +1,27 @@
+/* MapLibre overrides for the vendored mapcn components (components/ui/map.tsx).
+   Adapted from the mapcn registry `css` block, shadcn tokens replaced with DS tokens. */
+@layer base {
+  .maplibregl-popup-content {
+    @apply bg-transparent! shadow-none! p-0! rounded-none!;
+  }
+
+  .maplibregl-popup-tip {
+    @apply hidden!;
+  }
+
+  .maplibregl-ctrl-attrib {
+    @apply bg-white! text-ds-gray-500! border-ds-gray-200! rounded-md! border! shadow-sm!;
+  }
+
+  .maplibregl-ctrl-attrib a {
+    @apply text-ds-gray-500!;
+  }
+
+  .maplibregl-ctrl-attrib a:hover {
+    @apply text-ds-gray-900!;
+  }
+
+  .maplibregl-ctrl-attrib-button {
+    @apply bg-transparent!;
+  }
+}

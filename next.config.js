@@ -1,3 +1,5 @@
+const maplibreVersion = require("maplibre-gl/package.json").version;
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
@@ -14,6 +16,19 @@ const nextConfig = {
       type: "asset/resource",
       generator: {
         filename: "static/[hash][ext][query]",
+      },
+    });
+
+    // Self-host the MapLibre GL web worker (see components/ui/map.tsx). `?url`
+    // imports are copied as-is; a version-scoped folder keeps the worker next
+    // to the shared chunk it imports and gives every upgrade a fresh URL.
+    config.module.rules.unshift({
+      test: /maplibre-gl-(worker|shared)\.mjs$/,
+      resourceQuery: /url/,
+      type: "asset/resource",
+      sideEffects: true,
+      generator: {
+        filename: `static/maplibre-gl@${maplibreVersion}/[name][ext]`,
       },
     });
 

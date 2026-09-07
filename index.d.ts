@@ -13,6 +13,12 @@ declare module "*.mp3" {
   export default value;
 }
 
+// Asset URL imports, emitted by the `?url` rule in next.config.js
+declare module "*?url" {
+  const value: string;
+  export default value;
+}
+
 declare module "https://ficus.io/widget.js" {
   type Answer = {
     id: string;
