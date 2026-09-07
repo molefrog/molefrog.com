@@ -1,9 +1,19 @@
 "use client";
 
+import { useEffect, useMemo } from "react";
+import type { StyleSpecification } from "maplibre-gl";
 import useSWR from "swr";
 
-import { Map, MapControls, MapMarker, MarkerContent, MarkerTooltip } from "@/components/ui/map";
+import {
+  Map,
+  MapControls,
+  MapMarker,
+  MarkerContent,
+  MarkerTooltip,
+  useMap,
+} from "@/components/ui/map";
 
+import { CARTO_DARK_MATTER_URL, toPogMapStyle } from "./mapStyle";
 import { Pin } from "./pin";
 
 import clip1 from "./clip-1.mp4";
@@ -58,34 +68,58 @@ const revealInOrderOfActivation = (points: POGOpenEvent[]) => {
   };
 };
 
+/**
+ * MapLibre's compact attribution starts expanded and only folds into the (i)
+ * button after the first drag; on a map this small we fold it right away, the
+ * same way MapLibre does it (by dropping the `maplibregl-compact-show` class).
+ */
+function CollapsedAttribution() {
+  const { map, isLoaded } = useMap();
+
+  useEffect(() => {
+    if (!map || !isLoaded) return;
+    map.getContainer().querySelector(".maplibregl-ctrl-attrib")?.classList.remove("maplibregl-compact-show");
+  }, [map, isLoaded]);
+
+  return null;
+}
+
 export default function POGDemo() {
   const { data: points } = useSWR<POGOpenEvent[]>("https://pog.molefrog.com/stat", fetcher);
   const latestPoint = points && points[points.length - 1];
+
+  const { data: baseStyle } = useSWR<StyleSpecification>(CARTO_DARK_MATTER_URL, fetcher);
+  const mapStyles = useMemo(() => baseStyle && { dark: toPogMapStyle(baseStyle) }, [baseStyle]);
 
   const delay = revealInOrderOfActivation(points || []);
 
   return (
     <>
-      <div className="-m-4 mb-3 h-[280px] rounded-t-2xl overflow-hidden">
-        <Map theme="dark" center={[10.1791843, 50.0518891]} zoom={1.5}>
-          <MapControls position="top-right" showZoom={false} showFullscreen />
+      {/* black shows through as space around the globe */}
+      <div className="-m-4 mb-3 h-[280px] rounded-t-2xl overflow-hidden bg-black">
+        {mapStyles && (
+          <Map theme="dark" styles={mapStyles} center={[10.1791843, 50.0518891]} zoom={1.5}>
+            <MapControls position="top-right" showZoom={false} showFullscreen />
+            <CollapsedAttribution />
 
-          {points &&
-            points.map((pog, idx) => (
-              <MapMarker
-                key={`${pog.serial}-${pog.timestamp}-${idx}`}
-                longitude={pog.lon}
-                latitude={pog.lat}
-              >
-                <MarkerContent>
-                  <Pin delay={delay(pog)} active={idx === points.length - 1} />
-                </MarkerContent>
-                <MarkerTooltip>
-                  {pog.location} / {formatDate(pog.timestamp)}
-                </MarkerTooltip>
-              </MapMarker>
-            ))}
-        </Map>
+            {points &&
+              points.map((pog, idx) => (
+                <MapMarker
+                  key={`${pog.serial}-${pog.timestamp}-${idx}`}
+                  longitude={pog.lon}
+                  latitude={pog.lat}
+                  opacityWhenCovered={0} // hide pins on the far side of the globe
+                >
+                  <MarkerContent>
+                    <Pin delay={delay(pog)} active={idx === points.length - 1} />
+                  </MarkerContent>
+                  <MarkerTooltip>
+                    {pog.location} / {formatDate(pog.timestamp)}
+                  </MarkerTooltip>
+                </MapMarker>
+              ))}
+          </Map>
+        )}
       </div>
       {latestPoint && (
         <div className="text-[13px] leading-[22px] font-medium font-mono mb-[22px]">

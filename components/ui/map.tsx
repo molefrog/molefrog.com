@@ -10,6 +10,7 @@
  *  - the MapLibre web worker is self-hosted via the `?url` rule in next.config.js
  *    instead of being loaded from unpkg.
  *  - two `...(x || {})` spreads simplified to `...x` to satisfy oxlint.
+ *  - the loading overlay follows the resolved map theme (dark maps get a dark overlay).
  */
 
 import * as MapLibreGL from "maplibre-gl";
@@ -228,9 +229,14 @@ type MapProps = {
   loading?: boolean;
 } & Omit<MapLibreGL.MapOptions, "container" | "style">;
 
-function DefaultLoader() {
+function DefaultLoader({ theme }: { theme: Theme }) {
   return (
-    <div className="bg-white/50 absolute inset-0 z-10 flex items-center justify-center backdrop-blur-xs">
+    <div
+      className={cn(
+        "absolute inset-0 z-10 flex items-center justify-center backdrop-blur-xs",
+        theme === "dark" ? "bg-black/50" : "bg-white/50",
+      )}
+    >
       <div className="flex gap-1">
         <span className="bg-ds-gray-500/60 size-1.5 animate-pulse rounded-full" />
         <span className="bg-ds-gray-500/60 size-1.5 animate-pulse rounded-full [animation-delay:150ms]" />
@@ -423,7 +429,7 @@ const Map = forwardRef<MapRef, MapProps>(function Map(
         ref={containerRef}
         className={cn("relative h-full w-full", className)}
       >
-        {(!isLoaded || loading) && <DefaultLoader />}
+        {(!isLoaded || loading) && <DefaultLoader theme={resolvedTheme} />}
         {/* SSR-safe: children render only when map is loaded on client */}
         {mapInstance && children}
       </div>

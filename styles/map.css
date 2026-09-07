@@ -24,4 +24,9 @@
   .maplibregl-ctrl-attrib-button {
     @apply bg-transparent!;
   }
+
+  /* Markers hidden behind the globe or terrain must not catch hovers/clicks. */
+  .maplibregl-marker-covered {
+    @apply pointer-events-none;
+  }
 }
