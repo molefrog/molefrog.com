@@ -40,6 +40,8 @@ import wultraImg from "@/public/showcase/wultra.webp";
 import reactTricksVideo from "@/public/speaking/multiplayer-demo.mp4";
 import riddlemethisVideo from "@/public/showcase/riddlemethis.mp4";
 import riddlemethisThumbImg from "@/public/showcase/riddlemethis-thumb.gif";
+import fxWin98Video from "@/public/showcase/fx-win98.mp4";
+import fxWin98ThumbImg from "@/public/showcase/fx-win98-thumb.gif";
 
 import Image, { StaticImageData } from "next/image";
 import { ComponentProps } from "react";
@@ -62,6 +64,15 @@ type Project = Resource & {
 };
 
 const projects: Project[] = [
+  {
+    thumb: fxWin98ThumbImg,
+    video: fxWin98Video,
+    aspectRatio: 1000 / 800,
+    description:
+      "Ported Vercel's fx coding agent to Windows 98. It talks to an LLM over a 56k modem and supports computer use via MCP.exe. Here it writes, builds and plays Minesweeper.",
+    tags: ["2026", "AI", "Agents"],
+    url: "https://x.com/mlfrg/status/2109765860290441469",
+  },
   {
     thumb: riddlemethisThumbImg,
     video: riddlemethisVideo,
