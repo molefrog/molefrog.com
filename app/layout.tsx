@@ -50,7 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <>
             {/* 🌚 */}
             <Script data-domain="molefrog.com" src="https://plausible.io/js/script.js"></Script>
-            <Script src="https://cdn.seline.so/seline.js"></Script>
+            <Script src="https://cdn.seline.com/seline.js" data-token="bc2a4a4552df294"></Script>
           </>
         )}
       </body>
